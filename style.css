@@ -3,6 +3,7 @@
     --text-color: #0A0A0A;
     --font-serif: 'Geist Mono', monospace;
     --font-sans: 'Geist Mono', monospace;
+    --font-display: 'Space Grotesk', sans-serif;
 }
 
 * {
@@ -80,13 +81,13 @@ a {
 }
 
 .hero-title {
-    font-family: var(--font-serif);
+    font-family: var(--font-display);
     font-size: clamp(2rem, 5vw, 5.5rem);
     font-weight: 400;
     line-height: 1.1;
-    letter-spacing: -1px;
+    letter-spacing: -2px;
     max-width: 80%;
-    margin-left: -0.08em; /* Optical alignment to match the small text edge */
+    margin-left: -0.04em; /* Adjusted optical alignment for Space Grotesk */
 }
 
 .hero-title .line {
