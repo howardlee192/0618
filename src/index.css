@@ -27,3 +27,12 @@ h1, h2, h3 {
   width: 1.5em;
   margin: 0 5px;
 }
+
+@layer utilities {
+  .transform-3d {
+    transform-style: preserve-3d;
+  }
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
+}
