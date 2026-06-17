@@ -1,8 +1,8 @@
 :root {
     --bg-color: #F4F3ED; /* Cream off-white */
     --text-color: #0A0A0A;
-    --font-serif: 'Playfair Display', serif;
-    --font-sans: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    --font-serif: 'Geist Mono', monospace;
+    --font-sans: 'Geist Mono', monospace;
 }
 
 * {
