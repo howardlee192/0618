@@ -25,50 +25,46 @@ export default function App() {
           <div className="font-['Space_Grotesk'] text-[clamp(2rem,5vw,5.5rem)] leading-[1.1] tracking-[-2px] max-w-[80%] -ml-[0.04em]">
             <div className="flex items-center flex-wrap uppercase">
               <Text3DFlip
-                className="bg-transparent"
-                textClassName="text-[#0A0A0A]"
-                flipTextClassName="text-[#0A0A0A]"
+                className="bg-[#F4F3ED]"
+                textClassName="bg-[#F4F3ED] text-[#0A0A0A]"
+                flipTextClassName="bg-[#F4F3ED] text-[#0A0A0A]"
                 rotateDirection="top"
                 staggerDuration={0.03}
-                staggerFrom="first"
-                transition={{ type: "spring", damping: 25, stiffness: 160 }}
+                staggerFrom="center"
               >
                 BRANDING
               </Text3DFlip>
               <span className="gray-box px-2">160x80</span>
               <Text3DFlip
-                className="bg-transparent"
-                textClassName="text-[#0A0A0A]"
-                flipTextClassName="text-[#0A0A0A]"
+                className="bg-[#F4F3ED]"
+                textClassName="bg-[#F4F3ED] text-[#0A0A0A]"
+                flipTextClassName="bg-[#F4F3ED] text-[#0A0A0A]"
                 rotateDirection="top"
                 staggerDuration={0.03}
-                staggerFrom="first"
-                transition={{ type: "spring", damping: 25, stiffness: 160 }}
+                staggerFrom="center"
               >
                 EXPERIENTIAL
               </Text3DFlip>
             </div>
             <div className="flex items-center flex-wrap uppercase mt-2">
               <Text3DFlip
-                className="bg-transparent"
-                textClassName="text-[#0A0A0A]"
-                flipTextClassName="text-[#0A0A0A]"
+                className="bg-[#F4F3ED]"
+                textClassName="bg-[#F4F3ED] text-[#0A0A0A]"
+                flipTextClassName="bg-[#F4F3ED] text-[#0A0A0A]"
                 rotateDirection="top"
                 staggerDuration={0.03}
-                staggerFrom="first"
-                transition={{ type: "spring", damping: 25, stiffness: 160 }}
+                staggerFrom="center"
               >
                 DIGITAL
               </Text3DFlip>
               <span className="gray-box px-2">140x90</span>
               <Text3DFlip
-                className="bg-transparent"
-                textClassName="text-[#0A0A0A]"
-                flipTextClassName="text-[#0A0A0A]"
+                className="bg-[#F4F3ED]"
+                textClassName="bg-[#F4F3ED] text-[#0A0A0A]"
+                flipTextClassName="bg-[#F4F3ED] text-[#0A0A0A]"
                 rotateDirection="top"
                 staggerDuration={0.03}
-                staggerFrom="first"
-                transition={{ type: "spring", damping: 25, stiffness: 160 }}
+                staggerFrom="center"
               >
                 PHYSICAL
               </Text3DFlip>
