@@ -16,8 +16,8 @@ export default function App() {
       <section className="min-h-screen flex flex-col p-5 md:px-10 md:py-5 relative border-b border-black/10">
         <header className="flex justify-between items-start text-[0.75rem] uppercase tracking-[0.5px]">
           <div className="flex flex-col md:flex-row md:items-center">
-            <span className="font-bold">TIFFANY M. WU</span>
-            <span className="opacity-60 ml-0 md:ml-[clamp(40px,15vw,200px)]">ART DIRECTOR / VISUAL DESIGNER</span>
+            <span className="font-bold">HOWARD LEE</span>
+            <span className="opacity-60 ml-0 md:ml-[clamp(40px,15vw,200px)]">MOTION / VISUAL DESIGNER</span>
           </div>
         </header>
 
@@ -32,7 +32,7 @@ export default function App() {
                 staggerDuration={0.03}
                 staggerFrom="center"
               >
-                BRANDING
+                VISUAL
               </Text3DFlip>
               <span className="gray-box px-2">160x80</span>
               <Text3DFlip
@@ -43,7 +43,7 @@ export default function App() {
                 staggerDuration={0.03}
                 staggerFrom="center"
               >
-                EXPERIENTIAL
+                MOTION
               </Text3DFlip>
             </div>
             <div className="flex items-center flex-wrap uppercase mt-2">
@@ -55,7 +55,7 @@ export default function App() {
                 staggerDuration={0.03}
                 staggerFrom="center"
               >
-                DIGITAL
+                ANIMATION
               </Text3DFlip>
               <span className="gray-box px-2">140x90</span>
               <Text3DFlip
@@ -66,10 +66,11 @@ export default function App() {
                 staggerDuration={0.03}
                 staggerFrom="center"
               >
-                PHYSICAL
+                INTERACTION
               </Text3DFlip>
             </div>
-            <div className="mt-2">BASED IN NEW YORK</div>
+            <div className="mt-2">FROM HONG KONG</div>
+            <div className="mt-2">BASED IN TAIWAN</div>
             <div className="mt-2">WORKING GLOBALLY.</div>
           </div>
         </div>
