@@ -57,7 +57,7 @@ export default function App() {
                 ANIMATION
               </Text3DFlip>
               <Text3DFlip
-                className="bg-[#F4F3ED] relative after:absolute after:-bottom-[0.1em] after:left-0 after:w-full after:h-[0.05em] after:bg-[#0A0A0A] after:scale-x-0 hover:after:scale-x-100 after:origin-left after:transition-transform after:duration-300"
+                className="bg-[#F4F3ED]"
                 textClassName="bg-[#F4F3ED] text-[#0A0A0A]"
                 flipTextClassName="bg-[#F4F3ED] text-[#0A0A0A]"
                 rotateDirection="top"
