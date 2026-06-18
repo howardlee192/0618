@@ -163,6 +163,20 @@ export default function App() {
                 </Text3DFlip>
               </HoverReveal>
             </div>
+            <div className="flex items-center flex-wrap uppercase mt-2 md:mt-4 gap-10 md:gap-20">
+              <HoverReveal>
+                <Text3DFlip
+                  className="bg-[#F4F3ED]"
+                  textClassName="bg-[#F4F3ED] text-[#0A0A0A]"
+                  flipTextClassName="bg-[#F4F3ED] text-[#0A0A0A]"
+                  rotateDirection="top"
+                  staggerDuration={0.03}
+                  staggerFrom="center"
+                >
+                  ARTWORK
+                </Text3DFlip>
+              </HoverReveal>
+            </div>
             <div className="mt-12 md:mt-16 flex items-center gap-4">
               <span>FROM</span>
               <HoverReveal>
