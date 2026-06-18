@@ -466,6 +466,8 @@ function About() {
         items: [
           { left: '2026', right: 'Young Ones ADC: Design for Good, Bronze Cube, NYC' },
           { left: '2025', right: 'Taiwan International Student Design Competition (TISDC), Bronze Prize, Taiwan' },
+          { left: '2025', right: 'Taoyuan Design Award (Visual and Commercial Design), Excellence Award, Taiwan' },
+          { left: '2025', right: 'Taiwan Golden Star Design Award (Poster Design), Gold Award, Taiwan' },
           { left: '2021, 2023', right: 'Bright Future Creativity Scholarship (Animation & Sculpture), Hong Kong' }
         ]
       }
@@ -498,6 +500,8 @@ function About() {
         items: [
           { left: '2026', right: 'Young Ones ADC: Design for Good, 銅立方獎, 紐約' },
           { left: '2025', right: '臺灣國際學生創意設計大賽 (TISDC), 銅獎, 台灣' },
+          { left: '2025', right: '桃園設計獎 (視覺與商業設計類), 特優獎, 台灣' },
+          { left: '2025', right: '台灣金星設計獎 (海報設計類), 金獎, 台灣' },
           { left: '2021, 2023', right: '鵬程創意獎學金 (動畫與雕塑), 香港' }
         ]
       }
