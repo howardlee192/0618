@@ -505,7 +505,7 @@ function About() {
       desc3: "My goal is to distill complex ideas into pure, minimalist forms. I strive to create timeless digital presences where less is truly more, focusing entirely on the essential to deliver maximum visual impact."
     },
     CHN: {
-      name: "李浩勤 Howard Lee",
+      name: <>李浩勤 <span className="tracking-[-1.5px]">Howard Lee</span></>,
       bio: "來自香港、現居台灣的藝術家與動態影像設計師。李氏的創作圍繞著當代青年的人際關係與情感議題，曾參與多場舞台與展演影像設計。他擅長打破載體限制，運用動態敘事與設計策略，帶領觀眾在影像與場域中體驗人生起伏。",
       role: "動態與視覺設計師 / 藝術家",
       title1: "01. 透過動態述說故事",
