@@ -288,6 +288,14 @@ function Work() {
 
 function Artwork() {
   useEffect(() => { document.title = "Howard Lee - Artwork"; }, []);
+  const [openFilter, setOpenFilter] = useState<'YEAR' | 'MEDIUM' | null>(null);
+
+  const years = ['ALL', '2024', '2023', '2022', '2021'];
+  const mediums = ['ALL', 'CGI', '3D', 'SIMULATION', 'EXPERIMENTAL', 'PHYSICAL', 'MIXED MEDIA'];
+
+  const [activeYear, setActiveYear] = useState('ALL');
+  const [activeMedium, setActiveMedium] = useState('ALL');
+
   return (
     <section className="pt-[40px] md:pt-[60px] pb-[100px] border-b border-black/10 min-h-[80vh]">
       <motion.h2
@@ -295,10 +303,86 @@ function Artwork() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ type: "spring", duration: 1.5, bounce: 0 }}
         viewport={{ once: false, margin: "-100px" }}
-        className="font-['Space_Grotesk'] text-[3.5rem] mb-[60px] tracking-[-1px] -ml-[0.05em] font-normal"
+        className="font-['Space_Grotesk'] text-[3.5rem] mb-[40px] md:mb-[60px] tracking-[-1px] -ml-[0.05em] font-normal"
       >
         Artwork
       </motion.h2>
+
+      {/* Filter Accordions */}
+      <div className="mb-12 md:mb-20 border-t border-b border-black/10 flex flex-col md:flex-row">
+        {/* YEAR Toggle */}
+        <div className="w-full md:w-1/2 border-b md:border-b-0 md:border-r border-black/10">
+          <button 
+            onClick={() => setOpenFilter(openFilter === 'YEAR' ? null : 'YEAR')}
+            className="w-full py-5 flex justify-between items-center pr-4 md:pr-8 hover:opacity-70 transition-opacity"
+          >
+            <span className="font-['Geist_Mono'] text-sm tracking-[1px] uppercase">
+              Filter by Year {activeYear !== 'ALL' && <span className="ml-2 opacity-50">[{activeYear}]</span>}
+            </span>
+            <span className="font-['Geist_Mono'] text-xl font-light">{openFilter === 'YEAR' ? '−' : '+'}</span>
+          </button>
+          <AnimatePresence>
+            {openFilter === 'YEAR' && (
+              <motion.div 
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: "auto", opacity: 1 }}
+                exit={{ height: 0, opacity: 0 }}
+                transition={{ duration: 0.3, ease: [0.76, 0, 0.24, 1] }}
+                className="overflow-hidden"
+              >
+                <div className="pb-6 pt-2 flex flex-wrap gap-2 pr-4 md:pr-8">
+                  {years.map(y => (
+                    <button 
+                      key={y}
+                      onClick={() => setActiveYear(y)}
+                      className={`font-['Geist_Mono'] text-[0.7rem] uppercase tracking-[0.5px] px-4 py-2 border rounded-full transition-colors ${activeYear === y ? 'border-black bg-black text-[#F4F3ED]' : 'border-black/20 hover:border-black'}`}
+                    >
+                      {y}
+                    </button>
+                  ))}
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
+
+        {/* MEDIUM Toggle */}
+        <div className="w-full md:w-1/2 pl-0 md:pl-8">
+          <button 
+            onClick={() => setOpenFilter(openFilter === 'MEDIUM' ? null : 'MEDIUM')}
+            className="w-full py-5 flex justify-between items-center pr-4 md:pr-0 hover:opacity-70 transition-opacity"
+          >
+            <span className="font-['Geist_Mono'] text-sm tracking-[1px] uppercase">
+              Filter by Medium {activeMedium !== 'ALL' && <span className="ml-2 opacity-50">[{activeMedium}]</span>}
+            </span>
+            <span className="font-['Geist_Mono'] text-xl font-light">{openFilter === 'MEDIUM' ? '−' : '+'}</span>
+          </button>
+          <AnimatePresence>
+            {openFilter === 'MEDIUM' && (
+              <motion.div 
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: "auto", opacity: 1 }}
+                exit={{ height: 0, opacity: 0 }}
+                transition={{ duration: 0.3, ease: [0.76, 0, 0.24, 1] }}
+                className="overflow-hidden"
+              >
+                <div className="pb-6 pt-2 flex flex-wrap gap-2">
+                  {mediums.map(m => (
+                    <button 
+                      key={m}
+                      onClick={() => setActiveMedium(m)}
+                      className={`font-['Geist_Mono'] text-[0.7rem] uppercase tracking-[0.5px] px-4 py-2 border rounded-full transition-colors ${activeMedium === m ? 'border-black bg-black text-[#F4F3ED]' : 'border-black/20 hover:border-black'}`}
+                    >
+                      {m}
+                    </button>
+                  ))}
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
+      </div>
+      
       <motion.div
         variants={staggerContainer}
         initial="hidden"
