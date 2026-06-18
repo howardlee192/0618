@@ -303,16 +303,16 @@ export default function App() {
             { label: "VIEW", text: "BEHANCE", href: "https://www.behance.net/hokanlee", target: "_blank" },
             { label: "VIEW", text: "VIMEO", href: "https://vimeo.com/user177460868", target: "_blank" }
           ].map((item, i) => (
-            <div key={i} className="flex items-start">
+            <div key={i} className="flex items-start max-w-full">
               <a 
                 href={item.href}
                 target={item.target}
                 rel={item.target ? "noopener noreferrer" : undefined}
-                className="font-['Space_Grotesk'] text-[clamp(3rem,7vw,7rem)] leading-[1] tracking-[-2px] -ml-[0.04em] hover:opacity-70 transition-opacity"
+                className="font-['Space_Grotesk'] text-[clamp(2rem,8vw,7rem)] leading-[1] tracking-[-2px] -ml-[0.04em] hover:opacity-70 transition-opacity break-all md:break-normal"
               >
                 {item.text}
               </a>
-              <span className="text-[0.5rem] uppercase opacity-50 mt-[5px] ml-[10px]">{item.label}</span>
+              <span className="text-[0.5rem] uppercase opacity-50 mt-[5px] ml-[10px] shrink-0">{item.label}</span>
             </div>
           ))}
         </div>
