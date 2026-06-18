@@ -81,7 +81,7 @@ export default function App() {
       <section className="min-h-screen flex flex-col p-5 md:px-10 md:py-5 relative border-b border-black/10">
         <header className="flex justify-between items-start text-[0.75rem] uppercase tracking-[0.5px]">
           <div className="flex flex-col md:flex-row md:items-center">
-            <span className="font-normal">HOWARD LEE</span>
+            <span className="font-normal -ml-[0.05em]">HOWARD LEE</span>
             <span className="opacity-60 ml-0 md:ml-[clamp(40px,15vw,200px)]">MOTION / VISUAL DESIGNER</span>
           </div>
         </header>
