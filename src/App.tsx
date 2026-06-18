@@ -456,7 +456,7 @@ function About() {
       </div>
 
       {/* Accordion Resume Section */}
-      <div className="mt-32 max-w-[1200px]">
+      <div className="mt-32 w-full">
         {resumeData[lang].map((section, idx) => (
           <div key={idx} className="border-t border-black/10 first:border-t-0">
             <button 
