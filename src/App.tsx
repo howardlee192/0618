@@ -325,10 +325,10 @@ function About() {
           {/* Profile Picture Placeholder */}
           <div className="w-[180px] md:w-[240px] max-w-full aspect-[3/4] bg-[#E0E0E0] mb-[40px] md:mb-[60px]"></div>
           
-          <h3 className={`font-['Space_Grotesk'] ${lang === 'CHN' ? "font-['Swei_Bow_Sans'] text-[clamp(1.5rem,2.5vw,2.2rem)] leading-[1.6] tracking-[0.05em]" : "text-[clamp(2rem,3.5vw,3.2rem)] leading-[1.1] tracking-[-1.5px]"} mb-6`}>
+          <h3 className={`font-['Space_Grotesk'] ${lang === 'CHN' ? "font-['Swei_Bow_Sans'] text-[clamp(1.8rem,3vw,2.8rem)] leading-[1.5] tracking-[0.05em]" : "text-[clamp(2rem,3.5vw,3.2rem)] leading-[1.1] tracking-[-1.5px]"} mb-6`}>
             {text.intro}
           </h3>
-          <p className={`font-['Geist_Mono'] ${lang === 'CHN' ? "font-['Swei_Bow_Sans'] text-[0.8rem] tracking-[0.1em]" : "text-sm tracking-[0.5px]"} opacity-50 uppercase`}>
+          <p className={`font-['Geist_Mono'] ${lang === 'CHN' ? "font-['Swei_Bow_Sans'] text-[0.9rem] tracking-[0.1em]" : "text-sm tracking-[0.5px]"} opacity-50 uppercase`}>
             {text.role}
           </p>
         </motion.div>
@@ -343,8 +343,8 @@ function About() {
             viewport={{ once: false, margin: "-100px" }}
             className="border-t border-black/10 py-8 md:py-12 flex flex-col"
           >
-            <h4 className={`font-['Space_Grotesk'] ${lang === 'CHN' ? "font-['Swei_Bow_Sans'] text-lg md:text-xl tracking-[0.05em]" : "text-xl md:text-2xl tracking-[-0.5px]"} mb-4`}>{text.title1}</h4>
-            <p className={`font-['Geist_Mono'] ${lang === 'CHN' ? "font-['Swei_Bow_Sans'] text-[0.85rem] leading-[2] tracking-[0.05em]" : "text-[0.9rem] leading-[1.6]"} opacity-70`}>
+            <h4 className={`font-['Space_Grotesk'] ${lang === 'CHN' ? "font-['Swei_Bow_Sans'] text-xl md:text-2xl tracking-[0.05em]" : "text-xl md:text-2xl tracking-[-0.5px]"} mb-4`}>{text.title1}</h4>
+            <p className={`font-['Geist_Mono'] ${lang === 'CHN' ? "font-['Swei_Bow_Sans'] text-[1rem] leading-[2] tracking-[0.05em]" : "text-[0.9rem] leading-[1.6]"} opacity-70`}>
               {text.desc1}
             </p>
           </motion.div>
@@ -357,10 +357,10 @@ function About() {
             viewport={{ once: false, margin: "-100px" }}
             className="border-t border-black/10 py-8 md:py-12 flex flex-col"
           >
-            <h4 className={`font-['Space_Grotesk'] ${lang === 'CHN' ? "font-['Swei_Bow_Sans'] text-lg md:text-xl tracking-[0.05em]" : "text-xl md:text-2xl tracking-[-0.5px]"} mb-6`}>{text.title2}</h4>
+            <h4 className={`font-['Space_Grotesk'] ${lang === 'CHN' ? "font-['Swei_Bow_Sans'] text-xl md:text-2xl tracking-[0.05em]" : "text-xl md:text-2xl tracking-[-0.5px]"} mb-6`}>{text.title2}</h4>
             <div className="flex flex-wrap gap-3">
               {text.skills.map(skill => (
-                <span key={skill} className={`font-['Geist_Mono'] ${lang === 'CHN' ? "font-['Swei_Bow_Sans'] tracking-[0.1em]" : "tracking-[0.5px]"} text-[0.75rem] uppercase px-4 py-2 border border-black/20 rounded-full hover:bg-black hover:text-[#F4F3ED] transition-colors cursor-default`}>
+                <span key={skill} className={`font-['Geist_Mono'] ${lang === 'CHN' ? "font-['Swei_Bow_Sans'] text-[0.85rem] tracking-[0.1em]" : "text-[0.75rem] tracking-[0.5px]"} uppercase px-4 py-2 border border-black/20 rounded-full hover:bg-black hover:text-[#F4F3ED] transition-colors cursor-default`}>
                   {skill}
                 </span>
               ))}
@@ -375,8 +375,8 @@ function About() {
             viewport={{ once: false, margin: "-100px" }}
             className="border-t border-black/10 py-8 md:py-12 flex flex-col"
           >
-            <h4 className={`font-['Space_Grotesk'] ${lang === 'CHN' ? "font-['Swei_Bow_Sans'] text-lg md:text-xl tracking-[0.05em]" : "text-xl md:text-2xl tracking-[-0.5px]"} mb-4`}>{text.title3}</h4>
-            <p className={`font-['Geist_Mono'] ${lang === 'CHN' ? "font-['Swei_Bow_Sans'] text-[0.85rem] leading-[2] tracking-[0.05em]" : "text-[0.9rem] leading-[1.6]"} opacity-70`}>
+            <h4 className={`font-['Space_Grotesk'] ${lang === 'CHN' ? "font-['Swei_Bow_Sans'] text-xl md:text-2xl tracking-[0.05em]" : "text-xl md:text-2xl tracking-[-0.5px]"} mb-4`}>{text.title3}</h4>
+            <p className={`font-['Geist_Mono'] ${lang === 'CHN' ? "font-['Swei_Bow_Sans'] text-[1rem] leading-[2] tracking-[0.05em]" : "text-[0.9rem] leading-[1.6]"} opacity-70`}>
               {text.desc3}
             </p>
           </motion.div>
