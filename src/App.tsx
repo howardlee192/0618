@@ -16,7 +16,7 @@ const HoverReveal = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <div 
-      className="relative inline-flex items-center justify-center py-2 px-4 -mx-4 -my-2"
+      className="relative inline-flex items-center justify-center py-2 -my-2"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onMouseMove={handleMouseMove}
@@ -137,7 +137,7 @@ export default function App() {
                 </Text3DFlip>
               </HoverReveal>
             </div>
-            <div className="flex items-center flex-wrap uppercase mt-2 md:mt-4 gap-10 md:gap-20">
+            <div className="flex items-center flex-wrap uppercase mt-4 md:mt-6 gap-10 md:gap-20">
               <HoverReveal>
                 <Text3DFlip
                   className="bg-[#F4F3ED]"
@@ -163,7 +163,7 @@ export default function App() {
                 </Text3DFlip>
               </HoverReveal>
             </div>
-            <div className="mt-2 flex items-center gap-4">
+            <div className="mt-16 md:mt-24 flex items-center gap-4">
               <span>FROM</span>
               <HoverReveal>
                 <Text3DFlip
@@ -178,7 +178,7 @@ export default function App() {
                 </Text3DFlip>
               </HoverReveal>
             </div>
-            <div className="mt-2 flex items-center gap-4">
+            <div className="mt-4 md:mt-6 flex items-center gap-4">
               <span>BASED IN</span>
               <HoverReveal>
                 <Text3DFlip
@@ -193,7 +193,7 @@ export default function App() {
                 </Text3DFlip>
               </HoverReveal>
             </div>
-            <div className="mt-2">WORKING GLOBALLY.</div>
+            <div className="mt-4 md:mt-6">WORKING GLOBALLY.</div>
           </div>
         </div>
 
