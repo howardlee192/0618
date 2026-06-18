@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from "react-router-dom";
 import Lenis from "lenis";
 import Text3DFlip from "@/components/ui/text-3d-flip";
-import { motion, useSpring, AnimatePresence } from "framer-motion";
+import { motion, useSpring, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import { Menu, X } from "lucide-react";
 
 const HoverReveal = ({ children }: { children: React.ReactNode }) => {
@@ -122,6 +122,28 @@ function ProjectsGrid() {
   );
 }
 
+function ParallaxDivider() {
+  const container = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: container,
+    offset: ["start end", "end start"]
+  });
+
+  const y = useTransform(scrollYProgress, [0, 1], ["-20%", "20%"]);
+
+  return (
+    <div ref={container} className="w-full h-[50vh] md:h-[70vh] overflow-hidden relative border-b border-black/10">
+      <motion.div style={{ y }} className="absolute -inset-[20%] w-[140%] h-[140%] bg-[#E0E0E0]">
+        <img 
+          src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop" 
+          alt="Transition artwork"
+          className="w-full h-full object-cover grayscale opacity-60"
+        />
+      </motion.div>
+    </div>
+  );
+}
+
 function Home() {
   useEffect(() => { document.title = "Howard Lee - Home"; }, []);
   return (
@@ -152,6 +174,8 @@ function Home() {
           </div>
         </div>
       </section>
+
+      <ParallaxDivider />
 
       <section className="pt-[40px] md:pt-[60px] pb-[100px] border-b border-black/10">
         <motion.h2 
