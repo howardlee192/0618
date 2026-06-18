@@ -498,22 +498,22 @@ function About() {
       bio: "An artist and motion designer from Hong Kong, currently based in Taiwan. Lee's work revolves around the interpersonal relationships and emotional issues of contemporary youth. He has participated in numerous stage and performance visual designs. Excelling at breaking through medium constraints, he uses motion storytelling and design strategies to lead audiences through the ups and downs of life across visual and physical spaces.",
       role: "Motion & Visual Designer / Artist",
       title1: "01. Storytelling through Motion",
-      desc1: "I specialize in crafting narratives that guide users seamlessly. Every animation and interaction is purposefully designed to tell a compelling story, ensuring the design speaks directly and emotionally to the audience.",
+      desc1: "I excel at employing design strategies to accurately analyze project directions while considering the overall spatial presentation. Whether for stages or exhibitions, I use visuals and digital animation to create immersive experiences, ensuring the design resonates deeply with the audience.",
       title2: "02. Core Capabilities",
-      skills: ['3D Animation', 'Interaction Design', 'CGI', 'Visual Identity', 'UI/UX', 'Creative Direction'],
+      skills: ['Motion Design', 'Projection Mapping', 'Concert Visuals', '3D Animation', 'Interaction Design', 'Visual Identity'],
       title3: "03. Design Philosophy",
-      desc3: "My goal is to distill complex ideas into pure, minimalist forms. I strive to create timeless digital presences where less is truly more, focusing entirely on the essential to deliver maximum visual impact."
+      desc3: "My creations focus on contemporary interpersonal relationships, conveying my observations on social connections across various mediums. The goal is to touch and inspire audiences through concise and impactful motion visuals."
     },
     CHN: {
       name: <>李浩勤 <span className="tracking-[-1.5px]">Howard Lee</span></>,
       bio: "來自香港、現居台灣的藝術家與動態影像設計師。李氏的創作圍繞著當代青年的人際關係與情感議題，曾參與多場舞台與展演影像設計。他擅長打破載體限制，運用動態敘事與設計策略，帶領觀眾在影像與場域中體驗人生起伏。",
       role: "動態與視覺設計師 / 藝術家",
-      title1: "01. 透過動態述說故事",
-      desc1: "我擅長打造流暢引導使用者的敘事體驗。每一個動畫與互動都經過精心設計，旨在講述引人入勝的故事，確保設計能與受眾產生直接且深刻的情感共鳴。",
+      title1: "01. 透過動態說故事",
+      desc1: "我擅長運用設計策略，精準分析專案方向，並將整體的空間呈現納入考量。在舞台或展演，我都透過影像與數位動畫，為觀眾打造具沉浸感的體驗，讓設計與受眾產生深刻共鳴。",
       title2: "02. 核心技能領域",
-      skills: ['3D 動畫', '互動設計', '電腦成像', '視覺識別', '介面/體驗設計', '創意指導'],
+      skills: ['動態設計', '光雕投影', '演唱會影像', '3D 動畫', '互動設計', '視覺識別'],
       title3: "03. 核心設計理念",
-      desc3: "我的目標是將複雜的概念淬鍊成純粹、極簡的型態。我致力於創造經得起時間考驗的數位樣貌，堅信「少即是多」，專注於最本質的元素，以帶來極致的視覺張力。"
+      desc3: "我的創作關注當代人與人之間的關係，在不同載體中傳達我對社會關係的觀察。目標是透過簡練、具張力的動態視覺，觸動觀眾並帶來啟發。"
     }
   };
 
