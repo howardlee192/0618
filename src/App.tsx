@@ -139,9 +139,9 @@ function Home() {
 
   return (
     <>
-      <div ref={heroRef} className="relative z-0">
-        <motion.section style={{ y, opacity }} className="flex flex-col relative border-b border-black/10">
-        <div className="flex-1 flex flex-col justify-start items-start py-[12vh]">
+      <div ref={heroRef} className="relative z-0 min-h-[95vh] flex flex-col justify-center">
+        <motion.section style={{ y, opacity }} className="flex flex-col relative">
+        <div className="flex-1 flex flex-col justify-center items-start">
           <div className="font-['Space_Grotesk'] text-[clamp(1.8rem,4.5vw,4.95rem)] leading-[0.95] tracking-[-2px] max-w-[80%] -ml-[0.04em]">
             <div className="flex items-center flex-wrap uppercase gap-10 md:gap-20">
               <HoverReveal><Text3DFlip className="bg-[#F4F3ED]" textClassName="bg-[#F4F3ED] text-[#0A0A0A]" flipTextClassName="bg-[#F4F3ED] text-[#0A0A0A]" rotateDirection="top" staggerDuration={0.03} staggerFrom="center">VISUAL</Text3DFlip></HoverReveal>
