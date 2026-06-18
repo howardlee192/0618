@@ -709,18 +709,13 @@ function Layout({ children }: { children: React.ReactNode }) {
       <AnimatePresence>
         {isMenuOpen && (
           <div className="fixed inset-0 z-[999]">
-            <div className="absolute inset-0 flex pointer-events-none">
-              {[...Array(5)].map((_, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ y: "-100%" }}
-                  animate={{ y: "0%" }}
-                  exit={{ y: "-100%" }}
-                  transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1], delay: i * 0.06 }}
-                  className="flex-1 bg-[#0A0A0A] h-full w-full"
-                />
-              ))}
-            </div>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.5, ease: [0.76, 0, 0.24, 1] }}
+              className="absolute inset-0 bg-[#0A0A0A]"
+            />
 
             <motion.div
               initial={{ opacity: 0 }}
@@ -816,16 +811,61 @@ function Layout({ children }: { children: React.ReactNode }) {
   );
 }
 
+function PageTransition({ children }: { children: React.ReactNode }) {
+  return (
+    <motion.div
+      initial={{ opacity: 1 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 1 }}
+    >
+      <motion.div
+        className="fixed inset-0 z-[1000] flex pointer-events-none"
+        initial={{ opacity: 1 }}
+        animate={{ opacity: 0, transition: { delay: 0.8, duration: 0.1 } }}
+        exit={{ opacity: 1, transition: { duration: 0.1 } }}
+      >
+        {[...Array(5)].map((_, i) => (
+          <motion.div
+            key={i}
+            initial={{ y: "0%" }}
+            animate={{ y: "-100%" }}
+            exit={{ y: "0%" }}
+            transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1], delay: i * 0.06 }}
+            className="flex-1 bg-[#0A0A0A] h-full w-full"
+          />
+        ))}
+      </motion.div>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.1, delay: 0.8 }}
+      >
+        {children}
+      </motion.div>
+    </motion.div>
+  );
+}
+
+function AnimatedRoutes() {
+  const location = useLocation();
+  return (
+    <AnimatePresence mode="wait">
+      <Routes location={location} key={location.pathname}>
+        <Route path="/" element={<PageTransition><Home /></PageTransition>} />
+        <Route path="/work" element={<PageTransition><Work /></PageTransition>} />
+        <Route path="/artwork" element={<PageTransition><Artwork /></PageTransition>} />
+        <Route path="/about" element={<PageTransition><About /></PageTransition>} />
+      </Routes>
+    </AnimatePresence>
+  );
+}
+
 export default function App() {
   return (
     <Router>
       <Layout>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/work" element={<Work />} />
-          <Route path="/artwork" element={<Artwork />} />
-          <Route path="/about" element={<About />} />
-        </Routes>
+        <AnimatedRoutes />
       </Layout>
     </Router>
   );
