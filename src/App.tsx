@@ -181,7 +181,7 @@ export default function App() {
       </section>
 
       {/* PORTFOLIO SECTION */}
-      <section id="projects" className="px-5 md:px-10 pt-[160px] md:pt-[200px] pb-[100px] border-b border-black/10">
+      <section id="projects" className="px-5 md:px-10 pt-[40px] md:pt-[60px] pb-[100px] border-b border-black/10">
         <h2 className="font-['Space_Grotesk'] text-[3.5rem] mb-[60px] tracking-[-1px] -ml-[0.05em] font-normal">Featured</h2>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-[30px] items-start">
