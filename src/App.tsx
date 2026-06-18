@@ -1,6 +1,17 @@
 import React from "react";
 import Text3DFlip from "@/components/ui/text-3d-flip";
 
+const HoverReveal = ({ children }: { children: React.ReactNode }) => {
+  return (
+    <div className="relative group/reveal inline-flex items-center justify-center">
+      {children}
+      <div className="pointer-events-none absolute left-1/2 bottom-full mb-4 -translate-x-1/2 w-[260px] h-[180px] bg-[#D1D1D1] opacity-0 transition-opacity duration-300 ease-in delay-300 group-hover/reveal:opacity-100 z-50 flex items-center justify-center overflow-hidden">
+         <span className="text-[0.6rem] text-[#888] font-['Geist_Mono'] normal-case tracking-normal">image placeholder</span>
+      </div>
+    </div>
+  );
+};
+
 export default function App() {
   const scrollTo = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
     e.preventDefault();
@@ -24,51 +35,87 @@ export default function App() {
         <div className="flex-1 flex flex-col justify-start items-start py-[12vh]">
           <div className="font-['Space_Grotesk'] text-[clamp(1.8rem,4.5vw,4.95rem)] leading-[1.1] tracking-[-2px] max-w-[80%] -ml-[0.04em]">
             <div className="flex items-center flex-wrap uppercase gap-10 md:gap-20">
-              <Text3DFlip
-                className="bg-[#F4F3ED]"
-                textClassName="bg-[#F4F3ED] text-[#0A0A0A]"
-                flipTextClassName="bg-[#F4F3ED] text-[#0A0A0A]"
-                rotateDirection="top"
-                staggerDuration={0.03}
-                staggerFrom="center"
-              >
-                VISUAL
-              </Text3DFlip>
-              <Text3DFlip
-                className="bg-[#F4F3ED]"
-                textClassName="bg-[#F4F3ED] text-[#0A0A0A]"
-                flipTextClassName="bg-[#F4F3ED] text-[#0A0A0A]"
-                rotateDirection="top"
-                staggerDuration={0.03}
-                staggerFrom="center"
-              >
-                MOTION
-              </Text3DFlip>
+              <HoverReveal>
+                <Text3DFlip
+                  className="bg-[#F4F3ED]"
+                  textClassName="bg-[#F4F3ED] text-[#0A0A0A]"
+                  flipTextClassName="bg-[#F4F3ED] text-[#0A0A0A]"
+                  rotateDirection="top"
+                  staggerDuration={0.03}
+                  staggerFrom="center"
+                >
+                  VISUAL
+                </Text3DFlip>
+              </HoverReveal>
+              <HoverReveal>
+                <Text3DFlip
+                  className="bg-[#F4F3ED]"
+                  textClassName="bg-[#F4F3ED] text-[#0A0A0A]"
+                  flipTextClassName="bg-[#F4F3ED] text-[#0A0A0A]"
+                  rotateDirection="top"
+                  staggerDuration={0.03}
+                  staggerFrom="center"
+                >
+                  MOTION
+                </Text3DFlip>
+              </HoverReveal>
             </div>
             <div className="flex items-center flex-wrap uppercase mt-2 md:mt-4 gap-10 md:gap-20">
-              <Text3DFlip
-                className="bg-[#F4F3ED]"
-                textClassName="bg-[#F4F3ED] text-[#0A0A0A]"
-                flipTextClassName="bg-[#F4F3ED] text-[#0A0A0A]"
-                rotateDirection="top"
-                staggerDuration={0.03}
-                staggerFrom="center"
-              >
-                ANIMATION
-              </Text3DFlip>
-              <Text3DFlip
-                className="bg-[#F4F3ED]"
-                textClassName="bg-[#F4F3ED] text-[#0A0A0A]"
-                flipTextClassName="bg-[#F4F3ED] text-[#0A0A0A]"
-                rotateDirection="top"
-                staggerDuration={0.03}
-                staggerFrom="center"
-              >
-                INTERACTION
-              </Text3DFlip>
+              <HoverReveal>
+                <Text3DFlip
+                  className="bg-[#F4F3ED]"
+                  textClassName="bg-[#F4F3ED] text-[#0A0A0A]"
+                  flipTextClassName="bg-[#F4F3ED] text-[#0A0A0A]"
+                  rotateDirection="top"
+                  staggerDuration={0.03}
+                  staggerFrom="center"
+                >
+                  ANIMATION
+                </Text3DFlip>
+              </HoverReveal>
+              <HoverReveal>
+                <Text3DFlip
+                  className="bg-[#F4F3ED]"
+                  textClassName="bg-[#F4F3ED] text-[#0A0A0A]"
+                  flipTextClassName="bg-[#F4F3ED] text-[#0A0A0A]"
+                  rotateDirection="top"
+                  staggerDuration={0.03}
+                  staggerFrom="center"
+                >
+                  INTERACTION
+                </Text3DFlip>
+              </HoverReveal>
             </div>
-            <div className="mt-2">FROM HONG KONG</div>
-            <div className="mt-2">BASED IN TAIWAN</div>
+            <div className="mt-2 flex items-center gap-4">
+              <span>FROM</span>
+              <HoverReveal>
+                <Text3DFlip
+                  className="bg-[#F4F3ED]"
+                  textClassName="bg-[#F4F3ED] text-[#0A0A0A]"
+                  flipTextClassName="bg-[#F4F3ED] text-[#0A0A0A]"
+                  rotateDirection="top"
+                  staggerDuration={0.03}
+                  staggerFrom="center"
+                >
+                  HONG KONG
+                </Text3DFlip>
+              </HoverReveal>
+            </div>
+            <div className="mt-2 flex items-center gap-4">
+              <span>BASED IN</span>
+              <HoverReveal>
+                <Text3DFlip
+                  className="bg-[#F4F3ED]"
+                  textClassName="bg-[#F4F3ED] text-[#0A0A0A]"
+                  flipTextClassName="bg-[#F4F3ED] text-[#0A0A0A]"
+                  rotateDirection="top"
+                  staggerDuration={0.03}
+                  staggerFrom="center"
+                >
+                  TAIWAN
+                </Text3DFlip>
+              </HoverReveal>
+            </div>
             <div className="mt-2">WORKING GLOBALLY.</div>
           </div>
         </div>
