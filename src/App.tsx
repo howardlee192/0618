@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Lenis from "lenis";
 import Text3DFlip from "@/components/ui/text-3d-flip";
-import { motion, useSpring } from "framer-motion";
+import { motion, useSpring, AnimatePresence } from "framer-motion";
+import { Menu, X } from "lucide-react";
 
 const HoverReveal = ({ children }: { children: React.ReactNode }) => {
   const [isHovered, setIsHovered] = useState(false);
@@ -67,6 +68,8 @@ const staggerItem = {
 };
 
 export default function App() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   useEffect(() => {
     const lenis = new Lenis({
       duration: 1.2,
@@ -100,13 +103,53 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-[#F4F3ED] text-[#0A0A0A]">
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: "-100%" }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: "-100%" }}
+            transition={{ type: "tween", duration: 0.5, ease: "easeInOut" }}
+            className="fixed inset-0 bg-[#0A0A0A] text-[#F4F3ED] z-[999] flex flex-col p-5 md:px-10 md:py-5"
+          >
+            <header className="flex justify-between items-start text-[0.75rem] uppercase tracking-[0.5px]">
+              <div className="flex flex-col md:flex-row md:items-center">
+                <span className="font-normal -ml-[0.05em]">HOWARD LEE</span>
+              </div>
+              <button onClick={() => setIsMenuOpen(false)} className="hover:opacity-60 transition-opacity">
+                <X size={20} />
+              </button>
+            </header>
+            
+            <div className="flex-1 flex flex-col justify-center items-center gap-10">
+              {['WORK', 'ARTWORK', 'ABOUT'].map((item) => (
+                <a
+                  key={item}
+                  href={item === 'WORK' ? '#projects' : `#${item.toLowerCase()}`}
+                  onClick={(e) => {
+                    setIsMenuOpen(false);
+                    if (item === 'WORK') scrollTo(e, 'projects');
+                  }}
+                  className="font-['Space_Grotesk'] text-[clamp(3rem,8vw,6rem)] leading-[1] tracking-[-2px] hover:opacity-70 transition-opacity"
+                >
+                  {item}
+                </a>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       {/* HERO SECTION */}
       <section className="min-h-screen flex flex-col p-5 md:px-10 md:py-5 relative border-b border-black/10">
         <header className="flex justify-between items-start text-[0.75rem] uppercase tracking-[0.5px]">
           <div className="flex flex-col md:flex-row md:items-center">
             <span className="font-normal -ml-[0.05em]">HOWARD LEE</span>
-            <span className="opacity-60 ml-0 md:ml-[clamp(40px,15vw,200px)]">MOTION / VISUAL DESIGNER</span>
+            <span className="opacity-60 ml-0 md:ml-[clamp(40px,15vw,200px)] hidden sm:block">MOTION / VISUAL DESIGNER</span>
           </div>
+          <button onClick={() => setIsMenuOpen(true)} className="hover:opacity-60 transition-opacity">
+            <Menu size={20} />
+          </button>
         </header>
 
         <div className="flex-1 flex flex-col justify-start items-start py-[12vh]">
