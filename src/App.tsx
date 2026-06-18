@@ -778,10 +778,10 @@ function Layout({ children }: { children: React.ReactNode }) {
 
         {/* Sticky Parallax Footer */}
         <div
-          className="relative h-[80vh] md:h-[100vh]"
+          className="relative h-[100vh]"
           style={{ clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" }}
         >
-          <div className="fixed bottom-0 left-0 w-full h-[80vh] md:h-[100vh] p-5 md:px-10 pb-[20px] pt-[80px] md:pt-[100px] flex flex-col justify-between">
+          <div className="fixed bottom-0 left-0 w-full h-[100vh] p-5 md:px-10 pb-[20px] pt-[80px] md:pt-[100px] flex flex-col justify-between bg-[#F4F3ED]">
             <div>
               <div className="text-[0.75rem] uppercase mb-10 tracking-[0.5px]">GET IN TOUCH</div>
               <div className="flex flex-col gap-[15px]">
