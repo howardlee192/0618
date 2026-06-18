@@ -250,17 +250,66 @@ function Artwork() {
 
 function About() {
   useEffect(() => { document.title = "Howard Lee - About"; }, []);
+  const [lang, setLang] = useState<'ENG' | 'CHN'>('ENG');
+
+  const content = {
+    ENG: {
+      intro: "I've always believed that elegant motion and thoughtful visual design can elevate a digital experience from good to unforgettable.",
+      role: "Howard Lee, Motion & Visual Designer",
+      title1: "01. Storytelling through Motion",
+      desc1: "I specialize in crafting narratives that guide users seamlessly. Every animation and interaction is purposefully designed to tell a compelling story, ensuring the design speaks directly and emotionally to the audience.",
+      title2: "02. Core Capabilities",
+      title3: "03. Design Philosophy",
+      desc3: "My goal is to distill complex ideas into pure, minimalist forms. I strive to create timeless digital presences where less is truly more, focusing entirely on the essential to deliver maximum visual impact."
+    },
+    CHN: {
+      intro: "我始終相信，優雅的動態與深思熟慮的視覺設計，能將數位體驗從優秀昇華至令人難忘的境界。",
+      role: "Howard Lee, 動態與視覺設計師",
+      title1: "01. 透過動態述說故事",
+      desc1: "我擅長打造流暢引導使用者的敘事體驗。每一個動畫與互動都經過精心設計，旨在講述引人入勝的故事，確保設計能與受眾產生直接且深刻的情感共鳴。",
+      title2: "02. 核心技能領域",
+      title3: "03. 核心設計理念",
+      desc3: "我的目標是將複雜的概念淬鍊成純粹、極簡的型態。我致力於創造經得起時間考驗的數位樣貌，堅信「少即是多」，專注於最本質的元素，以帶來極致的視覺張力。"
+    }
+  };
+
+  const text = content[lang];
+
   return (
     <section className="pt-[40px] md:pt-[60px] pb-[100px] min-h-[80vh]">
-      <motion.h2 
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ type: "spring", duration: 1.5, bounce: 0 }}
-        viewport={{ once: false, margin: "-100px" }}
-        className="font-['Space_Grotesk'] text-[3.5rem] mb-[60px] md:mb-[100px] tracking-[-1px] -ml-[0.05em] font-normal"
-      >
-        About
-      </motion.h2>
+      <div className="flex justify-between items-end mb-[60px] md:mb-[100px]">
+        <motion.h2 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ type: "spring", duration: 1.5, bounce: 0 }}
+          viewport={{ once: false, margin: "-100px" }}
+          className="font-['Space_Grotesk'] text-[3.5rem] tracking-[-1px] -ml-[0.05em] font-normal"
+        >
+          About
+        </motion.h2>
+
+        <motion.div 
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: false }}
+          className="flex gap-4 text-xs md:text-sm font-['Geist_Mono'] pb-3 md:pb-4 uppercase tracking-[1px]"
+        >
+          <button 
+            onClick={() => setLang('CHN')} 
+            className={`transition-opacity hover:opacity-100 ${lang === 'CHN' ? 'opacity-100 font-bold' : 'opacity-40'}`}
+          >
+            CHN
+          </button>
+          <span className="opacity-20">/</span>
+          <button 
+            onClick={() => setLang('ENG')} 
+            className={`transition-opacity hover:opacity-100 ${lang === 'ENG' ? 'opacity-100 font-bold' : 'opacity-40'}`}
+          >
+            ENG
+          </button>
+        </motion.div>
+      </div>
       
       <div className="flex flex-col md:flex-row gap-10 md:gap-24 relative">
         {/* Left Side: Large Intro */}
@@ -274,11 +323,11 @@ function About() {
           {/* Profile Picture Placeholder */}
           <div className="w-[180px] md:w-[240px] max-w-full aspect-[3/4] bg-[#E0E0E0] mb-[40px] md:mb-[60px]"></div>
           
-          <h3 className="font-['Space_Grotesk'] text-[clamp(2rem,3.5vw,3.2rem)] leading-[1.1] tracking-[-1.5px] mb-6">
-            I've always believed that elegant motion and thoughtful visual design can elevate a digital experience from good to unforgettable.
+          <h3 className={`font-['Space_Grotesk'] ${lang === 'CHN' ? 'font-sans' : ''} text-[clamp(2rem,3.5vw,3.2rem)] leading-[1.1] tracking-[-1.5px] mb-6`}>
+            {text.intro}
           </h3>
           <p className="font-['Geist_Mono'] text-sm opacity-50 uppercase tracking-[0.5px]">
-            Howard Lee, Motion & Visual Designer
+            {text.role}
           </p>
         </motion.div>
 
@@ -292,9 +341,9 @@ function About() {
             viewport={{ once: false, margin: "-100px" }}
             className="border-t border-black/10 py-8 md:py-12 flex flex-col"
           >
-            <h4 className="font-['Space_Grotesk'] text-xl md:text-2xl mb-4 tracking-[-0.5px]">01. Storytelling through Motion</h4>
+            <h4 className={`font-['Space_Grotesk'] ${lang === 'CHN' ? 'font-sans' : ''} text-xl md:text-2xl mb-4 tracking-[-0.5px]`}>{text.title1}</h4>
             <p className="font-['Geist_Mono'] text-[0.9rem] leading-[1.6] opacity-70">
-              I specialize in crafting narratives that guide users seamlessly. Every animation and interaction is purposefully designed to tell a compelling story, ensuring the design speaks directly and emotionally to the audience.
+              {text.desc1}
             </p>
           </motion.div>
 
@@ -306,7 +355,7 @@ function About() {
             viewport={{ once: false, margin: "-100px" }}
             className="border-t border-black/10 py-8 md:py-12 flex flex-col"
           >
-            <h4 className="font-['Space_Grotesk'] text-xl md:text-2xl mb-6 tracking-[-0.5px]">02. Core Capabilities</h4>
+            <h4 className={`font-['Space_Grotesk'] ${lang === 'CHN' ? 'font-sans' : ''} text-xl md:text-2xl mb-6 tracking-[-0.5px]`}>{text.title2}</h4>
             <div className="flex flex-wrap gap-3">
               {['3D Animation', 'Interaction Design', 'CGI', 'Visual Identity', 'UI/UX', 'Creative Direction'].map(skill => (
                 <span key={skill} className="font-['Geist_Mono'] text-[0.75rem] uppercase tracking-[0.5px] px-4 py-2 border border-black/20 rounded-full hover:bg-black hover:text-[#F4F3ED] transition-colors cursor-default">
@@ -324,9 +373,9 @@ function About() {
             viewport={{ once: false, margin: "-100px" }}
             className="border-t border-black/10 py-8 md:py-12 flex flex-col"
           >
-            <h4 className="font-['Space_Grotesk'] text-xl md:text-2xl mb-4 tracking-[-0.5px]">03. Design Philosophy</h4>
+            <h4 className={`font-['Space_Grotesk'] ${lang === 'CHN' ? 'font-sans' : ''} text-xl md:text-2xl mb-4 tracking-[-0.5px]`}>{text.title3}</h4>
             <p className="font-['Geist_Mono'] text-[0.9rem] leading-[1.6] opacity-70">
-              My goal is to distill complex ideas into pure, minimalist forms. I strive to create timeless digital presences where less is truly more, focusing entirely on the essential to deliver maximum visual impact.
+              {text.desc3}
             </p>
           </motion.div>
         </div>
