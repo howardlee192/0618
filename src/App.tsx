@@ -251,7 +251,7 @@ function Artwork() {
 function About() {
   useEffect(() => { document.title = "Howard Lee - About"; }, []);
   return (
-    <section className="pt-[40px] md:pt-[60px] pb-[100px] border-b border-black/10 min-h-[80vh]">
+    <section className="pt-[40px] md:pt-[60px] pb-[150px] md:pb-[300px] border-b border-black/10 min-h-[80vh]">
       <motion.h2 
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -269,8 +269,11 @@ function About() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ type: "spring", duration: 1.5, bounce: 0 }}
           viewport={{ once: false, margin: "-100px" }}
-          className="w-full md:w-1/2 flex flex-col justify-start md:sticky md:top-[120px] h-fit"
+          className="w-full md:w-1/2 flex flex-col justify-start md:sticky md:top-[100px] h-fit"
         >
+          {/* Profile Picture Placeholder */}
+          <div className="w-[180px] md:w-[240px] max-w-full aspect-[3/4] bg-[#E0E0E0] mb-[40px] md:mb-[60px]"></div>
+          
           <h3 className="font-['Space_Grotesk'] text-[clamp(2rem,3.5vw,3.2rem)] leading-[1.1] tracking-[-1.5px] mb-6">
             I've always believed that elegant motion and thoughtful visual design can elevate a digital experience from good to unforgettable.
           </h3>
@@ -280,7 +283,7 @@ function About() {
         </motion.div>
 
         {/* Right Side: 1, 2, 3 List */}
-        <div className="w-full md:w-1/2 flex flex-col">
+        <div className="w-full md:w-1/2 flex flex-col mt-10 md:mt-0">
           {/* Item 1 */}
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
