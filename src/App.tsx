@@ -257,32 +257,76 @@ function About() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ type: "spring", duration: 1.5, bounce: 0 }}
         viewport={{ once: false, margin: "-100px" }}
-        className="font-['Space_Grotesk'] text-[3.5rem] mb-[60px] tracking-[-1px] -ml-[0.05em] font-normal"
+        className="font-['Space_Grotesk'] text-[3.5rem] mb-[60px] md:mb-[100px] tracking-[-1px] -ml-[0.05em] font-normal"
       >
         About
       </motion.h2>
       
-      <div className="flex flex-col md:flex-row gap-10 md:gap-20">
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ type: "spring", duration: 1.5, bounce: 0 }}
-          viewport={{ once: false, margin: "-100px" }}
-          className="w-full md:w-1/3 lg:w-1/4 h-auto aspect-[3/4] bg-[#E0E0E0]"
-        ></motion.div>
+      <div className="flex flex-col md:flex-row gap-10 md:gap-24 relative">
+        {/* Left Side: Large Intro */}
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ type: "spring", duration: 1.5, bounce: 0, delay: 0.2 }}
+          transition={{ type: "spring", duration: 1.5, bounce: 0 }}
           viewport={{ once: false, margin: "-100px" }}
-          className="w-full md:w-2/3 flex flex-col justify-center"
+          className="w-full md:w-1/2 flex flex-col justify-start md:sticky md:top-[120px] h-fit"
         >
-          <div className="font-['Geist_Mono'] text-[1rem] md:text-[1.1rem] leading-[1.6] opacity-70 mb-8 max-w-[600px]">
-            Hi, I'm Howard Lee. I am a motion and visual designer from Hong Kong, based in Taiwan, working globally. I specialize in creating immersive digital experiences, 3D animations, and interactive interfaces.
-            <br/><br/>
-            My design philosophy is rooted in minimalism, where less is more. I believe that elegant typography, smooth motion, and clean layouts are the keys to a timeless digital presence.
-          </div>
+          <h3 className="font-['Space_Grotesk'] text-[clamp(2rem,3.5vw,3.2rem)] leading-[1.1] tracking-[-1.5px] mb-6">
+            I've always believed that elegant motion and thoughtful visual design can elevate a digital experience from good to unforgettable.
+          </h3>
+          <p className="font-['Geist_Mono'] text-sm opacity-50 uppercase tracking-[0.5px]">
+            Howard Lee, Motion & Visual Designer
+          </p>
         </motion.div>
+
+        {/* Right Side: 1, 2, 3 List */}
+        <div className="w-full md:w-1/2 flex flex-col">
+          {/* Item 1 */}
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ type: "spring", duration: 1.5, bounce: 0, delay: 0.1 }}
+            viewport={{ once: false, margin: "-100px" }}
+            className="border-t border-black/10 py-8 md:py-12 flex flex-col"
+          >
+            <h4 className="font-['Space_Grotesk'] text-xl md:text-2xl mb-4 tracking-[-0.5px]">01. Storytelling through Motion</h4>
+            <p className="font-['Geist_Mono'] text-[0.9rem] leading-[1.6] opacity-70">
+              I specialize in crafting narratives that guide users seamlessly. Every animation and interaction is purposefully designed to tell a compelling story, ensuring the design speaks directly and emotionally to the audience.
+            </p>
+          </motion.div>
+
+          {/* Item 2 */}
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ type: "spring", duration: 1.5, bounce: 0, delay: 0.2 }}
+            viewport={{ once: false, margin: "-100px" }}
+            className="border-t border-black/10 py-8 md:py-12 flex flex-col"
+          >
+            <h4 className="font-['Space_Grotesk'] text-xl md:text-2xl mb-6 tracking-[-0.5px]">02. Core Capabilities</h4>
+            <div className="flex flex-wrap gap-3">
+              {['3D Animation', 'Interaction Design', 'CGI', 'Visual Identity', 'UI/UX', 'Creative Direction'].map(skill => (
+                <span key={skill} className="font-['Geist_Mono'] text-[0.75rem] uppercase tracking-[0.5px] px-4 py-2 border border-black/20 rounded-full hover:bg-black hover:text-[#F4F3ED] transition-colors cursor-default">
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Item 3 */}
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ type: "spring", duration: 1.5, bounce: 0, delay: 0.3 }}
+            viewport={{ once: false, margin: "-100px" }}
+            className="border-t border-black/10 py-8 md:py-12 flex flex-col"
+          >
+            <h4 className="font-['Space_Grotesk'] text-xl md:text-2xl mb-4 tracking-[-0.5px]">03. Design Philosophy</h4>
+            <p className="font-['Geist_Mono'] text-[0.9rem] leading-[1.6] opacity-70">
+              My goal is to distill complex ideas into pure, minimalist forms. I strive to create timeless digital presences where less is truly more, focusing entirely on the essential to deliver maximum visual impact.
+            </p>
+          </motion.div>
+        </div>
       </div>
     </section>
   );
