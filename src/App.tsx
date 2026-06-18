@@ -232,7 +232,7 @@ function Work() {
                   {years.map(y => (
                     <button 
                       key={y}
-                      onClick={() => { setActiveYear(y); setOpenFilter(null); }}
+                      onClick={() => setActiveYear(y)}
                       className={`font-['Geist_Mono'] text-[0.7rem] uppercase tracking-[0.5px] px-4 py-2 border rounded-full transition-colors ${activeYear === y ? 'border-black bg-black text-[#F4F3ED]' : 'border-black/20 hover:border-black'}`}
                     >
                       {y}
@@ -268,7 +268,7 @@ function Work() {
                   {types.map(t => (
                     <button 
                       key={t}
-                      onClick={() => { setActiveType(t); setOpenFilter(null); }}
+                      onClick={() => setActiveType(t)}
                       className={`font-['Geist_Mono'] text-[0.7rem] uppercase tracking-[0.5px] px-4 py-2 border rounded-full transition-colors ${activeType === t ? 'border-black bg-black text-[#F4F3ED]' : 'border-black/20 hover:border-black'}`}
                     >
                       {t}
