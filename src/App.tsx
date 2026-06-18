@@ -251,7 +251,7 @@ function Artwork() {
 function About() {
   useEffect(() => { document.title = "Howard Lee - About"; }, []);
   return (
-    <section className="pt-[40px] md:pt-[60px] pb-[150px] md:pb-[300px] border-b border-black/10 min-h-[80vh]">
+    <section className="pt-[40px] md:pt-[60px] pb-[150px] md:pb-[300px] min-h-[80vh]">
       <motion.h2 
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -441,7 +441,7 @@ function Layout({ children }: { children: React.ReactNode }) {
           {children}
         </div>
 
-        <div className="relative overflow-hidden w-full border-t border-black/10">
+        <div className="relative overflow-hidden w-full">
           <motion.footer 
             ref={footerRef}
             style={{ y: footerY }}
