@@ -250,14 +250,6 @@ function Artwork() {
 
 function About() {
   useEffect(() => { document.title = "Howard Lee - About"; }, []);
-  
-  const imageContainerRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: imageContainerRef,
-    offset: ["start end", "end start"]
-  });
-  const imageY = useTransform(scrollYProgress, [0, 1], ["-20%", "20%"]);
-
   return (
     <section className="pt-[40px] md:pt-[60px] pb-[150px] md:pb-[300px] border-b border-black/10 min-h-[80vh]">
       <motion.h2 
@@ -279,16 +271,8 @@ function About() {
           viewport={{ once: false, margin: "-100px" }}
           className="w-full md:w-1/2 flex flex-col justify-start md:sticky md:top-[100px] h-fit"
         >
-          {/* Profile Picture Parallax */}
-          <div ref={imageContainerRef} className="w-[180px] md:w-[240px] max-w-full aspect-[3/4] bg-[#E0E0E0] mb-[40px] md:mb-[60px] overflow-hidden relative">
-            <motion.div style={{ y: imageY }} className="absolute -inset-[20%] w-[140%] h-[140%]">
-              <img 
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1000&auto=format&fit=crop" 
-                alt="Howard Lee"
-                className="w-full h-full object-cover grayscale opacity-90"
-              />
-            </motion.div>
-          </div>
+          {/* Profile Picture Placeholder */}
+          <div className="w-[180px] md:w-[240px] max-w-full aspect-[3/4] bg-[#E0E0E0] mb-[40px] md:mb-[60px]"></div>
           
           <h3 className="font-['Space_Grotesk'] text-[clamp(2rem,3.5vw,3.2rem)] leading-[1.1] tracking-[-1.5px] mb-6">
             I've always believed that elegant motion and thoughtful visual design can elevate a digital experience from good to unforgettable.
@@ -354,6 +338,13 @@ function About() {
 function Layout({ children }: { children: React.ReactNode }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
+
+  const footerRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: footerRef,
+    offset: ["start end", "end end"]
+  });
+  const footerY = useTransform(scrollYProgress, [0, 1], ["50%", "0%"]);
 
   useEffect(() => {
     const lenis = new Lenis({
@@ -446,12 +437,17 @@ function Layout({ children }: { children: React.ReactNode }) {
           </button>
         </header>
 
-        <div className="flex-1">
+        <div className="flex-1 relative z-10 bg-[#F4F3ED]">
           {children}
         </div>
 
-        <footer className="pt-[100px] pb-[20px]">
-          <div className="text-[0.75rem] uppercase mb-10 tracking-[0.5px]">GET IN TOUCH</div>
+        <div className="relative overflow-hidden w-full border-t border-black/10">
+          <motion.footer 
+            ref={footerRef}
+            style={{ y: footerY }}
+            className="pt-[100px] pb-[20px]"
+          >
+            <div className="text-[0.75rem] uppercase mb-10 tracking-[0.5px]">GET IN TOUCH</div>
           
           <div className="flex flex-col gap-[15px] mb-[120px]">
             {[
@@ -477,7 +473,8 @@ function Layout({ children }: { children: React.ReactNode }) {
           <div className="flex justify-between text-[0.75rem] uppercase tracking-[0.5px]">
             <div>AVAILABLE FOR WORK</div>
           </div>
-        </footer>
+          </motion.footer>
+        </div>
       </div>
     </div>
   );
