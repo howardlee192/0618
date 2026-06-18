@@ -105,38 +105,70 @@ export default function App() {
     <div className="min-h-screen bg-[#F4F3ED] text-[#0A0A0A]">
       <AnimatePresence>
         {isMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: "-100%" }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: "-100%" }}
-            transition={{ type: "tween", duration: 0.5, ease: "easeInOut" }}
-            className="fixed inset-0 bg-[#0A0A0A] text-[#F4F3ED] z-[999] flex flex-col p-5 md:px-10 md:py-5"
-          >
-            <header className="flex justify-between items-start text-[0.75rem] uppercase tracking-[0.5px]">
-              <div className="flex flex-col md:flex-row md:items-center">
-                <span className="font-normal -ml-[0.05em]">HOWARD LEE</span>
-              </div>
-              <button onClick={() => setIsMenuOpen(false)} className="hover:opacity-60 transition-opacity">
-                <X size={20} />
-              </button>
-            </header>
-            
-            <div className="flex-1 flex flex-col justify-center items-center gap-10">
-              {['WORK', 'ARTWORK', 'ABOUT'].map((item) => (
-                <a
-                  key={item}
-                  href={item === 'WORK' ? '#projects' : `#${item.toLowerCase()}`}
-                  onClick={(e) => {
-                    setIsMenuOpen(false);
-                    if (item === 'WORK') scrollTo(e, 'projects');
+          <div className="fixed inset-0 z-[999]">
+            {/* Curtains Background */}
+            <div className="absolute inset-0 flex pointer-events-none">
+              {[...Array(5)].map((_, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ y: "-100%" }}
+                  animate={{ y: "0%" }}
+                  exit={{ y: "-100%" }}
+                  transition={{
+                    duration: 0.8,
+                    ease: [0.76, 0, 0.24, 1], // Custom sophisticated curve
+                    delay: i * 0.06,
                   }}
-                  className="font-['Space_Grotesk'] text-[clamp(3rem,8vw,6rem)] leading-[1] tracking-[-2px] hover:opacity-70 transition-opacity"
-                >
-                  {item}
-                </a>
+                  className="flex-1 bg-[#0A0A0A] h-full w-full"
+                />
               ))}
             </div>
-          </motion.div>
+
+            {/* Menu Content */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3, delay: 0.3 }}
+              className="absolute inset-0 flex flex-col p-5 md:px-10 md:py-5 text-[#F4F3ED] z-10"
+            >
+              <header className="flex justify-between items-start text-[0.75rem] uppercase tracking-[0.5px]">
+                <div className="flex flex-col md:flex-row md:items-center">
+                  <span className="font-normal -ml-[0.05em]">HOWARD LEE</span>
+                </div>
+                <button onClick={() => setIsMenuOpen(false)} className="hover:opacity-60 transition-opacity">
+                  <X size={20} />
+                </button>
+              </header>
+              
+              <div className="flex-1 flex flex-col justify-center items-center gap-10">
+                {['WORK', 'ARTWORK', 'ABOUT'].map((item, index) => (
+                  <motion.div
+                    key={item}
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 30 }}
+                    transition={{
+                      duration: 0.6,
+                      ease: [0.76, 0, 0.24, 1],
+                      delay: 0.4 + index * 0.1,
+                    }}
+                  >
+                    <a
+                      href={item === 'WORK' ? '#projects' : `#${item.toLowerCase()}`}
+                      onClick={(e) => {
+                        setIsMenuOpen(false);
+                        if (item === 'WORK') scrollTo(e, 'projects');
+                      }}
+                      className="font-['Space_Grotesk'] text-[clamp(3rem,8vw,6rem)] leading-[1] tracking-[-2px] hover:opacity-70 transition-opacity"
+                    >
+                      {item}
+                    </a>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          </div>
         )}
       </AnimatePresence>
 
