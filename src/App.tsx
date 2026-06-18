@@ -155,10 +155,10 @@ export default function App() {
                     }}
                   >
                     <a
-                      href={item === 'WORK' ? '#projects' : `#${item.toLowerCase()}`}
+                      href={`#${item.toLowerCase()}`}
                       onClick={(e) => {
                         setIsMenuOpen(false);
-                        if (item === 'WORK') scrollTo(e, 'projects');
+                        scrollTo(e, item.toLowerCase());
                       }}
                       className="font-['Space_Grotesk'] text-[clamp(3rem,8vw,6rem)] leading-[1] tracking-[-2px] hover:opacity-70 transition-opacity"
                     >
@@ -288,12 +288,12 @@ export default function App() {
 
         <footer className="flex justify-between text-[0.75rem] uppercase tracking-[0.5px] opacity-60">
           <div>AVAILABLE FOR WORK</div>
-          <a href="#projects" onClick={(e) => scrollTo(e, 'projects')} className="hover:opacity-100 transition-opacity">↓ SCROLL TO VIEW MORE ↓</a>
+          <a href="#work" onClick={(e) => scrollTo(e, 'work')} className="hover:opacity-100 transition-opacity">↓ SCROLL TO VIEW MORE ↓</a>
         </footer>
       </section>
 
-      {/* PORTFOLIO SECTION */}
-      <section id="projects" className="px-5 md:px-10 pt-[40px] md:pt-[60px] pb-[100px] border-b border-black/10">
+      {/* WORK SECTION */}
+      <section id="work" className="px-5 md:px-10 pt-[40px] md:pt-[60px] pb-[100px] border-b border-black/10">
         <motion.h2 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -301,7 +301,7 @@ export default function App() {
           viewport={{ once: false, margin: "-100px" }}
           className="font-['Space_Grotesk'] text-[3.5rem] mb-[60px] tracking-[-1px] -ml-[0.05em] font-normal"
         >
-          Featured
+          Work
         </motion.h2>
         
         <motion.div 
@@ -360,11 +360,92 @@ export default function App() {
           <div className="break-inside-avoid">
             <motion.div variants={staggerItem} className="mb-[15px]">
               <h3 className="font-['Space_Grotesk'] text-[2.2rem] mb-[5px] tracking-[-1px] -ml-[0.02em] font-normal">The Metaverse</h3>
-              <div className="text-[0.6rem] uppercase tracking-[1px] opacity-50">3D ANIMATION / ARTWORK</div>
+              <div className="text-[0.6rem] uppercase tracking-[1px] opacity-50">3D ANIMATION / INTERACTIVE</div>
             </motion.div>
             <motion.div variants={staggerItem} className="w-full h-auto aspect-[16/9] bg-[#E0E0E0]"></motion.div>
           </div>
         </motion.div>
+      </section>
+
+      {/* ARTWORK SECTION */}
+      <section id="artwork" className="px-5 md:px-10 pt-[100px] pb-[100px] border-b border-black/10">
+        <motion.h2 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ type: "spring", duration: 1.5, bounce: 0 }}
+          viewport={{ once: false, margin: "-100px" }}
+          className="font-['Space_Grotesk'] text-[3.5rem] mb-[60px] tracking-[-1px] -ml-[0.05em] font-normal"
+        >
+          Artwork
+        </motion.h2>
+        
+        <motion.div 
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: false, margin: "-100px" }}
+          className="columns-1 md:columns-2 lg:columns-3 gap-[30px] space-y-[30px]"
+        >
+          <div className="break-inside-avoid">
+            <motion.div variants={staggerItem} className="mb-[15px]">
+              <h3 className="font-['Space_Grotesk'] text-[2.2rem] mb-[5px] tracking-[-1px] -ml-[0.02em] font-normal">Abstract Form 01</h3>
+              <div className="text-[0.6rem] uppercase tracking-[1px] opacity-50">CGI / EXPERIMENTAL</div>
+            </motion.div>
+            <motion.div variants={staggerItem} className="w-full h-auto aspect-[3/4] bg-[#E0E0E0]"></motion.div>
+          </div>
+
+          <div className="break-inside-avoid">
+            <motion.div variants={staggerItem} className="mb-[15px]">
+              <h3 className="font-['Space_Grotesk'] text-[2.2rem] mb-[5px] tracking-[-1px] -ml-[0.02em] font-normal">Light Study</h3>
+              <div className="text-[0.6rem] uppercase tracking-[1px] opacity-50">RENDERING / 3D</div>
+            </motion.div>
+            <motion.div variants={staggerItem} className="w-full h-auto aspect-square bg-[#E0E0E0]"></motion.div>
+          </div>
+
+          <div className="break-inside-avoid">
+            <motion.div variants={staggerItem} className="mb-[15px]">
+              <h3 className="font-['Space_Grotesk'] text-[2.2rem] mb-[5px] tracking-[-1px] -ml-[0.02em] font-normal">Fluid Dynamics</h3>
+              <div className="text-[0.6rem] uppercase tracking-[1px] opacity-50">SIMULATION</div>
+            </motion.div>
+            <motion.div variants={staggerItem} className="w-full h-auto aspect-[4/5] bg-[#E0E0E0]"></motion.div>
+          </div>
+        </motion.div>
+      </section>
+
+      {/* ABOUT SECTION */}
+      <section id="about" className="px-5 md:px-10 pt-[100px] pb-[100px] border-b border-black/10">
+        <motion.h2 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ type: "spring", duration: 1.5, bounce: 0 }}
+          viewport={{ once: false, margin: "-100px" }}
+          className="font-['Space_Grotesk'] text-[3.5rem] mb-[60px] tracking-[-1px] -ml-[0.05em] font-normal"
+        >
+          About
+        </motion.h2>
+        
+        <div className="flex flex-col md:flex-row gap-10 md:gap-20">
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ type: "spring", duration: 1.5, bounce: 0 }}
+            viewport={{ once: false, margin: "-100px" }}
+            className="w-full md:w-1/3 lg:w-1/4 h-auto aspect-[3/4] bg-[#E0E0E0]"
+          ></motion.div>
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ type: "spring", duration: 1.5, bounce: 0, delay: 0.2 }}
+            viewport={{ once: false, margin: "-100px" }}
+            className="w-full md:w-2/3 flex flex-col justify-center"
+          >
+            <div className="font-['Geist_Mono'] text-[1rem] md:text-[1.1rem] leading-[1.6] opacity-70 mb-8 max-w-[600px]">
+              Hi, I'm Howard Lee. I am a motion and visual designer from Hong Kong, based in Taiwan, working globally. I specialize in creating immersive digital experiences, 3D animations, and interactive interfaces.
+              <br/><br/>
+              My design philosophy is rooted in minimalism, where less is more. I believe that elegant typography, smooth motion, and clean layouts are the keys to a timeless digital presence.
+            </div>
+          </motion.div>
+        </div>
       </section>
 
       {/* FOOTER SECTION */}
