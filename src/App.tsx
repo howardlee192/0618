@@ -234,33 +234,60 @@ export default function App() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: false, margin: "-100px" }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-[30px] items-start"
+          className="columns-1 md:columns-2 lg:columns-3 gap-[30px] space-y-[30px]"
         >
           {/* Project 1 */}
-          <div className="mb-10 md:mb-0">
+          <div className="break-inside-avoid">
             <motion.div variants={staggerItem} className="mb-[15px]">
               <h3 className="font-['Space_Grotesk'] text-[2.2rem] mb-[5px] tracking-[-1px] -ml-[0.02em] font-normal">Nike Swoosh 1</h3>
               <div className="text-[0.6rem] uppercase tracking-[1px] opacity-50">CAMPAIGN / POP-UP</div>
             </motion.div>
-            <motion.div variants={staggerItem} className="w-full aspect-square bg-[#E0E0E0] mb-5"></motion.div>
+            <motion.div variants={staggerItem} className="w-full h-auto aspect-[4/5] bg-[#E0E0E0]"></motion.div>
           </div>
 
           {/* Project 2 */}
-          <div className="mb-10 md:mb-0 md:mt-[100px]">
+          <div className="break-inside-avoid">
             <motion.div variants={staggerItem} className="mb-[15px]">
               <h3 className="font-['Space_Grotesk'] text-[2.2rem] mb-[5px] tracking-[-1px] -ml-[0.02em] font-normal">Journey To Edge</h3>
               <div className="text-[0.6rem] uppercase tracking-[1px] opacity-50">EXPERIENCE DESIGN / CONTENT CREATION</div>
             </motion.div>
-            <motion.div variants={staggerItem} className="w-full aspect-[4/5] bg-[#E0E0E0] mb-5"></motion.div>
+            <motion.div variants={staggerItem} className="w-full h-auto aspect-[16/9] bg-[#E0E0E0]"></motion.div>
           </div>
 
           {/* Project 3 */}
-          <div className="mb-10 md:mb-0">
+          <div className="break-inside-avoid">
             <motion.div variants={staggerItem} className="mb-[15px]">
               <h3 className="font-['Space_Grotesk'] text-[2.2rem] mb-[5px] tracking-[-1px] -ml-[0.02em] font-normal">Illuminarium</h3>
               <div className="text-[0.6rem] uppercase tracking-[1px] opacity-50">EXPERIENCE DESIGN / CONTENT CREATION</div>
             </motion.div>
-            <motion.div variants={staggerItem} className="w-full aspect-[3/4] bg-[#E0E0E0] mb-5"></motion.div>
+            <motion.div variants={staggerItem} className="w-full h-auto aspect-[3/4] bg-[#E0E0E0]"></motion.div>
+          </div>
+
+          {/* Project 4 */}
+          <div className="break-inside-avoid">
+            <motion.div variants={staggerItem} className="mb-[15px]">
+              <h3 className="font-['Space_Grotesk'] text-[2.2rem] mb-[5px] tracking-[-1px] -ml-[0.02em] font-normal">Cosmic Flow</h3>
+              <div className="text-[0.6rem] uppercase tracking-[1px] opacity-50">MOTION / VISUAL DESIGN</div>
+            </motion.div>
+            <motion.div variants={staggerItem} className="w-full h-auto aspect-square bg-[#E0E0E0]"></motion.div>
+          </div>
+
+          {/* Project 5 */}
+          <div className="break-inside-avoid">
+            <motion.div variants={staggerItem} className="mb-[15px]">
+              <h3 className="font-['Space_Grotesk'] text-[2.2rem] mb-[5px] tracking-[-1px] -ml-[0.02em] font-normal">Digital Architecture</h3>
+              <div className="text-[0.6rem] uppercase tracking-[1px] opacity-50">BRANDING / INTERACTION</div>
+            </motion.div>
+            <motion.div variants={staggerItem} className="w-full h-auto aspect-[4/5] bg-[#E0E0E0]"></motion.div>
+          </div>
+
+          {/* Project 6 */}
+          <div className="break-inside-avoid">
+            <motion.div variants={staggerItem} className="mb-[15px]">
+              <h3 className="font-['Space_Grotesk'] text-[2.2rem] mb-[5px] tracking-[-1px] -ml-[0.02em] font-normal">The Metaverse</h3>
+              <div className="text-[0.6rem] uppercase tracking-[1px] opacity-50">3D ANIMATION / ARTWORK</div>
+            </motion.div>
+            <motion.div variants={staggerItem} className="w-full h-auto aspect-[16/9] bg-[#E0E0E0]"></motion.div>
           </div>
         </motion.div>
       </section>
