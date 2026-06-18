@@ -290,7 +290,7 @@ function About() {
     ],
     CHN: [
       {
-        title: 'Education',
+        title: '教育背景',
         items: [
           { left: '設計藝術碩士 (MFA)', right: '視覺藝術學院 (SVA), 2024' },
           { left: '動態影像設計學士 (BFA)', right: '薩凡納藝術設計學院 (SCAD), 2022' },
@@ -298,7 +298,7 @@ function About() {
         ]
       },
       {
-        title: 'Experience',
+        title: '工作經歷',
         items: [
           { left: '資深動態設計師', right: 'Buck Design, 2024-現在' },
           { left: '視覺設計師', right: 'Pentagram, 2022-2024' },
@@ -306,7 +306,7 @@ function About() {
         ]
       },
       {
-        title: 'Exhibition',
+        title: '展覽經歷',
         items: [
           { left: 'Digital Horizons', right: 'MoMA PS1, 2024' },
           { left: 'Future of Motion', right: '泰特現代藝術館, 2023' },
@@ -314,7 +314,7 @@ function About() {
         ]
       },
       {
-        title: 'Awards',
+        title: '獲獎紀錄',
         items: [
           { left: 'D&AD 黃鉛筆獎', right: '動畫類, 2024' },
           { left: '紐約字體指導俱樂部 (TDC)', right: '卓越排版設計獎, 2023' },
