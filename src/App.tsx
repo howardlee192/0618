@@ -479,17 +479,19 @@ function About() {
                   transition={{ duration: 0.5, ease: [0.76, 0, 0.24, 1] }}
                   className="overflow-hidden"
                 >
-                  <div className="pb-12 flex flex-col gap-6 md:gap-8">
-                    {section.items.map((item, itemIdx) => (
-                      <div key={itemIdx} className="flex flex-col md:flex-row justify-between md:items-center gap-2 md:gap-0">
-                        <span className={`font-['Space_Grotesk'] ${lang === 'CHN' ? "font-['Swei_Bow_Sans'] tracking-[0.05em] text-[1.1rem]" : "text-[1.2rem]"} w-full md:w-1/2`}>
-                          {item.left}
-                        </span>
-                        <span className={`font-['Geist_Mono'] ${lang === 'CHN' ? "font-['Swei_Bow_Sans'] tracking-[0.05em] text-[0.85rem]" : "tracking-[0.5px] text-sm"} opacity-50 uppercase text-left md:text-right w-full md:w-1/2`}>
-                          {item.right}
-                        </span>
-                      </div>
-                    ))}
+                  <div className="pb-12 flex justify-end">
+                    <div className="w-full md:w-[65%] lg:w-1/2 flex flex-col gap-6 md:gap-8">
+                      {section.items.map((item, itemIdx) => (
+                        <div key={itemIdx} className="flex flex-col md:flex-row justify-between md:items-center gap-2 md:gap-0">
+                          <span className={`font-['Space_Grotesk'] ${lang === 'CHN' ? "font-['Swei_Bow_Sans'] tracking-[0.05em] text-[1.1rem]" : "text-[1.2rem]"} w-full md:w-1/2`}>
+                            {item.left}
+                          </span>
+                          <span className={`font-['Geist_Mono'] ${lang === 'CHN' ? "font-['Swei_Bow_Sans'] tracking-[0.05em] text-[0.85rem]" : "tracking-[0.5px] text-sm"} opacity-50 uppercase text-left md:text-right w-full md:w-1/2`}>
+                            {item.right}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </motion.div>
               )}
