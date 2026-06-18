@@ -43,6 +43,29 @@ const HoverReveal = ({ children }: { children: React.ReactNode }) => {
   );
 };
 
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+    },
+  },
+};
+
+const staggerItem = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    transition: {
+      type: "spring",
+      duration: 2,
+      bounce: 0,
+    }
+  },
+};
+
 export default function App() {
   useEffect(() => {
     const lenis = new Lenis({
@@ -182,36 +205,50 @@ export default function App() {
 
       {/* PORTFOLIO SECTION */}
       <section id="projects" className="px-5 md:px-10 pt-[40px] md:pt-[60px] pb-[100px] border-b border-black/10">
-        <h2 className="font-['Space_Grotesk'] text-[3.5rem] mb-[60px] tracking-[-1px] -ml-[0.05em] font-normal">Featured</h2>
+        <motion.h2 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ type: "spring", duration: 1.5, bounce: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          className="font-['Space_Grotesk'] text-[3.5rem] mb-[60px] tracking-[-1px] -ml-[0.05em] font-normal"
+        >
+          Featured
+        </motion.h2>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-[30px] items-start">
+        <motion.div 
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          className="grid grid-cols-1 md:grid-cols-3 gap-[30px] items-start"
+        >
           {/* Project 1 */}
           <div className="mb-10 md:mb-0">
-            <div className="mb-[15px]">
+            <motion.div variants={staggerItem} className="mb-[15px]">
               <h3 className="font-['Space_Grotesk'] text-[2.2rem] mb-[5px] tracking-[-1px] -ml-[0.02em] font-normal">Nike Swoosh 1</h3>
               <div className="text-[0.6rem] uppercase tracking-[1px] opacity-50">CAMPAIGN / POP-UP</div>
-            </div>
-            <div className="w-full aspect-square bg-[#E0E0E0] mb-5"></div>
+            </motion.div>
+            <motion.div variants={staggerItem} className="w-full aspect-square bg-[#E0E0E0] mb-5"></motion.div>
           </div>
 
           {/* Project 2 */}
           <div className="mb-10 md:mb-0 md:mt-[100px]">
-            <div className="mb-[15px]">
+            <motion.div variants={staggerItem} className="mb-[15px]">
               <h3 className="font-['Space_Grotesk'] text-[2.2rem] mb-[5px] tracking-[-1px] -ml-[0.02em] font-normal">Journey To Edge</h3>
               <div className="text-[0.6rem] uppercase tracking-[1px] opacity-50">EXPERIENCE DESIGN / CONTENT CREATION</div>
-            </div>
-            <div className="w-full aspect-[4/5] bg-[#E0E0E0] mb-5"></div>
+            </motion.div>
+            <motion.div variants={staggerItem} className="w-full aspect-[4/5] bg-[#E0E0E0] mb-5"></motion.div>
           </div>
 
           {/* Project 3 */}
           <div className="mb-10 md:mb-0">
-            <div className="mb-[15px]">
+            <motion.div variants={staggerItem} className="mb-[15px]">
               <h3 className="font-['Space_Grotesk'] text-[2.2rem] mb-[5px] tracking-[-1px] -ml-[0.02em] font-normal">Illuminarium</h3>
               <div className="text-[0.6rem] uppercase tracking-[1px] opacity-50">EXPERIENCE DESIGN / CONTENT CREATION</div>
-            </div>
-            <div className="w-full aspect-[3/4] bg-[#E0E0E0] mb-5"></div>
+            </motion.div>
+            <motion.div variants={staggerItem} className="w-full aspect-[3/4] bg-[#E0E0E0] mb-5"></motion.div>
           </div>
-        </div>
+        </motion.div>
       </section>
 
       {/* FOOTER SECTION */}
