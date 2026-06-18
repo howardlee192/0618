@@ -251,6 +251,78 @@ function Artwork() {
 function About() {
   useEffect(() => { document.title = "Howard Lee - About"; }, []);
   const [lang, setLang] = useState<'ENG' | 'CHN'>('ENG');
+  const [openSection, setOpenSection] = useState<string | null>(null);
+
+  const resumeData = {
+    ENG: [
+      {
+        title: 'Education',
+        items: [
+          { left: 'MFA in Design', right: 'School of Visual Arts, 2024' },
+          { left: 'BFA in Motion Graphics', right: 'Savannah College of Art and Design, 2022' },
+          { left: 'Exchange Program', right: 'Central Saint Martins, 2021' }
+        ]
+      },
+      {
+        title: 'Experience',
+        items: [
+          { left: 'Senior Motion Designer', right: 'Buck Design, 2024-Present' },
+          { left: 'Visual Designer', right: 'Pentagram, 2022-2024' },
+          { left: 'Design Intern', right: 'Google Creative Lab, 2021-2022' }
+        ]
+      },
+      {
+        title: 'Exhibition',
+        items: [
+          { left: 'Digital Horizons', right: 'MoMA PS1, 2024' },
+          { left: 'Future of Motion', right: 'Tate Modern, 2023' },
+          { left: 'New Media Showcase', right: 'Ars Electronica, 2022' }
+        ]
+      },
+      {
+        title: 'Awards',
+        items: [
+          { left: 'D&AD Yellow Pencil', right: 'Animation, 2024' },
+          { left: 'Type Directors Club', right: 'Certificate of Typographic Excellence, 2023' },
+          { left: 'Webby Awards', right: 'Best Visual Design, 2022' }
+        ]
+      }
+    ],
+    CHN: [
+      {
+        title: 'Education',
+        items: [
+          { left: '設計藝術碩士 (MFA)', right: '視覺藝術學院 (SVA), 2024' },
+          { left: '動態影像設計學士 (BFA)', right: '薩凡納藝術設計學院 (SCAD), 2022' },
+          { left: '交換生計畫', right: '中央聖馬丁藝術與設計學院, 2021' }
+        ]
+      },
+      {
+        title: 'Experience',
+        items: [
+          { left: '資深動態設計師', right: 'Buck Design, 2024-現在' },
+          { left: '視覺設計師', right: 'Pentagram, 2022-2024' },
+          { left: '設計實習生', right: 'Google Creative Lab, 2021-2022' }
+        ]
+      },
+      {
+        title: 'Exhibition',
+        items: [
+          { left: 'Digital Horizons', right: 'MoMA PS1, 2024' },
+          { left: 'Future of Motion', right: '泰特現代藝術館, 2023' },
+          { left: 'New Media Showcase', right: '林茲電子藝術節, 2022' }
+        ]
+      },
+      {
+        title: 'Awards',
+        items: [
+          { left: 'D&AD 黃鉛筆獎', right: '動畫類, 2024' },
+          { left: '紐約字體指導俱樂部 (TDC)', right: '卓越排版設計獎, 2023' },
+          { left: '威比獎 (Webby Awards)', right: '最佳視覺設計, 2022' }
+        ]
+      }
+    ]
+  };
 
   const content = {
     ENG: {
@@ -379,8 +451,50 @@ function About() {
             <p className={`font-['Geist_Mono'] ${lang === 'CHN' ? "font-['Swei_Bow_Sans'] text-[1rem] leading-[2] tracking-[0.05em]" : "text-[0.9rem] leading-[1.6]"} opacity-70`}>
               {text.desc3}
             </p>
-          </motion.div>
         </div>
+      </div>
+
+      {/* Accordion Resume Section */}
+      <div className="mt-32 max-w-[1200px]">
+        {resumeData[lang].map((section, idx) => (
+          <div key={idx} className="border-t border-black/10 first:border-t-0">
+            <button 
+              onClick={() => setOpenSection(openSection === section.title ? null : section.title)}
+              className="w-full py-8 md:py-12 flex justify-between items-center text-left hover:opacity-70 transition-opacity"
+            >
+              <h4 className="font-['Space_Grotesk'] text-2xl md:text-4xl tracking-[-1px] uppercase">
+                {section.title}
+              </h4>
+              <span className="font-['Geist_Mono'] text-2xl font-light">
+                {openSection === section.title ? '−' : '+'}
+              </span>
+            </button>
+            <AnimatePresence>
+              {openSection === section.title && (
+                <motion.div 
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ height: "auto", opacity: 1 }}
+                  exit={{ height: 0, opacity: 0 }}
+                  transition={{ duration: 0.5, ease: [0.76, 0, 0.24, 1] }}
+                  className="overflow-hidden"
+                >
+                  <div className="pb-12 flex flex-col gap-6 md:gap-8">
+                    {section.items.map((item, itemIdx) => (
+                      <div key={itemIdx} className="flex flex-col md:flex-row justify-between md:items-center gap-2 md:gap-0">
+                        <span className={`font-['Space_Grotesk'] ${lang === 'CHN' ? "font-['Swei_Bow_Sans'] tracking-[0.05em] text-[1.1rem]" : "text-[1.2rem]"} w-full md:w-1/2`}>
+                          {item.left}
+                        </span>
+                        <span className={`font-['Geist_Mono'] ${lang === 'CHN' ? "font-['Swei_Bow_Sans'] tracking-[0.05em] text-[0.85rem]" : "tracking-[0.5px] text-sm"} opacity-50 uppercase text-left md:text-right w-full md:w-1/2`}>
+                          {item.right}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+        ))}
       </div>
     </section>
   );
