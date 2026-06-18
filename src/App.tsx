@@ -110,7 +110,7 @@ export default function App() {
         </header>
 
         <div className="flex-1 flex flex-col justify-start items-start py-[12vh]">
-          <div className="font-['Space_Grotesk'] text-[clamp(1.8rem,4.5vw,4.95rem)] leading-[1.1] tracking-[-2px] max-w-[80%] -ml-[0.04em]">
+          <div className="font-['Space_Grotesk'] text-[clamp(1.8rem,4.5vw,4.95rem)] leading-[0.95] tracking-[-2px] max-w-[80%] -ml-[0.04em]">
             <div className="flex items-center flex-wrap uppercase gap-10 md:gap-20">
               <HoverReveal>
                 <Text3DFlip
@@ -137,7 +137,7 @@ export default function App() {
                 </Text3DFlip>
               </HoverReveal>
             </div>
-            <div className="flex items-center flex-wrap uppercase mt-4 md:mt-6 gap-10 md:gap-20">
+            <div className="flex items-center flex-wrap uppercase mt-2 md:mt-4 gap-10 md:gap-20">
               <HoverReveal>
                 <Text3DFlip
                   className="bg-[#F4F3ED]"
@@ -163,7 +163,7 @@ export default function App() {
                 </Text3DFlip>
               </HoverReveal>
             </div>
-            <div className="mt-16 md:mt-24 flex items-center gap-4">
+            <div className="mt-12 md:mt-16 flex items-center gap-4">
               <span>FROM</span>
               <HoverReveal>
                 <Text3DFlip
@@ -178,7 +178,7 @@ export default function App() {
                 </Text3DFlip>
               </HoverReveal>
             </div>
-            <div className="mt-4 md:mt-6 flex items-center gap-4">
+            <div className="mt-2 md:mt-4 flex items-center gap-4">
               <span>BASED IN</span>
               <HoverReveal>
                 <Text3DFlip
@@ -193,7 +193,7 @@ export default function App() {
                 </Text3DFlip>
               </HoverReveal>
             </div>
-            <div className="mt-4 md:mt-6">WORKING GLOBALLY.</div>
+            <div className="mt-2 md:mt-4">WORKING GLOBALLY.</div>
           </div>
         </div>
 
