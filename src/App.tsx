@@ -451,6 +451,7 @@ function About() {
             <p className={`font-['Geist_Mono'] ${lang === 'CHN' ? "font-['Swei_Bow_Sans'] text-[1rem] leading-[2] tracking-[0.05em]" : "text-[0.9rem] leading-[1.6]"} opacity-70`}>
               {text.desc3}
             </p>
+          </motion.div>
         </div>
       </div>
 
