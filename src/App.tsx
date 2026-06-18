@@ -122,33 +122,25 @@ function ProjectsGrid() {
   );
 }
 
-function ParallaxDivider() {
-  const container = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: container,
-    offset: ["start end", "end start"]
-  });
 
-  const y = useTransform(scrollYProgress, [0, 1], ["-20%", "20%"]);
-
-  return (
-    <div ref={container} className="w-full h-[50vh] md:h-[70vh] overflow-hidden relative border-b border-black/10">
-      <motion.div style={{ y }} className="absolute -inset-[20%] w-[140%] h-[140%] bg-[#E0E0E0]">
-        <img 
-          src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop" 
-          alt="Transition artwork"
-          className="w-full h-full object-cover grayscale opacity-60"
-        />
-      </motion.div>
-    </div>
-  );
-}
 
 function Home() {
   useEffect(() => { document.title = "Howard Lee - Home"; }, []);
+  
+  const heroRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end start"]
+  });
+  
+  // Hero section moves down at half speed, fading out
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
+  const opacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
+
   return (
     <>
-      <section className="flex flex-col relative border-b border-black/10">
+      <div ref={heroRef} className="relative z-0">
+        <motion.section style={{ y, opacity }} className="flex flex-col relative border-b border-black/10">
         <div className="flex-1 flex flex-col justify-start items-start py-[12vh]">
           <div className="font-['Space_Grotesk'] text-[clamp(1.8rem,4.5vw,4.95rem)] leading-[0.95] tracking-[-2px] max-w-[80%] -ml-[0.04em]">
             <div className="flex items-center flex-wrap uppercase gap-10 md:gap-20">
@@ -173,11 +165,10 @@ function Home() {
             <div className="mt-2 md:mt-4">WORKING GLOBALLY.</div>
           </div>
         </div>
-      </section>
+        </motion.section>
+      </div>
 
-      <ParallaxDivider />
-
-      <section className="pt-[40px] md:pt-[60px] pb-[100px] border-b border-black/10">
+      <section className="relative z-10 bg-[#F4F3ED] pt-[40px] md:pt-[60px] pb-[100px] border-b border-black/10">
         <motion.h2 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
