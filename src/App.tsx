@@ -498,7 +498,7 @@ function About() {
         items: [
           { left: '2026', right: 'Young Ones ADC: Design for Good, 銅立方獎, 紐約' },
           { left: '2025', right: '臺灣國際學生創意設計大賽 (TISDC), 銅獎, 台灣' },
-          { left: '2021, 2023', right: '「躍進．創意」獎學金 (動畫與雕塑), 香港' }
+          { left: '2021, 2023', right: '鵬程創意獎學金 (動畫與雕塑), 香港' }
         ]
       }
     ]
