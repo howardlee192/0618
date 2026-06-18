@@ -495,7 +495,7 @@ function About() {
   const content = {
     ENG: {
       intro: "I've always believed that elegant motion and thoughtful visual design can elevate a digital experience from good to unforgettable.",
-      role: "Howard Lee, Motion & Visual Designer",
+      role: "Howard Lee, Motion & Visual Designer / Artist",
       title1: "01. Storytelling through Motion",
       desc1: "I specialize in crafting narratives that guide users seamlessly. Every animation and interaction is purposefully designed to tell a compelling story, ensuring the design speaks directly and emotionally to the audience.",
       title2: "02. Core Capabilities",
@@ -505,7 +505,7 @@ function About() {
     },
     CHN: {
       intro: "我始終相信，優雅的動態與深思熟慮的視覺設計，能將數位體驗從優秀昇華至令人難忘的境界。",
-      role: "李浩勤, 動態與視覺設計師",
+      role: "李浩勤, 動態與視覺設計師 / 藝術家",
       title1: "01. 透過動態述說故事",
       desc1: "我擅長打造流暢引導使用者的敘事體驗。每一個動畫與互動都經過精心設計，旨在講述引人入勝的故事，確保設計能與受眾產生直接且深刻的情感共鳴。",
       title2: "02. 核心技能領域",
@@ -760,7 +760,7 @@ function Layout({ children }: { children: React.ReactNode }) {
         <header className="flex justify-between items-start text-[0.75rem] uppercase tracking-[0.5px]">
           <div className="flex flex-col md:flex-row md:items-center">
             <Link to="/" className="font-normal -ml-[0.05em] hover:opacity-70 transition-opacity">HOWARD LEE</Link>
-            <span className="opacity-60 ml-0 md:ml-[clamp(40px,15vw,200px)] hidden sm:block">MOTION / VISUAL DESIGNER</span>
+            <span className="opacity-60 ml-0 md:ml-[clamp(40px,15vw,200px)] hidden sm:block">MOTION / VISUAL DESIGNER / ARTIST</span>
           </div>
           <button onClick={() => setIsMenuOpen(true)} className="hover:opacity-60 transition-opacity">
             <Menu size={20} />
