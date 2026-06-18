@@ -251,7 +251,7 @@ function Artwork() {
 function About() {
   useEffect(() => { document.title = "Howard Lee - About"; }, []);
   return (
-    <section className="pt-[40px] md:pt-[60px] pb-[150px] md:pb-[300px] min-h-[80vh]">
+    <section className="pt-[40px] md:pt-[60px] pb-[100px] min-h-[80vh]">
       <motion.h2 
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -338,13 +338,6 @@ function About() {
 function Layout({ children }: { children: React.ReactNode }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
-
-  const footerRef = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: footerRef,
-    offset: ["start end", "end end"]
-  });
-  const footerY = useTransform(scrollYProgress, [0, 1], ["50%", "0%"]);
 
   useEffect(() => {
     const lenis = new Lenis({
@@ -441,39 +434,40 @@ function Layout({ children }: { children: React.ReactNode }) {
           {children}
         </div>
 
-        <div className="relative overflow-hidden w-full">
-          <motion.footer 
-            ref={footerRef}
-            style={{ y: footerY }}
-            className="pt-[100px] pb-[20px]"
-          >
-            <div className="text-[0.75rem] uppercase mb-10 tracking-[0.5px]">GET IN TOUCH</div>
-          
-          <div className="flex flex-col gap-[15px] mb-[120px]">
-            {[
-              { label: "MAIL", text: <>LEEHOKAN<br className="block lg:hidden" />192@GMAIL.COM</>, href: "mailto:leehokan192@gmail.com" },
-              { label: "FOLLOW", text: "INSTAGRAM", href: "https://www.instagram.com/howard_lhk/", target: "_blank" },
-              { label: "VIEW", text: "BEHANCE", href: "https://www.behance.net/hokanlee", target: "_blank" },
-              { label: "VIEW", text: "VIMEO", href: "https://vimeo.com/user177460868", target: "_blank" }
-            ].map((item, i) => (
-              <div key={i} className="flex items-start max-w-full">
-                <a 
-                  href={item.href}
-                  target={item.target}
-                  rel={item.target ? "noopener noreferrer" : undefined}
-                  className="font-['Space_Grotesk'] text-[clamp(2rem,8vw,7rem)] leading-[1] tracking-[-2px] -ml-[0.04em] hover:opacity-70 transition-opacity break-all md:break-normal"
-                >
-                  {item.text}
-                </a>
-                <span className="text-[0.5rem] uppercase opacity-50 mt-[5px] ml-[10px] shrink-0">{item.label}</span>
+        {/* Sticky Parallax Footer */}
+        <div 
+          className="relative h-[80vh] md:h-[100vh]"
+          style={{ clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" }}
+        >
+          <div className="fixed bottom-0 left-0 w-full h-[80vh] md:h-[100vh] p-5 md:px-10 pb-[20px] pt-[80px] md:pt-[100px] flex flex-col justify-between">
+            <div>
+              <div className="text-[0.75rem] uppercase mb-10 tracking-[0.5px]">GET IN TOUCH</div>
+              <div className="flex flex-col gap-[15px]">
+                {[
+                  { label: "MAIL", text: <>LEEHOKAN<br className="block lg:hidden" />192@GMAIL.COM</>, href: "mailto:leehokan192@gmail.com" },
+                  { label: "FOLLOW", text: "INSTAGRAM", href: "https://www.instagram.com/howard_lhk/", target: "_blank" },
+                  { label: "VIEW", text: "BEHANCE", href: "https://www.behance.net/hokanlee", target: "_blank" },
+                  { label: "VIEW", text: "VIMEO", href: "https://vimeo.com/user177460868", target: "_blank" }
+                ].map((item, i) => (
+                  <div key={i} className="flex items-start max-w-full">
+                    <a 
+                      href={item.href}
+                      target={item.target}
+                      rel={item.target ? "noopener noreferrer" : undefined}
+                      className="font-['Space_Grotesk'] text-[clamp(2rem,8vw,7rem)] leading-[1] tracking-[-2px] -ml-[0.04em] hover:opacity-70 transition-opacity break-all md:break-normal"
+                    >
+                      {item.text}
+                    </a>
+                    <span className="text-[0.5rem] uppercase opacity-50 mt-[5px] ml-[10px] shrink-0">{item.label}</span>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
+            </div>
 
-          <div className="flex justify-between text-[0.75rem] uppercase tracking-[0.5px]">
-            <div>AVAILABLE FOR WORK</div>
+            <div className="flex justify-between text-[0.75rem] uppercase tracking-[0.5px]">
+              <div>AVAILABLE FOR WORK</div>
+            </div>
           </div>
-          </motion.footer>
         </div>
       </div>
     </div>
