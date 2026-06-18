@@ -67,7 +67,23 @@ const staggerItem = {
   },
 };
 
-function ProjectsGrid() {
+const staggerItemBlur = {
+  hidden: { opacity: 0, y: 30, filter: "blur(10px)" },
+  visible: {
+    opacity: 1,
+    y: 0,
+    filter: "blur(0px)",
+    transition: {
+      type: "spring",
+      duration: 2,
+      bounce: 0,
+    }
+  },
+};
+
+function ProjectsGrid({ useBlur = false }: { useBlur?: boolean }) {
+  const itemVariant = useBlur ? staggerItemBlur : staggerItem;
+
   return (
     <motion.div
       variants={staggerContainer}
@@ -77,46 +93,46 @@ function ProjectsGrid() {
       className="columns-1 md:columns-2 lg:columns-3 gap-[30px] space-y-[30px]"
     >
       <div className="break-inside-avoid">
-        <motion.div variants={staggerItem} className="mb-[15px]">
+        <motion.div variants={itemVariant} className="mb-[15px]">
           <h3 className="font-['Space_Grotesk'] text-[2.2rem] mb-[5px] tracking-[-1px] -ml-[0.02em] font-normal">Nike Swoosh 1</h3>
           <div className="text-[0.6rem] uppercase tracking-[1px] opacity-50">CAMPAIGN / POP-UP</div>
         </motion.div>
-        <motion.div variants={staggerItem} className="w-full h-auto aspect-[4/5] bg-[#E0E0E0]"></motion.div>
+        <motion.div variants={itemVariant} className="w-full h-auto aspect-[4/5] bg-[#E0E0E0]"></motion.div>
       </div>
       <div className="break-inside-avoid">
-        <motion.div variants={staggerItem} className="mb-[15px]">
+        <motion.div variants={itemVariant} className="mb-[15px]">
           <h3 className="font-['Space_Grotesk'] text-[2.2rem] mb-[5px] tracking-[-1px] -ml-[0.02em] font-normal">Journey To Edge</h3>
           <div className="text-[0.6rem] uppercase tracking-[1px] opacity-50">EXPERIENCE DESIGN / CONTENT CREATION</div>
         </motion.div>
-        <motion.div variants={staggerItem} className="w-full h-auto aspect-[16/9] bg-[#E0E0E0]"></motion.div>
+        <motion.div variants={itemVariant} className="w-full h-auto aspect-[16/9] bg-[#E0E0E0]"></motion.div>
       </div>
       <div className="break-inside-avoid">
-        <motion.div variants={staggerItem} className="mb-[15px]">
+        <motion.div variants={itemVariant} className="mb-[15px]">
           <h3 className="font-['Space_Grotesk'] text-[2.2rem] mb-[5px] tracking-[-1px] -ml-[0.02em] font-normal">Illuminarium</h3>
           <div className="text-[0.6rem] uppercase tracking-[1px] opacity-50">EXPERIENCE DESIGN / CONTENT CREATION</div>
         </motion.div>
-        <motion.div variants={staggerItem} className="w-full h-auto aspect-[3/4] bg-[#E0E0E0]"></motion.div>
+        <motion.div variants={itemVariant} className="w-full h-auto aspect-[3/4] bg-[#E0E0E0]"></motion.div>
       </div>
       <div className="break-inside-avoid">
-        <motion.div variants={staggerItem} className="mb-[15px]">
+        <motion.div variants={itemVariant} className="mb-[15px]">
           <h3 className="font-['Space_Grotesk'] text-[2.2rem] mb-[5px] tracking-[-1px] -ml-[0.02em] font-normal">Cosmic Flow</h3>
           <div className="text-[0.6rem] uppercase tracking-[1px] opacity-50">MOTION / VISUAL DESIGN</div>
         </motion.div>
-        <motion.div variants={staggerItem} className="w-full h-auto aspect-square bg-[#E0E0E0]"></motion.div>
+        <motion.div variants={itemVariant} className="w-full h-auto aspect-square bg-[#E0E0E0]"></motion.div>
       </div>
       <div className="break-inside-avoid">
-        <motion.div variants={staggerItem} className="mb-[15px]">
+        <motion.div variants={itemVariant} className="mb-[15px]">
           <h3 className="font-['Space_Grotesk'] text-[2.2rem] mb-[5px] tracking-[-1px] -ml-[0.02em] font-normal">Digital Architecture</h3>
           <div className="text-[0.6rem] uppercase tracking-[1px] opacity-50">BRANDING / INTERACTION</div>
         </motion.div>
-        <motion.div variants={staggerItem} className="w-full h-auto aspect-[4/5] bg-[#E0E0E0]"></motion.div>
+        <motion.div variants={itemVariant} className="w-full h-auto aspect-[4/5] bg-[#E0E0E0]"></motion.div>
       </div>
       <div className="break-inside-avoid">
-        <motion.div variants={staggerItem} className="mb-[15px]">
+        <motion.div variants={itemVariant} className="mb-[15px]">
           <h3 className="font-['Space_Grotesk'] text-[2.2rem] mb-[5px] tracking-[-1px] -ml-[0.02em] font-normal">The Metaverse</h3>
           <div className="text-[0.6rem] uppercase tracking-[1px] opacity-50">3D ANIMATION / INTERACTIVE</div>
         </motion.div>
-        <motion.div variants={staggerItem} className="w-full h-auto aspect-[16/9] bg-[#E0E0E0]"></motion.div>
+        <motion.div variants={itemVariant} className="w-full h-auto aspect-[16/9] bg-[#E0E0E0]"></motion.div>
       </div>
     </motion.div>
   );
@@ -178,7 +194,7 @@ function Home() {
         >
           Featured
         </motion.h2>
-        <ProjectsGrid />
+        <ProjectsGrid useBlur={true} />
       </section>
     </>
   );
