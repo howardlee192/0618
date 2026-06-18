@@ -22,7 +22,7 @@ export default function App() {
         </header>
 
         <div className="flex-1 flex flex-col justify-start items-start py-[12vh]">
-          <div className="font-['Space_Grotesk'] text-[clamp(2rem,5vw,5.5rem)] leading-[1.1] tracking-[-2px] max-w-[80%] -ml-[0.04em]">
+          <div className="font-['Space_Grotesk'] text-[clamp(1.8rem,4.5vw,4.95rem)] leading-[1.1] tracking-[-2px] max-w-[80%] -ml-[0.04em]">
             <div className="flex items-center flex-wrap uppercase">
               <Text3DFlip
                 className="bg-[#F4F3ED]"
