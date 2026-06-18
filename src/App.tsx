@@ -442,9 +442,8 @@ function About() {
       {
         title: 'Education',
         items: [
-          { left: 'MFA in Design', right: 'School of Visual Arts, 2024' },
-          { left: 'BFA in Motion Graphics', right: 'Savannah College of Art and Design, 2022' },
-          { left: 'Exchange Program', right: 'Central Saint Martins, 2021' }
+          { left: '2023 - Present', right: 'BFA in Communications Design, Shih Chien University, Taiwan (Animation & Moving Image Design)' },
+          { left: '2020 - 2023', right: 'Diploma, HKICC Lee Shau Kee School of Creativity, Hong Kong (Film and Video Arts)' }
         ]
       },
       {
@@ -456,19 +455,18 @@ function About() {
         ]
       },
       {
-        title: 'Exhibition',
+        title: 'Exhibitions',
         items: [
-          { left: 'Digital Horizons', right: 'MoMA PS1, 2024' },
-          { left: 'Future of Motion', right: 'Tate Modern, 2023' },
-          { left: 'New Media Showcase', right: 'Ars Electronica, 2022' }
+          { left: '2025', right: 'Taoyuan International Design Award, Taoyuan Arts Center, Taiwan' },
+          { left: '2023', right: 'HKSC Graduation Show 2023: undefined, Hong Kong' }
         ]
       },
       {
         title: 'Awards',
         items: [
-          { left: 'D&AD Yellow Pencil', right: 'Animation, 2024' },
-          { left: 'Type Directors Club', right: 'Certificate of Typographic Excellence, 2023' },
-          { left: 'Webby Awards', right: 'Best Visual Design, 2022' }
+          { left: '2026', right: 'Young Ones ADC: Design for Good, Bronze Cube, NYC' },
+          { left: '2025', right: 'Taiwan International Student Design Competition (TISDC), Bronze Prize, Taiwan' },
+          { left: '2021, 2023', right: 'Bright Future Creativity Scholarship (Animation & Sculpture), Hong Kong' }
         ]
       }
     ],
@@ -476,9 +474,8 @@ function About() {
       {
         title: '學歷',
         items: [
-          { left: '設計藝術碩士 (MFA)', right: '視覺藝術學院 (SVA), 2024' },
-          { left: '動態影像設計學士 (BFA)', right: '薩凡納藝術設計學院 (SCAD), 2022' },
-          { left: '交換生計畫', right: '中央聖馬丁藝術與設計學院, 2021' }
+          { left: '2023 - 迄今', right: '實踐大學 媒體傳達設計學系, 台灣 (動畫與動態影像設計)' },
+          { left: '2020 - 2023', right: '香港兆基創意書院, 香港 (電影與錄像藝術)' }
         ]
       },
       {
@@ -492,17 +489,16 @@ function About() {
       {
         title: '參展經歷',
         items: [
-          { left: 'Digital Horizons', right: 'MoMA PS1, 2024' },
-          { left: 'Future of Motion', right: '泰特現代藝術館, 2023' },
-          { left: 'New Media Showcase', right: '林茲電子藝術節, 2022' }
+          { left: '2025', right: '桃園國際設計獎, 桃園展演中心, 台灣' },
+          { left: '2023', right: '香港兆基創意書院 畢業展 2023：未定義, 香港' }
         ]
       },
       {
         title: '獎項',
         items: [
-          { left: 'D&AD 黃鉛筆獎', right: '動畫類, 2024' },
-          { left: '紐約字體指導俱樂部 (TDC)', right: '卓越排版設計獎, 2023' },
-          { left: '威比獎 (Webby Awards)', right: '最佳視覺設計, 2022' }
+          { left: '2026', right: 'Young Ones ADC: Design for Good, 銅立方獎, 紐約' },
+          { left: '2025', right: '臺灣國際學生創意設計大賽 (TISDC), 銅獎, 台灣' },
+          { left: '2021, 2023', right: '「躍進．創意」獎學金 (動畫與雕塑), 香港' }
         ]
       }
     ]
