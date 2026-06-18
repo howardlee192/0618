@@ -497,22 +497,22 @@ function About() {
       name: "Howard Lee",
       bio: "An artist and motion designer from Hong Kong, currently based in Taiwan. Lee's work revolves around the interpersonal relationships and emotional issues of contemporary youth. He has participated in numerous stage and performance visual designs. Excelling at breaking through medium constraints, he uses motion storytelling and design strategies to lead audiences through the ups and downs of life across visual and physical spaces.",
       role: "Motion & Visual Designer / Artist",
-      title1: "01. Storytelling through Motion",
+      title1: "01. Spatial Motion Visuals",
       desc1: "I excel at employing design strategies to accurately analyze project directions while considering the overall spatial presentation. Whether for stages or exhibitions, I use visuals and digital animation to create immersive experiences, ensuring the design resonates deeply with the audience.",
       title2: "02. Core Capabilities",
       skills: ['Motion Design', 'Projection Mapping', 'Concert Visuals', '3D Animation', 'Interaction Design', 'Visual Identity'],
-      title3: "03. Design Philosophy",
+      title3: "03. Core Direction",
       desc3: "My creations focus on contemporary interpersonal relationships, conveying my observations on social connections across various mediums. The goal is to touch and inspire audiences through concise and impactful motion visuals."
     },
     CHN: {
       name: <>李浩勤 <span className="tracking-[-1.5px]">Howard Lee</span></>,
       bio: "來自香港、現居台灣的藝術家與動態影像設計師。李氏的創作圍繞著當代青年的人際關係與情感議題，曾參與多場舞台與展演影像設計。他擅長打破載體限制，運用動態敘事與設計策略，帶領觀眾在影像與場域中體驗人生起伏。",
       role: "動態與視覺設計師 / 藝術家",
-      title1: "01. 透過動態說故事",
+      title1: "01. 場域型動態視覺",
       desc1: "我擅長運用設計策略，精準分析專案方向，並將整體的空間呈現納入考量。在舞台或展演，我都透過影像與數位動畫，為觀眾打造具沉浸感的體驗，讓設計與受眾產生深刻共鳴。",
       title2: "02. 核心技能領域",
       skills: ['動態設計', '光雕投影', '演唱會影像', '3D 動畫', '互動設計', '視覺識別'],
-      title3: "03. 核心設計理念",
+      title3: "03. 核心方向",
       desc3: "我的創作關注當代人與人之間的關係，在不同載體中傳達我對社會關係的觀察。目標是透過簡練、具張力的動態視覺，觸動觀眾並帶來啟發。"
     }
   };
