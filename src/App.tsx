@@ -775,7 +775,7 @@ function Layout({ children }: { children: React.ReactNode }) {
       <div className="p-5 md:px-10 md:py-5 min-h-screen flex flex-col">
         <header className="flex justify-between items-start text-[0.75rem] uppercase tracking-[0.5px]">
           <div className="flex flex-col md:flex-row md:items-center">
-            <Link to="/" className="font-normal -ml-[0.05em] hover:opacity-70 transition-opacity">HOWARD LEE</Link>
+            <a href="/" className="font-normal -ml-[0.05em] hover:opacity-70 transition-opacity">HOWARD LEE</a>
             <span className="opacity-60 ml-0 md:ml-[clamp(40px,15vw,200px)] hidden sm:block">MOTION / VISUAL DESIGNER / ARTIST</span>
           </div>
           <button onClick={() => setIsMenuOpen(true)} className="hover:opacity-60 transition-opacity">
