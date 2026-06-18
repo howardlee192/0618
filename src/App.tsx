@@ -298,7 +298,7 @@ export default function App() {
         
         <div className="flex flex-col gap-[15px] mb-[120px]">
           {[
-            { label: "MAIL", text: "LEEHOKAN192@GMAIL.COM", href: "mailto:leehokan192@gmail.com" },
+            { label: "MAIL", text: <>LEEHOKAN<br className="block lg:hidden" />192@GMAIL.COM</>, href: "mailto:leehokan192@gmail.com" },
             { label: "FOLLOW", text: "INSTAGRAM", href: "https://www.instagram.com/howard_lhk/", target: "_blank" },
             { label: "VIEW", text: "BEHANCE", href: "https://www.behance.net/hokanlee", target: "_blank" },
             { label: "VIEW", text: "VIMEO", href: "https://vimeo.com/user177460868", target: "_blank" }
