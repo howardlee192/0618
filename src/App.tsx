@@ -567,13 +567,13 @@ function About() {
           {/* Profile Picture Placeholder */}
           <div className="w-[180px] md:w-[240px] max-w-full aspect-[3/4] bg-[#E0E0E0] mb-[40px] md:mb-[60px]"></div>
 
-          <h3 className={`font-['Space_Grotesk'] ${lang === 'CHN' ? "font-['Swei_Bow_Sans'] text-[clamp(1.8rem,3vw,2.8rem)] leading-[1.5] tracking-[0.05em]" : "text-[clamp(2rem,3.5vw,3.2rem)] leading-[1.1] tracking-[-1.5px]"} mb-2`}>
+          <h3 className={`font-['Space_Grotesk'] ${lang === 'CHN' ? "font-['Space_Grotesk',_'Swei_Bow_Sans'] text-[clamp(1.8rem,3vw,2.8rem)] leading-[1.5] tracking-[0.05em]" : "text-[clamp(2rem,3.5vw,3.2rem)] leading-[1.1] tracking-[-1.5px]"} mb-2`}>
             {text.name}
           </h3>
-          <p className={`font-['Geist_Mono'] ${lang === 'CHN' ? "font-['Swei_Bow_Sans'] text-[0.9rem] tracking-[0.1em]" : "text-sm tracking-[0.5px]"} opacity-50 uppercase mb-6`}>
+          <p className={`font-['Geist_Mono'] ${lang === 'CHN' ? "font-['Space_Grotesk',_'Swei_Bow_Sans'] text-[0.9rem] tracking-[0.1em]" : "text-sm tracking-[0.5px]"} opacity-50 uppercase mb-6`}>
             {text.role}
           </p>
-          <p className={`font-['Geist_Mono'] ${lang === 'CHN' ? "font-['Swei_Bow_Sans'] text-[1rem] leading-[2] tracking-[0.05em]" : "text-[0.9rem] leading-[1.6]"} opacity-70`}>
+          <p className={`font-['Geist_Mono'] ${lang === 'CHN' ? "font-['Space_Grotesk',_'Swei_Bow_Sans'] text-[1rem] leading-[2] tracking-[0.05em]" : "text-[0.9rem] leading-[1.6]"} opacity-70`}>
             {text.bio}
           </p>
         </motion.div>
@@ -588,8 +588,8 @@ function About() {
             viewport={{ once: false, margin: "-100px" }}
             className="border-t border-black/10 py-8 md:py-12 flex flex-col"
           >
-            <h4 className={`font-['Space_Grotesk'] ${lang === 'CHN' ? "font-['Swei_Bow_Sans'] text-xl md:text-2xl tracking-[0.05em]" : "text-xl md:text-2xl tracking-[-0.5px]"} mb-4`}>{text.title1}</h4>
-            <p className={`font-['Geist_Mono'] ${lang === 'CHN' ? "font-['Swei_Bow_Sans'] text-[1rem] leading-[2] tracking-[0.05em]" : "text-[0.9rem] leading-[1.6]"} opacity-70`}>
+            <h4 className={`font-['Space_Grotesk'] ${lang === 'CHN' ? "font-['Space_Grotesk',_'Swei_Bow_Sans'] text-xl md:text-2xl tracking-[0.05em]" : "text-xl md:text-2xl tracking-[-0.5px]"} mb-4`}>{text.title1}</h4>
+            <p className={`font-['Geist_Mono'] ${lang === 'CHN' ? "font-['Space_Grotesk',_'Swei_Bow_Sans'] text-[1rem] leading-[2] tracking-[0.05em]" : "text-[0.9rem] leading-[1.6]"} opacity-70`}>
               {text.desc1}
             </p>
           </motion.div>
@@ -602,10 +602,10 @@ function About() {
             viewport={{ once: false, margin: "-100px" }}
             className="border-t border-black/10 py-8 md:py-12 flex flex-col"
           >
-            <h4 className={`font-['Space_Grotesk'] ${lang === 'CHN' ? "font-['Swei_Bow_Sans'] text-xl md:text-2xl tracking-[0.05em]" : "text-xl md:text-2xl tracking-[-0.5px]"} mb-6`}>{text.title2}</h4>
+            <h4 className={`font-['Space_Grotesk'] ${lang === 'CHN' ? "font-['Space_Grotesk',_'Swei_Bow_Sans'] text-xl md:text-2xl tracking-[0.05em]" : "text-xl md:text-2xl tracking-[-0.5px]"} mb-6`}>{text.title2}</h4>
             <div className="flex flex-wrap gap-3">
               {text.skills.map(skill => (
-                <span key={skill} className={`font-['Geist_Mono'] ${lang === 'CHN' ? "font-['Swei_Bow_Sans'] text-[0.85rem] tracking-[0.1em]" : "text-[0.75rem] tracking-[0.5px]"} uppercase px-4 py-2 border border-black/20 rounded-full hover:bg-black hover:text-[#F4F3ED] transition-colors cursor-default`}>
+                <span key={skill} className={`font-['Geist_Mono'] ${lang === 'CHN' ? "font-['Space_Grotesk',_'Swei_Bow_Sans'] text-[0.85rem] tracking-[0.1em]" : "text-[0.75rem] tracking-[0.5px]"} uppercase px-4 py-2 border border-black/20 rounded-full hover:bg-black hover:text-[#F4F3ED] transition-colors cursor-default`}>
                   {skill}
                 </span>
               ))}
@@ -620,8 +620,8 @@ function About() {
             viewport={{ once: false, margin: "-100px" }}
             className="border-t border-black/10 py-8 md:py-12 flex flex-col"
           >
-            <h4 className={`font-['Space_Grotesk'] ${lang === 'CHN' ? "font-['Swei_Bow_Sans'] text-xl md:text-2xl tracking-[0.05em]" : "text-xl md:text-2xl tracking-[-0.5px]"} mb-4`}>{text.title3}</h4>
-            <p className={`font-['Geist_Mono'] ${lang === 'CHN' ? "font-['Swei_Bow_Sans'] text-[1rem] leading-[2] tracking-[0.05em]" : "text-[0.9rem] leading-[1.6]"} opacity-70`}>
+            <h4 className={`font-['Space_Grotesk'] ${lang === 'CHN' ? "font-['Space_Grotesk',_'Swei_Bow_Sans'] text-xl md:text-2xl tracking-[0.05em]" : "text-xl md:text-2xl tracking-[-0.5px]"} mb-4`}>{text.title3}</h4>
+            <p className={`font-['Geist_Mono'] ${lang === 'CHN' ? "font-['Space_Grotesk',_'Swei_Bow_Sans'] text-[1rem] leading-[2] tracking-[0.05em]" : "text-[0.9rem] leading-[1.6]"} opacity-70`}>
               {text.desc3}
             </p>
           </motion.div>
@@ -657,10 +657,10 @@ function About() {
                     <div className="w-full md:w-1/2 flex flex-col gap-6 md:gap-8">
                       {section.items.map((item, itemIdx) => (
                         <div key={itemIdx} className="flex flex-col md:flex-row justify-between md:items-center gap-2 md:gap-0">
-                          <span className={`font-['Space_Grotesk'] ${lang === 'CHN' ? "font-['Swei_Bow_Sans'] tracking-[0.05em] text-[1.1rem]" : "text-[1.2rem]"} w-full md:w-1/2`}>
+                          <span className={`font-['Space_Grotesk'] ${lang === 'CHN' ? "font-['Space_Grotesk',_'Swei_Bow_Sans'] tracking-[0.05em] text-[1.1rem]" : "text-[1.2rem]"} w-full md:w-1/2`}>
                             {item.left}
                           </span>
-                          <span className={`font-['Geist_Mono'] ${lang === 'CHN' ? "font-['Swei_Bow_Sans'] tracking-[0.05em] text-[0.85rem]" : "tracking-[0.5px] text-sm"} opacity-50 uppercase text-left md:text-right w-full md:w-1/2`}>
+                          <span className={`font-['Geist_Mono'] ${lang === 'CHN' ? "font-['Space_Grotesk',_'Swei_Bow_Sans'] tracking-[0.05em] text-[0.85rem]" : "tracking-[0.5px] text-sm"} opacity-50 uppercase text-left md:text-right w-full md:w-1/2`}>
                             {item.right}
                           </span>
                         </div>
