@@ -16,7 +16,7 @@ const HoverReveal = ({ children }: { children: React.ReactNode }) => {
   };
 
   return (
-    <div 
+    <div
       className="relative inline-flex items-center justify-center py-2 -my-2"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -38,7 +38,7 @@ const HoverReveal = ({ children }: { children: React.ReactNode }) => {
         }}
         className="w-[260px] h-[180px] bg-[#D1D1D1] flex items-center justify-center overflow-hidden"
       >
-         <span className="text-[0.6rem] text-[#888] font-['Geist_Mono'] normal-case tracking-normal">image placeholder</span>
+        <span className="text-[0.6rem] text-[#888] font-['Geist_Mono'] normal-case tracking-normal">image placeholder</span>
       </motion.div>
     </div>
   );
@@ -56,8 +56,8 @@ const staggerContainer = {
 
 const staggerItem = {
   hidden: { opacity: 0, y: 30 },
-  visible: { 
-    opacity: 1, 
+  visible: {
+    opacity: 1,
     y: 0,
     transition: {
       type: "spring",
@@ -69,7 +69,7 @@ const staggerItem = {
 
 function ProjectsGrid() {
   return (
-    <motion.div 
+    <motion.div
       variants={staggerContainer}
       initial="hidden"
       whileInView="visible"
@@ -126,13 +126,13 @@ function ProjectsGrid() {
 
 function Home() {
   useEffect(() => { document.title = "Howard Lee - Home"; }, []);
-  
+
   const heroRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: heroRef,
     offset: ["start start", "end start"]
   });
-  
+
   // Hero section moves down at half speed, fading out
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
   const opacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
@@ -141,35 +141,35 @@ function Home() {
     <>
       <div ref={heroRef} className="relative z-0 min-h-[95vh] flex flex-col justify-start pt-[5vh] md:pt-[8vh]">
         <motion.section style={{ y, opacity }} className="flex flex-col relative">
-        <div className="flex-1 flex flex-col justify-start items-start">
-          <div className="font-['Space_Grotesk'] text-[clamp(1.8rem,4.5vw,4.95rem)] leading-[0.95] tracking-[-2px] max-w-[80%] -ml-[0.04em]">
-            <div className="flex items-center flex-wrap uppercase gap-10 md:gap-20">
-              <HoverReveal><Text3DFlip className="bg-[#F4F3ED]" textClassName="bg-[#F4F3ED] text-[#0A0A0A]" flipTextClassName="bg-[#F4F3ED] text-[#0A0A0A]" rotateDirection="top" staggerDuration={0.03} staggerFrom="center">VISUAL</Text3DFlip></HoverReveal>
-              <HoverReveal><Text3DFlip className="bg-[#F4F3ED]" textClassName="bg-[#F4F3ED] text-[#0A0A0A]" flipTextClassName="bg-[#F4F3ED] text-[#0A0A0A]" rotateDirection="top" staggerDuration={0.03} staggerFrom="center">MOTION</Text3DFlip></HoverReveal>
+          <div className="flex-1 flex flex-col justify-start items-start">
+            <div className="font-['Space_Grotesk'] text-[clamp(1.8rem,4.5vw,4.95rem)] leading-[0.95] tracking-[-2px] max-w-[80%] -ml-[0.04em]">
+              <div className="flex items-center flex-wrap uppercase gap-10 md:gap-20">
+                <HoverReveal><Text3DFlip className="bg-[#F4F3ED]" textClassName="bg-[#F4F3ED] text-[#0A0A0A]" flipTextClassName="bg-[#F4F3ED] text-[#0A0A0A]" rotateDirection="top" staggerDuration={0.03} staggerFrom="center">VISUAL</Text3DFlip></HoverReveal>
+                <HoverReveal><Text3DFlip className="bg-[#F4F3ED]" textClassName="bg-[#F4F3ED] text-[#0A0A0A]" flipTextClassName="bg-[#F4F3ED] text-[#0A0A0A]" rotateDirection="top" staggerDuration={0.03} staggerFrom="center">MOTION</Text3DFlip></HoverReveal>
+              </div>
+              <div className="flex items-center flex-wrap uppercase mt-2 md:mt-4 gap-10 md:gap-20">
+                <HoverReveal><Text3DFlip className="bg-[#F4F3ED]" textClassName="bg-[#F4F3ED] text-[#0A0A0A]" flipTextClassName="bg-[#F4F3ED] text-[#0A0A0A]" rotateDirection="top" staggerDuration={0.03} staggerFrom="center">ANIMATION</Text3DFlip></HoverReveal>
+                <HoverReveal><Text3DFlip className="bg-[#F4F3ED]" textClassName="bg-[#F4F3ED] text-[#0A0A0A]" flipTextClassName="bg-[#F4F3ED] text-[#0A0A0A]" rotateDirection="top" staggerDuration={0.03} staggerFrom="center">INTERACTION</Text3DFlip></HoverReveal>
+              </div>
+              <div className="flex items-center flex-wrap uppercase mt-2 md:mt-4 gap-10 md:gap-20">
+                <HoverReveal><Text3DFlip className="bg-[#F4F3ED]" textClassName="bg-[#F4F3ED] text-[#0A0A0A]" flipTextClassName="bg-[#F4F3ED] text-[#0A0A0A]" rotateDirection="top" staggerDuration={0.03} staggerFrom="center">ARTWORK</Text3DFlip></HoverReveal>
+              </div>
+              <div className="mt-12 md:mt-16 flex items-center gap-4">
+                <span>FROM</span>
+                <HoverReveal><Text3DFlip className="bg-[#F4F3ED]" textClassName="bg-[#F4F3ED] text-[#0A0A0A]" flipTextClassName="bg-[#F4F3ED] text-[#0A0A0A]" rotateDirection="top" staggerDuration={0.03} staggerFrom="center">HONG KONG</Text3DFlip></HoverReveal>
+              </div>
+              <div className="mt-2 md:mt-4 flex items-center gap-4">
+                <span>BASED IN</span>
+                <HoverReveal><Text3DFlip className="bg-[#F4F3ED]" textClassName="bg-[#F4F3ED] text-[#0A0A0A]" flipTextClassName="bg-[#F4F3ED] text-[#0A0A0A]" rotateDirection="top" staggerDuration={0.03} staggerFrom="center">TAIWAN</Text3DFlip></HoverReveal>
+              </div>
+              <div className="mt-2 md:mt-4">WORKING GLOBALLY.</div>
             </div>
-            <div className="flex items-center flex-wrap uppercase mt-2 md:mt-4 gap-10 md:gap-20">
-              <HoverReveal><Text3DFlip className="bg-[#F4F3ED]" textClassName="bg-[#F4F3ED] text-[#0A0A0A]" flipTextClassName="bg-[#F4F3ED] text-[#0A0A0A]" rotateDirection="top" staggerDuration={0.03} staggerFrom="center">ANIMATION</Text3DFlip></HoverReveal>
-              <HoverReveal><Text3DFlip className="bg-[#F4F3ED]" textClassName="bg-[#F4F3ED] text-[#0A0A0A]" flipTextClassName="bg-[#F4F3ED] text-[#0A0A0A]" rotateDirection="top" staggerDuration={0.03} staggerFrom="center">INTERACTION</Text3DFlip></HoverReveal>
-            </div>
-            <div className="flex items-center flex-wrap uppercase mt-2 md:mt-4 gap-10 md:gap-20">
-              <HoverReveal><Text3DFlip className="bg-[#F4F3ED]" textClassName="bg-[#F4F3ED] text-[#0A0A0A]" flipTextClassName="bg-[#F4F3ED] text-[#0A0A0A]" rotateDirection="top" staggerDuration={0.03} staggerFrom="center">ARTWORK</Text3DFlip></HoverReveal>
-            </div>
-            <div className="mt-12 md:mt-16 flex items-center gap-4">
-              <span>FROM</span>
-              <HoverReveal><Text3DFlip className="bg-[#F4F3ED]" textClassName="bg-[#F4F3ED] text-[#0A0A0A]" flipTextClassName="bg-[#F4F3ED] text-[#0A0A0A]" rotateDirection="top" staggerDuration={0.03} staggerFrom="center">HONG KONG</Text3DFlip></HoverReveal>
-            </div>
-            <div className="mt-2 md:mt-4 flex items-center gap-4">
-              <span>BASED IN</span>
-              <HoverReveal><Text3DFlip className="bg-[#F4F3ED]" textClassName="bg-[#F4F3ED] text-[#0A0A0A]" flipTextClassName="bg-[#F4F3ED] text-[#0A0A0A]" rotateDirection="top" staggerDuration={0.03} staggerFrom="center">TAIWAN</Text3DFlip></HoverReveal>
-            </div>
-            <div className="mt-2 md:mt-4">WORKING GLOBALLY.</div>
           </div>
-        </div>
         </motion.section>
       </div>
 
       <section className="relative z-10 bg-[#F4F3ED] pt-[40px] md:pt-[60px] pb-[100px] border-b border-black/10">
-        <motion.h2 
+        <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ type: "spring", duration: 1.5, bounce: 0 }}
@@ -186,17 +186,101 @@ function Home() {
 
 function Work() {
   useEffect(() => { document.title = "Howard Lee - Work"; }, []);
+  const [openFilter, setOpenFilter] = useState<'YEAR' | 'TYPE' | null>(null);
+
+  const years = ['ALL', '2024', '2023', '2022', '2021'];
+  const types = ['ALL', 'MOTION', 'VISUAL', 'CGI', 'INTERACTION'];
+
+  const [activeYear, setActiveYear] = useState('ALL');
+  const [activeType, setActiveType] = useState('ALL');
+
   return (
     <section className="pt-[40px] md:pt-[60px] pb-[100px] border-b border-black/10 min-h-[80vh]">
-      <motion.h2 
+      <motion.h2
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ type: "spring", duration: 1.5, bounce: 0 }}
         viewport={{ once: false, margin: "-100px" }}
-        className="font-['Space_Grotesk'] text-[3.5rem] mb-[60px] tracking-[-1px] -ml-[0.05em] font-normal"
+        className="font-['Space_Grotesk'] text-[3.5rem] mb-[40px] md:mb-[60px] tracking-[-1px] -ml-[0.05em] font-normal"
       >
         Work
       </motion.h2>
+
+      {/* Filter Accordions */}
+      <div className="mb-12 md:mb-20 border-t border-b border-black/10 flex flex-col md:flex-row">
+        {/* YEAR Toggle */}
+        <div className="w-full md:w-1/2 border-b md:border-b-0 md:border-r border-black/10">
+          <button 
+            onClick={() => setOpenFilter(openFilter === 'YEAR' ? null : 'YEAR')}
+            className="w-full py-5 flex justify-between items-center pr-4 md:pr-8 hover:opacity-70 transition-opacity"
+          >
+            <span className="font-['Geist_Mono'] text-sm tracking-[1px] uppercase">
+              Filter by Year {activeYear !== 'ALL' && <span className="ml-2 opacity-50">[{activeYear}]</span>}
+            </span>
+            <span className="font-['Geist_Mono'] text-xl font-light">{openFilter === 'YEAR' ? '−' : '+'}</span>
+          </button>
+          <AnimatePresence>
+            {openFilter === 'YEAR' && (
+              <motion.div 
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: "auto", opacity: 1 }}
+                exit={{ height: 0, opacity: 0 }}
+                transition={{ duration: 0.3, ease: [0.76, 0, 0.24, 1] }}
+                className="overflow-hidden"
+              >
+                <div className="pb-6 pt-2 flex flex-wrap gap-2 pr-4 md:pr-8">
+                  {years.map(y => (
+                    <button 
+                      key={y}
+                      onClick={() => { setActiveYear(y); setOpenFilter(null); }}
+                      className={`font-['Geist_Mono'] text-[0.7rem] uppercase tracking-[0.5px] px-4 py-2 border rounded-full transition-colors ${activeYear === y ? 'border-black bg-black text-[#F4F3ED]' : 'border-black/20 hover:border-black'}`}
+                    >
+                      {y}
+                    </button>
+                  ))}
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
+
+        {/* TYPE Toggle */}
+        <div className="w-full md:w-1/2 pl-0 md:pl-8">
+          <button 
+            onClick={() => setOpenFilter(openFilter === 'TYPE' ? null : 'TYPE')}
+            className="w-full py-5 flex justify-between items-center pr-4 md:pr-0 hover:opacity-70 transition-opacity"
+          >
+            <span className="font-['Geist_Mono'] text-sm tracking-[1px] uppercase">
+              Filter by Type {activeType !== 'ALL' && <span className="ml-2 opacity-50">[{activeType}]</span>}
+            </span>
+            <span className="font-['Geist_Mono'] text-xl font-light">{openFilter === 'TYPE' ? '−' : '+'}</span>
+          </button>
+          <AnimatePresence>
+            {openFilter === 'TYPE' && (
+              <motion.div 
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: "auto", opacity: 1 }}
+                exit={{ height: 0, opacity: 0 }}
+                transition={{ duration: 0.3, ease: [0.76, 0, 0.24, 1] }}
+                className="overflow-hidden"
+              >
+                <div className="pb-6 pt-2 flex flex-wrap gap-2">
+                  {types.map(t => (
+                    <button 
+                      key={t}
+                      onClick={() => { setActiveType(t); setOpenFilter(null); }}
+                      className={`font-['Geist_Mono'] text-[0.7rem] uppercase tracking-[0.5px] px-4 py-2 border rounded-full transition-colors ${activeType === t ? 'border-black bg-black text-[#F4F3ED]' : 'border-black/20 hover:border-black'}`}
+                    >
+                      {t}
+                    </button>
+                  ))}
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
+      </div>
+
       <ProjectsGrid />
     </section>
   );
@@ -206,7 +290,7 @@ function Artwork() {
   useEffect(() => { document.title = "Howard Lee - Artwork"; }, []);
   return (
     <section className="pt-[40px] md:pt-[60px] pb-[100px] border-b border-black/10 min-h-[80vh]">
-      <motion.h2 
+      <motion.h2
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ type: "spring", duration: 1.5, bounce: 0 }}
@@ -215,7 +299,7 @@ function Artwork() {
       >
         Artwork
       </motion.h2>
-      <motion.div 
+      <motion.div
         variants={staggerContainer}
         initial="hidden"
         whileInView="visible"
@@ -290,7 +374,7 @@ function About() {
     ],
     CHN: [
       {
-        title: '教育背景',
+        title: '學歷',
         items: [
           { left: '設計藝術碩士 (MFA)', right: '視覺藝術學院 (SVA), 2024' },
           { left: '動態影像設計學士 (BFA)', right: '薩凡納藝術設計學院 (SCAD), 2022' },
@@ -306,7 +390,7 @@ function About() {
         ]
       },
       {
-        title: '展覽經歷',
+        title: '參展經歷',
         items: [
           { left: 'Digital Horizons', right: 'MoMA PS1, 2024' },
           { left: 'Future of Motion', right: '泰特現代藝術館, 2023' },
@@ -314,7 +398,7 @@ function About() {
         ]
       },
       {
-        title: '獲獎紀錄',
+        title: '獎項',
         items: [
           { left: 'D&AD 黃鉛筆獎', right: '動畫類, 2024' },
           { left: '紐約字體指導俱樂部 (TDC)', right: '卓越排版設計獎, 2023' },
@@ -352,7 +436,7 @@ function About() {
   return (
     <section className="pt-[40px] md:pt-[60px] pb-[100px] min-h-[80vh]">
       <div className="flex justify-between items-end mb-[60px] md:mb-[100px]">
-        <motion.h2 
+        <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ type: "spring", duration: 1.5, bounce: 0 }}
@@ -362,32 +446,32 @@ function About() {
           About
         </motion.h2>
 
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 1 }}
           viewport={{ once: false }}
           className="flex gap-4 text-xs md:text-sm font-['Geist_Mono'] pb-3 md:pb-4 uppercase tracking-[1px]"
         >
-          <button 
-            onClick={() => setLang('CHN')} 
+          <button
+            onClick={() => setLang('CHN')}
             className={`transition-opacity hover:opacity-100 ${lang === 'CHN' ? 'opacity-100 font-bold' : 'opacity-40'}`}
           >
             CHN
           </button>
           <span className="opacity-20">/</span>
-          <button 
-            onClick={() => setLang('ENG')} 
+          <button
+            onClick={() => setLang('ENG')}
             className={`transition-opacity hover:opacity-100 ${lang === 'ENG' ? 'opacity-100 font-bold' : 'opacity-40'}`}
           >
             ENG
           </button>
         </motion.div>
       </div>
-      
+
       <div className="flex flex-col md:flex-row gap-10 md:gap-24 relative">
         {/* Left Side: Large Intro */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ type: "spring", duration: 1.5, bounce: 0 }}
@@ -396,7 +480,7 @@ function About() {
         >
           {/* Profile Picture Placeholder */}
           <div className="w-[180px] md:w-[240px] max-w-full aspect-[3/4] bg-[#E0E0E0] mb-[40px] md:mb-[60px]"></div>
-          
+
           <h3 className={`font-['Space_Grotesk'] ${lang === 'CHN' ? "font-['Swei_Bow_Sans'] text-[clamp(1.8rem,3vw,2.8rem)] leading-[1.5] tracking-[0.05em]" : "text-[clamp(2rem,3.5vw,3.2rem)] leading-[1.1] tracking-[-1.5px]"} mb-6`}>
             {text.intro}
           </h3>
@@ -408,7 +492,7 @@ function About() {
         {/* Right Side: 1, 2, 3 List */}
         <div className="w-full md:w-1/2 flex flex-col mt-10 md:mt-0">
           {/* Item 1 */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ type: "spring", duration: 1.5, bounce: 0, delay: 0.1 }}
@@ -422,7 +506,7 @@ function About() {
           </motion.div>
 
           {/* Item 2 */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ type: "spring", duration: 1.5, bounce: 0, delay: 0.2 }}
@@ -440,7 +524,7 @@ function About() {
           </motion.div>
 
           {/* Item 3 */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ type: "spring", duration: 1.5, bounce: 0, delay: 0.3 }}
@@ -459,7 +543,7 @@ function About() {
       <div className="mt-32 w-full">
         {resumeData[lang].map((section, idx) => (
           <div key={idx} className="border-t border-black/10 first:border-t-0">
-            <button 
+            <button
               onClick={() => setOpenSection(openSection === section.title ? null : section.title)}
               className="w-full py-8 md:py-12 flex justify-between items-center text-left hover:opacity-70 transition-opacity"
             >
@@ -472,7 +556,7 @@ function About() {
             </button>
             <AnimatePresence>
               {openSection === section.title && (
-                <motion.div 
+                <motion.div
                   initial={{ height: 0, opacity: 0 }}
                   animate={{ height: "auto", opacity: 1 }}
                   exit={{ height: 0, opacity: 0 }}
@@ -564,7 +648,7 @@ function Layout({ children }: { children: React.ReactNode }) {
                   <X size={20} />
                 </button>
               </header>
-              
+
               <div className="flex-1 flex flex-col justify-center items-center gap-10">
                 {['HOME', 'WORK', 'ARTWORK', 'ABOUT'].map((item, index) => (
                   <motion.div
@@ -604,7 +688,7 @@ function Layout({ children }: { children: React.ReactNode }) {
         </div>
 
         {/* Sticky Parallax Footer */}
-        <div 
+        <div
           className="relative h-[80vh] md:h-[100vh]"
           style={{ clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" }}
         >
@@ -619,7 +703,7 @@ function Layout({ children }: { children: React.ReactNode }) {
                   { label: "VIEW", text: "VIMEO", href: "https://vimeo.com/user177460868", target: "_blank" }
                 ].map((item, i) => (
                   <div key={i} className="flex items-start max-w-full">
-                    <a 
+                    <a
                       href={item.href}
                       target={item.target}
                       rel={item.target ? "noopener noreferrer" : undefined}
