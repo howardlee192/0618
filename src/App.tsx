@@ -494,8 +494,9 @@ function About() {
 
   const content = {
     ENG: {
-      intro: "I've always believed that elegant motion and thoughtful visual design can elevate a digital experience from good to unforgettable.",
-      role: "Howard Lee, Motion & Visual Designer / Artist",
+      name: "Howard Lee",
+      bio: "An artist and motion designer from Hong Kong, currently based in Taiwan. Lee's work revolves around the interpersonal relationships and emotional issues of contemporary youth. He has participated in numerous stage and performance visual designs. Excelling at breaking through medium constraints, he uses motion storytelling and design strategies to lead audiences through the ups and downs of life across visual and physical spaces.",
+      role: "Motion & Visual Designer / Artist",
       title1: "01. Storytelling through Motion",
       desc1: "I specialize in crafting narratives that guide users seamlessly. Every animation and interaction is purposefully designed to tell a compelling story, ensuring the design speaks directly and emotionally to the audience.",
       title2: "02. Core Capabilities",
@@ -504,8 +505,9 @@ function About() {
       desc3: "My goal is to distill complex ideas into pure, minimalist forms. I strive to create timeless digital presences where less is truly more, focusing entirely on the essential to deliver maximum visual impact."
     },
     CHN: {
-      intro: "我始終相信，優雅的動態與深思熟慮的視覺設計，能將數位體驗從優秀昇華至令人難忘的境界。",
-      role: "李浩勤, 動態與視覺設計師 / 藝術家",
+      name: "李浩勤 Howard Lee",
+      bio: "來自香港、現居台灣的藝術家與動態影像設計師。李氏的創作圍繞著當代青年的人際關係與情感議題，曾參與多場舞台與展演影像設計。他擅長打破載體限制，運用動態敘事與設計策略，帶領觀眾在影像與場域中體驗人生起伏。",
+      role: "動態與視覺設計師 / 藝術家",
       title1: "01. 透過動態述說故事",
       desc1: "我擅長打造流暢引導使用者的敘事體驗。每一個動畫與互動都經過精心設計，旨在講述引人入勝的故事，確保設計能與受眾產生直接且深刻的情感共鳴。",
       title2: "02. 核心技能領域",
@@ -565,11 +567,14 @@ function About() {
           {/* Profile Picture Placeholder */}
           <div className="w-[180px] md:w-[240px] max-w-full aspect-[3/4] bg-[#E0E0E0] mb-[40px] md:mb-[60px]"></div>
 
-          <h3 className={`font-['Space_Grotesk'] ${lang === 'CHN' ? "font-['Swei_Bow_Sans'] text-[clamp(1.8rem,3vw,2.8rem)] leading-[1.5] tracking-[0.05em]" : "text-[clamp(2rem,3.5vw,3.2rem)] leading-[1.1] tracking-[-1.5px]"} mb-6`}>
-            {text.intro}
+          <h3 className={`font-['Space_Grotesk'] ${lang === 'CHN' ? "font-['Swei_Bow_Sans'] text-[clamp(1.8rem,3vw,2.8rem)] leading-[1.5] tracking-[0.05em]" : "text-[clamp(2rem,3.5vw,3.2rem)] leading-[1.1] tracking-[-1.5px]"} mb-2`}>
+            {text.name}
           </h3>
-          <p className={`font-['Geist_Mono'] ${lang === 'CHN' ? "font-['Swei_Bow_Sans'] text-[0.9rem] tracking-[0.1em]" : "text-sm tracking-[0.5px]"} opacity-50 uppercase`}>
+          <p className={`font-['Geist_Mono'] ${lang === 'CHN' ? "font-['Swei_Bow_Sans'] text-[0.9rem] tracking-[0.1em]" : "text-sm tracking-[0.5px]"} opacity-50 uppercase mb-6`}>
             {text.role}
+          </p>
+          <p className={`font-['Geist_Mono'] ${lang === 'CHN' ? "font-['Swei_Bow_Sans'] text-[1rem] leading-[2] tracking-[0.05em]" : "text-[0.9rem] leading-[1.6]"} opacity-70`}>
+            {text.bio}
           </p>
         </motion.div>
 
