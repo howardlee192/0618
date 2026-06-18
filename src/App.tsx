@@ -139,7 +139,7 @@ function Home() {
 
   return (
     <>
-      <div ref={heroRef} className="relative z-0 min-h-[95vh] flex flex-col justify-start pt-[15vh] md:pt-[20vh]">
+      <div ref={heroRef} className="relative z-0 min-h-[95vh] flex flex-col justify-start pt-[5vh] md:pt-[8vh]">
         <motion.section style={{ y, opacity }} className="flex flex-col relative">
         <div className="flex-1 flex flex-col justify-start items-start">
           <div className="font-['Space_Grotesk'] text-[clamp(1.8rem,4.5vw,4.95rem)] leading-[0.95] tracking-[-2px] max-w-[80%] -ml-[0.04em]">
