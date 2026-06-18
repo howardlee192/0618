@@ -259,6 +259,7 @@ function About() {
       title1: "01. Storytelling through Motion",
       desc1: "I specialize in crafting narratives that guide users seamlessly. Every animation and interaction is purposefully designed to tell a compelling story, ensuring the design speaks directly and emotionally to the audience.",
       title2: "02. Core Capabilities",
+      skills: ['3D Animation', 'Interaction Design', 'CGI', 'Visual Identity', 'UI/UX', 'Creative Direction'],
       title3: "03. Design Philosophy",
       desc3: "My goal is to distill complex ideas into pure, minimalist forms. I strive to create timeless digital presences where less is truly more, focusing entirely on the essential to deliver maximum visual impact."
     },
@@ -268,6 +269,7 @@ function About() {
       title1: "01. 透過動態述說故事",
       desc1: "我擅長打造流暢引導使用者的敘事體驗。每一個動畫與互動都經過精心設計，旨在講述引人入勝的故事，確保設計能與受眾產生直接且深刻的情感共鳴。",
       title2: "02. 核心技能領域",
+      skills: ['3D 動畫', '互動設計', '電腦成像', '視覺識別', '介面/體驗設計', '創意指導'],
       title3: "03. 核心設計理念",
       desc3: "我的目標是將複雜的概念淬鍊成純粹、極簡的型態。我致力於創造經得起時間考驗的數位樣貌，堅信「少即是多」，專注於最本質的元素，以帶來極致的視覺張力。"
     }
@@ -357,8 +359,8 @@ function About() {
           >
             <h4 className={`font-['Space_Grotesk'] ${lang === 'CHN' ? "font-['Swei_Bow_Sans'] text-lg md:text-xl tracking-[0.05em]" : "text-xl md:text-2xl tracking-[-0.5px]"} mb-6`}>{text.title2}</h4>
             <div className="flex flex-wrap gap-3">
-              {['3D Animation', 'Interaction Design', 'CGI', 'Visual Identity', 'UI/UX', 'Creative Direction'].map(skill => (
-                <span key={skill} className="font-['Geist_Mono'] text-[0.75rem] uppercase tracking-[0.5px] px-4 py-2 border border-black/20 rounded-full hover:bg-black hover:text-[#F4F3ED] transition-colors cursor-default">
+              {text.skills.map(skill => (
+                <span key={skill} className={`font-['Geist_Mono'] ${lang === 'CHN' ? "font-['Swei_Bow_Sans'] tracking-[0.1em]" : "tracking-[0.5px]"} text-[0.75rem] uppercase px-4 py-2 border border-black/20 rounded-full hover:bg-black hover:text-[#F4F3ED] transition-colors cursor-default`}>
                   {skill}
                 </span>
               ))}
