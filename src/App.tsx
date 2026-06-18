@@ -442,7 +442,9 @@ function About() {
       {
         title: 'Education',
         items: [
-          { left: '2023 - Present', right: 'BFA in Communications Design, Shih Chien University, Taiwan (Animation & Moving Image Design)' },
+          { left: '2025 - Present', right: 'BFA in Communications Design, Shih Chien University, Taiwan (Animation & Moving Image Design)' },
+          { left: '2024 - 2025', right: 'BFA in Media Design, Tatung University, Taiwan (Interaction Design)' },
+          { left: '2023 - 2024', right: 'BFA in Digital Media Design, Ming Chuan University, Taiwan' },
           { left: '2020 - 2023', right: 'Diploma, HKICC Lee Shau Kee School of Creativity, Hong Kong (Film and Video Arts)' }
         ]
       },
@@ -476,7 +478,9 @@ function About() {
       {
         title: '學歷',
         items: [
-          { left: '2023 - 迄今', right: '實踐大學 媒體傳達設計學系, 台灣 (動畫與動態影像設計)' },
+          { left: '2025 - 迄今', right: '實踐大學 媒體傳達設計學系, 台灣 (動畫影像設計組)' },
+          { left: '2024 - 2025', right: '大同大學 媒體設計學系, 台灣 (互動設計組)' },
+          { left: '2023 - 2024', right: '銘傳大學 數位媒體設計學系, 台灣' },
           { left: '2020 - 2023', right: '香港兆基創意書院, 香港 (電影與錄像藝術)' }
         ]
       },
