@@ -24,6 +24,7 @@ export const AsciiArtHover: React.FC<AsciiArtHoverProps> = ({
   
   const [asciiData, setAsciiData] = useState<{ charIdx: number; r: number; g: number; b: number }[][]>([]);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
 
   // Framer Motion Springs for smooth cursor tracking and radius animation
   const mouseX = useSpring(0, { stiffness: 400, damping: 40 });
@@ -143,6 +144,7 @@ export const AsciiArtHover: React.FC<AsciiArtHoverProps> = ({
     let lastDrawTime = 0;
 
     const renderLoop = (time: number) => {
+      if (!isHovered) return; // 滑鼠不在上面時停止動畫，節省效能
       // 控制更新頻率 (約每秒 12 幀)，產生復古打字機的動態隨機感
       if (time - lastDrawTime > 80) {
         drawCanvas();
@@ -151,15 +153,18 @@ export const AsciiArtHover: React.FC<AsciiArtHoverProps> = ({
       animationFrameId = requestAnimationFrame(renderLoop);
     };
 
-    if (isLoaded) {
+    if (isLoaded && isHovered) {
       renderLoop(performance.now());
-      window.addEventListener("resize", drawCanvas);
-      return () => {
-        cancelAnimationFrame(animationFrameId);
-        window.removeEventListener("resize", drawCanvas);
-      };
+    } else if (isLoaded && !isHovered) {
+      drawCanvas(); // 移出時畫一次靜態的，準備下一次 hover
     }
-  }, [isLoaded, drawCanvas]);
+
+    window.addEventListener("resize", drawCanvas);
+    return () => {
+      cancelAnimationFrame(animationFrameId);
+      window.removeEventListener("resize", drawCanvas);
+    };
+  }, [isLoaded, isHovered, drawCanvas]);
 
   // 3. 滑鼠事件處理 (更新 Framer Motion 的值)
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -171,6 +176,7 @@ export const AsciiArtHover: React.FC<AsciiArtHoverProps> = ({
 
   const handleMouseEnter = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!containerRef.current) return;
+    setIsHovered(true); // 開啟動畫迴圈
     const rect = containerRef.current.getBoundingClientRect();
     // 進去時瞬間設定座標，才不會從 (0,0) 飛過來
     mouseX.jump(e.clientX - rect.left);
@@ -179,6 +185,7 @@ export const AsciiArtHover: React.FC<AsciiArtHoverProps> = ({
   };
 
   const handleMouseLeave = () => {
+    setIsHovered(false); // 關閉動畫迴圈
     radius.set(0); // 縮小圓形遮罩至消失
   };
 
