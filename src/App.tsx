@@ -442,7 +442,7 @@ function About() {
     target: containerRef,
     offset: ["start end", "end start"]
   });
-  const y = useTransform(scrollYProgress, [0, 1], ["-5%", "5%"]);
+  const y = useTransform(scrollYProgress, [0, 1], ["-10%", "10%"]);
 
   const resumeData = {
     ENG: [
@@ -597,7 +597,7 @@ function About() {
               <img 
                 src="/about_bioprofile.jpg" 
                 alt="Howard Lee" 
-                className="w-full h-auto scale-[1.1]"
+                className="w-full h-auto scale-[1.2]"
               />
             </motion.div>
           </div>
