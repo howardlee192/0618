@@ -35,7 +35,7 @@ export const AsciiArtHover: React.FC<AsciiArtHoverProps> = ({
   const charsets = {
     standard: " .,:;i1tfLCG08@",
     blocks: " -≡░▒▓█", // 黑白反轉：改變明暗與密度的對應關係
-    mixed: "    .,-:;~+*oO08#@M", // 黑白反轉：暗部變亮(留白)，亮部變暗(密集符號)
+    mixed: " .-:;~+*oO08#@M", // 黑白反轉：減少開頭的空白數量，讓深灰色背景與純黑頭髮能拉開層次
     binary: " 01",
     dots: " ·•●",
   };
@@ -69,7 +69,7 @@ export const AsciiArtHover: React.FC<AsciiArtHoverProps> = ({
             const r = data[idx], g = data[idx + 1], b = data[idx + 2], a = data[idx + 3];
             const rawBrightness = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
             // 強化對比度 (Contrast Enhancement)，讓亮部更亮、暗部更暗，突顯符號層次
-            const contrast = 2.5; 
+            const contrast = 1.8; // 降低對比，防止純黑(頭髮)與深灰(背景)被完全壓成一樣的留白 
             const brightness = Math.max(0, Math.min(1, (rawBrightness - 0.5) * contrast + 0.5));
             const charIdx = Math.floor((a === 0 ? 1 : brightness) * (targetCharset.length - 1));
             row.push({ charIdx, r, g, b });
@@ -111,8 +111,8 @@ export const AsciiArtHover: React.FC<AsciiArtHoverProps> = ({
     const charWidth = cw / cols;
     const charHeight = ch / rows;
 
-    // 放大字體比例，因為解析度降低，讓單一符號大而清晰
-    ctx.font = `${Math.min(charWidth * 1.2, charHeight * 1.0)}px monospace`;
+    // 取得基礎字體大小，實際渲染時會再加入隨機縮放
+    const baseFontSize = Math.min(charWidth * 1.2, charHeight * 1.0);
     ctx.textBaseline = "top";
     ctx.textAlign = "center";
 
@@ -127,6 +127,10 @@ export const AsciiArtHover: React.FC<AsciiArtHoverProps> = ({
         const jitter = Math.floor(Math.random() * 3) - 1; // -1, 0, 1
         const finalIdx = Math.max(0, Math.min(targetCharset.length - 1, pixel.charIdx + jitter));
         const char = targetCharset[finalIdx] || " ";
+
+        // 加入動態隨機大小 (Random Font Size)
+        const randomScale = 0.7 + Math.random() * 0.6; // 0.7x 到 1.3x 之間隨機縮放
+        ctx.font = `${baseFontSize * randomScale}px monospace`;
 
         ctx.fillText(char, x * charWidth + charWidth / 2, y * charHeight);
       }
