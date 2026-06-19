@@ -13,8 +13,8 @@ type AsciiArtHoverProps = {
 
 export const AsciiArtHover: React.FC<AsciiArtHoverProps> = ({
   src,
-  resolution = 120,
-  charset = "blocks",
+  resolution = 80, // 降低解析度讓符號變大、變少，增加呼吸空間
+  charset = "mixed",
   color = "#888888", // 與設計稿相符的灰色
   className,
 }) => {
@@ -35,6 +35,7 @@ export const AsciiArtHover: React.FC<AsciiArtHoverProps> = ({
   const charsets = {
     standard: " .,:;i1tfLCG08@",
     blocks: " -≡░▒▓█", // 黑白反轉：改變明暗與密度的對應關係
+    mixed: "    .,-:;~+*oO08#@M", // 混合標點、英文與數字，並加重暗處的留白
     binary: " 01",
     dots: " ·•●",
   };
@@ -108,7 +109,7 @@ export const AsciiArtHover: React.FC<AsciiArtHoverProps> = ({
     const charHeight = ch / rows;
 
     // 縮小字體比例，讓符號之間產生「呼吸感」與稍微的距離
-    ctx.font = `${Math.min(charWidth * 1.1, charHeight * 0.9)}px monospace`;
+    ctx.font = `${Math.min(charWidth * 0.9, charHeight * 0.7)}px monospace`;
     ctx.textBaseline = "top";
     ctx.textAlign = "center";
 
