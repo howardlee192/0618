@@ -999,7 +999,7 @@ function ProjectUnsorted() {
             Unsorted
           </h1>
           
-          <div className="flex flex-col gap-4 font-['Geist_Mono'] text-sm uppercase tracking-[1px] mb-8 pb-8 border-b border-black/10">
+          <div className="flex flex-col gap-6 font-['Geist_Mono'] text-base uppercase tracking-[1px] mb-8 pb-8 border-b border-black/10">
             <div className="flex">
               <span className="opacity-50 w-24">{lang === 'ENG' ? 'Year' : '年份'}</span>
               <span>2025</span>
@@ -1010,7 +1010,7 @@ function ProjectUnsorted() {
             </div>
           </div>
 
-          <div className="font-['Geist_Mono'] text-sm leading-[1.8] opacity-80">
+          <div className={`font-['Geist_Mono'] opacity-80 text-base ${lang === 'ENG' ? 'leading-[1.8]' : 'leading-[2.2] tracking-[0.08em]'}`}>
             {lang === 'ENG' 
               ? "A live visual performance project exploring the unorganized, chaotic yet structured nature of contemporary youth. Blending generative graphics with sound-reactive elements, the piece creates an immersive environment that bridges digital aesthetics with physical spatial experiences."
               : "一個探索當代青年那種混亂、無序卻又帶有結構性特質的現場視覺演出計畫。透過結合生成藝術與聲音互動元素，本作品創造出一個沉浸式的環境，完美橋接了數位美學與實體空間體驗。"}
