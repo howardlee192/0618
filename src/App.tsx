@@ -117,7 +117,41 @@ const staggerItemBlur = {
 };
 
 function ProjectsGrid({ useBlur = false }: { useBlur?: boolean }) {
+  const { lang } = useLanguage();
   const itemVariant = useBlur ? staggerItemBlur : staggerItem;
+
+  const projects = [
+    {
+      title: "Nike Swoosh 1",
+      category: lang === 'ENG' ? "CAMPAIGN / POP-UP" : "廣告活動 / 快閃店",
+      aspect: "aspect-[4/5]"
+    },
+    {
+      title: "Journey To Edge",
+      category: lang === 'ENG' ? "EXPERIENCE DESIGN / CONTENT CREATION" : "體驗設計 / 內容創作",
+      aspect: "aspect-[16/9]"
+    },
+    {
+      title: "Illuminarium",
+      category: lang === 'ENG' ? "EXPERIENCE DESIGN / CONTENT CREATION" : "體驗設計 / 內容創作",
+      aspect: "aspect-[3/4]"
+    },
+    {
+      title: "Cosmic Flow",
+      category: lang === 'ENG' ? "MOTION / VISUAL DESIGN" : "動態 / 視覺設計",
+      aspect: "aspect-square"
+    },
+    {
+      title: "Digital Architecture",
+      category: lang === 'ENG' ? "BRANDING / INTERACTION" : "品牌設計 / 互動體驗",
+      aspect: "aspect-[4/5]"
+    },
+    {
+      title: "The Metaverse",
+      category: lang === 'ENG' ? "3D ANIMATION / INTERACTIVE" : "3D 動畫 / 互動體驗",
+      aspect: "aspect-[16/9]"
+    }
+  ];
 
   return (
     <motion.div
@@ -127,48 +161,15 @@ function ProjectsGrid({ useBlur = false }: { useBlur?: boolean }) {
       viewport={{ once: false, margin: "-100px" }}
       className="columns-1 md:columns-2 lg:columns-3 gap-[30px] space-y-[30px]"
     >
-      <div className="break-inside-avoid">
-        <motion.div variants={itemVariant} className="mb-[15px]">
-          <h3 className="font-['Space_Grotesk'] text-[2.2rem] mb-[5px] tracking-[-1px] -ml-[0.02em] font-normal">Nike Swoosh 1</h3>
-          <div className="text-[0.6rem] uppercase tracking-[1px] opacity-50">CAMPAIGN / POP-UP</div>
-        </motion.div>
-        <motion.div variants={itemVariant} className="w-full h-auto aspect-[4/5] bg-[#E0E0E0]"></motion.div>
-      </div>
-      <div className="break-inside-avoid">
-        <motion.div variants={itemVariant} className="mb-[15px]">
-          <h3 className="font-['Space_Grotesk'] text-[2.2rem] mb-[5px] tracking-[-1px] -ml-[0.02em] font-normal">Journey To Edge</h3>
-          <div className="text-[0.6rem] uppercase tracking-[1px] opacity-50">EXPERIENCE DESIGN / CONTENT CREATION</div>
-        </motion.div>
-        <motion.div variants={itemVariant} className="w-full h-auto aspect-[16/9] bg-[#E0E0E0]"></motion.div>
-      </div>
-      <div className="break-inside-avoid">
-        <motion.div variants={itemVariant} className="mb-[15px]">
-          <h3 className="font-['Space_Grotesk'] text-[2.2rem] mb-[5px] tracking-[-1px] -ml-[0.02em] font-normal">Illuminarium</h3>
-          <div className="text-[0.6rem] uppercase tracking-[1px] opacity-50">EXPERIENCE DESIGN / CONTENT CREATION</div>
-        </motion.div>
-        <motion.div variants={itemVariant} className="w-full h-auto aspect-[3/4] bg-[#E0E0E0]"></motion.div>
-      </div>
-      <div className="break-inside-avoid">
-        <motion.div variants={itemVariant} className="mb-[15px]">
-          <h3 className="font-['Space_Grotesk'] text-[2.2rem] mb-[5px] tracking-[-1px] -ml-[0.02em] font-normal">Cosmic Flow</h3>
-          <div className="text-[0.6rem] uppercase tracking-[1px] opacity-50">MOTION / VISUAL DESIGN</div>
-        </motion.div>
-        <motion.div variants={itemVariant} className="w-full h-auto aspect-square bg-[#E0E0E0]"></motion.div>
-      </div>
-      <div className="break-inside-avoid">
-        <motion.div variants={itemVariant} className="mb-[15px]">
-          <h3 className="font-['Space_Grotesk'] text-[2.2rem] mb-[5px] tracking-[-1px] -ml-[0.02em] font-normal">Digital Architecture</h3>
-          <div className="text-[0.6rem] uppercase tracking-[1px] opacity-50">BRANDING / INTERACTION</div>
-        </motion.div>
-        <motion.div variants={itemVariant} className="w-full h-auto aspect-[4/5] bg-[#E0E0E0]"></motion.div>
-      </div>
-      <div className="break-inside-avoid">
-        <motion.div variants={itemVariant} className="mb-[15px]">
-          <h3 className="font-['Space_Grotesk'] text-[2.2rem] mb-[5px] tracking-[-1px] -ml-[0.02em] font-normal">The Metaverse</h3>
-          <div className="text-[0.6rem] uppercase tracking-[1px] opacity-50">3D ANIMATION / INTERACTIVE</div>
-        </motion.div>
-        <motion.div variants={itemVariant} className="w-full h-auto aspect-[16/9] bg-[#E0E0E0]"></motion.div>
-      </div>
+      {projects.map((p, i) => (
+        <div key={i} className="break-inside-avoid">
+          <motion.div variants={itemVariant} className="mb-[15px]">
+            <h3 className="font-['Space_Grotesk'] text-[2.2rem] mb-[5px] tracking-[-1px] -ml-[0.02em] font-normal">{p.title}</h3>
+            <div className="text-[0.6rem] uppercase tracking-[1px] opacity-50">{p.category}</div>
+          </motion.div>
+          <motion.div variants={itemVariant} className={`w-full h-auto ${p.aspect} bg-[#E0E0E0]`}></motion.div>
+        </div>
+      ))}
     </motion.div>
   );
 }
@@ -177,6 +178,7 @@ function ProjectsGrid({ useBlur = false }: { useBlur?: boolean }) {
 
 function Home() {
   useEffect(() => { document.title = "Howard Lee - Home"; }, []);
+  const { lang } = useLanguage();
 
   const heroRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -206,14 +208,14 @@ function Home() {
                 <HoverReveal><Text3DFlip className="bg-[#F0F0F0]" textClassName="bg-[#F0F0F0] text-[#0A0A0A]" flipTextClassName="bg-[#F0F0F0] text-[#0A0A0A]" rotateDirection="top" staggerDuration={0.03} staggerFrom="center">ARTWORK</Text3DFlip></HoverReveal>
               </div>
               <div className="mt-12 md:mt-16 flex items-center gap-4">
-                <span>FROM</span>
-                <HoverReveal><Text3DFlip className="bg-[#F0F0F0]" textClassName="bg-[#F0F0F0] text-[#0A0A0A]" flipTextClassName="bg-[#F0F0F0] text-[#0A0A0A]" rotateDirection="top" staggerDuration={0.03} staggerFrom="center">HONG KONG</Text3DFlip></HoverReveal>
+                <span>{lang === 'ENG' ? 'FROM' : '來自'}</span>
+                <HoverReveal><Text3DFlip className="bg-[#F0F0F0]" textClassName="bg-[#F0F0F0] text-[#0A0A0A]" flipTextClassName="bg-[#F0F0F0] text-[#0A0A0A]" rotateDirection="top" staggerDuration={0.03} staggerFrom="center">{lang === 'ENG' ? 'HONG KONG' : '香港'}</Text3DFlip></HoverReveal>
               </div>
               <div className="mt-2 md:mt-4 flex items-center gap-4">
-                <span>BASED IN</span>
-                <HoverReveal><Text3DFlip className="bg-[#F0F0F0]" textClassName="bg-[#F0F0F0] text-[#0A0A0A]" flipTextClassName="bg-[#F0F0F0] text-[#0A0A0A]" rotateDirection="top" staggerDuration={0.03} staggerFrom="center">TAIWAN</Text3DFlip></HoverReveal>
+                <span>{lang === 'ENG' ? 'BASED IN' : '現居'}</span>
+                <HoverReveal><Text3DFlip className="bg-[#F0F0F0]" textClassName="bg-[#F0F0F0] text-[#0A0A0A]" flipTextClassName="bg-[#F0F0F0] text-[#0A0A0A]" rotateDirection="top" staggerDuration={0.03} staggerFrom="center">{lang === 'ENG' ? 'TAIWAN' : '台灣'}</Text3DFlip></HoverReveal>
               </div>
-              <div className="mt-2 md:mt-4">WORKING GLOBALLY.</div>
+              <div className="mt-2 md:mt-4">{lang === 'ENG' ? 'WORKING GLOBALLY.' : '全球接案中'}</div>
             </div>
           </div>
         </motion.section>
@@ -272,7 +274,7 @@ function Work() {
             className="w-full py-5 flex justify-between items-center pr-4 md:pr-8 hover:opacity-70 transition-opacity"
           >
             <span className="font-['Geist_Mono'] text-sm tracking-[1px] uppercase">
-              Filter by Year {activeYear !== 'ALL' && <span className="ml-2 opacity-50">[{activeYear}]</span>}
+              {lang === 'ENG' ? 'Filter by Year' : '依年份篩選'} {activeYear !== 'ALL' && <span className="ml-2 opacity-50">[{activeYear}]</span>}
             </span>
             <span className="font-['Geist_Mono'] text-xl font-light">{openFilter === 'YEAR' ? '−' : '+'}</span>
           </button>
@@ -308,7 +310,7 @@ function Work() {
             className="w-full py-5 flex justify-between items-center pr-4 md:pr-0 hover:opacity-70 transition-opacity"
           >
             <span className="font-['Geist_Mono'] text-sm tracking-[1px] uppercase">
-              Filter by Type {activeType !== 'ALL' && <span className="ml-2 opacity-50">[{activeType}]</span>}
+              {lang === 'ENG' ? 'Filter by Type' : '依類型篩選'} {activeType !== 'ALL' && <span className="ml-2 opacity-50">[{activeType}]</span>}
             </span>
             <span className="font-['Geist_Mono'] text-xl font-light">{openFilter === 'TYPE' ? '−' : '+'}</span>
           </button>
@@ -377,7 +379,7 @@ function Artwork() {
             className="w-full py-5 flex justify-between items-center pr-4 md:pr-8 hover:opacity-70 transition-opacity"
           >
             <span className="font-['Geist_Mono'] text-sm tracking-[1px] uppercase">
-              Filter by Year {activeYear !== 'ALL' && <span className="ml-2 opacity-50">[{activeYear}]</span>}
+              {lang === 'ENG' ? 'Filter by Year' : '依年份篩選'} {activeYear !== 'ALL' && <span className="ml-2 opacity-50">[{activeYear}]</span>}
             </span>
             <span className="font-['Geist_Mono'] text-xl font-light">{openFilter === 'YEAR' ? '−' : '+'}</span>
           </button>
@@ -413,7 +415,7 @@ function Artwork() {
             className="w-full py-5 flex justify-between items-center pr-4 md:pr-0 hover:opacity-70 transition-opacity"
           >
             <span className="font-['Geist_Mono'] text-sm tracking-[1px] uppercase">
-              Filter by Medium {activeMedium !== 'ALL' && <span className="ml-2 opacity-50">[{activeMedium}]</span>}
+              {lang === 'ENG' ? 'Filter by Medium' : '依媒介篩選'} {activeMedium !== 'ALL' && <span className="ml-2 opacity-50">[{activeMedium}]</span>}
             </span>
             <span className="font-['Geist_Mono'] text-xl font-light">{openFilter === 'MEDIUM' ? '−' : '+'}</span>
           </button>
@@ -454,34 +456,26 @@ function Artwork() {
           <Link to="/artwork/unsorted" className="block group cursor-pointer">
             <motion.div variants={staggerItem} className="mb-[15px]">
               <h3 className="font-['Space_Grotesk'] text-[2.2rem] mb-[5px] tracking-[-1px] -ml-[0.02em] font-normal group-hover:opacity-60 transition-opacity">Unsorted</h3>
-              <div className="text-[0.6rem] uppercase tracking-[1px] opacity-50">PERFORMANCE / LIVE VISUAL</div>
+              <div className="text-[0.6rem] uppercase tracking-[1px] opacity-50">{lang === 'ENG' ? 'PERFORMANCE / LIVE VISUAL' : '現場視覺 / 演出'}</div>
             </motion.div>
             <motion.div variants={staggerItem} className="w-full h-auto aspect-square bg-[#E0E0E0] flex items-center justify-center overflow-hidden">
-              <span className="font-['Geist_Mono'] text-[#888] text-[0.6rem] uppercase tracking-[1px] opacity-0 group-hover:opacity-100 transition-opacity">Click to View</span>
+              <span className="font-['Geist_Mono'] text-[#888] text-[0.6rem] uppercase tracking-[1px] opacity-0 group-hover:opacity-100 transition-opacity">{lang === 'ENG' ? 'Click to View' : '點擊查看'}</span>
             </motion.div>
           </Link>
         </div>
-        <div className="break-inside-avoid">
-          <motion.div variants={staggerItem} className="mb-[15px]">
-            <h3 className="font-['Space_Grotesk'] text-[2.2rem] mb-[5px] tracking-[-1px] -ml-[0.02em] font-normal">Abstract Form 01</h3>
-            <div className="text-[0.6rem] uppercase tracking-[1px] opacity-50">CGI / EXPERIMENTAL</div>
-          </motion.div>
-          <motion.div variants={staggerItem} className="w-full h-auto aspect-[3/4] bg-[#E0E0E0]"></motion.div>
-        </div>
-        <div className="break-inside-avoid">
-          <motion.div variants={staggerItem} className="mb-[15px]">
-            <h3 className="font-['Space_Grotesk'] text-[2.2rem] mb-[5px] tracking-[-1px] -ml-[0.02em] font-normal">Light Study</h3>
-            <div className="text-[0.6rem] uppercase tracking-[1px] opacity-50">RENDERING / 3D</div>
-          </motion.div>
-          <motion.div variants={staggerItem} className="w-full h-auto aspect-square bg-[#E0E0E0]"></motion.div>
-        </div>
-        <div className="break-inside-avoid">
-          <motion.div variants={staggerItem} className="mb-[15px]">
-            <h3 className="font-['Space_Grotesk'] text-[2.2rem] mb-[5px] tracking-[-1px] -ml-[0.02em] font-normal">Fluid Dynamics</h3>
-            <div className="text-[0.6rem] uppercase tracking-[1px] opacity-50">SIMULATION</div>
-          </motion.div>
-          <motion.div variants={staggerItem} className="w-full h-auto aspect-[4/5] bg-[#E0E0E0]"></motion.div>
-        </div>
+        {[
+          { title: "Abstract Form 01", category: lang === 'ENG' ? "CGI / EXPERIMENTAL" : "CGI / 實驗影像", aspect: "aspect-[3/4]" },
+          { title: "Light Study", category: lang === 'ENG' ? "RENDERING / 3D" : "3D 算圖 / 渲染", aspect: "aspect-square" },
+          { title: "Fluid Dynamics", category: lang === 'ENG' ? "SIMULATION" : "物理模擬", aspect: "aspect-[4/5]" }
+        ].map((a, i) => (
+          <div key={i} className="break-inside-avoid">
+            <motion.div variants={staggerItem} className="mb-[15px]">
+              <h3 className="font-['Space_Grotesk'] text-[2.2rem] mb-[5px] tracking-[-1px] -ml-[0.02em] font-normal">{a.title}</h3>
+              <div className="text-[0.6rem] uppercase tracking-[1px] opacity-50">{a.category}</div>
+            </motion.div>
+            <motion.div variants={staggerItem} className={`w-full h-auto ${a.aspect} bg-[#E0E0E0]`}></motion.div>
+          </div>
+        ))}
       </motion.div>
     </section>
   );
