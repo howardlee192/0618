@@ -445,9 +445,9 @@ function Personal() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ type: "spring", duration: 1.5, bounce: 0 }}
           viewport={{ once: false, margin: "-100px" }}
-          className="font-['Space_Grotesk'] text-[3.5rem] tracking-[-1px] -ml-[0.05em] font-normal"
+          className="font-['Space_Grotesk',_'Swei_Bow_Sans'] text-[3.5rem] tracking-[-1px] -ml-[0.05em] font-normal"
         >
-          Personal
+          {lang === 'ENG' ? 'Personal' : '個人作品'}
         </motion.h2>
         <LanguageToggle />
       </div>
@@ -1274,8 +1274,8 @@ function ProjectUnsorted() {
       </div>
       
       <div className="mt-32 flex justify-center border-t border-black/10 pt-16">
-        <Link to="/personal" className="font-['Space_Grotesk'] text-[2rem] uppercase hover:opacity-50 transition-opacity">
-          Back to Personal
+        <Link to="/personal" className="font-['Space_Grotesk',_'Swei_Bow_Sans'] text-[2rem] uppercase hover:opacity-50 transition-opacity">
+          {lang === 'ENG' ? 'Back to Personal' : '返回個人作品'}
         </Link>
       </div>
 
