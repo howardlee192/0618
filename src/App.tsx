@@ -459,9 +459,16 @@ function About() {
       {
         title: 'Experience',
         items: [
-          { left: 'Senior Motion Designer', right: 'Buck Design, 2024-Present' },
-          { left: 'Visual Designer', right: 'Pentagram, 2022-2024' },
-          { left: 'Design Intern', right: 'Google Creative Lab, 2021-2022' }
+          { isCategory: true, title: 'Concert Visual' },
+          { left: '2026', right: 'Hsinchu "ON LOOP" New Year’s Eve Concert, Hsinchu, Taiwan' },
+          { left: '2025', right: '20th KKBOX Music Awards, Kaohsiung, Taiwan' },
+          { left: '2024', right: 'Cyndi Wang "SUGAR HIGH 2.0" World Tour, Taipei, Taiwan' },
+          { left: '2024', right: 'Xu Song "Breath of the Wild" 2024 World Tour, China' },
+          { isCategory: true, title: 'Immersive Video' },
+          { left: '2023', right: 'No.1 Cultural Grotto (Immersive Art Installation), Hong Kong' },
+          { left: 'Role', right: '2D Motion Designer / Editor / Compositor: "Celestial Sound Chapter"' },
+          { isCategory: true, title: 'Performance' },
+          { left: '2025', right: 'Live Performance, "Unsorted", Shih Chien University, Taiwan' }
         ]
       },
       {
@@ -495,9 +502,16 @@ function About() {
       {
         title: '工作經歷',
         items: [
-          { left: '資深動態設計師', right: 'Buck Design, 2024-現在' },
-          { left: '視覺設計師', right: 'Pentagram, 2022-2024' },
-          { left: '設計實習生', right: 'Google Creative Lab, 2021-2022' }
+          { isCategory: true, title: 'Concert Visual' },
+          { left: '2026', right: '新竹「ON LOOP」跨年晚會, 新竹, 台灣' },
+          { left: '2025', right: '第20屆 KKBOX 風雲榜, 高雄, 台灣' },
+          { left: '2024', right: '王心凌「SUGAR HIGH 2.0」世界巡迴演唱會, 台北, 台灣' },
+          { left: '2024', right: '許嵩「呼吸之野」2024世界巡迴演唱會, 中國' },
+          { isCategory: true, title: 'Immersive Video' },
+          { left: '2023', right: '莫高窟「數字藏經洞」沉浸式藝術展, 香港' },
+          { left: '職位', right: '2D 動態設計 / 剪輯 / 合成：「仙樂章」' },
+          { isCategory: true, title: 'Performance' },
+          { left: '2025', right: '現場視覺演出「Unsorted」, 實踐大學, 台灣' }
         ]
       },
       {
@@ -691,14 +705,22 @@ function About() {
                     <div className="hidden md:block w-full md:w-1/2"></div>
                     <div className="w-full md:w-1/2 flex flex-col gap-6 md:gap-8">
                       {section.items.map((item, itemIdx) => (
-                        <div key={itemIdx} className="flex flex-col md:flex-row justify-between md:items-center gap-2 md:gap-0">
-                          <span className={`font-['Space_Grotesk'] ${lang === 'CHN' ? "font-['Space_Grotesk',_'Swei_Bow_Sans'] tracking-[0.05em] text-[1.1rem]" : "text-[1.2rem]"} w-full md:w-1/2`}>
-                            {item.left}
-                          </span>
-                          <span className={`font-['Geist_Mono'] ${lang === 'CHN' ? "font-['Space_Grotesk',_'Swei_Bow_Sans'] tracking-[0.05em] text-[0.85rem]" : "tracking-[0.5px] text-sm"} opacity-50 uppercase text-left md:text-right w-full md:w-1/2`}>
-                            {item.right}
-                          </span>
-                        </div>
+                        item.isCategory ? (
+                          <div key={itemIdx} className={`w-full ${itemIdx !== 0 ? 'pt-4' : ''} border-b border-black/10 pb-2`}>
+                            <span className="font-['Geist_Mono'] text-[0.8rem] tracking-[1px] uppercase opacity-40">
+                              {item.title}
+                            </span>
+                          </div>
+                        ) : (
+                          <div key={itemIdx} className="flex flex-col md:flex-row justify-between md:items-start gap-2 md:gap-0">
+                            <span className={`font-['Space_Grotesk'] ${lang === 'CHN' ? "font-['Space_Grotesk',_'Swei_Bow_Sans'] tracking-[0.05em] text-[1.1rem]" : "text-[1.2rem]"} w-full md:w-1/3`}>
+                              {item.left}
+                            </span>
+                            <span className={`font-['Geist_Mono'] ${lang === 'CHN' ? "font-['Space_Grotesk',_'Swei_Bow_Sans'] tracking-[0.05em] text-[0.85rem]" : "tracking-[0.5px] text-sm"} opacity-70 uppercase text-left w-full md:w-2/3`}>
+                              {item.right}
+                            </span>
+                          </div>
+                        )
                       ))}
                     </div>
                   </div>
