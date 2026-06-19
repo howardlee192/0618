@@ -73,7 +73,7 @@ const HoverReveal = ({ children }: { children: React.ReactNode }) => {
         }}
         className="w-[260px] h-[180px] bg-[#D1D1D1] flex items-center justify-center overflow-hidden"
       >
-        <span className="text-[0.7rem] text-[#888] font-['Geist_Mono'] normal-case tracking-normal">image placeholder</span>
+        <span className="text-[0.85rem] text-[#888] font-['Geist_Mono'] normal-case tracking-normal">image placeholder</span>
       </motion.div>
     </div>
   );
@@ -165,7 +165,7 @@ function ProjectsGrid({ useBlur = false }: { useBlur?: boolean }) {
         <div key={i} className="break-inside-avoid">
           <motion.div variants={itemVariant} className="mb-[15px]">
             <h3 className="font-['Space_Grotesk'] text-[2.2rem] mb-[5px] tracking-[-1px] -ml-[0.02em] font-normal">{p.title}</h3>
-            <div className="text-[0.7rem] uppercase tracking-[1px] opacity-50">{p.category}</div>
+            <div className="text-[0.85rem] uppercase tracking-[1px] opacity-50">{p.category}</div>
           </motion.div>
           <motion.div variants={itemVariant} className={`w-full h-auto ${p.aspect} bg-[#E0E0E0]`}></motion.div>
         </div>
@@ -208,14 +208,14 @@ function Home() {
                 <HoverReveal><Text3DFlip className="bg-[#F0F0F0]" textClassName="bg-[#F0F0F0] text-[#0A0A0A]" flipTextClassName="bg-[#F0F0F0] text-[#0A0A0A]" rotateDirection="top" staggerDuration={0.03} staggerFrom="center">ARTWORK</Text3DFlip></HoverReveal>
               </div>
               <div className="mt-12 md:mt-16 flex items-center gap-4">
-                <span>{lang === 'ENG' ? 'FROM' : '來自'}</span>
-                <HoverReveal><Text3DFlip className="bg-[#F0F0F0]" textClassName="bg-[#F0F0F0] text-[#0A0A0A]" flipTextClassName="bg-[#F0F0F0] text-[#0A0A0A]" rotateDirection="top" staggerDuration={0.03} staggerFrom="center">{lang === 'ENG' ? 'HONG KONG' : '香港'}</Text3DFlip></HoverReveal>
+                <span>FROM</span>
+                <HoverReveal><Text3DFlip className="bg-[#F0F0F0]" textClassName="bg-[#F0F0F0] text-[#0A0A0A]" flipTextClassName="bg-[#F0F0F0] text-[#0A0A0A]" rotateDirection="top" staggerDuration={0.03} staggerFrom="center">HONG KONG</Text3DFlip></HoverReveal>
               </div>
               <div className="mt-2 md:mt-4 flex items-center gap-4">
-                <span>{lang === 'ENG' ? 'BASED IN' : '現居'}</span>
-                <HoverReveal><Text3DFlip className="bg-[#F0F0F0]" textClassName="bg-[#F0F0F0] text-[#0A0A0A]" flipTextClassName="bg-[#F0F0F0] text-[#0A0A0A]" rotateDirection="top" staggerDuration={0.03} staggerFrom="center">{lang === 'ENG' ? 'TAIWAN' : '台灣'}</Text3DFlip></HoverReveal>
+                <span>BASED IN</span>
+                <HoverReveal><Text3DFlip className="bg-[#F0F0F0]" textClassName="bg-[#F0F0F0] text-[#0A0A0A]" flipTextClassName="bg-[#F0F0F0] text-[#0A0A0A]" rotateDirection="top" staggerDuration={0.03} staggerFrom="center">TAIWAN</Text3DFlip></HoverReveal>
               </div>
-              <div className="mt-2 md:mt-4">{lang === 'ENG' ? 'WORKING GLOBALLY.' : '全球接案中'}</div>
+              <div className="mt-2 md:mt-4">WORKING GLOBALLY.</div>
             </div>
           </div>
         </motion.section>
@@ -293,7 +293,7 @@ function Work() {
                     <button 
                       key={y}
                       onClick={() => setActiveYear(y)}
-                      className={`font-['Geist_Mono'] text-[0.7rem] uppercase tracking-[0.5px] px-4 py-2 border rounded-full transition-colors ${activeYear === y ? 'border-black bg-black text-[#F0F0F0]' : 'border-black/20 hover:border-black'}`}
+                      className={`font-['Geist_Mono'] text-[0.85rem] uppercase tracking-[0.5px] px-4 py-2 border rounded-full transition-colors ${activeYear === y ? 'border-black bg-black text-[#F0F0F0]' : 'border-black/20 hover:border-black'}`}
                     >
                       {y}
                     </button>
@@ -329,7 +329,7 @@ function Work() {
                     <button 
                       key={t}
                       onClick={() => setActiveType(t)}
-                      className={`font-['Geist_Mono'] text-[0.7rem] uppercase tracking-[0.5px] px-4 py-2 border rounded-full transition-colors ${activeType === t ? 'border-black bg-black text-[#F0F0F0]' : 'border-black/20 hover:border-black'}`}
+                      className={`font-['Geist_Mono'] text-[0.85rem] uppercase tracking-[0.5px] px-4 py-2 border rounded-full transition-colors ${activeType === t ? 'border-black bg-black text-[#F0F0F0]' : 'border-black/20 hover:border-black'}`}
                     >
                       {t}
                     </button>
@@ -399,7 +399,7 @@ function Artwork() {
                     <button 
                       key={y}
                       onClick={() => setActiveYear(y)}
-                      className={`font-['Geist_Mono'] text-[0.7rem] uppercase tracking-[0.5px] px-4 py-2 border rounded-full transition-colors ${activeYear === y ? 'border-black bg-black text-[#F0F0F0]' : 'border-black/20 hover:border-black'}`}
+                      className={`font-['Geist_Mono'] text-[0.85rem] uppercase tracking-[0.5px] px-4 py-2 border rounded-full transition-colors ${activeYear === y ? 'border-black bg-black text-[#F0F0F0]' : 'border-black/20 hover:border-black'}`}
                     >
                       {y}
                     </button>
@@ -435,7 +435,7 @@ function Artwork() {
                     <button 
                       key={m}
                       onClick={() => setActiveMedium(m)}
-                      className={`font-['Geist_Mono'] text-[0.7rem] uppercase tracking-[0.5px] px-4 py-2 border rounded-full transition-colors ${activeMedium === m ? 'border-black bg-black text-[#F0F0F0]' : 'border-black/20 hover:border-black'}`}
+                      className={`font-['Geist_Mono'] text-[0.85rem] uppercase tracking-[0.5px] px-4 py-2 border rounded-full transition-colors ${activeMedium === m ? 'border-black bg-black text-[#F0F0F0]' : 'border-black/20 hover:border-black'}`}
                     >
                       {m}
                     </button>
@@ -458,10 +458,10 @@ function Artwork() {
           <Link to="/artwork/unsorted" className="block group cursor-pointer">
             <motion.div variants={staggerItem} className="mb-[15px]">
               <h3 className="font-['Space_Grotesk'] text-[2.2rem] mb-[5px] tracking-[-1px] -ml-[0.02em] font-normal group-hover:opacity-60 transition-opacity">Unsorted</h3>
-              <div className="text-[0.7rem] uppercase tracking-[1px] opacity-50">{lang === 'ENG' ? 'PERFORMANCE / LIVE VISUAL' : '現場視覺 / 演出'}</div>
+              <div className="text-[0.85rem] uppercase tracking-[1px] opacity-50">{lang === 'ENG' ? 'PERFORMANCE / LIVE VISUAL' : '現場視覺 / 演出'}</div>
             </motion.div>
             <motion.div variants={staggerItem} className="w-full h-auto aspect-square bg-[#E0E0E0] flex items-center justify-center overflow-hidden">
-              <span className="font-['Geist_Mono'] text-[#888] text-[0.7rem] uppercase tracking-[1px] opacity-0 group-hover:opacity-100 transition-opacity">{lang === 'ENG' ? 'Click to View' : '點擊查看'}</span>
+              <span className="font-['Geist_Mono'] text-[#888] text-[0.85rem] uppercase tracking-[1px] opacity-0 group-hover:opacity-100 transition-opacity">{lang === 'ENG' ? 'Click to View' : '點擊查看'}</span>
             </motion.div>
           </Link>
         </div>
@@ -473,7 +473,7 @@ function Artwork() {
           <div key={i} className="break-inside-avoid">
             <motion.div variants={staggerItem} className="mb-[15px]">
               <h3 className="font-['Space_Grotesk'] text-[2.2rem] mb-[5px] tracking-[-1px] -ml-[0.02em] font-normal">{a.title}</h3>
-              <div className="text-[0.7rem] uppercase tracking-[1px] opacity-50">{a.category}</div>
+              <div className="text-[0.85rem] uppercase tracking-[1px] opacity-50">{a.category}</div>
             </motion.div>
             <motion.div variants={staggerItem} className={`w-full h-auto ${a.aspect} bg-[#E0E0E0]`}></motion.div>
           </div>
@@ -1026,7 +1026,7 @@ function ProjectUnsorted() {
               onClick={() => setLightboxIndex(img.id)}
               className={`w-full ${img.aspect} bg-[#E0E0E0] flex items-center justify-center cursor-pointer hover:opacity-80 transition-opacity`}
             >
-              <span className="font-['Geist_Mono'] text-[#888] uppercase tracking-[1px] text-[0.7rem]">{img.text}</span>
+              <span className="font-['Geist_Mono'] text-[#888] uppercase tracking-[1px] text-[0.85rem]">{img.text}</span>
             </div>
           </div>
         ))}
