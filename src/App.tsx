@@ -713,7 +713,7 @@ function About() {
           className="w-full md:w-1/2 flex flex-col justify-start md:sticky md:top-[100px] h-fit"
         >
           {/* Profile Picture with Parallax */}
-          <div ref={containerRef} className="w-[180px] md:w-[240px] max-w-full mb-[40px] md:mb-[60px]">
+          <div ref={containerRef} className="w-[180px] md:w-[240px] max-w-full mb-[80px] md:mb-[120px]">
             <motion.div style={{ y }} className="w-full bg-[#E0E0E0] relative">
               <AsciiArtHover 
                 src="/about_bioprofile.jpg" 
