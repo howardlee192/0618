@@ -1039,7 +1039,7 @@ function IntroScreen({ onEnter }: { onEnter: () => void }) {
     const handleScroll = () => {
       if (!scrolled) {
         setScrolled(true);
-        setTimeout(onEnter, 2800); // 800ms fade + 2000ms pause on white
+        setTimeout(onEnter, 1800); // 800ms fade + 1000ms pause on white
       }
     };
     window.addEventListener('wheel', handleScroll, { once: true });
@@ -1095,6 +1095,24 @@ function HomeTransition({ children }: { children: React.ReactNode }) {
     window.addEventListener('resetIntro', handleReset);
     return () => window.removeEventListener('resetIntro', handleReset);
   }, []);
+
+  useEffect(() => {
+    if (!introDone) {
+      document.body.style.overflow = 'hidden';
+      document.body.style.touchAction = 'none';
+    } else {
+      // Delay re-enabling scroll to absorb any residual inertial scrolling
+      const timer = setTimeout(() => {
+        document.body.style.overflow = '';
+        document.body.style.touchAction = '';
+      }, 500);
+      return () => {
+        clearTimeout(timer);
+        document.body.style.overflow = '';
+        document.body.style.touchAction = '';
+      };
+    }
+  }, [introDone]);
 
   const handleEnter = () => {
     setIntroDone(true);
