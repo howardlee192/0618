@@ -542,6 +542,18 @@ function About() {
   const { lang } = useLanguage();
   const [openSection, setOpenSection] = useState<string | null>(null);
 
+  const [hintLang, setHintLang] = useState<'ENG' | 'CHN'>(lang);
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      const interval = setInterval(() => {
+        setHintLang(prev => prev === 'ENG' ? 'CHN' : 'ENG');
+      }, 3000);
+      return () => clearInterval(interval);
+    }, 2500);
+    return () => clearTimeout(timeout);
+  }, []);
+
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -702,11 +714,19 @@ function About() {
         >
           {/* Profile Picture with Parallax */}
           <div ref={containerRef} className="w-[180px] md:w-[240px] max-w-full mb-[40px] md:mb-[60px]">
-            <motion.div style={{ y }} className="w-full bg-[#E0E0E0]">
+            <motion.div style={{ y }} className="w-full bg-[#E0E0E0] relative">
               <AsciiArtHover 
                 src="/about_bioprofile.jpg" 
                 className="w-full h-auto block"
               />
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 2.5, duration: 1 }}
+                className="absolute -bottom-8 md:-right-4 right-0 font-['Geist_Mono'] text-[0.75rem] md:text-[0.85rem] uppercase tracking-[1px] pointer-events-none opacity-80 whitespace-nowrap"
+              >
+                <ScrambleText text={hintLang === 'ENG' ? '↖ [ Hover to reveal ]' : '↖ [ 滑動游標預覽 ]'} />
+              </motion.div>
             </motion.div>
           </div>
 
