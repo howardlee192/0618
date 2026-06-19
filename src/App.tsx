@@ -1330,14 +1330,22 @@ function ProjectUnsorted() {
 }
 
 function ComingSoon() {
-  const { lang } = useLanguage();
+  const [displayLang, setDisplayLang] = useState<'ENG' | 'CHN'>('ENG');
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setDisplayLang(prev => prev === 'ENG' ? 'CHN' : 'ENG');
+    }, 2500); // Set to 2.5s so it has time to read after scrambling
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div className="min-h-[80vh] flex flex-col items-center justify-center p-5 md:px-10 gap-4">
       <h1 className="font-['Space_Grotesk'] text-[clamp(2.5rem,6vw,4rem)] tracking-[-2px] uppercase">
         Coming Soon
       </h1>
-      <p className="font-['Geist_Mono'] text-sm md:text-base tracking-[1px] opacity-50 uppercase">
-        {lang === 'ENG' ? 'Under Construction' : '頁面準備中'}
+      <p className="font-['Geist_Mono'] text-sm md:text-base tracking-[1px] opacity-50 uppercase min-h-[1.5rem] flex items-center justify-center">
+        <ScrambleText text={displayLang === 'ENG' ? 'Under Construction' : '頁 面 準 備 中'} />
       </p>
     </div>
   );
