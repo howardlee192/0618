@@ -1039,7 +1039,7 @@ function IntroScreen({ onEnter }: { onEnter: () => void }) {
     const handleScroll = () => {
       if (!scrolled) {
         setScrolled(true);
-        setTimeout(onEnter, 1800); // 800ms fade + 1000ms pause on white
+        setTimeout(onEnter, 2800); // 800ms fade + 2000ms pause on white
       }
     };
     window.addEventListener('wheel', handleScroll, { once: true });
@@ -1115,6 +1115,7 @@ function HomeTransition({ children }: { children: React.ReactNode }) {
   }, [introDone]);
 
   const handleEnter = () => {
+    window.scrollTo(0, 0);
     setIntroDone(true);
   };
 
