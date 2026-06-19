@@ -1032,7 +1032,7 @@ function Layout({ children }: { children: React.ReactNode }) {
   );
 }
 
-function IntroScreen({ onEnter }: { onEnter: () => void }) {
+function IntroScreen({ onEnter, isReturning }: { onEnter: () => void, isReturning?: boolean }) {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -1076,32 +1076,55 @@ function IntroScreen({ onEnter }: { onEnter: () => void }) {
         </div>
       </motion.div>
 
-      {/* White Fade Overlay */}
+      {/* White Fade Overlay for Entering Home */}
       <motion.div 
         initial={{ opacity: 0 }}
         animate={{ opacity: scrolled ? 1 : 0 }}
         transition={{ duration: 0.8 }}
         className="absolute inset-0 bg-[#FFFFFF] z-20 pointer-events-none"
       />
+
+      {/* White Fade Out Overlay for Returning from Home */}
+      {isReturning && !scrolled && (
+        <motion.div
+          initial={{ opacity: 1 }}
+          animate={{ opacity: 0 }}
+          transition={{ duration: 1 }}
+          className="absolute inset-0 bg-[#FFFFFF] z-30 pointer-events-none"
+        />
+      )}
     </motion.div>
   );
 }
 
 function HomeTransition({ children }: { children: React.ReactNode }) {
   const [introDone, setIntroDone] = useState(false);
+  const [isReversing, setIsReversing] = useState(false);
+  const [hasReturned, setHasReturned] = useState(false);
 
   useEffect(() => {
-    const handleReset = () => setIntroDone(false);
+    const handleReset = () => {
+      if (introDone && !isReversing) {
+        setIsReversing(true);
+        setTimeout(() => {
+          setHasReturned(true);
+          setIntroDone(false);
+          setIsReversing(false);
+        }, 800); // Match the fade to white duration
+      } else if (!introDone) {
+        // If already in intro, just reset return state
+        setHasReturned(false);
+      }
+    };
     window.addEventListener('resetIntro', handleReset);
     return () => window.removeEventListener('resetIntro', handleReset);
-  }, []);
+  }, [introDone, isReversing]);
 
   useEffect(() => {
     if (!introDone) {
       document.body.style.overflow = 'hidden';
       document.body.style.touchAction = 'none';
     } else {
-      // Delay re-enabling scroll to absorb any residual inertial scrolling
       const timer = setTimeout(() => {
         document.body.style.overflow = '';
         document.body.style.touchAction = '';
@@ -1117,12 +1140,13 @@ function HomeTransition({ children }: { children: React.ReactNode }) {
   const handleEnter = () => {
     window.scrollTo(0, 0);
     setIntroDone(true);
+    setHasReturned(false);
   };
 
   return (
     <>
       <AnimatePresence>
-        {!introDone && <IntroScreen onEnter={handleEnter} key="intro" />}
+        {!introDone && <IntroScreen onEnter={handleEnter} isReturning={hasReturned} key="intro" />}
       </AnimatePresence>
 
       {introDone && (
@@ -1130,9 +1154,8 @@ function HomeTransition({ children }: { children: React.ReactNode }) {
           <motion.div
             className="fixed inset-0 z-[1000] bg-[#FFFFFF] pointer-events-none"
             initial={{ opacity: 1 }}
-            animate={{ opacity: 0 }}
-            exit={{ opacity: 1 }}
-            transition={{ duration: 1, ease: "easeInOut" }}
+            animate={{ opacity: isReversing ? 1 : 0 }}
+            transition={{ duration: 0.8, ease: "easeInOut" }}
           />
           <motion.div
             initial={{ filter: "blur(20px)", opacity: 0 }}
