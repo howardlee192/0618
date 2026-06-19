@@ -242,6 +242,7 @@ function Home() {
 
 function Work() {
   useEffect(() => { document.title = "Howard Lee - Work"; }, []);
+  const { lang } = useLanguage();
   const [openFilter, setOpenFilter] = useState<'YEAR' | 'TYPE' | null>(null);
 
   const years = ['ALL', '2024', '2023', '2022', '2021'];
@@ -347,6 +348,7 @@ function Work() {
 
 function Artwork() {
   useEffect(() => { document.title = "Howard Lee - Artwork"; }, []);
+  const { lang } = useLanguage();
   const [openFilter, setOpenFilter] = useState<'YEAR' | 'MEDIUM' | null>(null);
 
   const years = ['ALL', '2024', '2023', '2022', '2021'];
