@@ -25,11 +25,13 @@ export const AsciiArtHover: React.FC<AsciiArtHoverProps> = ({
   const [asciiData, setAsciiData] = useState<{ charIdx: number; r: number; g: number; b: number }[][]>([]);
   const [isLoaded, setIsLoaded] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
+  const [introDone, setIntroDone] = useState(false); // 標記開場動畫是否完成
 
   // Framer Motion Springs for smooth cursor tracking and radius animation
   const mouseX = useSpring(0, { stiffness: 400, damping: 40 });
   const mouseY = useSpring(0, { stiffness: 400, damping: 40 });
-  const radius = useSpring(0, { stiffness: 300, damping: 30 });
+  // 初始半徑設為極大值 (2000)，確保一開始全畫面都是 ASCII
+  const radius = useSpring(2000, { stiffness: 45, damping: 20 });
 
   const clipPath = useMotionTemplate`circle(${radius}px at ${mouseX}px ${mouseY}px)`;
 
@@ -144,8 +146,10 @@ export const AsciiArtHover: React.FC<AsciiArtHoverProps> = ({
     let lastDrawTime = 0;
 
     const renderLoop = (time: number) => {
-      if (!isHovered) return; // 滑鼠不在上面時停止動畫，節省效能
-      // 控制更新頻率 (約每秒 12 幀)，產生復古打字機的動態隨機感
+      // 若開場動畫已結束，且滑鼠不在上面，則停止動畫以節省效能
+      if (introDone && !isHovered) return; 
+      
+      // 控制更新頻率 (約每秒 12 幀)
       if (time - lastDrawTime > 80) {
         drawCanvas();
         lastDrawTime = time;
@@ -153,10 +157,10 @@ export const AsciiArtHover: React.FC<AsciiArtHoverProps> = ({
       animationFrameId = requestAnimationFrame(renderLoop);
     };
 
-    if (isLoaded && isHovered) {
+    if (isLoaded && (!introDone || isHovered)) {
       renderLoop(performance.now());
-    } else if (isLoaded && !isHovered) {
-      drawCanvas(); // 移出時畫一次靜態的，準備下一次 hover
+    } else if (isLoaded && introDone && !isHovered) {
+      drawCanvas(); 
     }
 
     window.addEventListener("resize", drawCanvas);
@@ -164,27 +168,44 @@ export const AsciiArtHover: React.FC<AsciiArtHoverProps> = ({
       cancelAnimationFrame(animationFrameId);
       window.removeEventListener("resize", drawCanvas);
     };
-  }, [isLoaded, isHovered, drawCanvas]);
+  }, [isLoaded, isHovered, introDone, drawCanvas]);
+
+  // 開場動畫：載入後自動將 ASCII 遮罩縮小至消失，露出彩色原圖
+  useEffect(() => {
+    if (isLoaded && containerRef.current) {
+      // 確保遮罩中心在圖片正中央
+      mouseX.jump(containerRef.current.clientWidth / 2);
+      mouseY.jump(containerRef.current.clientHeight / 2);
+      
+      const timer = setTimeout(() => {
+        radius.set(0); // 縮小遮罩
+        // 等待動畫結束後 (約 2.5 秒) 開放 hover 互動
+        setTimeout(() => setIntroDone(true), 2500);
+      }, 300); // 稍微延遲讓第一幀渲染
+
+      return () => clearTimeout(timer);
+    }
+  }, [isLoaded, mouseX, mouseY, radius]);
 
   // 3. 滑鼠事件處理 (更新 Framer Motion 的值)
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!containerRef.current) return;
+    if (!containerRef.current || !introDone) return;
     const rect = containerRef.current.getBoundingClientRect();
     mouseX.set(e.clientX - rect.left);
     mouseY.set(e.clientY - rect.top);
   };
 
   const handleMouseEnter = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!containerRef.current) return;
+    if (!containerRef.current || !introDone) return;
     setIsHovered(true); // 開啟動畫迴圈
     const rect = containerRef.current.getBoundingClientRect();
-    // 進去時瞬間設定座標，才不會從 (0,0) 飛過來
     mouseX.jump(e.clientX - rect.left);
     mouseY.jump(e.clientY - rect.top);
     radius.set(120); // 展開圓形遮罩
   };
 
   const handleMouseLeave = () => {
+    if (!introDone) return;
     setIsHovered(false); // 關閉動畫迴圈
     radius.set(0); // 縮小圓形遮罩至消失
   };
@@ -197,12 +218,12 @@ export const AsciiArtHover: React.FC<AsciiArtHoverProps> = ({
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      {/* 底層：正常照片 */}
+      {/* 底層：正常照片 (移除 grayscale，恢復原始彩色) */}
       <img
         ref={imageRef}
         src={src}
         alt="Profile"
-        className="w-full h-full object-cover block grayscale"
+        className="w-full h-full object-cover block"
       />
 
       {/* 上層：ASCII 濾鏡 Canvas，透過 clipPath 產生圓形遮罩透視效果 */}
