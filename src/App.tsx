@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Link, useLocation } from "react
 import Lenis from "lenis";
 import Text3DFlip from "@/components/ui/text-3d-flip";
 import { motion, useSpring, AnimatePresence, useScroll, useTransform } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronLeft, ChevronRight } from "lucide-react";
 import { AsciiArtHover } from "./components/ui/ascii-art";
 
 const HoverReveal = ({ children }: { children: React.ReactNode }) => {
@@ -922,8 +922,32 @@ function ProjectUnsorted() {
     document.title = "Howard Lee - Unsorted";
   }, []);
 
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+
+  const images = [
+    { id: 0, text: "Cover Image Placeholder", aspect: "aspect-[4/3]" },
+    { id: 1, text: "Process Image Placeholder 01", aspect: "aspect-[16/9]" },
+    { id: 2, text: "Process Image Placeholder 02", aspect: "aspect-[3/4]" },
+    { id: 3, text: "Process Image Placeholder 03", aspect: "aspect-[4/5]" },
+    { id: 4, text: "Process Image Placeholder 04", aspect: "aspect-square" },
+  ];
+
+  const handleNext = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (lightboxIndex !== null) {
+      setLightboxIndex((lightboxIndex + 1) % images.length);
+    }
+  };
+
+  const handlePrev = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (lightboxIndex !== null) {
+      setLightboxIndex((lightboxIndex - 1 + images.length) % images.length);
+    }
+  };
+
   return (
-    <div className="pt-[40px] md:pt-[60px] pb-[100px] min-h-screen">
+    <div className="pt-[40px] md:pt-[60px] pb-[100px] min-h-screen relative">
       <div className="flex flex-col md:flex-row gap-10 md:gap-20 mb-20">
         <div className="w-full md:w-1/3">
           <h1 className="font-['Space_Grotesk'] text-[3.5rem] md:text-[4rem] leading-[1] tracking-[-2px] mb-8 -ml-[0.04em]">
@@ -947,38 +971,26 @@ function ProjectUnsorted() {
         </div>
 
         <div className="w-full md:w-2/3">
-          <div className="w-full aspect-[4/3] bg-[#E0E0E0] flex items-center justify-center">
+          <div 
+            onClick={() => setLightboxIndex(0)}
+            className="w-full aspect-[4/3] bg-[#E0E0E0] flex items-center justify-center cursor-pointer hover:opacity-80 transition-opacity"
+          >
             <span className="font-['Geist_Mono'] text-[#888] uppercase tracking-[1px] text-sm">Cover Image Placeholder</span>
           </div>
         </div>
       </div>
 
       <div className="columns-1 md:columns-2 gap-[30px] space-y-[30px]">
-        <div className="break-inside-avoid">
-          <div className="w-full aspect-[16/9] bg-[#E0E0E0] flex items-center justify-center">
-            <span className="font-['Geist_Mono'] text-[#888] uppercase tracking-[1px] text-[0.7rem]">Process Image Placeholder 01</span>
+        {images.slice(1).map((img) => (
+          <div key={img.id} className="break-inside-avoid">
+            <div 
+              onClick={() => setLightboxIndex(img.id)}
+              className={`w-full ${img.aspect} bg-[#E0E0E0] flex items-center justify-center cursor-pointer hover:opacity-80 transition-opacity`}
+            >
+              <span className="font-['Geist_Mono'] text-[#888] uppercase tracking-[1px] text-[0.7rem]">{img.text}</span>
+            </div>
           </div>
-        </div>
-        <div className="break-inside-avoid">
-          <div className="w-full aspect-[3/4] bg-[#E0E0E0] flex items-center justify-center">
-            <span className="font-['Geist_Mono'] text-[#888] uppercase tracking-[1px] text-[0.7rem]">Process Image Placeholder 02</span>
-          </div>
-        </div>
-        <div className="break-inside-avoid">
-          <div className="w-full aspect-square bg-[#E0E0E0] flex items-center justify-center">
-            <span className="font-['Geist_Mono'] text-[#888] uppercase tracking-[1px] text-[0.7rem]">Process Image Placeholder 03</span>
-          </div>
-        </div>
-        <div className="break-inside-avoid">
-          <div className="w-full aspect-[4/5] bg-[#E0E0E0] flex items-center justify-center">
-            <span className="font-['Geist_Mono'] text-[#888] uppercase tracking-[1px] text-[0.7rem]">Process Image Placeholder 04</span>
-          </div>
-        </div>
-        <div className="break-inside-avoid">
-          <div className="w-full aspect-[16/9] bg-[#E0E0E0] flex items-center justify-center">
-            <span className="font-['Geist_Mono'] text-[#888] uppercase tracking-[1px] text-[0.7rem]">Process Image Placeholder 05</span>
-          </div>
-        </div>
+        ))}
       </div>
       
       <div className="mt-32 flex justify-center border-t border-black/10 pt-16">
@@ -986,6 +998,53 @@ function ProjectUnsorted() {
           Back to Artwork
         </Link>
       </div>
+
+      <AnimatePresence>
+        {lightboxIndex !== null && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            onClick={() => setLightboxIndex(null)}
+            className="fixed inset-0 z-[9999] bg-black/95 flex items-center justify-center p-4 md:p-10 cursor-zoom-out"
+          >
+            <button 
+              className="absolute top-6 right-6 text-white hover:opacity-50 transition-opacity"
+              onClick={() => setLightboxIndex(null)}
+            >
+              <X size={32} />
+            </button>
+
+            <button 
+              className="absolute left-4 md:left-10 top-1/2 -translate-y-1/2 text-white hover:opacity-50 transition-opacity p-2"
+              onClick={handlePrev}
+            >
+              <ChevronLeft size={48} />
+            </button>
+
+            <div 
+              className={`w-full max-w-[80vw] max-h-[80vh] ${images[lightboxIndex].aspect} bg-[#222] flex items-center justify-center cursor-default`}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <span className="font-['Geist_Mono'] text-[#888] uppercase tracking-[1px] md:text-lg text-center px-4">
+                {images[lightboxIndex].text}<br/><span className="text-sm opacity-50 mt-2 block">(Will be replaced with real image)</span>
+              </span>
+            </div>
+
+            <button 
+              className="absolute right-4 md:right-10 top-1/2 -translate-y-1/2 text-white hover:opacity-50 transition-opacity p-2"
+              onClick={handleNext}
+            >
+              <ChevronRight size={48} />
+            </button>
+            
+            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/50 font-['Geist_Mono'] tracking-[2px] text-sm">
+              {lightboxIndex + 1} / {images.length}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
