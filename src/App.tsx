@@ -437,6 +437,13 @@ function About() {
   const [lang, setLang] = useState<'ENG' | 'CHN'>('ENG');
   const [openSection, setOpenSection] = useState<string | null>(null);
 
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"]
+  });
+  const y = useTransform(scrollYProgress, [0, 1], ["-15%", "15%"]);
+
   const resumeData = {
     ENG: [
       {
@@ -584,8 +591,15 @@ function About() {
           viewport={{ once: false, margin: "-100px" }}
           className="w-full md:w-1/2 flex flex-col justify-start md:sticky md:top-[100px] h-fit"
         >
-          {/* Profile Picture Placeholder */}
-          <div className="w-[180px] md:w-[240px] max-w-full aspect-[3/4] bg-[#E0E0E0] mb-[40px] md:mb-[60px]"></div>
+          {/* Profile Picture with Parallax */}
+          <div ref={containerRef} className="w-[180px] md:w-[240px] max-w-full aspect-[3/4] bg-[#E0E0E0] mb-[40px] md:mb-[60px] overflow-hidden relative">
+            <motion.img 
+              src="/about_bioprofile.jpg" 
+              alt="Howard Lee" 
+              style={{ y }}
+              className="absolute top-[-15%] left-0 w-full h-[130%] object-cover object-center grayscale hover:grayscale-0 transition-all duration-700"
+            />
+          </div>
 
           <h3 className={`font-['Space_Grotesk'] ${lang === 'CHN' ? "font-['Space_Grotesk',_'Swei_Bow_Sans'] text-[clamp(1.8rem,3vw,2.8rem)] leading-[1.5] tracking-[0.05em]" : "text-[clamp(2rem,3.5vw,3.2rem)] leading-[1.1] tracking-[-1.5px]"} mb-2`}>
             {text.name}
