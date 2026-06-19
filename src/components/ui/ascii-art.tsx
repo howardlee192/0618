@@ -34,7 +34,7 @@ export const AsciiArtHover: React.FC<AsciiArtHoverProps> = ({
 
   const charsets = {
     standard: " .,:;i1tfLCG08@",
-    blocks: "█▓▒░≡- ", // 擴展符號，加入橫線與更細微的漸層
+    blocks: " -≡░▒▓█", // 黑白反轉：改變明暗與密度的對應關係
     binary: " 01",
     dots: " ·•●",
   };
@@ -107,8 +107,8 @@ export const AsciiArtHover: React.FC<AsciiArtHoverProps> = ({
     const charWidth = cw / cols;
     const charHeight = ch / rows;
 
-    // 確保字型大小適合格子
-    ctx.font = `${Math.min(charWidth * 1.5, charHeight * 1.2)}px monospace`;
+    // 縮小字體比例，讓符號之間產生「呼吸感」與稍微的距離
+    ctx.font = `${Math.min(charWidth * 1.1, charHeight * 0.9)}px monospace`;
     ctx.textBaseline = "top";
     ctx.textAlign = "center";
 
@@ -164,7 +164,7 @@ export const AsciiArtHover: React.FC<AsciiArtHoverProps> = ({
         ref={imageRef}
         src={src}
         alt="Profile"
-        className="w-full h-full object-cover block"
+        className="w-full h-full object-cover block grayscale"
       />
 
       {/* 上層：ASCII 濾鏡 Canvas，透過 clipPath 產生圓形遮罩透視效果 */}
