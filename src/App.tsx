@@ -1067,11 +1067,11 @@ function IntroScreen({ onEnter, isReturning }: { onEnter: () => void, isReturnin
         className="relative z-10 flex justify-between items-end p-5 md:px-10 md:py-10 font-['Geist_Mono'] text-[0.85rem] uppercase tracking-[1px] opacity-80 text-[#F0F0F0]"
       >
         <div className="flex flex-col items-start gap-2">
-          <span className="animate-bounce text-xl">↑</span>
+          <span className="animate-bounce text-xl">↓</span>
           <span>Scroll to enter</span>
         </div>
         <div className="flex flex-col items-end gap-2">
-          <span className="animate-bounce text-xl">↑</span>
+          <span className="animate-bounce text-xl">↓</span>
           <span className="font-['Space_Grotesk',_'Swei_Bow_Sans'] tracking-[0.1em]">滑動進入</span>
         </div>
       </motion.div>
