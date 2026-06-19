@@ -584,7 +584,7 @@ function About() {
       {
         title: '獎項',
         items: [
-          { left: '2026', right: 'Young Ones ADC: Design for Good, 銅立方獎, 紐約' },
+          { left: '2026', right: <>Young Ones ADC: Design for Good,<br/>銅立方獎, 紐約</> },
           { left: '2025', right: '臺灣國際學生創意設計大賽 (TISDC), 銅獎, 台灣' },
           { left: '2025', right: '桃園設計獎 (視覺與商業設計類), 特優獎, 台灣' },
           { left: '2025', right: '台灣金星設計獎 (海報設計類), 金獎, 台灣' },
