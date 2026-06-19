@@ -67,7 +67,10 @@ export const AsciiArtHover: React.FC<AsciiArtHoverProps> = ({
           for (let x = 0; x < cols; x++) {
             const idx = (y * cols + x) * 4;
             const r = data[idx], g = data[idx + 1], b = data[idx + 2], a = data[idx + 3];
-            const brightness = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
+            const rawBrightness = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
+            // 強化對比度 (Contrast Enhancement)，讓亮部更亮、暗部更暗，突顯符號層次
+            const contrast = 2.5; 
+            const brightness = Math.max(0, Math.min(1, (rawBrightness - 0.5) * contrast + 0.5));
             const charIdx = Math.floor((a === 0 ? 0 : brightness) * (targetCharset.length - 1));
             row.push({ char: targetCharset[charIdx] || " ", r, g, b });
           }
