@@ -950,6 +950,11 @@ function ProjectUnsorted() {
     <div className="pt-[40px] md:pt-[60px] pb-[100px] min-h-screen relative">
       <div className="flex flex-col md:flex-row gap-10 md:gap-20 mb-20">
         <div className="w-full md:w-1/3">
+          <Link to="/artwork" className="inline-flex items-center gap-1 mb-8 md:mb-12 hover:opacity-50 transition-opacity font-['Geist_Mono'] text-xs uppercase tracking-[1px]">
+            <ChevronLeft size={16} className="-ml-1" />
+            Back
+          </Link>
+          
           <h1 className="font-['Space_Grotesk'] text-[3.5rem] md:text-[4rem] leading-[1] tracking-[-2px] mb-8 -ml-[0.04em]">
             Unsorted
           </h1>
