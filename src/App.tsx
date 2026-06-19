@@ -173,6 +173,32 @@ function ProjectsGrid({ useBlur = false }: { useBlur?: boolean }) {
     </motion.div>
   );
 }
+const ScrambleText = ({ text }: { text: string }) => {
+  const [displayText, setDisplayText] = useState(text);
+
+  useEffect(() => {
+    let iteration = 0;
+    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()_+-=[]{}|;:,.<>?/~';
+    const interval = setInterval(() => {
+      setDisplayText(text.split('').map((char, index) => {
+        if (index < iteration) return char;
+        if (char === ' ' || char === '↖' || char === '[' || char === ']') return char;
+        return chars[Math.floor(Math.random() * chars.length)];
+      }).join(''));
+      
+      iteration += 1 / 2;
+      
+      if (iteration >= text.length) {
+        clearInterval(interval);
+        setDisplayText(text);
+      }
+    }, 30);
+
+    return () => clearInterval(interval);
+  }, [text]);
+
+  return <span>{displayText}</span>;
+};
 
 
 
@@ -185,7 +211,7 @@ function Home() {
     const timeout = setTimeout(() => {
       const interval = setInterval(() => {
         setHintLang(prev => prev === 'ENG' ? 'CHN' : 'ENG');
-      }, 1600);
+      }, 3000);
       return () => clearInterval(interval);
     }, 2500);
     return () => clearTimeout(timeout);
@@ -232,17 +258,11 @@ function Home() {
           
           <motion.div
             initial={{ opacity: 0 }}
-            animate={{ opacity: [0.6, 0.6, 0, 0] }}
-            transition={{ 
-              delay: 2.5,
-              duration: 0.8,
-              repeat: Infinity,
-              times: [0, 0.5, 0.5, 1],
-              ease: "linear"
-            }}
-            className="absolute bottom-12 right-0 md:right-4 font-['Geist_Mono'] text-[0.85rem] md:text-sm uppercase tracking-[1px] pointer-events-none"
+            animate={{ opacity: 1 }}
+            transition={{ delay: 2.5, duration: 1 }}
+            className="absolute bottom-12 right-0 md:right-4 font-['Geist_Mono'] text-[0.85rem] md:text-sm uppercase tracking-[1px] pointer-events-none opacity-80"
           >
-            {hintLang === 'ENG' ? '↖ [ Hover to reveal ]' : '↖ [ 滑動游標預覽影像 ]'}
+            <ScrambleText text={hintLang === 'ENG' ? '↖ [ Hover to reveal ]' : '↖ [ 滑動游標預覽影像 ]'} />
           </motion.div>
         </motion.section>
       </div>
