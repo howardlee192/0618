@@ -1329,13 +1329,28 @@ function ProjectUnsorted() {
   );
 }
 
+function ComingSoon() {
+  const { lang } = useLanguage();
+  return (
+    <div className="min-h-[80vh] flex flex-col items-center justify-center p-5 md:px-10 gap-4">
+      <h1 className="font-['Space_Grotesk'] text-[clamp(2.5rem,6vw,4rem)] tracking-[-2px] uppercase">
+        Coming Soon
+      </h1>
+      <p className="font-['Geist_Mono'] text-sm md:text-base tracking-[1px] opacity-50 uppercase">
+        {lang === 'ENG' ? 'Under Construction' : '頁面準備中'}
+      </p>
+    </div>
+  );
+}
+
 function AnimatedRoutes() {
   const location = useLocation();
   return (
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<HomeTransition><Home /></HomeTransition>} />
-        <Route path="/work" element={<PageTransition><Work /></PageTransition>} />
+        {/* <Route path="/work" element={<PageTransition><Work /></PageTransition>} /> */}
+        <Route path="/work" element={<PageTransition><ComingSoon /></PageTransition>} />
         <Route path="/artwork" element={<PageTransition><Artwork /></PageTransition>} />
         <Route path="/artwork/unsorted" element={<PageTransition><ProjectUnsorted /></PageTransition>} />
         <Route path="/about" element={<PageTransition><About /></PageTransition>} />
