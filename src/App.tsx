@@ -94,17 +94,6 @@ function ProjectsGrid({ useBlur = false }: { useBlur?: boolean }) {
       className="columns-1 md:columns-2 lg:columns-3 gap-[30px] space-y-[30px]"
     >
       <div className="break-inside-avoid">
-        <Link to="/artwork/unsorted" className="block group cursor-pointer">
-          <motion.div variants={itemVariant} className="mb-[15px]">
-            <h3 className="font-['Space_Grotesk'] text-[2.2rem] mb-[5px] tracking-[-1px] -ml-[0.02em] font-normal group-hover:opacity-60 transition-opacity">Unsorted</h3>
-            <div className="text-[0.6rem] uppercase tracking-[1px] opacity-50">PERFORMANCE / LIVE VISUAL</div>
-          </motion.div>
-          <motion.div variants={itemVariant} className="w-full h-auto aspect-square bg-[#E0E0E0] flex items-center justify-center overflow-hidden">
-            <span className="font-['Geist_Mono'] text-[#888] text-[0.6rem] uppercase tracking-[1px] opacity-0 group-hover:opacity-100 transition-opacity">Click to View</span>
-          </motion.div>
-        </Link>
-      </div>
-      <div className="break-inside-avoid">
         <motion.div variants={itemVariant} className="mb-[15px]">
           <h3 className="font-['Space_Grotesk'] text-[2.2rem] mb-[5px] tracking-[-1px] -ml-[0.02em] font-normal">Nike Swoosh 1</h3>
           <div className="text-[0.6rem] uppercase tracking-[1px] opacity-50">CAMPAIGN / POP-UP</div>
@@ -418,6 +407,17 @@ function Artwork() {
         viewport={{ once: false, margin: "-100px" }}
         className="columns-1 md:columns-2 lg:columns-3 gap-[30px] space-y-[30px]"
       >
+        <div className="break-inside-avoid">
+          <Link to="/artwork/unsorted" className="block group cursor-pointer">
+            <motion.div variants={staggerItem} className="mb-[15px]">
+              <h3 className="font-['Space_Grotesk'] text-[2.2rem] mb-[5px] tracking-[-1px] -ml-[0.02em] font-normal group-hover:opacity-60 transition-opacity">Unsorted</h3>
+              <div className="text-[0.6rem] uppercase tracking-[1px] opacity-50">PERFORMANCE / LIVE VISUAL</div>
+            </motion.div>
+            <motion.div variants={staggerItem} className="w-full h-auto aspect-square bg-[#E0E0E0] flex items-center justify-center overflow-hidden">
+              <span className="font-['Geist_Mono'] text-[#888] text-[0.6rem] uppercase tracking-[1px] opacity-0 group-hover:opacity-100 transition-opacity">Click to View</span>
+            </motion.div>
+          </Link>
+        </div>
         <div className="break-inside-avoid">
           <motion.div variants={staggerItem} className="mb-[15px]">
             <h3 className="font-['Space_Grotesk'] text-[2.2rem] mb-[5px] tracking-[-1px] -ml-[0.02em] font-normal">Abstract Form 01</h3>
