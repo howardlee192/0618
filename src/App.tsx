@@ -1,10 +1,44 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, createContext, useContext } from "react";
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from "react-router-dom";
 import Lenis from "lenis";
 import Text3DFlip from "@/components/ui/text-3d-flip";
 import { motion, useSpring, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import { Menu, X, ChevronLeft, ChevronRight } from "lucide-react";
 import { AsciiArtHover } from "./components/ui/ascii-art";
+
+type Language = 'ENG' | 'CHN';
+interface LanguageContextType {
+  lang: Language;
+  setLang: (lang: Language) => void;
+}
+const LanguageContext = createContext<LanguageContextType>({ lang: 'ENG', setLang: () => {} });
+const useLanguage = () => useContext(LanguageContext);
+
+const LanguageProvider = ({ children }: { children: React.ReactNode }) => {
+  const [lang, setLang] = useState<Language>('ENG');
+  return <LanguageContext.Provider value={{ lang, setLang }}>{children}</LanguageContext.Provider>;
+};
+
+const LanguageToggle = ({ className = "" }: { className?: string }) => {
+  const { lang, setLang } = useLanguage();
+  return (
+    <div className={`flex gap-4 text-xs md:text-sm font-['Geist_Mono'] uppercase tracking-[1px] items-center mb-2 md:mb-0 ${className}`}>
+      <button
+        onClick={() => setLang('CHN')}
+        className={`transition-opacity hover:opacity-100 ${lang === 'CHN' ? 'opacity-100 font-bold' : 'opacity-40'}`}
+      >
+        CHN
+      </button>
+      <span className="opacity-20">/</span>
+      <button
+        onClick={() => setLang('ENG')}
+        className={`transition-opacity hover:opacity-100 ${lang === 'ENG' ? 'opacity-100 font-bold' : 'opacity-40'}`}
+      >
+        ENG
+      </button>
+    </div>
+  );
+};
 
 const HoverReveal = ({ children }: { children: React.ReactNode }) => {
   const [isHovered, setIsHovered] = useState(false);
@@ -186,15 +220,18 @@ function Home() {
       </div>
 
       <section className="relative z-10 bg-[#F0F0F0] pt-[40px] md:pt-[60px] pb-[100px] border-b border-black/10">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ type: "spring", duration: 1.5, bounce: 0 }}
-          viewport={{ once: false, margin: "-100px" }}
-          className="font-['Space_Grotesk'] text-[3.5rem] mb-[60px] tracking-[-1px] -ml-[0.05em] font-normal"
-        >
-          Featured
-        </motion.h2>
+        <div className="flex justify-between items-end mb-[40px] md:mb-[60px]">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ type: "spring", duration: 1.5, bounce: 0 }}
+            viewport={{ once: false, margin: "-100px" }}
+            className="font-['Space_Grotesk'] text-[3.5rem] tracking-[-1px] -ml-[0.05em] font-normal"
+          >
+            Featured
+          </motion.h2>
+          <LanguageToggle />
+        </div>
         <ProjectsGrid useBlur={true} />
       </section>
     </>
@@ -213,15 +250,18 @@ function Work() {
 
   return (
     <section className="pt-[40px] md:pt-[60px] pb-[100px] border-b border-black/10 min-h-[80vh]">
-      <motion.h2
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ type: "spring", duration: 1.5, bounce: 0 }}
-        viewport={{ once: false, margin: "-100px" }}
-        className="font-['Space_Grotesk'] text-[3.5rem] mb-[40px] md:mb-[60px] tracking-[-1px] -ml-[0.05em] font-normal"
-      >
-        Work
-      </motion.h2>
+      <div className="flex justify-between items-end mb-[40px] md:mb-[60px]">
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ type: "spring", duration: 1.5, bounce: 0 }}
+          viewport={{ once: false, margin: "-100px" }}
+          className="font-['Space_Grotesk'] text-[3.5rem] tracking-[-1px] -ml-[0.05em] font-normal"
+        >
+          Work
+        </motion.h2>
+        <LanguageToggle />
+      </div>
 
       {/* Filter Accordions */}
       <div className="mb-12 md:mb-20 border-t border-b border-black/10 flex flex-col md:flex-row">
@@ -315,15 +355,18 @@ function Artwork() {
 
   return (
     <section className="pt-[40px] md:pt-[60px] pb-[100px] border-b border-black/10 min-h-[80vh]">
-      <motion.h2
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ type: "spring", duration: 1.5, bounce: 0 }}
-        viewport={{ once: false, margin: "-100px" }}
-        className="font-['Space_Grotesk'] text-[3.5rem] mb-[40px] md:mb-[60px] tracking-[-1px] -ml-[0.05em] font-normal"
-      >
-        Artwork
-      </motion.h2>
+      <div className="flex justify-between items-end mb-[40px] md:mb-[60px]">
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ type: "spring", duration: 1.5, bounce: 0 }}
+          viewport={{ once: false, margin: "-100px" }}
+          className="font-['Space_Grotesk'] text-[3.5rem] tracking-[-1px] -ml-[0.05em] font-normal"
+        >
+          Artwork
+        </motion.h2>
+        <LanguageToggle />
+      </div>
 
       {/* Filter Accordions */}
       <div className="mb-12 md:mb-20 border-t border-b border-black/10 flex flex-col md:flex-row">
@@ -446,7 +489,7 @@ function Artwork() {
 
 function About() {
   useEffect(() => { document.title = "Howard Lee - About"; }, []);
-  const [lang, setLang] = useState<'ENG' | 'CHN'>('ENG');
+  const { lang } = useLanguage();
   const [openSection, setOpenSection] = useState<string | null>(null);
 
   const containerRef = useRef<HTMLDivElement>(null);
@@ -592,21 +635,9 @@ function About() {
           whileInView={{ opacity: 1 }}
           transition={{ duration: 1 }}
           viewport={{ once: false }}
-          className="flex gap-4 text-xs md:text-sm font-['Geist_Mono'] pb-3 md:pb-4 uppercase tracking-[1px]"
+          className="pb-3 md:pb-4"
         >
-          <button
-            onClick={() => setLang('CHN')}
-            className={`transition-opacity hover:opacity-100 ${lang === 'CHN' ? 'opacity-100 font-bold' : 'opacity-40'}`}
-          >
-            CHN
-          </button>
-          <span className="opacity-20">/</span>
-          <button
-            onClick={() => setLang('ENG')}
-            className={`transition-opacity hover:opacity-100 ${lang === 'ENG' ? 'opacity-100 font-bold' : 'opacity-40'}`}
-          >
-            ENG
-          </button>
+          <LanguageToggle className="!mb-0" />
         </motion.div>
       </div>
 
@@ -922,6 +953,8 @@ function ProjectUnsorted() {
     document.title = "Howard Lee - Unsorted";
   }, []);
 
+  const { lang } = useLanguage();
+
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
   const images = [
@@ -950,10 +983,13 @@ function ProjectUnsorted() {
     <div className="pt-[40px] md:pt-[60px] pb-[100px] min-h-screen relative">
       <div className="flex flex-col md:flex-row gap-10 md:gap-20 mb-20">
         <div className="w-full md:w-1/3">
-          <Link to="/artwork" className="inline-flex items-center gap-1 mb-8 md:mb-12 hover:opacity-50 transition-opacity font-['Geist_Mono'] text-xs uppercase tracking-[1px]">
-            <ChevronLeft size={16} className="-ml-1" />
-            Back
-          </Link>
+          <div className="flex justify-between items-start mb-8 md:mb-12">
+            <Link to="/artwork" className="inline-flex items-center gap-1 hover:opacity-50 transition-opacity font-['Geist_Mono'] text-xs uppercase tracking-[1px]">
+              <ChevronLeft size={16} className="-ml-1" />
+              Back
+            </Link>
+            <LanguageToggle />
+          </div>
           
           <h1 className="font-['Space_Grotesk'] text-[3.5rem] md:text-[4rem] leading-[1] tracking-[-2px] mb-8 -ml-[0.04em]">
             Unsorted
@@ -961,17 +997,19 @@ function ProjectUnsorted() {
           
           <div className="flex flex-col gap-4 font-['Geist_Mono'] text-sm uppercase tracking-[1px] mb-8 pb-8 border-b border-black/10">
             <div className="flex">
-              <span className="opacity-50 w-24">Year</span>
+              <span className="opacity-50 w-24">{lang === 'ENG' ? 'Year' : '年份'}</span>
               <span>2025</span>
             </div>
             <div className="flex">
-              <span className="opacity-50 w-24">Medium</span>
-              <span>Live Visual / Performance</span>
+              <span className="opacity-50 w-24">{lang === 'ENG' ? 'Medium' : '媒介'}</span>
+              <span>{lang === 'ENG' ? 'Live Visual / Performance' : '現場視覺 / 演出'}</span>
             </div>
           </div>
 
           <div className="font-['Geist_Mono'] text-sm leading-[1.8] opacity-80">
-            A live visual performance project exploring the unorganized, chaotic yet structured nature of contemporary youth. Blending generative graphics with sound-reactive elements, the piece creates an immersive environment that bridges digital aesthetics with physical spatial experiences.
+            {lang === 'ENG' 
+              ? "A live visual performance project exploring the unorganized, chaotic yet structured nature of contemporary youth. Blending generative graphics with sound-reactive elements, the piece creates an immersive environment that bridges digital aesthetics with physical spatial experiences."
+              : "一個探索當代青年那種混亂、無序卻又帶有結構性特質的現場視覺演出計畫。透過結合生成藝術與聲音互動元素，本作品創造出一個沉浸式的環境，完美橋接了數位美學與實體空間體驗。"}
           </div>
         </div>
 
@@ -1071,10 +1109,12 @@ function AnimatedRoutes() {
 
 export default function App() {
   return (
-    <Router>
-      <Layout>
-        <AnimatedRoutes />
-      </Layout>
-    </Router>
+    <LanguageProvider>
+      <Router>
+        <Layout>
+          <AnimatedRoutes />
+        </Layout>
+      </Router>
+    </LanguageProvider>
   );
 }
