@@ -982,24 +982,83 @@ function Layout({ children }: { children: React.ReactNode }) {
   );
 }
 
+function IntroScreen({ onEnter }: { onEnter: () => void }) {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!scrolled) {
+        setScrolled(true);
+        setTimeout(onEnter, 800); // Wait for background fade to white
+      }
+    };
+    window.addEventListener('wheel', handleScroll, { once: true });
+    window.addEventListener('touchmove', handleScroll, { once: true });
+    return () => {
+      window.removeEventListener('wheel', handleScroll);
+      window.removeEventListener('touchmove', handleScroll);
+    };
+  }, [scrolled, onEnter]);
+
+  return (
+    <motion.div 
+      initial={{ opacity: 1, backgroundColor: "#F0F0F0" }}
+      animate={{ backgroundColor: scrolled ? "#FFFFFF" : "#F0F0F0" }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.8 }}
+      className="fixed inset-0 z-[9999] flex flex-col justify-end p-5 md:px-10 md:py-10"
+    >
+      <motion.div 
+        animate={{ opacity: scrolled ? 0 : 1 }}
+        transition={{ duration: 0.3 }}
+        className="flex justify-between items-end font-['Geist_Mono'] text-[0.85rem] uppercase tracking-[1px] opacity-60"
+      >
+        <div className="flex flex-col items-start gap-2">
+          <span className="animate-bounce text-xl">↑</span>
+          <span>Scroll to enter</span>
+        </div>
+        <div className="flex flex-col items-end gap-2">
+          <span className="animate-bounce text-xl">↑</span>
+          <span className="font-['Space_Grotesk',_'Swei_Bow_Sans'] tracking-[0.1em]">滑動進入</span>
+        </div>
+      </motion.div>
+    </motion.div>
+  );
+}
+
 function HomeTransition({ children }: { children: React.ReactNode }) {
+  const [introDone, setIntroDone] = useState(() => sessionStorage.getItem('introDone') === 'true');
+
+  const handleEnter = () => {
+    sessionStorage.setItem('introDone', 'true');
+    setIntroDone(true);
+  };
+
   return (
     <>
-      <motion.div
-        className="fixed inset-0 z-[1000] bg-[#F0F0F0] pointer-events-none"
-        initial={{ opacity: 1 }}
-        animate={{ opacity: 0 }}
-        exit={{ opacity: 1 }}
-        transition={{ duration: 1, ease: "easeInOut" }}
-      />
-      <motion.div
-        initial={{ filter: "blur(20px)", opacity: 0 }}
-        animate={{ filter: "blur(0px)", opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 1.5, ease: "easeOut", delay: 0.2 }}
-      >
-        {children}
-      </motion.div>
+      <AnimatePresence>
+        {!introDone && <IntroScreen onEnter={handleEnter} key="intro" />}
+      </AnimatePresence>
+
+      {introDone && (
+        <>
+          <motion.div
+            className="fixed inset-0 z-[1000] bg-[#FFFFFF] pointer-events-none"
+            initial={{ opacity: 1 }}
+            animate={{ opacity: 0 }}
+            exit={{ opacity: 1 }}
+            transition={{ duration: 1, ease: "easeInOut" }}
+          />
+          <motion.div
+            initial={{ filter: "blur(20px)", opacity: 0 }}
+            animate={{ filter: "blur(0px)", opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1.5, ease: "easeOut", delay: 0.2 }}
+          >
+            {children}
+          </motion.div>
+        </>
+      )}
     </>
   );
 }
