@@ -592,12 +592,12 @@ function About() {
           className="w-full md:w-1/2 flex flex-col justify-start md:sticky md:top-[100px] h-fit"
         >
           {/* Profile Picture with Parallax */}
-          <div ref={containerRef} className="w-[180px] md:w-[240px] max-w-full bg-[#E0E0E0] mb-[40px] md:mb-[60px] overflow-hidden">
-            <motion.div style={{ y }}>
+          <div ref={containerRef} className="w-[180px] md:w-[240px] max-w-full mb-[40px] md:mb-[60px]">
+            <motion.div style={{ y }} className="w-full bg-[#E0E0E0]">
               <img 
                 src="/about_bioprofile.jpg" 
                 alt="Howard Lee" 
-                className="w-full h-auto scale-[1.2]"
+                className="w-full h-auto block"
               />
             </motion.div>
           </div>
