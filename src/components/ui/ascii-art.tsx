@@ -15,14 +15,14 @@ export const AsciiArtHover: React.FC<AsciiArtHoverProps> = ({
   src,
   resolution = 80, // 降低解析度讓符號變大、變少，增加呼吸空間
   charset = "mixed",
-  color = "#888888", // 與設計稿相符的灰色
+  color = "#222222", // 加深顏色讓對比更強烈、更明顯
   className,
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const imageRef = useRef<HTMLImageElement>(null);
   
-  const [asciiData, setAsciiData] = useState<{ char: string; r: number; g: number; b: number }[][]>([]);
+  const [asciiData, setAsciiData] = useState<{ charIdx: number; r: number; g: number; b: number }[][]>([]);
   const [isLoaded, setIsLoaded] = useState(false);
 
   // Framer Motion Springs for smooth cursor tracking and radius animation
@@ -35,7 +35,7 @@ export const AsciiArtHover: React.FC<AsciiArtHoverProps> = ({
   const charsets = {
     standard: " .,:;i1tfLCG08@",
     blocks: " -≡░▒▓█", // 黑白反轉：改變明暗與密度的對應關係
-    mixed: "    .,-:;~+*oO08#@M", // 混合標點、英文與數字，並加重暗處的留白
+    mixed: "M@#80Oo*+~;:-,.    ", // 暗部密集，亮部留白，形成明顯對比
     binary: " 01",
     dots: " ·•●",
   };
@@ -71,8 +71,8 @@ export const AsciiArtHover: React.FC<AsciiArtHoverProps> = ({
             // 強化對比度 (Contrast Enhancement)，讓亮部更亮、暗部更暗，突顯符號層次
             const contrast = 2.5; 
             const brightness = Math.max(0, Math.min(1, (rawBrightness - 0.5) * contrast + 0.5));
-            const charIdx = Math.floor((a === 0 ? 0 : brightness) * (targetCharset.length - 1));
-            row.push({ char: targetCharset[charIdx] || " ", r, g, b });
+            const charIdx = Math.floor((a === 0 ? 1 : brightness) * (targetCharset.length - 1));
+            row.push({ charIdx, r, g, b });
           }
           result.push(row);
         }
@@ -116,21 +116,44 @@ export const AsciiArtHover: React.FC<AsciiArtHoverProps> = ({
     ctx.textBaseline = "top";
     ctx.textAlign = "center";
 
+    const targetCharset = charsets[charset];
+
     for (let y = 0; y < rows; y++) {
       for (let x = 0; x < cols; x++) {
         const pixel = asciiData[y][x];
         ctx.fillStyle = color; // 這裡可自訂顏色
-        ctx.fillText(pixel.char, x * charWidth + charWidth / 2, y * charHeight);
+        
+        // 加入動態隨機抖動 (Jitter)，讓相近密度的符號隨機切換，產生動態閃爍感
+        const jitter = Math.floor(Math.random() * 3) - 1; // -1, 0, 1
+        const finalIdx = Math.max(0, Math.min(targetCharset.length - 1, pixel.charIdx + jitter));
+        const char = targetCharset[finalIdx] || " ";
+
+        ctx.fillText(char, x * charWidth + charWidth / 2, y * charHeight);
       }
     }
-  }, [asciiData, color]);
+  }, [asciiData, color, charset]);
 
-  // 當載入完成後繪製，並監聽視窗縮放以重繪
+  // 當載入完成後啟動動態繪製迴圈
   useEffect(() => {
+    let animationFrameId: number;
+    let lastDrawTime = 0;
+
+    const renderLoop = (time: number) => {
+      // 控制更新頻率 (約每秒 12 幀)，產生復古打字機的動態隨機感
+      if (time - lastDrawTime > 80) {
+        drawCanvas();
+        lastDrawTime = time;
+      }
+      animationFrameId = requestAnimationFrame(renderLoop);
+    };
+
     if (isLoaded) {
-      drawCanvas();
+      renderLoop(performance.now());
       window.addEventListener("resize", drawCanvas);
-      return () => window.removeEventListener("resize", drawCanvas);
+      return () => {
+        cancelAnimationFrame(animationFrameId);
+        window.removeEventListener("resize", drawCanvas);
+      };
     }
   }, [isLoaded, drawCanvas]);
 
