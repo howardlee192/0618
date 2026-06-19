@@ -179,6 +179,17 @@ function ProjectsGrid({ useBlur = false }: { useBlur?: boolean }) {
 function Home() {
   useEffect(() => { document.title = "Howard Lee - Home"; }, []);
   const { lang } = useLanguage();
+  const [hintLang, setHintLang] = useState<'ENG' | 'CHN'>(lang);
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      const interval = setInterval(() => {
+        setHintLang(prev => prev === 'ENG' ? 'CHN' : 'ENG');
+      }, 1600);
+      return () => clearInterval(interval);
+    }, 2500);
+    return () => clearTimeout(timeout);
+  }, []);
 
   const heroRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -229,9 +240,9 @@ function Home() {
               times: [0, 0.5, 0.5, 1],
               ease: "linear"
             }}
-            className="absolute bottom-12 right-0 md:right-4 font-['Geist_Mono'] text-[0.75rem] uppercase tracking-[1px] pointer-events-none"
+            className="absolute bottom-12 right-0 md:right-4 font-['Geist_Mono'] text-[0.85rem] md:text-sm uppercase tracking-[1px] pointer-events-none"
           >
-            {lang === 'ENG' ? '↖ [ Hover to reveal ]' : '↖ [ 滑動游標預覽影像 ]'}
+            {hintLang === 'ENG' ? '↖ [ Hover to reveal ]' : '↖ [ 滑動游標預覽影像 ]'}
           </motion.div>
         </motion.section>
       </div>
