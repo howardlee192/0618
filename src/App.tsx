@@ -221,7 +221,7 @@ function Home() {
     let touchStartY = 0;
     
     const handleWheel = (e: WheelEvent) => {
-      if (window.scrollY <= 0 && e.deltaY < -30) {
+      if (window.scrollY <= 10 && e.deltaY < -10) {
         window.dispatchEvent(new Event('resetIntro'));
       }
     };
@@ -229,9 +229,9 @@ function Home() {
       touchStartY = e.touches[0].clientY;
     };
     const handleTouchMove = (e: TouchEvent) => {
-      if (window.scrollY <= 0) {
+      if (window.scrollY <= 10) {
         const currentY = e.touches[0].clientY;
-        if (currentY - touchStartY > 50) {
+        if (currentY - touchStartY > 30) {
           window.dispatchEvent(new Event('resetIntro'));
         }
       }
