@@ -160,23 +160,23 @@ function Home() {
           <div className="flex-1 flex flex-col justify-start items-start">
             <div className="font-['Space_Grotesk'] text-[clamp(1.8rem,4.5vw,4.95rem)] leading-[0.95] tracking-[-2px] max-w-[80%] -ml-[0.04em]">
               <div className="flex items-center flex-wrap uppercase gap-10 md:gap-20">
-                <HoverReveal><Text3DFlip className="bg-[#F4F3ED]" textClassName="bg-[#F4F3ED] text-[#0A0A0A]" flipTextClassName="bg-[#F4F3ED] text-[#0A0A0A]" rotateDirection="top" staggerDuration={0.03} staggerFrom="center">VISUAL</Text3DFlip></HoverReveal>
-                <HoverReveal><Text3DFlip className="bg-[#F4F3ED]" textClassName="bg-[#F4F3ED] text-[#0A0A0A]" flipTextClassName="bg-[#F4F3ED] text-[#0A0A0A]" rotateDirection="top" staggerDuration={0.03} staggerFrom="center">MOTION</Text3DFlip></HoverReveal>
+                <HoverReveal><Text3DFlip className="bg-[#F0F0F0]" textClassName="bg-[#F0F0F0] text-[#0A0A0A]" flipTextClassName="bg-[#F0F0F0] text-[#0A0A0A]" rotateDirection="top" staggerDuration={0.03} staggerFrom="center">VISUAL</Text3DFlip></HoverReveal>
+                <HoverReveal><Text3DFlip className="bg-[#F0F0F0]" textClassName="bg-[#F0F0F0] text-[#0A0A0A]" flipTextClassName="bg-[#F0F0F0] text-[#0A0A0A]" rotateDirection="top" staggerDuration={0.03} staggerFrom="center">MOTION</Text3DFlip></HoverReveal>
               </div>
               <div className="flex items-center flex-wrap uppercase mt-2 md:mt-4 gap-10 md:gap-20">
-                <HoverReveal><Text3DFlip className="bg-[#F4F3ED]" textClassName="bg-[#F4F3ED] text-[#0A0A0A]" flipTextClassName="bg-[#F4F3ED] text-[#0A0A0A]" rotateDirection="top" staggerDuration={0.03} staggerFrom="center">ANIMATION</Text3DFlip></HoverReveal>
-                <HoverReveal><Text3DFlip className="bg-[#F4F3ED]" textClassName="bg-[#F4F3ED] text-[#0A0A0A]" flipTextClassName="bg-[#F4F3ED] text-[#0A0A0A]" rotateDirection="top" staggerDuration={0.03} staggerFrom="center">INTERACTION</Text3DFlip></HoverReveal>
+                <HoverReveal><Text3DFlip className="bg-[#F0F0F0]" textClassName="bg-[#F0F0F0] text-[#0A0A0A]" flipTextClassName="bg-[#F0F0F0] text-[#0A0A0A]" rotateDirection="top" staggerDuration={0.03} staggerFrom="center">ANIMATION</Text3DFlip></HoverReveal>
+                <HoverReveal><Text3DFlip className="bg-[#F0F0F0]" textClassName="bg-[#F0F0F0] text-[#0A0A0A]" flipTextClassName="bg-[#F0F0F0] text-[#0A0A0A]" rotateDirection="top" staggerDuration={0.03} staggerFrom="center">INTERACTION</Text3DFlip></HoverReveal>
               </div>
               <div className="flex items-center flex-wrap uppercase mt-2 md:mt-4 gap-10 md:gap-20">
-                <HoverReveal><Text3DFlip className="bg-[#F4F3ED]" textClassName="bg-[#F4F3ED] text-[#0A0A0A]" flipTextClassName="bg-[#F4F3ED] text-[#0A0A0A]" rotateDirection="top" staggerDuration={0.03} staggerFrom="center">ARTWORK</Text3DFlip></HoverReveal>
+                <HoverReveal><Text3DFlip className="bg-[#F0F0F0]" textClassName="bg-[#F0F0F0] text-[#0A0A0A]" flipTextClassName="bg-[#F0F0F0] text-[#0A0A0A]" rotateDirection="top" staggerDuration={0.03} staggerFrom="center">ARTWORK</Text3DFlip></HoverReveal>
               </div>
               <div className="mt-12 md:mt-16 flex items-center gap-4">
                 <span>FROM</span>
-                <HoverReveal><Text3DFlip className="bg-[#F4F3ED]" textClassName="bg-[#F4F3ED] text-[#0A0A0A]" flipTextClassName="bg-[#F4F3ED] text-[#0A0A0A]" rotateDirection="top" staggerDuration={0.03} staggerFrom="center">HONG KONG</Text3DFlip></HoverReveal>
+                <HoverReveal><Text3DFlip className="bg-[#F0F0F0]" textClassName="bg-[#F0F0F0] text-[#0A0A0A]" flipTextClassName="bg-[#F0F0F0] text-[#0A0A0A]" rotateDirection="top" staggerDuration={0.03} staggerFrom="center">HONG KONG</Text3DFlip></HoverReveal>
               </div>
               <div className="mt-2 md:mt-4 flex items-center gap-4">
                 <span>BASED IN</span>
-                <HoverReveal><Text3DFlip className="bg-[#F4F3ED]" textClassName="bg-[#F4F3ED] text-[#0A0A0A]" flipTextClassName="bg-[#F4F3ED] text-[#0A0A0A]" rotateDirection="top" staggerDuration={0.03} staggerFrom="center">TAIWAN</Text3DFlip></HoverReveal>
+                <HoverReveal><Text3DFlip className="bg-[#F0F0F0]" textClassName="bg-[#F0F0F0] text-[#0A0A0A]" flipTextClassName="bg-[#F0F0F0] text-[#0A0A0A]" rotateDirection="top" staggerDuration={0.03} staggerFrom="center">TAIWAN</Text3DFlip></HoverReveal>
               </div>
               <div className="mt-2 md:mt-4">WORKING GLOBALLY.</div>
             </div>
@@ -184,7 +184,7 @@ function Home() {
         </motion.section>
       </div>
 
-      <section className="relative z-10 bg-[#F4F3ED] pt-[40px] md:pt-[60px] pb-[100px] border-b border-black/10">
+      <section className="relative z-10 bg-[#F0F0F0] pt-[40px] md:pt-[60px] pb-[100px] border-b border-black/10">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -249,7 +249,7 @@ function Work() {
                     <button 
                       key={y}
                       onClick={() => setActiveYear(y)}
-                      className={`font-['Geist_Mono'] text-[0.7rem] uppercase tracking-[0.5px] px-4 py-2 border rounded-full transition-colors ${activeYear === y ? 'border-black bg-black text-[#F4F3ED]' : 'border-black/20 hover:border-black'}`}
+                      className={`font-['Geist_Mono'] text-[0.7rem] uppercase tracking-[0.5px] px-4 py-2 border rounded-full transition-colors ${activeYear === y ? 'border-black bg-black text-[#F0F0F0]' : 'border-black/20 hover:border-black'}`}
                     >
                       {y}
                     </button>
@@ -285,7 +285,7 @@ function Work() {
                     <button 
                       key={t}
                       onClick={() => setActiveType(t)}
-                      className={`font-['Geist_Mono'] text-[0.7rem] uppercase tracking-[0.5px] px-4 py-2 border rounded-full transition-colors ${activeType === t ? 'border-black bg-black text-[#F4F3ED]' : 'border-black/20 hover:border-black'}`}
+                      className={`font-['Geist_Mono'] text-[0.7rem] uppercase tracking-[0.5px] px-4 py-2 border rounded-full transition-colors ${activeType === t ? 'border-black bg-black text-[#F0F0F0]' : 'border-black/20 hover:border-black'}`}
                     >
                       {t}
                     </button>
@@ -351,7 +351,7 @@ function Artwork() {
                     <button 
                       key={y}
                       onClick={() => setActiveYear(y)}
-                      className={`font-['Geist_Mono'] text-[0.7rem] uppercase tracking-[0.5px] px-4 py-2 border rounded-full transition-colors ${activeYear === y ? 'border-black bg-black text-[#F4F3ED]' : 'border-black/20 hover:border-black'}`}
+                      className={`font-['Geist_Mono'] text-[0.7rem] uppercase tracking-[0.5px] px-4 py-2 border rounded-full transition-colors ${activeYear === y ? 'border-black bg-black text-[#F0F0F0]' : 'border-black/20 hover:border-black'}`}
                     >
                       {y}
                     </button>
@@ -387,7 +387,7 @@ function Artwork() {
                     <button 
                       key={m}
                       onClick={() => setActiveMedium(m)}
-                      className={`font-['Geist_Mono'] text-[0.7rem] uppercase tracking-[0.5px] px-4 py-2 border rounded-full transition-colors ${activeMedium === m ? 'border-black bg-black text-[#F4F3ED]' : 'border-black/20 hover:border-black'}`}
+                      className={`font-['Geist_Mono'] text-[0.7rem] uppercase tracking-[0.5px] px-4 py-2 border rounded-full transition-colors ${activeMedium === m ? 'border-black bg-black text-[#F0F0F0]' : 'border-black/20 hover:border-black'}`}
                     >
                       {m}
                     </button>
@@ -625,7 +625,7 @@ function About() {
             <h4 className={`font-['Space_Grotesk'] ${lang === 'CHN' ? "font-['Space_Grotesk',_'Swei_Bow_Sans'] text-xl md:text-2xl tracking-[0.05em]" : "text-xl md:text-2xl tracking-[-0.5px]"} mb-6`}>{text.title2}</h4>
             <div className="flex flex-wrap gap-3">
               {text.skills.map(skill => (
-                <span key={skill} className={`font-['Geist_Mono'] ${lang === 'CHN' ? "font-['Space_Grotesk',_'Swei_Bow_Sans'] text-[0.85rem] tracking-[0.1em]" : "text-[0.75rem] tracking-[0.5px]"} uppercase px-4 py-2 border border-black/20 rounded-full hover:bg-black hover:text-[#F4F3ED] transition-colors cursor-default`}>
+                <span key={skill} className={`font-['Geist_Mono'] ${lang === 'CHN' ? "font-['Space_Grotesk',_'Swei_Bow_Sans'] text-[0.85rem] tracking-[0.1em]" : "text-[0.75rem] tracking-[0.5px]"} uppercase px-4 py-2 border border-black/20 rounded-full hover:bg-black hover:text-[#F0F0F0] transition-colors cursor-default`}>
                   {skill}
                 </span>
               ))}
@@ -725,7 +725,7 @@ function Layout({ children }: { children: React.ReactNode }) {
   }, [location.pathname]);
 
   return (
-    <div className="min-h-screen bg-[#F4F3ED] text-[#0A0A0A]">
+    <div className="min-h-screen bg-[#F0F0F0] text-[#0A0A0A]">
       <AnimatePresence>
         {isMenuOpen && (
           <div className="fixed inset-0 z-[999]">
@@ -742,7 +742,7 @@ function Layout({ children }: { children: React.ReactNode }) {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.3, delay: 0.3 }}
-              className="absolute inset-0 flex flex-col p-5 md:px-10 md:py-5 text-[#F4F3ED] z-10"
+              className="absolute inset-0 flex flex-col p-5 md:px-10 md:py-5 text-[#F0F0F0] z-10"
             >
               <header className="flex justify-between items-start text-[0.75rem] uppercase tracking-[0.5px]">
                 <div className="flex flex-col md:flex-row md:items-center">
@@ -787,7 +787,7 @@ function Layout({ children }: { children: React.ReactNode }) {
           </button>
         </header>
 
-        <div className="flex-1 relative z-10 bg-[#F4F3ED]">
+        <div className="flex-1 relative z-10 bg-[#F0F0F0]">
           {children}
         </div>
 
@@ -796,7 +796,7 @@ function Layout({ children }: { children: React.ReactNode }) {
           className="relative h-[100vh]"
           style={{ clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" }}
         >
-          <div className="fixed bottom-0 left-0 w-full h-[100vh] p-5 md:px-10 pb-[20px] pt-[80px] md:pt-[100px] flex flex-col justify-between bg-[#F4F3ED]">
+          <div className="fixed bottom-0 left-0 w-full h-[100vh] p-5 md:px-10 pb-[20px] pt-[80px] md:pt-[100px] flex flex-col justify-between bg-[#F0F0F0]">
             <div>
               <div className="text-[0.75rem] uppercase mb-10 tracking-[0.5px]">GET IN TOUCH</div>
               <div className="flex flex-col gap-[15px]">
@@ -835,7 +835,7 @@ function HomeTransition({ children }: { children: React.ReactNode }) {
   return (
     <>
       <motion.div
-        className="fixed inset-0 z-[1000] bg-[#F4F3ED] pointer-events-none"
+        className="fixed inset-0 z-[1000] bg-[#F0F0F0] pointer-events-none"
         initial={{ opacity: 1 }}
         animate={{ opacity: 0 }}
         exit={{ opacity: 1 }}
