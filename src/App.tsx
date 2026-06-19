@@ -4,6 +4,7 @@ import Lenis from "lenis";
 import Text3DFlip from "@/components/ui/text-3d-flip";
 import { motion, useSpring, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import { AsciiArtHover } from "./components/ui/ascii-art";
 
 const HoverReveal = ({ children }: { children: React.ReactNode }) => {
   const [isHovered, setIsHovered] = useState(false);
@@ -594,9 +595,8 @@ function About() {
           {/* Profile Picture with Parallax */}
           <div ref={containerRef} className="w-[180px] md:w-[240px] max-w-full mb-[40px] md:mb-[60px]">
             <motion.div style={{ y }} className="w-full bg-[#E0E0E0]">
-              <img 
+              <AsciiArtHover 
                 src="/about_bioprofile.jpg" 
-                alt="Howard Lee" 
                 className="w-full h-auto block"
               />
             </motion.div>
