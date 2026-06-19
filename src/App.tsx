@@ -764,7 +764,7 @@ function About() {
                             <span className={`font-['Space_Grotesk'] ${lang === 'CHN' ? "tracking-[0.05em] text-[1.4rem]" : "text-[1.5rem]"} w-full md:w-1/3`}>
                               {item.left}
                             </span>
-                            <span className={`font-['Geist_Mono'] ${lang === 'CHN' ? "tracking-[0.05em] text-[1.1rem] leading-[1.7]" : "tracking-[0.5px] text-[1.1rem] leading-[1.6]"} opacity-70 uppercase text-left w-full md:w-2/3`}>
+                            <span className={`font-['Geist_Mono'] ${lang === 'CHN' ? "tracking-[0.05em] text-[1.1rem] leading-[1.7] break-keep" : "tracking-[0.5px] text-[1.1rem] leading-[1.6]"} opacity-70 uppercase text-left w-full md:w-2/3`}>
                               {item.right}
                             </span>
                           </div>
