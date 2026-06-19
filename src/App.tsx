@@ -1043,7 +1043,7 @@ function IntroScreen({ onEnter }: { onEnter: () => void }) {
     const handleScroll = () => {
       if (!scrolled) {
         setScrolled(true);
-        setTimeout(onEnter, 5800); // Wait 5 seconds after 800ms background fade to white
+        setTimeout(onEnter, 2800); // 800ms fade + 2000ms pause on white
       }
     };
     window.addEventListener('wheel', handleScroll, { once: true });
@@ -1056,16 +1056,19 @@ function IntroScreen({ onEnter }: { onEnter: () => void }) {
 
   return (
     <motion.div 
-      initial={{ opacity: 1, backgroundColor: "#F0F0F0" }}
-      animate={{ backgroundColor: scrolled ? "#FFFFFF" : "#F0F0F0" }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.8 }}
-      className="fixed inset-0 z-[9999] flex flex-col justify-end p-5 md:px-10 md:py-10"
+      className="fixed inset-0 z-[9999] flex flex-col justify-end bg-[#0A0A0A] overflow-hidden"
     >
+      {/* Video Placeholder */}
+      <div className="absolute inset-0 flex items-center justify-center font-['Geist_Mono'] text-white opacity-20 uppercase tracking-[2px] text-sm md:text-base">
+        [ Video Background Placeholder ]
+      </div>
+
       <motion.div 
         animate={{ opacity: scrolled ? 0 : 1 }}
         transition={{ duration: 0.3 }}
-        className="flex justify-between items-end font-['Geist_Mono'] text-[0.85rem] uppercase tracking-[1px] opacity-60"
+        className="relative z-10 flex justify-between items-end p-5 md:px-10 md:py-10 font-['Geist_Mono'] text-[0.85rem] uppercase tracking-[1px] opacity-80 text-[#F0F0F0]"
       >
         <div className="flex flex-col items-start gap-2">
           <span className="animate-bounce text-xl">↑</span>
@@ -1076,6 +1079,14 @@ function IntroScreen({ onEnter }: { onEnter: () => void }) {
           <span className="font-['Space_Grotesk',_'Swei_Bow_Sans'] tracking-[0.1em]">滑動進入</span>
         </div>
       </motion.div>
+
+      {/* White Fade Overlay */}
+      <motion.div 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: scrolled ? 1 : 0 }}
+        transition={{ duration: 0.8 }}
+        className="absolute inset-0 bg-[#FFFFFF] z-20 pointer-events-none"
+      />
     </motion.div>
   );
 }
