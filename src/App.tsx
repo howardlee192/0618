@@ -754,17 +754,17 @@ function About() {
                     <div className="w-full md:w-1/2 flex flex-col gap-6 md:gap-8">
                       {section.items.map((item, itemIdx) => (
                         item.isCategory ? (
-                          <div key={itemIdx} className={`w-full ${itemIdx !== 0 ? 'pt-4' : ''} border-b border-black/10 pb-2`}>
-                            <span className="font-['Geist_Mono'] text-[0.8rem] tracking-[1px] uppercase opacity-40">
+                          <div key={itemIdx} className={`w-full ${itemIdx !== 0 ? 'pt-6' : ''} border-b border-black/10 pb-3`}>
+                            <span className="font-['Geist_Mono'] text-[1rem] tracking-[1px] uppercase opacity-40">
                               {item.title}
                             </span>
                           </div>
                         ) : (
-                          <div key={itemIdx} className="flex flex-col md:flex-row justify-between md:items-start gap-2 md:gap-0">
-                            <span className={`font-['Space_Grotesk'] ${lang === 'CHN' ? "font-['Space_Grotesk',_'Swei_Bow_Sans'] tracking-[0.05em] text-[1.1rem]" : "text-[1.2rem]"} w-full md:w-1/3`}>
+                          <div key={itemIdx} className="flex flex-col md:flex-row justify-between md:items-start gap-3 md:gap-0">
+                            <span className={`font-['Space_Grotesk'] ${lang === 'CHN' ? "tracking-[0.05em] text-[1.4rem]" : "text-[1.5rem]"} w-full md:w-1/3`}>
                               {item.left}
                             </span>
-                            <span className={`font-['Geist_Mono'] ${lang === 'CHN' ? "font-['Space_Grotesk',_'Swei_Bow_Sans'] tracking-[0.05em] text-[0.85rem]" : "tracking-[0.5px] text-sm"} opacity-70 uppercase text-left w-full md:w-2/3`}>
+                            <span className={`font-['Geist_Mono'] ${lang === 'CHN' ? "tracking-[0.05em] text-[1.1rem] leading-[1.7]" : "tracking-[0.5px] text-[1.1rem] leading-[1.6]"} opacity-70 uppercase text-left w-full md:w-2/3`}>
                               {item.right}
                             </span>
                           </div>
