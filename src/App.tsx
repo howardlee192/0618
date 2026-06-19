@@ -222,7 +222,6 @@ function Home() {
     
     const handleWheel = (e: WheelEvent) => {
       if (window.scrollY <= 0 && e.deltaY < -30) {
-        sessionStorage.removeItem('introDone');
         window.dispatchEvent(new Event('resetIntro'));
       }
     };
@@ -233,7 +232,6 @@ function Home() {
       if (window.scrollY <= 0) {
         const currentY = e.touches[0].clientY;
         if (currentY - touchStartY > 50) {
-          sessionStorage.removeItem('introDone');
           window.dispatchEvent(new Event('resetIntro'));
         }
       }
@@ -932,7 +930,6 @@ function Layout({ children }: { children: React.ReactNode }) {
                   <Link 
                     to="/" 
                     onClick={() => {
-                      sessionStorage.removeItem('introDone');
                       window.dispatchEvent(new Event('resetIntro'));
                     }}
                     className="font-normal -ml-[0.05em] hover:opacity-70 transition-opacity"
@@ -974,7 +971,6 @@ function Layout({ children }: { children: React.ReactNode }) {
             <a 
               href="/" 
               onClick={(e) => {
-                sessionStorage.removeItem('introDone');
                 window.dispatchEvent(new Event('resetIntro'));
                 if (window.location.pathname === '/') {
                   e.preventDefault();
@@ -1092,7 +1088,7 @@ function IntroScreen({ onEnter }: { onEnter: () => void }) {
 }
 
 function HomeTransition({ children }: { children: React.ReactNode }) {
-  const [introDone, setIntroDone] = useState(() => sessionStorage.getItem('introDone') === 'true');
+  const [introDone, setIntroDone] = useState(false);
 
   useEffect(() => {
     const handleReset = () => setIntroDone(false);
@@ -1101,7 +1097,6 @@ function HomeTransition({ children }: { children: React.ReactNode }) {
   }, []);
 
   const handleEnter = () => {
-    sessionStorage.setItem('introDone', 'true');
     setIntroDone(true);
   };
 
