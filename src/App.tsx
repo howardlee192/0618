@@ -585,7 +585,7 @@ function About() {
           { isCategory: true, title: 'Immersive Video' },
           { left: '2023', right: <>BOC (Hong Kong) Private Banking Presents "No.1 Cultural Grotto" Immersive Art Installation, Hong Kong<br/><span className="text-sm opacity-60 mt-1 inline-block">2D Motion Designer / Editor / Compositor: "Heavenly Sound" Chapter</span></> },
           { isCategory: true, title: 'Performance' },
-          { left: '2025', right: 'Live Performance, "Unsorted", Shih Chien University, Taiwan' }
+          { left: '2025', right: <>Live Performance, "Unsorted",<br/>Shih Chien University, Taiwan</> }
         ]
       },
       {
