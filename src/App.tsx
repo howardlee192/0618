@@ -217,6 +217,38 @@ function Home() {
     return () => clearTimeout(timeout);
   }, []);
 
+  useEffect(() => {
+    let touchStartY = 0;
+    
+    const handleWheel = (e: WheelEvent) => {
+      if (window.scrollY <= 0 && e.deltaY < -30) {
+        sessionStorage.removeItem('introDone');
+        window.dispatchEvent(new Event('resetIntro'));
+      }
+    };
+    const handleTouchStart = (e: TouchEvent) => {
+      touchStartY = e.touches[0].clientY;
+    };
+    const handleTouchMove = (e: TouchEvent) => {
+      if (window.scrollY <= 0) {
+        const currentY = e.touches[0].clientY;
+        if (currentY - touchStartY > 50) {
+          sessionStorage.removeItem('introDone');
+          window.dispatchEvent(new Event('resetIntro'));
+        }
+      }
+    };
+
+    window.addEventListener('wheel', handleWheel);
+    window.addEventListener('touchstart', handleTouchStart);
+    window.addEventListener('touchmove', handleTouchMove);
+
+    return () => {
+      window.removeEventListener('wheel', handleWheel);
+      window.removeEventListener('touchstart', handleTouchStart);
+      window.removeEventListener('touchmove', handleTouchMove);
+    };
+  }, []);
   const heroRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: heroRef,
@@ -897,7 +929,16 @@ function Layout({ children }: { children: React.ReactNode }) {
             >
               <header className="flex justify-between items-start text-[0.75rem] uppercase tracking-[0.5px]">
                 <div className="flex flex-col md:flex-row md:items-center">
-                  <Link to="/" className="font-normal -ml-[0.05em] hover:opacity-70 transition-opacity">HOWARD LEE</Link>
+                  <Link 
+                    to="/" 
+                    onClick={() => {
+                      sessionStorage.removeItem('introDone');
+                      window.dispatchEvent(new Event('resetIntro'));
+                    }}
+                    className="font-normal -ml-[0.05em] hover:opacity-70 transition-opacity"
+                  >
+                    HOWARD LEE
+                  </Link>
                 </div>
                 <button onClick={() => setIsMenuOpen(false)} className="hover:opacity-60 transition-opacity">
                   <X size={20} />
@@ -930,7 +971,20 @@ function Layout({ children }: { children: React.ReactNode }) {
       <div className="p-5 md:px-10 md:py-5 min-h-screen flex flex-col">
         <header className="flex justify-between items-start text-[0.75rem] uppercase tracking-[0.5px]">
           <div className="flex flex-col md:flex-row md:items-center">
-            <a href="/" className="font-normal -ml-[0.05em] hover:opacity-70 transition-opacity">HOWARD LEE</a>
+            <a 
+              href="/" 
+              onClick={(e) => {
+                sessionStorage.removeItem('introDone');
+                window.dispatchEvent(new Event('resetIntro'));
+                if (window.location.pathname === '/') {
+                  e.preventDefault();
+                  window.scrollTo(0, 0);
+                }
+              }}
+              className="font-normal -ml-[0.05em] hover:opacity-70 transition-opacity"
+            >
+              HOWARD LEE
+            </a>
             <span className="opacity-60 ml-0 md:ml-[clamp(40px,15vw,200px)] hidden sm:block">MOTION / VISUAL DESIGNER / ARTIST</span>
           </div>
           <button onClick={() => setIsMenuOpen(true)} className="hover:opacity-60 transition-opacity">
@@ -1028,6 +1082,12 @@ function IntroScreen({ onEnter }: { onEnter: () => void }) {
 
 function HomeTransition({ children }: { children: React.ReactNode }) {
   const [introDone, setIntroDone] = useState(() => sessionStorage.getItem('introDone') === 'true');
+
+  useEffect(() => {
+    const handleReset = () => setIntroDone(false);
+    window.addEventListener('resetIntro', handleReset);
+    return () => window.removeEventListener('resetIntro', handleReset);
+  }, []);
 
   const handleEnter = () => {
     sessionStorage.setItem('introDone', 'true');
