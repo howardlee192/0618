@@ -13,9 +13,9 @@ type AsciiArtHoverProps = {
 
 export const AsciiArtHover: React.FC<AsciiArtHoverProps> = ({
   src,
-  resolution = 70,
+  resolution = 120,
   charset = "blocks",
-  color = "#a855f7", // 預設亮色，可自訂
+  color = "#888888", // 與設計稿相符的灰色
   className,
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -34,7 +34,7 @@ export const AsciiArtHover: React.FC<AsciiArtHoverProps> = ({
 
   const charsets = {
     standard: " .,:;i1tfLCG08@",
-    blocks: " ░▒▓█".split("").reverse().join(""), // 反轉讓暗處更明顯
+    blocks: "█▓▒░≡- ", // 擴展符號，加入橫線與更細微的漸層
     binary: " 01",
     dots: " ·•●",
   };
@@ -98,8 +98,8 @@ export const AsciiArtHover: React.FC<AsciiArtHoverProps> = ({
     canvas.height = ch * dpr;
     ctx.scale(dpr, dpr);
 
-    // 背景填滿黑色，形成強烈對比
-    ctx.fillStyle = "#09090b"; 
+    // 背景填滿與網站同色的淺灰，讓 ASCII 自然融合
+    ctx.fillStyle = "#F0F0F0"; 
     ctx.fillRect(0, 0, cw, ch);
 
     const rows = asciiData.length;
