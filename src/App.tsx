@@ -27,7 +27,7 @@ const LanguageToggle = ({ className = "" }: { className?: string }) => {
         onClick={() => setLang('CHN')}
         className={`transition-opacity hover:opacity-100 ${lang === 'CHN' ? 'opacity-100 font-bold' : 'opacity-40'}`}
       >
-        CHN
+        <span className="font-['Space_Grotesk',_'Swei_Bow_Sans']">中</span>
       </button>
       <span className="opacity-20">/</span>
       <button
