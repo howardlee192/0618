@@ -566,7 +566,7 @@ function About() {
       {
         title: 'Education',
         items: [
-          { left: '2025 - Present', right: 'BFA in Communications Design, Shih Chien University, Taiwan (Animation & Moving Image Design)' },
+          { left: '2025 - Present', right: <>BFA in Communications Design,<br/>Shih Chien University, Taiwan (Animation & Moving Image Design)</> },
           { left: '2024 - 2025', right: 'BFA in Media Design, Tatung University, Taiwan (Interaction Design)' },
           { left: '2023 - 2024', right: 'BFA in Digital Media Design, Ming Chuan University, Taiwan' },
           { left: '2020 - 2023', right: 'Diploma, HKICC Lee Shau Kee School of Creativity, Hong Kong (Film and Video Arts)' }
