@@ -94,6 +94,17 @@ function ProjectsGrid({ useBlur = false }: { useBlur?: boolean }) {
       className="columns-1 md:columns-2 lg:columns-3 gap-[30px] space-y-[30px]"
     >
       <div className="break-inside-avoid">
+        <Link to="/artwork/unsorted" className="block group cursor-pointer">
+          <motion.div variants={itemVariant} className="mb-[15px]">
+            <h3 className="font-['Space_Grotesk'] text-[2.2rem] mb-[5px] tracking-[-1px] -ml-[0.02em] font-normal group-hover:opacity-60 transition-opacity">Unsorted</h3>
+            <div className="text-[0.6rem] uppercase tracking-[1px] opacity-50">PERFORMANCE / LIVE VISUAL</div>
+          </motion.div>
+          <motion.div variants={itemVariant} className="w-full h-auto aspect-square bg-[#E0E0E0] flex items-center justify-center overflow-hidden">
+            <span className="font-['Geist_Mono'] text-[#888] text-[0.6rem] uppercase tracking-[1px] opacity-0 group-hover:opacity-100 transition-opacity">Click to View</span>
+          </motion.div>
+        </Link>
+      </div>
+      <div className="break-inside-avoid">
         <motion.div variants={itemVariant} className="mb-[15px]">
           <h3 className="font-['Space_Grotesk'] text-[2.2rem] mb-[5px] tracking-[-1px] -ml-[0.02em] font-normal">Nike Swoosh 1</h3>
           <div className="text-[0.6rem] uppercase tracking-[1px] opacity-50">CAMPAIGN / POP-UP</div>
@@ -905,6 +916,80 @@ function PageTransition({ children }: { children: React.ReactNode }) {
   );
 }
 
+function ProjectUnsorted() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    document.title = "Howard Lee - Unsorted";
+  }, []);
+
+  return (
+    <div className="pt-[40px] md:pt-[60px] pb-[100px] min-h-screen">
+      <div className="flex flex-col md:flex-row gap-10 md:gap-20 mb-20">
+        <div className="w-full md:w-1/3">
+          <h1 className="font-['Space_Grotesk'] text-[3.5rem] md:text-[4rem] leading-[1] tracking-[-2px] mb-8 -ml-[0.04em]">
+            Unsorted
+          </h1>
+          
+          <div className="flex flex-col gap-4 font-['Geist_Mono'] text-sm uppercase tracking-[1px] mb-8 pb-8 border-b border-black/10">
+            <div className="flex">
+              <span className="opacity-50 w-24">Year</span>
+              <span>2025</span>
+            </div>
+            <div className="flex">
+              <span className="opacity-50 w-24">Medium</span>
+              <span>Live Visual / Performance</span>
+            </div>
+          </div>
+
+          <div className="font-['Geist_Mono'] text-sm leading-[1.8] opacity-80">
+            A live visual performance project exploring the unorganized, chaotic yet structured nature of contemporary youth. Blending generative graphics with sound-reactive elements, the piece creates an immersive environment that bridges digital aesthetics with physical spatial experiences.
+          </div>
+        </div>
+
+        <div className="w-full md:w-2/3">
+          <div className="w-full aspect-[4/3] bg-[#E0E0E0] flex items-center justify-center">
+            <span className="font-['Geist_Mono'] text-[#888] uppercase tracking-[1px] text-sm">Cover Image Placeholder</span>
+          </div>
+        </div>
+      </div>
+
+      <div className="columns-1 md:columns-2 gap-[30px] space-y-[30px]">
+        <div className="break-inside-avoid">
+          <div className="w-full aspect-[16/9] bg-[#E0E0E0] flex items-center justify-center">
+            <span className="font-['Geist_Mono'] text-[#888] uppercase tracking-[1px] text-[0.7rem]">Process Image Placeholder 01</span>
+          </div>
+        </div>
+        <div className="break-inside-avoid">
+          <div className="w-full aspect-[3/4] bg-[#E0E0E0] flex items-center justify-center">
+            <span className="font-['Geist_Mono'] text-[#888] uppercase tracking-[1px] text-[0.7rem]">Process Image Placeholder 02</span>
+          </div>
+        </div>
+        <div className="break-inside-avoid">
+          <div className="w-full aspect-square bg-[#E0E0E0] flex items-center justify-center">
+            <span className="font-['Geist_Mono'] text-[#888] uppercase tracking-[1px] text-[0.7rem]">Process Image Placeholder 03</span>
+          </div>
+        </div>
+        <div className="break-inside-avoid">
+          <div className="w-full aspect-[4/5] bg-[#E0E0E0] flex items-center justify-center">
+            <span className="font-['Geist_Mono'] text-[#888] uppercase tracking-[1px] text-[0.7rem]">Process Image Placeholder 04</span>
+          </div>
+        </div>
+        <div className="break-inside-avoid">
+          <div className="w-full aspect-[16/9] bg-[#E0E0E0] flex items-center justify-center">
+            <span className="font-['Geist_Mono'] text-[#888] uppercase tracking-[1px] text-[0.7rem]">Process Image Placeholder 05</span>
+          </div>
+        </div>
+      </div>
+      
+      <div className="mt-32 flex justify-center border-t border-black/10 pt-16">
+        <Link to="/artwork" className="font-['Space_Grotesk'] text-[2rem] uppercase hover:opacity-50 transition-opacity">
+          Back to Artwork
+        </Link>
+      </div>
+    </div>
+  );
+}
+
 function AnimatedRoutes() {
   const location = useLocation();
   return (
@@ -913,6 +998,7 @@ function AnimatedRoutes() {
         <Route path="/" element={<HomeTransition><Home /></HomeTransition>} />
         <Route path="/work" element={<PageTransition><Work /></PageTransition>} />
         <Route path="/artwork" element={<PageTransition><Artwork /></PageTransition>} />
+        <Route path="/artwork/unsorted" element={<PageTransition><ProjectUnsorted /></PageTransition>} />
         <Route path="/about" element={<PageTransition><About /></PageTransition>} />
       </Routes>
     </AnimatePresence>
