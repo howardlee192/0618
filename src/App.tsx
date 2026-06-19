@@ -465,7 +465,7 @@ function About() {
           { left: '2024', right: 'Cyndi Wang "SUGAR HIGH 2.0" World Tour, Taipei, Taiwan' },
           { left: '2024', right: 'Xu Song "Breath of the Wild" 2024 World Tour, China' },
           { isCategory: true, title: 'Immersive Video' },
-          { left: '2023', right: <>No.1 Cultural Grotto (Immersive Art Installation), Hong Kong<br/><span className="text-sm opacity-60 mt-1 inline-block">2D Motion Designer / Editor / Compositor: "Celestial Sound Chapter"</span></> },
+          { left: '2023', right: <>BOC (Hong Kong) Private Banking Presents "No.1 Cultural Grotto" Immersive Art Installation, Hong Kong<br/><span className="text-sm opacity-60 mt-1 inline-block">2D Motion Designer / Editor / Compositor: "Heavenly Sound" Chapter</span></> },
           { isCategory: true, title: 'Performance' },
           { left: '2025', right: 'Live Performance, "Unsorted", Shih Chien University, Taiwan' }
         ]
@@ -507,7 +507,7 @@ function About() {
           { left: '2024', right: '王心凌「SUGAR HIGH 2.0」世界巡迴演唱會, 台北, 台灣' },
           { left: '2024', right: '許嵩「呼吸之野」2024世界巡迴演唱會, 中國' },
           { isCategory: true, title: '沉浸式影像製作' },
-          { left: '2023', right: <>莫高窟「數字藏經洞」沉浸式藝術展, 香港<br/><span className="text-sm opacity-60 mt-1 inline-block">2D 動態設計 / 剪輯 / 合成：「仙樂章」</span></> },
+          { left: '2023', right: <>中國銀行(香港)私人銀行呈獻《第一號文化洞窟—萬籟有聲：天籟 • 地籟 • 人籟》沉浸式展演藝術裝置, 香港<br/><span className="text-sm opacity-60 mt-1 inline-block">2D 動態設計 / 剪輯 / 合成：「天籟」章節</span></> },
           { isCategory: true, title: '個人演出' },
           { left: '2025', right: '現場視覺演出「Unsorted」, 實踐大學, 台灣' }
         ]
