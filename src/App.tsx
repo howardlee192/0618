@@ -272,7 +272,7 @@ function Home() {
                 <HoverReveal><Text3DFlip className="bg-[#F0F0F0]" textClassName="bg-[#F0F0F0] text-[#0A0A0A]" flipTextClassName="bg-[#F0F0F0] text-[#0A0A0A]" rotateDirection="top" staggerDuration={0.03} staggerFrom="center">INTERACTION</Text3DFlip></HoverReveal>
               </div>
               <div className="flex items-center flex-wrap uppercase mt-2 md:mt-4 gap-10 md:gap-20">
-                <HoverReveal><Text3DFlip className="bg-[#F0F0F0]" textClassName="bg-[#F0F0F0] text-[#0A0A0A]" flipTextClassName="bg-[#F0F0F0] text-[#0A0A0A]" rotateDirection="top" staggerDuration={0.03} staggerFrom="center">ARTWORK</Text3DFlip></HoverReveal>
+                <HoverReveal><Text3DFlip className="bg-[#F0F0F0]" textClassName="bg-[#F0F0F0] text-[#0A0A0A]" flipTextClassName="bg-[#F0F0F0] text-[#0A0A0A]" rotateDirection="top" staggerDuration={0.03} staggerFrom="center">PERSONAL</Text3DFlip></HoverReveal>
               </div>
               <div className="mt-12 md:mt-16 flex items-center gap-4">
                 <span>FROM</span>
@@ -426,8 +426,8 @@ function Work() {
   );
 }
 
-function Artwork() {
-  useEffect(() => { document.title = "Howard Lee - Artwork"; }, []);
+function Personal() {
+  useEffect(() => { document.title = "Howard Lee - Personal"; }, []);
   const { lang } = useLanguage();
   const [openFilter, setOpenFilter] = useState<'YEAR' | 'MEDIUM' | null>(null);
 
@@ -447,7 +447,7 @@ function Artwork() {
           viewport={{ once: false, margin: "-100px" }}
           className="font-['Space_Grotesk'] text-[3.5rem] tracking-[-1px] -ml-[0.05em] font-normal"
         >
-          Artwork
+          Personal
         </motion.h2>
         <LanguageToggle />
       </div>
@@ -539,7 +539,7 @@ function Artwork() {
         className="columns-1 md:columns-2 lg:columns-3 gap-[30px] space-y-[30px]"
       >
         <div className="break-inside-avoid">
-          <Link to="/artwork/unsorted" className="block group cursor-pointer">
+          <Link to="/personal/unsorted" className="block group cursor-pointer">
             <motion.div variants={staggerItem} className="mb-[15px]">
               <h3 className="font-['Space_Grotesk'] text-[2.2rem] mb-[5px] tracking-[-1px] -ml-[0.02em] font-normal group-hover:opacity-60 transition-opacity">Unsorted</h3>
               <div className="text-[0.85rem] uppercase tracking-[1px] opacity-50">{lang === 'ENG' ? 'PERFORMANCE / LIVE VISUAL' : '現場視覺 / 演出'}</div>
@@ -943,7 +943,7 @@ function Layout({ children }: { children: React.ReactNode }) {
               </header>
 
               <div className="flex-1 flex flex-col justify-center items-center gap-10">
-                {['HOME', 'WORK', 'ARTWORK', 'ABOUT'].map((item, index) => (
+                {['HOME', 'WORK', 'PERSONAL', 'ABOUT'].map((item, index) => (
                   <motion.div
                     key={item}
                     initial={{ opacity: 0, y: 30 }}
@@ -1221,7 +1221,7 @@ function ProjectUnsorted() {
       <div className="flex flex-col md:flex-row gap-10 md:gap-20 mb-20">
         <div className="w-full md:w-1/3">
           <div className="flex justify-between items-start mb-8 md:mb-12">
-            <Link to="/artwork" className="inline-flex items-center gap-1 hover:opacity-50 transition-opacity font-['Geist_Mono'] text-xs uppercase tracking-[1px]">
+            <Link to="/personal" className="inline-flex items-center gap-1 hover:opacity-50 transition-opacity font-['Geist_Mono'] text-xs uppercase tracking-[1px]">
               <ChevronLeft size={16} className="-ml-1" />
               Back
             </Link>
@@ -1274,8 +1274,8 @@ function ProjectUnsorted() {
       </div>
       
       <div className="mt-32 flex justify-center border-t border-black/10 pt-16">
-        <Link to="/artwork" className="font-['Space_Grotesk'] text-[2rem] uppercase hover:opacity-50 transition-opacity">
-          Back to Artwork
+        <Link to="/personal" className="font-['Space_Grotesk'] text-[2rem] uppercase hover:opacity-50 transition-opacity">
+          Back to Personal
         </Link>
       </div>
 
@@ -1359,8 +1359,8 @@ function AnimatedRoutes() {
         <Route path="/" element={<HomeTransition><Home /></HomeTransition>} />
         {/* <Route path="/work" element={<PageTransition><Work /></PageTransition>} /> */}
         <Route path="/work" element={<PageTransition><ComingSoon /></PageTransition>} />
-        <Route path="/artwork" element={<PageTransition><Artwork /></PageTransition>} />
-        <Route path="/artwork/unsorted" element={<PageTransition><ProjectUnsorted /></PageTransition>} />
+        <Route path="/personal" element={<PageTransition><Personal /></PageTransition>} />
+        <Route path="/personal/unsorted" element={<PageTransition><ProjectUnsorted /></PageTransition>} />
         <Route path="/about" element={<PageTransition><About /></PageTransition>} />
       </Routes>
     </AnimatePresence>
