@@ -122,32 +122,32 @@ function ProjectsGrid({ useBlur = false }: { useBlur?: boolean }) {
 
   const projects = [
     {
-      title: "Nike Swoosh 1",
+      title: lang === 'ENG' ? "Nike Swoosh 1" : "Nike Swoosh 1",
       category: lang === 'ENG' ? "CAMPAIGN / POP-UP" : "廣告活動 / 快閃店",
       aspect: "aspect-[4/5]"
     },
     {
-      title: "Journey To Edge",
+      title: lang === 'ENG' ? "Journey To Edge" : "邊緣之旅",
       category: lang === 'ENG' ? "EXPERIENCE DESIGN / CONTENT CREATION" : "體驗設計 / 內容創作",
       aspect: "aspect-[16/9]"
     },
     {
-      title: "Illuminarium",
+      title: lang === 'ENG' ? "Illuminarium" : "幻光空間",
       category: lang === 'ENG' ? "EXPERIENCE DESIGN / CONTENT CREATION" : "體驗設計 / 內容創作",
       aspect: "aspect-[3/4]"
     },
     {
-      title: "Cosmic Flow",
+      title: lang === 'ENG' ? "Cosmic Flow" : "宇宙流",
       category: lang === 'ENG' ? "MOTION / VISUAL DESIGN" : "動態 / 視覺設計",
       aspect: "aspect-square"
     },
     {
-      title: "Digital Architecture",
+      title: lang === 'ENG' ? "Digital Architecture" : "數位建築",
       category: lang === 'ENG' ? "BRANDING / INTERACTION" : "品牌設計 / 互動體驗",
       aspect: "aspect-[4/5]"
     },
     {
-      title: "The Metaverse",
+      title: lang === 'ENG' ? "The Metaverse" : "元宇宙",
       category: lang === 'ENG' ? "3D ANIMATION / INTERACTIVE" : "3D 動畫 / 互動體驗",
       aspect: "aspect-[16/9]"
     }
@@ -293,9 +293,9 @@ function Work() {
                     <button 
                       key={y}
                       onClick={() => setActiveYear(y)}
-                      className={`font-['Geist_Mono'] text-[0.85rem] uppercase tracking-[0.5px] px-4 py-2 border rounded-full transition-colors ${activeYear === y ? 'border-black bg-black text-[#F0F0F0]' : 'border-black/20 hover:border-black'}`}
+                      className={`font-['Geist_Mono'] text-[0.85rem] tracking-[0.5px] px-4 py-2 border rounded-full transition-colors ${activeYear === y ? 'border-black bg-black text-[#F0F0F0]' : 'border-black/20 hover:border-black'} ${lang === 'ENG' ? 'uppercase' : ''}`}
                     >
-                      {y}
+                      {lang === 'CHN' && y === 'ALL' ? '全部' : y}
                     </button>
                   ))}
                 </div>
@@ -325,15 +325,19 @@ function Work() {
                 className="overflow-hidden"
               >
                 <div className="pb-6 pt-2 flex flex-wrap gap-2">
-                  {types.map(t => (
-                    <button 
-                      key={t}
-                      onClick={() => setActiveType(t)}
-                      className={`font-['Geist_Mono'] text-[0.85rem] uppercase tracking-[0.5px] px-4 py-2 border rounded-full transition-colors ${activeType === t ? 'border-black bg-black text-[#F0F0F0]' : 'border-black/20 hover:border-black'}`}
-                    >
-                      {t}
-                    </button>
-                  ))}
+                  {types.map(t => {
+                    const translatedType = lang === 'ENG' ? t : 
+                      ({'ALL': '全部', 'MOTION': '動態', 'VISUAL': '視覺', 'CGI': 'CGI', 'INTERACTION': '互動'})[t] || t;
+                    return (
+                      <button 
+                        key={t}
+                        onClick={() => setActiveType(t)}
+                        className={`font-['Geist_Mono'] text-[0.85rem] tracking-[0.5px] px-4 py-2 border rounded-full transition-colors ${activeType === t ? 'border-black bg-black text-[#F0F0F0]' : 'border-black/20 hover:border-black'} ${lang === 'ENG' ? 'uppercase' : ''}`}
+                      >
+                        {translatedType}
+                      </button>
+                    );
+                  })}
                 </div>
               </motion.div>
             )}
@@ -399,9 +403,9 @@ function Artwork() {
                     <button 
                       key={y}
                       onClick={() => setActiveYear(y)}
-                      className={`font-['Geist_Mono'] text-[0.85rem] uppercase tracking-[0.5px] px-4 py-2 border rounded-full transition-colors ${activeYear === y ? 'border-black bg-black text-[#F0F0F0]' : 'border-black/20 hover:border-black'}`}
+                      className={`font-['Geist_Mono'] text-[0.85rem] tracking-[0.5px] px-4 py-2 border rounded-full transition-colors ${activeYear === y ? 'border-black bg-black text-[#F0F0F0]' : 'border-black/20 hover:border-black'} ${lang === 'ENG' ? 'uppercase' : ''}`}
                     >
-                      {y}
+                      {lang === 'CHN' && y === 'ALL' ? '全部' : y}
                     </button>
                   ))}
                 </div>
@@ -431,15 +435,19 @@ function Artwork() {
                 className="overflow-hidden"
               >
                 <div className="pb-6 pt-2 flex flex-wrap gap-2">
-                  {mediums.map(m => (
-                    <button 
-                      key={m}
-                      onClick={() => setActiveMedium(m)}
-                      className={`font-['Geist_Mono'] text-[0.85rem] uppercase tracking-[0.5px] px-4 py-2 border rounded-full transition-colors ${activeMedium === m ? 'border-black bg-black text-[#F0F0F0]' : 'border-black/20 hover:border-black'}`}
-                    >
-                      {m}
-                    </button>
-                  ))}
+                  {mediums.map(m => {
+                    const translatedMedium = lang === 'ENG' ? m : 
+                      ({'ALL': '全部', 'CGI': 'CGI', '3D': '3D', 'SIMULATION': '物理模擬', 'EXPERIMENTAL': '實驗影像', 'PHYSICAL': '實體裝置', 'MIXED MEDIA': '複合媒材'})[m] || m;
+                    return (
+                      <button 
+                        key={m}
+                        onClick={() => setActiveMedium(m)}
+                        className={`font-['Geist_Mono'] text-[0.85rem] tracking-[0.5px] px-4 py-2 border rounded-full transition-colors ${activeMedium === m ? 'border-black bg-black text-[#F0F0F0]' : 'border-black/20 hover:border-black'} ${lang === 'ENG' ? 'uppercase' : ''}`}
+                      >
+                        {translatedMedium}
+                      </button>
+                    );
+                  })}
                 </div>
               </motion.div>
             )}
@@ -466,9 +474,9 @@ function Artwork() {
           </Link>
         </div>
         {[
-          { title: "Abstract Form 01", category: lang === 'ENG' ? "CGI / EXPERIMENTAL" : "CGI / 實驗影像", aspect: "aspect-[3/4]" },
-          { title: "Light Study", category: lang === 'ENG' ? "RENDERING / 3D" : "3D 算圖 / 渲染", aspect: "aspect-square" },
-          { title: "Fluid Dynamics", category: lang === 'ENG' ? "SIMULATION" : "物理模擬", aspect: "aspect-[4/5]" }
+          { title: lang === 'ENG' ? "Abstract Form 01" : "抽象型態 01", category: lang === 'ENG' ? "CGI / EXPERIMENTAL" : "CGI / 實驗影像", aspect: "aspect-[3/4]" },
+          { title: lang === 'ENG' ? "Light Study" : "光影研究", category: lang === 'ENG' ? "RENDERING / 3D" : "3D 算圖 / 渲染", aspect: "aspect-square" },
+          { title: lang === 'ENG' ? "Fluid Dynamics" : "流體力學", category: lang === 'ENG' ? "SIMULATION" : "物理模擬", aspect: "aspect-[4/5]" }
         ].map((a, i) => (
           <div key={i} className="break-inside-avoid">
             <motion.div variants={staggerItem} className="mb-[15px]">
