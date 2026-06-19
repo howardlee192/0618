@@ -221,15 +221,15 @@ function Home() {
           
           <motion.div
             initial={{ opacity: 0 }}
-            animate={{ opacity: [0, 0.6, 0.1] }}
+            animate={{ opacity: [0.5, 0.5, 0, 0] }}
             transition={{ 
-              delay: 3.5,
-              duration: 3,
+              delay: 2.5,
+              duration: 1.5,
               repeat: Infinity,
-              repeatType: "reverse",
-              ease: "easeInOut"
+              times: [0, 0.5, 0.5, 1],
+              ease: "linear"
             }}
-            className="absolute bottom-0 right-0 font-['Geist_Mono'] text-[0.75rem] uppercase tracking-[1px] pointer-events-none"
+            className="absolute bottom-12 right-0 md:right-4 font-['Geist_Mono'] text-[0.75rem] uppercase tracking-[1px] pointer-events-none"
           >
             {lang === 'ENG' ? '[ Hover to reveal ]' : '[ 滑動游標預覽影像 ]'}
           </motion.div>
