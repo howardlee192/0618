@@ -73,7 +73,7 @@ const HoverReveal = ({ children }: { children: React.ReactNode }) => {
         }}
         className="w-[260px] h-[180px] bg-[#D1D1D1] flex items-center justify-center overflow-hidden"
       >
-        <span className="text-[0.6rem] text-[#888] font-['Geist_Mono'] normal-case tracking-normal">image placeholder</span>
+        <span className="text-[0.7rem] text-[#888] font-['Geist_Mono'] normal-case tracking-normal">image placeholder</span>
       </motion.div>
     </div>
   );
@@ -165,7 +165,7 @@ function ProjectsGrid({ useBlur = false }: { useBlur?: boolean }) {
         <div key={i} className="break-inside-avoid">
           <motion.div variants={itemVariant} className="mb-[15px]">
             <h3 className="font-['Space_Grotesk'] text-[2.2rem] mb-[5px] tracking-[-1px] -ml-[0.02em] font-normal">{p.title}</h3>
-            <div className="text-[0.6rem] uppercase tracking-[1px] opacity-50">{p.category}</div>
+            <div className="text-[0.7rem] uppercase tracking-[1px] opacity-50">{p.category}</div>
           </motion.div>
           <motion.div variants={itemVariant} className={`w-full h-auto ${p.aspect} bg-[#E0E0E0]`}></motion.div>
         </div>
@@ -458,10 +458,10 @@ function Artwork() {
           <Link to="/artwork/unsorted" className="block group cursor-pointer">
             <motion.div variants={staggerItem} className="mb-[15px]">
               <h3 className="font-['Space_Grotesk'] text-[2.2rem] mb-[5px] tracking-[-1px] -ml-[0.02em] font-normal group-hover:opacity-60 transition-opacity">Unsorted</h3>
-              <div className="text-[0.6rem] uppercase tracking-[1px] opacity-50">{lang === 'ENG' ? 'PERFORMANCE / LIVE VISUAL' : '現場視覺 / 演出'}</div>
+              <div className="text-[0.7rem] uppercase tracking-[1px] opacity-50">{lang === 'ENG' ? 'PERFORMANCE / LIVE VISUAL' : '現場視覺 / 演出'}</div>
             </motion.div>
             <motion.div variants={staggerItem} className="w-full h-auto aspect-square bg-[#E0E0E0] flex items-center justify-center overflow-hidden">
-              <span className="font-['Geist_Mono'] text-[#888] text-[0.6rem] uppercase tracking-[1px] opacity-0 group-hover:opacity-100 transition-opacity">{lang === 'ENG' ? 'Click to View' : '點擊查看'}</span>
+              <span className="font-['Geist_Mono'] text-[#888] text-[0.7rem] uppercase tracking-[1px] opacity-0 group-hover:opacity-100 transition-opacity">{lang === 'ENG' ? 'Click to View' : '點擊查看'}</span>
             </motion.div>
           </Link>
         </div>
@@ -473,7 +473,7 @@ function Artwork() {
           <div key={i} className="break-inside-avoid">
             <motion.div variants={staggerItem} className="mb-[15px]">
               <h3 className="font-['Space_Grotesk'] text-[2.2rem] mb-[5px] tracking-[-1px] -ml-[0.02em] font-normal">{a.title}</h3>
-              <div className="text-[0.6rem] uppercase tracking-[1px] opacity-50">{a.category}</div>
+              <div className="text-[0.7rem] uppercase tracking-[1px] opacity-50">{a.category}</div>
             </motion.div>
             <motion.div variants={staggerItem} className={`w-full h-auto ${a.aspect} bg-[#E0E0E0]`}></motion.div>
           </div>

@@ -19,13 +19,21 @@
 @layer base {
   body {
     @apply bg-background text-foreground antialiased;
-    font-family: 'Geist Mono', monospace;
+    font-family: 'Geist Mono', 'Swei Bow Sans', monospace;
   }
 }
 
 h1, h2, h3 {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Space Grotesk', 'Swei Bow Sans', sans-serif;
   letter-spacing: -0.05em;
+}
+
+[class*="font-['Space_Grotesk']"] {
+  font-family: 'Space Grotesk', 'Swei Bow Sans', sans-serif !important;
+}
+
+[class*="font-['Geist_Mono']"] {
+  font-family: 'Geist Mono', 'Swei Bow Sans', monospace !important;
 }
 
 .gray-box {
