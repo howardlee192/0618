@@ -1043,7 +1043,7 @@ function IntroScreen({ onEnter }: { onEnter: () => void }) {
     const handleScroll = () => {
       if (!scrolled) {
         setScrolled(true);
-        setTimeout(onEnter, 800); // Wait for background fade to white
+        setTimeout(onEnter, 5800); // Wait 5 seconds after 800ms background fade to white
       }
     };
     window.addEventListener('wheel', handleScroll, { once: true });
