@@ -193,7 +193,7 @@ function Home() {
   return (
     <>
       <div ref={heroRef} className="relative z-0 min-h-[95vh] flex flex-col justify-start pt-[5vh] md:pt-[8vh]">
-        <motion.section style={{ y, opacity }} className="flex flex-col relative">
+        <motion.section style={{ y, opacity }} className="flex-1 w-full flex flex-col relative">
           <div className="flex-1 flex flex-col justify-start items-start">
             <div className="font-['Space_Grotesk'] text-[clamp(1.8rem,4.5vw,4.95rem)] leading-[0.95] tracking-[-2px] max-w-[80%] -ml-[0.04em]">
               <div className="flex items-center flex-wrap uppercase gap-10 md:gap-20">
@@ -218,6 +218,21 @@ function Home() {
               <div className="mt-2 md:mt-4">WORKING GLOBALLY.</div>
             </div>
           </div>
+          
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: [0, 0.6, 0.1] }}
+            transition={{ 
+              delay: 3.5,
+              duration: 3,
+              repeat: Infinity,
+              repeatType: "reverse",
+              ease: "easeInOut"
+            }}
+            className="absolute bottom-0 right-0 font-['Geist_Mono'] text-[0.75rem] uppercase tracking-[1px] pointer-events-none"
+          >
+            {lang === 'ENG' ? '[ Hover to reveal ]' : '[ 滑動游標預覽影像 ]'}
+          </motion.div>
         </motion.section>
       </div>
 
