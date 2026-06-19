@@ -182,7 +182,7 @@ const ScrambleText = ({ text }: { text: string }) => {
     const interval = setInterval(() => {
       setDisplayText(text.split('').map((char, index) => {
         if (index < iteration) return char;
-        if (char === ' ' || char === '↖' || char === '[' || char === ']') return char;
+        if (char === ' ' || char === '↖' || char === '↑' || char === '[' || char === ']') return char;
         return chars[Math.floor(Math.random() * chars.length)];
       }).join(''));
       
@@ -262,7 +262,7 @@ function Home() {
             transition={{ delay: 2.5, duration: 1 }}
             className="absolute bottom-12 right-0 md:right-4 font-['Geist_Mono'] text-[0.85rem] md:text-sm uppercase tracking-[1px] pointer-events-none opacity-80"
           >
-            <ScrambleText text={hintLang === 'ENG' ? '↖ [ Hover to reveal ]' : '↖ [ 滑動游標預覽影像 ]'} />
+            <ScrambleText text={hintLang === 'ENG' ? '↑ [ Hover to reveal ]' : '↑ [ 滑動游標預覽影像 ]'} />
           </motion.div>
         </motion.section>
       </div>
@@ -723,9 +723,9 @@ function About() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 2.5, duration: 1 }}
-                className="absolute -bottom-8 md:-right-4 right-0 font-['Geist_Mono'] text-[0.75rem] md:text-[0.85rem] uppercase tracking-[1px] pointer-events-none opacity-80 whitespace-nowrap"
+                className="absolute -bottom-8 left-0 font-['Geist_Mono'] text-[0.75rem] md:text-[0.85rem] uppercase tracking-[1px] pointer-events-none opacity-80 whitespace-nowrap"
               >
-                <ScrambleText text={hintLang === 'ENG' ? '↖ [ Hover to reveal ]' : '↖ [ 滑動游標預覽 ]'} />
+                <ScrambleText text={hintLang === 'ENG' ? '↑ [ Hover to reveal ]' : '↑ [ 滑動游標預覽 ]'} />
               </motion.div>
             </motion.div>
           </div>
