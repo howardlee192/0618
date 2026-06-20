@@ -63,7 +63,7 @@ export const AsciiArtHover: React.FC<AsciiArtHoverProps> = ({
         const imgData = ctx.getImageData(0, 0, cols, rows);
         const data = imgData.data;
         const result = [];
-        const targetCharset = charsets[charset];
+        const targetCharset = charsets[charset as keyof typeof charsets];
 
         for (let y = 0; y < rows; y++) {
           const row = [];
@@ -119,7 +119,7 @@ export const AsciiArtHover: React.FC<AsciiArtHoverProps> = ({
     ctx.textBaseline = "top";
     ctx.textAlign = "center";
 
-    const targetCharset = charsets[charset];
+    const targetCharset = charsets[charset as keyof typeof charsets];
 
     for (let y = 0; y < rows; y++) {
       for (let x = 0; x < cols; x++) {
