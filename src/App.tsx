@@ -1068,13 +1068,17 @@ function IntroScreen({ onEnter, isReturning }: { onEnter: () => void, isReturnin
         transition={{ duration: 0.3 }}
         className="relative z-10 flex justify-between items-end p-5 md:px-10 md:py-10 font-['Geist_Mono'] text-[0.85rem] uppercase tracking-[1px]"
       >
-        <div className="flex flex-col items-start gap-2 bg-[#F0F0F0] text-[#0A0A0A] px-4 py-3 shadow-lg">
-          <span className="animate-bounce text-xl leading-none">↓</span>
-          <span>Scroll to enter</span>
+        <div className="flex flex-col items-start gap-1">
+          <span className="animate-bounce text-xl leading-none bg-[#0A0A0A] text-[#F0F0F0] px-2 py-1">↓</span>
+          <span className="bg-[#0A0A0A] text-[#F0F0F0] px-2 py-1 leading-none flex items-center justify-center min-h-[1.5rem]">
+            <ScrambleText text="SCROLL TO ENTER" />
+          </span>
         </div>
-        <div className="flex flex-col items-end gap-2 bg-[#F0F0F0] text-[#0A0A0A] px-4 py-3 shadow-lg">
-          <span className="animate-bounce text-xl leading-none">↓</span>
-          <span className="font-['Space_Grotesk',_'Swei_Bow_Sans'] tracking-[0.1em]">滑動進入</span>
+        <div className="flex flex-col items-end gap-1">
+          <span className="animate-bounce text-xl leading-none bg-[#0A0A0A] text-[#F0F0F0] px-2 py-1">↓</span>
+          <span className="font-['Space_Grotesk',_'Swei_Bow_Sans'] tracking-[0.1em] bg-[#0A0A0A] text-[#F0F0F0] px-2 py-1 leading-none flex items-center justify-center min-h-[1.5rem]">
+            <ScrambleText text="滑 動 進 入" />
+          </span>
         </div>
       </motion.div>
 
