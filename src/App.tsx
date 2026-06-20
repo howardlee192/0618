@@ -5,7 +5,7 @@ import Text3DFlip from "@/components/ui/text-3d-flip";
 import { motion, useSpring, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import { Menu, X, ChevronLeft, ChevronRight } from "lucide-react";
 import { AsciiArtHover } from "./components/ui/ascii-art";
-import { GlassRefractionWrapper } from "./components/GlassRefractionWrapper";
+import { WebGLFluidDistortion } from "./components/WebGLFluidDistortion";
 
 type Language = 'ENG' | 'CHN';
 interface LanguageContextType {
@@ -543,26 +543,47 @@ function Personal() {
           <Link to="/personal/unsorted" className="block group cursor-pointer">
             <motion.div variants={staggerItem} className="mb-[15px]">
               <h3 className="font-['Space_Grotesk'] text-[2.2rem] mb-[5px] tracking-[-1px] -ml-[0.02em] font-normal group-hover:opacity-60 transition-opacity">Unsorted</h3>
-              <div className="text-[0.85rem] uppercase tracking-[1px] opacity-50">{lang === 'ENG' ? 'PERFORMANCE / LIVE VISUAL' : '現場視覺 / 演出'}</div>
+              <div className="text-[0.85rem] uppercase tracking-[1px] opacity-50">{lang === 'ENG' ? 'AUDIO VISUAL PERFORMANCE' : '即時音像演出'}</div>
             </motion.div>
-            <motion.div variants={staggerItem} className="w-full h-auto aspect-square bg-[#E0E0E0] flex items-center justify-center overflow-hidden">
-              <span className="font-['Geist_Mono'] text-[#888] text-[0.85rem] uppercase tracking-[1px] opacity-0 group-hover:opacity-100 transition-opacity">{lang === 'ENG' ? 'Click to View' : '點擊查看'}</span>
+            <motion.div variants={staggerItem} className="w-full relative bg-[#E0E0E0] overflow-hidden">
+              <img src="/projects/unsorted/unsorted_cover.jpg" alt="Unsorted" className="w-full h-auto block transition-transform duration-700 group-hover:scale-105" />
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-500 pointer-events-none" />
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                <span className="font-['Geist_Mono'] text-white text-[0.85rem] uppercase tracking-[1px] opacity-0 group-hover:opacity-100 transition-opacity">{lang === 'ENG' ? 'Click to View' : '點擊查看'}</span>
+              </div>
             </motion.div>
           </Link>
         </div>
-        {[
-          { title: lang === 'ENG' ? "Abstract Form 01" : "抽象型態 01", category: lang === 'ENG' ? "CGI / EXPERIMENTAL" : "CGI / 實驗影像", aspect: "aspect-[3/4]" },
-          { title: lang === 'ENG' ? "Light Study" : "光影研究", category: lang === 'ENG' ? "RENDERING / 3D" : "3D 算圖 / 渲染", aspect: "aspect-square" },
-          { title: lang === 'ENG' ? "Fluid Dynamics" : "流體力學", category: lang === 'ENG' ? "SIMULATION" : "物理模擬", aspect: "aspect-[4/5]" }
-        ].map((a, i) => (
-          <div key={i} className="break-inside-avoid">
+        <div className="break-inside-avoid">
+          <Link to="/personal/frame-by-frame" className="block group cursor-pointer">
             <motion.div variants={staggerItem} className="mb-[15px]">
-              <h3 className="font-['Space_Grotesk'] text-[2.2rem] mb-[5px] tracking-[-1px] -ml-[0.02em] font-normal">{a.title}</h3>
-              <div className="text-[0.85rem] uppercase tracking-[1px] opacity-50">{a.category}</div>
+              <h3 className="font-['Space_Grotesk'] text-[2.2rem] mb-[5px] tracking-[-1px] -ml-[0.02em] font-normal group-hover:opacity-60 transition-opacity">Frame by Frame</h3>
+              <div className="text-[0.85rem] uppercase tracking-[1px] opacity-50">{lang === 'ENG' ? '3D INSTALLATION' : '立體裝置'}</div>
             </motion.div>
-            <motion.div variants={staggerItem} className={`w-full h-auto ${a.aspect} bg-[#E0E0E0]`}></motion.div>
-          </div>
-        ))}
+            <motion.div variants={staggerItem} className="w-full relative bg-[#E0E0E0] overflow-hidden">
+              <img src="/projects/framebyframe/cover.jpg" alt="Frame by Frame" className="w-full h-auto block transition-transform duration-700 group-hover:scale-105" />
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-500 pointer-events-none" />
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                <span className="font-['Geist_Mono'] text-white text-[0.85rem] uppercase tracking-[1px] opacity-0 group-hover:opacity-100 transition-opacity">{lang === 'ENG' ? 'Click to View' : '點擊查看'}</span>
+              </div>
+            </motion.div>
+          </Link>
+        </div>
+        <div className="break-inside-avoid">
+          <Link to="/personal/who-decides" className="block group cursor-pointer">
+            <motion.div variants={staggerItem} className="mb-[15px]">
+              <h3 className="font-['Space_Grotesk'] text-[2.2rem] mb-[5px] tracking-[-1px] -ml-[0.02em] font-normal group-hover:opacity-60 transition-opacity">Who decides your needs?</h3>
+              <div className="text-[0.85rem] uppercase tracking-[1px] opacity-50">{lang === 'ENG' ? 'ISSUE POSTER DESIGN' : '議題海報設計'}</div>
+            </motion.div>
+            <motion.div variants={staggerItem} className="w-full relative bg-[#E0E0E0] overflow-hidden">
+              <img src="/projects/whodecides/Poster1+Cover.jpg" alt="Who decides your needs?" className="w-full h-auto block transition-transform duration-700 group-hover:scale-105" />
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-500 pointer-events-none" />
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                <span className="font-['Geist_Mono'] text-white text-[0.85rem] uppercase tracking-[1px] opacity-0 group-hover:opacity-100 transition-opacity">{lang === 'ENG' ? 'Click to View' : '點擊查看'}</span>
+              </div>
+            </motion.div>
+          </Link>
+        </div>
       </motion.div>
     </section>
   );
@@ -616,7 +637,7 @@ function About() {
           { isCategory: true, title: 'Immersive Video' },
           { left: '2023', right: <>BOC (Hong Kong) Private Banking Presents "No.1 Cultural Grotto" Immersive Art Installation, Hong Kong<br/><span className="text-sm opacity-60 mt-1 inline-block">2D Motion Designer / Editor / Compositor: "Heavenly Sound" Chapter</span></> },
           { isCategory: true, title: 'Performance' },
-          { left: '2025', right: <>Live Performance, "Unsorted",<br/>Shih Chien University, Taiwan</> }
+          { left: '2026', right: <>Audio Visual Performance, "Unsorted",<br/>Shih Chien University, Taiwan</> }
         ]
       },
       {
@@ -660,7 +681,7 @@ function About() {
           { isCategory: true, title: '沉浸式影像製作' },
           { left: '2023', right: <>中國銀行(香港)私人銀行呈獻《第一號文化洞窟—萬籟有聲：天籟 • 地籟 • 人籟》沉浸式展演藝術裝置, 香港<br/><span className="text-sm opacity-60 mt-1 inline-block">2D 動態設計 / 剪輯 / 合成：「天籟」章節</span></> },
           { isCategory: true, title: '個人演出' },
-          { left: '2025', right: '現場視覺演出「Unsorted」, 實踐大學, 台灣' }
+          { left: '2026', right: '即時音像演出「Unsorted」, 實踐大學, 台灣' }
         ]
       },
       {
@@ -1091,19 +1112,33 @@ function IntroScreen({ onEnter, isReturning }: { onEnter: () => void, isReturnin
       transition={{ duration: 0.8 }}
       className="fixed inset-0 z-[9999] flex flex-col justify-end bg-[#0A0A0A] overflow-hidden"
     >
-      {/* Background Image wrapped in Glass Refraction Filter */}
-      <GlassRefractionWrapper className="absolute inset-0 w-full h-full z-0">
-        <img 
-          src="/websiteintrobg_1.jpg" 
-          alt="Intro Background" 
-          className="w-full h-full object-cover object-[center_20%] scale-[1.05]"
-        />
-      </GlassRefractionWrapper>
+      {/* Background Image with WebGL Flowmap and Chromatic Aberration */}
+      <WebGLFluidDistortion 
+        src="/websiteintrobg_1.jpg"
+        type="image"
+        className="absolute inset-0 w-full h-full z-0 pointer-events-auto"
+        cursorRadius={0.06}
+        dissipationSpeed={0.92}
+      />
 
+      {/* Top Left Interaction Hint */}
       <motion.div 
         animate={{ opacity: scrolled ? 0 : 1 }}
         transition={{ duration: 0.3 }}
-        className="relative z-10 flex justify-end items-end p-5 md:px-10 md:py-10 font-['Geist_Mono'] text-[0.85rem] uppercase tracking-[1px]"
+        className="absolute top-0 left-0 z-10 p-5 md:px-10 md:py-10 font-['Geist_Mono'] text-[0.85rem] uppercase tracking-[1px] pointer-events-none"
+      >
+        <div className="flex flex-col items-start gap-1">
+          <span className="font-['Space_Grotesk',_'Swei_Bow_Sans'] tracking-[0.1em] bg-[#0A0A0A] text-[#F0F0F0] px-2 py-1 leading-none flex items-center justify-center min-h-[1.5rem]">
+            <ScrambleText text={hintLang === 'ENG' ? 'MOVE MOUSE TO FOCUS' : '移 動 鼠 標 聚 焦'} />
+          </span>
+        </div>
+      </motion.div>
+
+      {/* Bottom Right Scroll Prompt */}
+      <motion.div 
+        animate={{ opacity: scrolled ? 0 : 1 }}
+        transition={{ duration: 0.3 }}
+        className="relative z-10 flex justify-end items-end p-5 md:px-10 md:py-10 w-full font-['Geist_Mono'] text-[0.85rem] uppercase tracking-[1px] pointer-events-none"
       >
         <div className="flex flex-col items-end gap-1">
           <span className="animate-bounce text-xl leading-none bg-[#0A0A0A] text-[#F0F0F0] px-2 py-1">↓</span>
@@ -1246,11 +1281,16 @@ function ProjectUnsorted() {
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
   const images = [
-    { id: 0, text: "Cover Image Placeholder", aspect: "aspect-[4/3]" },
-    { id: 1, text: "Process Image Placeholder 01", aspect: "aspect-[16/9]" },
-    { id: 2, text: "Process Image Placeholder 02", aspect: "aspect-[3/4]" },
-    { id: 3, text: "Process Image Placeholder 03", aspect: "aspect-[4/5]" },
-    { id: 4, text: "Process Image Placeholder 04", aspect: "aspect-square" },
+    { id: 0, src: "/projects/unsorted/unsorted_cover.jpg" },
+    { id: 1, src: "/projects/unsorted/highlight1.jpg" },
+    { id: 2, src: "/projects/unsorted/highlight2.jpg" },
+    { id: 3, src: "/projects/unsorted/highlight3.jpg" },
+    { id: 4, src: "/projects/unsorted/process1.jpg" },
+    { id: 5, src: "/projects/unsorted/process4.jpg" }, // Swapped from process5
+    { id: 6, src: "/projects/unsorted/process3.jpg" },
+    { id: 7, src: "/projects/unsorted/process5.jpg" }, // Swapped from process4
+    { id: 8, src: "/projects/unsorted/process2.jpg" },
+    { id: 9, src: "/projects/unsorted/process6.jpg" }
   ];
 
   const handleNext = (e: React.MouseEvent) => {
@@ -1279,46 +1319,81 @@ function ProjectUnsorted() {
             <LanguageToggle />
           </div>
           
-          <h1 className="font-['Space_Grotesk'] text-[3.5rem] md:text-[4rem] leading-[1] tracking-[-2px] mb-8 -ml-[0.04em]">
+          <h1 className="font-['Space_Grotesk'] text-[3.5rem] md:text-[4rem] leading-[1] tracking-[-2px] mb-16 md:mb-20 -ml-[0.04em]">
             Unsorted
           </h1>
           
           <div className="flex flex-col gap-6 font-['Geist_Mono'] text-base uppercase tracking-[1px] mb-8 pb-8 border-b border-black/10">
             <div className="flex">
-              <span className="opacity-50 w-24">{lang === 'ENG' ? 'Year' : '年份'}</span>
-              <span>2025</span>
+              <span className="opacity-50 w-28 shrink-0 md:w-32">{lang === 'ENG' ? 'Year' : '年份'}</span>
+              <span>2026</span>
             </div>
             <div className="flex">
-              <span className="opacity-50 w-24">{lang === 'ENG' ? 'Medium' : '媒介'}</span>
-              <span>{lang === 'ENG' ? 'Live Visual / Performance' : '現場視覺 / 演出'}</span>
+              <span className="opacity-50 w-28 shrink-0 md:w-32">{lang === 'ENG' ? 'Medium' : '媒介'}</span>
+              <span>{lang === 'ENG' ? 'Audio Visual Performance' : '即時音像演出'}</span>
+            </div>
+            <div className="flex">
+              <span className="opacity-50 w-28 shrink-0 md:w-32">{lang === 'ENG' ? 'Materials' : '媒材'}</span>
+              <span className="flex-1">{lang === 'ENG' ? 'Cardboard, Newspapers, Receipts, Shredded Paper, Cans' : '廢紙箱、廢報紙、發票、碎紙條、罐頭'}</span>
             </div>
           </div>
 
           <div className={`font-['Geist_Mono'] opacity-80 text-base ${lang === 'ENG' ? 'leading-[1.8]' : 'leading-[2.2] tracking-[0.08em]'}`}>
             {lang === 'ENG' 
-              ? "A live visual performance project exploring the unorganized, chaotic yet structured nature of contemporary youth. Blending generative graphics with sound-reactive elements, the piece creates an immersive environment that bridges digital aesthetics with physical spatial experiences."
-              : "一個探索當代青年那種混亂、無序卻又帶有結構性特質的現場視覺演出計畫。透過結合生成藝術與聲音互動元素，本作品創造出一個沉浸式的環境，完美橋接了數位美學與實體空間體驗。"}
+              ? "Using daily waste such as discarded newspapers, receipts, paper shreds, cardboard boxes, and cans as materials. These used, ignored, and easily accumulated objects are like long-unfaced psychological burdens. Through the repetitive acts of crumpling, organizing, and stacking these objects, I transform accumulated internal emotions into an installation and live audio-visual performance, manifesting the internal state into a viewable landscape. It also invites the viewer to look upon and rediscover their own unorganized emotions and internal space."
+              : "以廢報紙、發票、碎紙條、紙箱與罐頭等日常廢棄物作為材料。這些被使用、被忽略、最容易堆積的物件，如同長期未被面對的心理負擔。透過揉搓、整理與堆疊物件的反覆行為，我將內在的情緒堆積轉化為裝置與現場音像表演，使內在狀態被具象化為可被觀看的視角，也邀請觀者在觀看的同時，重新看見自身未被整理的情緒與內在空間。"}
           </div>
         </div>
 
         <div className="w-full md:w-2/3">
           <div 
             onClick={() => setLightboxIndex(0)}
-            className="w-full aspect-[4/3] bg-[#E0E0E0] flex items-center justify-center cursor-pointer hover:opacity-80 transition-opacity"
+            className="w-full bg-[#E0E0E0] flex items-center justify-center cursor-pointer hover:opacity-80 transition-opacity overflow-hidden"
           >
-            <span className="font-['Geist_Mono'] text-[#888] uppercase tracking-[1px] text-sm">Cover Image Placeholder</span>
+            <img src={images[0].src} alt="Unsorted Cover" className="w-full h-auto object-cover" />
           </div>
         </div>
       </div>
 
-      <div className="columns-1 md:columns-2 gap-[30px] space-y-[30px]">
-        {images.slice(1).map((img) => (
+      <div className="flex flex-col gap-[30px] mb-20">
+        {/* Top large image */}
+        <div 
+          onClick={() => setLightboxIndex(1)}
+          className="w-full bg-[#E0E0E0] cursor-pointer hover:opacity-80 transition-opacity overflow-hidden"
+        >
+          <img src={images[1].src} alt="Highlight 1" className="w-full h-auto object-cover" />
+        </div>
+        
+        {/* Bottom two images side by side */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-[30px]">
+          <div 
+            onClick={() => setLightboxIndex(2)}
+            className="w-full bg-[#E0E0E0] cursor-pointer hover:opacity-80 transition-opacity overflow-hidden"
+          >
+            <img src={images[2].src} alt="Highlight 2" className="w-full h-auto object-cover" />
+          </div>
+          <div 
+            onClick={() => setLightboxIndex(3)}
+            className="w-full bg-[#E0E0E0] cursor-pointer hover:opacity-80 transition-opacity overflow-hidden"
+          >
+            <img src={images[3].src} alt="Highlight 3" className="w-full h-auto object-cover" />
+          </div>
+        </div>
+      </div>
+
+      {/* Minimalist Process Separator */}
+      <div className="border-t border-black/10 pt-10 mb-10 text-center font-['Geist_Mono'] text-sm tracking-[2px] opacity-40 uppercase">
+        Process
+      </div>
+
+      <div className="columns-1 md:columns-3 gap-[20px] space-y-[20px]">
+        {images.slice(4).map((img) => (
           <div key={img.id} className="break-inside-avoid">
             <div 
               onClick={() => setLightboxIndex(img.id)}
-              className={`w-full ${img.aspect} bg-[#E0E0E0] flex items-center justify-center cursor-pointer hover:opacity-80 transition-opacity`}
+              className="w-full bg-[#E0E0E0] cursor-pointer hover:opacity-80 transition-opacity overflow-hidden"
             >
-              <span className="font-['Geist_Mono'] text-[#888] uppercase tracking-[1px] text-[0.85rem]">{img.text}</span>
+              <img src={img.src} alt={`Process ${img.id}`} className="w-full h-auto object-cover" />
             </div>
           </div>
         ))}
@@ -1355,12 +1430,435 @@ function ProjectUnsorted() {
             </button>
 
             <div 
-              className={`w-full max-w-[80vw] max-h-[80vh] ${images[lightboxIndex].aspect} bg-[#222] flex items-center justify-center cursor-default`}
+              className="max-w-[90vw] max-h-[90vh] flex items-center justify-center cursor-default relative"
               onClick={(e) => e.stopPropagation()}
             >
-              <span className="font-['Geist_Mono'] text-[#888] uppercase tracking-[1px] md:text-lg text-center px-4">
-                {images[lightboxIndex].text}<br/><span className="text-sm opacity-50 mt-2 block">(Will be replaced with real image)</span>
-              </span>
+              <AnimatePresence mode="wait">
+                <motion.img 
+                  key={lightboxIndex}
+                  initial={{ opacity: 0, filter: 'blur(4px)' }}
+                  animate={{ opacity: 1, filter: 'blur(0px)' }}
+                  exit={{ opacity: 0, filter: 'blur(4px)' }}
+                  transition={{ duration: 0.4, ease: [0.25, 0.8, 0.25, 1] }}
+                  src={images[lightboxIndex].src} 
+                  alt="Enlarged view" 
+                  className="max-w-[90vw] max-h-[90vh] object-contain" 
+                />
+              </AnimatePresence>
+            </div>
+
+            <button 
+              className="absolute right-4 md:right-10 top-1/2 -translate-y-1/2 text-white hover:opacity-50 transition-opacity p-2"
+              onClick={handleNext}
+            >
+              <ChevronRight size={48} />
+            </button>
+            
+            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/50 font-['Geist_Mono'] tracking-[2px] text-sm">
+              {lightboxIndex + 1} / {images.length}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}
+
+function ProjectFrameByFrame() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    document.title = "Howard Lee - Frame by Frame";
+  }, []);
+
+  const { lang } = useLanguage();
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+
+  const images = [
+    { id: 0, src: "/projects/framebyframe/cover.jpg" },
+    { id: 1, src: "/projects/framebyframe/highlight1.jpg" },
+    { id: 2, src: "/projects/framebyframe/highlight2.jpg" },
+    { id: 3, src: "/projects/framebyframe/mainprocess.jpg" },
+    { id: 4, src: "/projects/framebyframe/mainprocess2.jpg" },
+    { id: 5, src: "/projects/framebyframe/mainprocess3.jpg" },
+    { id: 6, src: "/projects/framebyframe/mainprocess4.jpg" },
+    { id: 7, src: "/projects/framebyframe/secondprocess1.jpg" },
+    { id: 8, src: "/projects/framebyframe/secondprocess2.jpg" },
+    { id: 9, src: "/projects/framebyframe/sceondprocess3.jpg" },
+    { id: 10, src: "/projects/framebyframe/secondprocess4.jpg" },
+    { id: 11, src: "/projects/framebyframe/secondprocess5.jpg" },
+    { id: 12, src: "/projects/framebyframe/secondprocess6.jpg" },
+    { id: 13, src: "/projects/framebyframe/secondprocess7.jpg" },
+    { id: 14, src: "/projects/framebyframe/sceondprocess8.jpg" }
+  ];
+
+  const handleNext = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (lightboxIndex !== null) {
+      setLightboxIndex((lightboxIndex + 1) % images.length);
+    }
+  };
+
+  const handlePrev = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (lightboxIndex !== null) {
+      setLightboxIndex((lightboxIndex - 1 + images.length) % images.length);
+    }
+  };
+
+  return (
+    <div className="pt-[40px] md:pt-[60px] pb-[100px] min-h-screen relative">
+      <div className="flex flex-col md:flex-row gap-10 md:gap-20 mb-20">
+        <div className="w-full md:w-1/3">
+          <div className="flex justify-between items-start mb-8 md:mb-12">
+            <Link to="/personal" className="inline-flex items-center gap-1 hover:opacity-50 transition-opacity font-['Geist_Mono'] text-xs uppercase tracking-[1px]">
+              <ChevronLeft size={16} className="-ml-1" />
+              Back
+            </Link>
+            <LanguageToggle />
+          </div>
+          
+          <h1 className="font-['Space_Grotesk'] text-[3.5rem] md:text-[4rem] leading-[1] tracking-[-2px] mb-16 md:mb-20 -ml-[0.04em]">
+            Frame by Frame
+          </h1>
+          
+          <div className="flex flex-col gap-6 font-['Geist_Mono'] text-base uppercase tracking-[1px] mb-8 pb-8 border-b border-black/10">
+            <div className="flex">
+              <span className="opacity-50 w-28 shrink-0 md:w-32">{lang === 'ENG' ? 'Year' : '年份'}</span>
+              <span>2025</span>
+            </div>
+            <div className="flex">
+              <span className="opacity-50 w-28 shrink-0 md:w-32">{lang === 'ENG' ? 'Medium' : '媒介'}</span>
+              <span>{lang === 'ENG' ? '3D Installation' : '立體裝置'}</span>
+            </div>
+            <div className="flex">
+              <span className="opacity-50 w-28 shrink-0 md:w-32">{lang === 'ENG' ? 'Materials' : '媒材'}</span>
+              <span className="flex-1">{lang === 'ENG' ? 'Wood lumber, Camping pegs, Wire ropes' : '集合角材、露營釘、威亞鋼絲繩'}</span>
+            </div>
+          </div>
+
+          <div className={`font-['Geist_Mono'] opacity-80 text-base whitespace-pre-wrap ${lang === 'ENG' ? 'leading-[1.8]' : 'leading-[2.2] tracking-[0.08em]'}`}>
+            {lang === 'ENG' 
+              ? "My parents' frames, once constraints, are now the nourishment for my work. I have learned to extend these frames, transforming regrets into new possibilities. A frame is not a cage, but a dimension of flexibility. This journey—shuttling between 3D and 2D—allows me to redefine the narrative bestowed upon me. Through this project, I also realized the need to further sharpen my material expertise and execution judgment."
+              : "父母的框架曾是我的束縛，卻也成為我創作的養分。我學會將框架鬆綁、延伸，讓遺憾轉化為新的可能性，創作即是我與這些框架的和解。框架並非囚籠，而是賦予我彈性與維度的空間，讓我能在承載過往的同時，開啟自身的敘事。這是一場從立體裝置到平面維度的穿梭，在不同維度的交疊中，我重新定義了被賦予的形狀。\n\n透過這次專題意識到對媒材不熟悉和執行判斷需要加強。"}
+          </div>
+        </div>
+
+        <div className="w-full md:w-2/3">
+          <div 
+            onClick={() => setLightboxIndex(0)}
+            className="w-full bg-[#E0E0E0] flex items-center justify-center cursor-pointer hover:opacity-80 transition-opacity overflow-hidden"
+          >
+            <img src={images[0].src} alt="Frame by Frame Cover" className="w-full h-auto object-cover" />
+          </div>
+        </div>
+      </div>
+
+      {/* Highlights (2 side by side) */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-[30px] mb-20">
+        <div 
+          onClick={() => setLightboxIndex(1)}
+          className="w-full bg-[#E0E0E0] cursor-pointer hover:opacity-80 transition-opacity overflow-hidden"
+        >
+          <img src={images[1].src} alt="Highlight 1" className="w-full h-auto object-cover" />
+        </div>
+        <div 
+          onClick={() => setLightboxIndex(2)}
+          className="w-full bg-[#E0E0E0] cursor-pointer hover:opacity-80 transition-opacity overflow-hidden"
+        >
+          <img src={images[2].src} alt="Highlight 2" className="w-full h-auto object-cover" />
+        </div>
+      </div>
+
+      {/* Main Process Separator */}
+      <div className="border-t border-black/10 pt-10 mb-10 text-center font-['Geist_Mono'] text-sm tracking-[2px] opacity-40 uppercase">
+        {lang === 'ENG' ? 'Main Process' : '製作過程'}
+      </div>
+
+      <div className="columns-1 md:columns-2 lg:columns-3 gap-[20px] space-y-[20px] mb-20">
+        {images.slice(3, 7).map((img) => (
+          <div key={img.id} className="break-inside-avoid">
+            <div 
+              onClick={() => setLightboxIndex(img.id)}
+              className="w-full bg-[#E0E0E0] cursor-pointer hover:opacity-80 transition-opacity overflow-hidden"
+            >
+              <img src={img.src} alt={`Process ${img.id}`} className="w-full h-auto object-cover" />
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Second Process Separator */}
+      <div className="border-t border-black/10 pt-10 mb-10 text-center font-['Geist_Mono'] text-sm tracking-[2px] opacity-40 uppercase">
+        {lang === 'ENG' ? 'Ideation & Alternatives' : '發想與棄案'}
+      </div>
+
+      <div className="columns-1 md:columns-2 lg:columns-3 gap-[20px] space-y-[20px]">
+        {images.slice(7).map((img) => (
+          <div key={img.id} className="break-inside-avoid">
+            <div 
+              onClick={() => setLightboxIndex(img.id)}
+              className="w-full bg-[#E0E0E0] cursor-pointer hover:opacity-80 transition-opacity overflow-hidden"
+            >
+              <img src={img.src} alt={`Ideation ${img.id}`} className="w-full h-auto object-cover" />
+            </div>
+          </div>
+        ))}
+      </div>
+      
+      <div className="mt-32 flex justify-center border-t border-black/10 pt-16">
+        <Link to="/personal" className="font-['Space_Grotesk',_'Swei_Bow_Sans'] text-[2rem] uppercase hover:opacity-50 transition-opacity">
+          {lang === 'ENG' ? 'Back to Personal' : '返回個人作品'}
+        </Link>
+      </div>
+
+      <AnimatePresence>
+        {lightboxIndex !== null && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            onClick={() => setLightboxIndex(null)}
+            className="fixed inset-0 z-[9999] bg-black/95 flex items-center justify-center p-4 md:p-10 cursor-zoom-out"
+          >
+            <button 
+              className="absolute top-6 right-6 text-white hover:opacity-50 transition-opacity"
+              onClick={() => setLightboxIndex(null)}
+            >
+              <X size={32} />
+            </button>
+
+            <button 
+              className="absolute left-4 md:left-10 top-1/2 -translate-y-1/2 text-white hover:opacity-50 transition-opacity p-2"
+              onClick={handlePrev}
+            >
+              <ChevronLeft size={48} />
+            </button>
+
+            <div 
+              className="max-w-[90vw] max-h-[90vh] flex items-center justify-center cursor-default relative"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <AnimatePresence mode="wait">
+                <motion.img 
+                  key={lightboxIndex}
+                  initial={{ opacity: 0, filter: 'blur(4px)' }}
+                  animate={{ opacity: 1, filter: 'blur(0px)' }}
+                  exit={{ opacity: 0, filter: 'blur(4px)' }}
+                  transition={{ duration: 0.4, ease: [0.25, 0.8, 0.25, 1] }}
+                  src={images[lightboxIndex].src} 
+                  alt="Enlarged view" 
+                  className="max-w-[90vw] max-h-[90vh] object-contain" 
+                />
+              </AnimatePresence>
+            </div>
+
+            <button 
+              className="absolute right-4 md:right-10 top-1/2 -translate-y-1/2 text-white hover:opacity-50 transition-opacity p-2"
+              onClick={handleNext}
+            >
+              <ChevronRight size={48} />
+            </button>
+            
+            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/50 font-['Geist_Mono'] tracking-[2px] text-sm">
+              {lightboxIndex + 1} / {images.length}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}
+
+function ProjectWhoDecides() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    document.title = "Howard Lee - Who decides your needs?";
+  }, []);
+
+  const { lang } = useLanguage();
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+
+  const images = [
+    { id: 0, src: "/projects/whodecides/Poster1+Cover.jpg" },
+    { id: 1, src: "/projects/whodecides/Poster2.jpg" },
+    { id: 2, src: "/projects/whodecides/Poster3.jpg" },
+    { id: 3, src: "/projects/whodecides/MainProcessCover.jpg" },
+    { id: 4, src: "/projects/whodecides/Mainprocess1.jpg" },
+    { id: 5, src: "/projects/whodecides/Mainprocess2.jpg" },
+    { id: 6, src: "/projects/whodecides/Mainprocess3.jpg" },
+    { id: 7, src: "/projects/whodecides/Mainprocess4.jpg" },
+    { id: 8, src: "/projects/whodecides/Process1.jpg" },
+    { id: 9, src: "/projects/whodecides/Process2.jpg" },
+    { id: 10, src: "/projects/whodecides/Process3.jpg" },
+    { id: 11, src: "/projects/whodecides/Process4.jpg" },
+    { id: 12, src: "/projects/whodecides/Process5.jpg" },
+    { id: 13, src: "/projects/whodecides/Process6.jpg" },
+    { id: 14, src: "/projects/whodecides/Process7.jpg" },
+    { id: 15, src: "/projects/whodecides/IG record1.jpg" },
+    { id: 16, src: "/projects/whodecides/IG record2.jpg" }
+  ];
+
+  const handleNext = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (lightboxIndex !== null) {
+      setLightboxIndex((lightboxIndex + 1) % images.length);
+    }
+  };
+
+  const handlePrev = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (lightboxIndex !== null) {
+      setLightboxIndex((lightboxIndex - 1 + images.length) % images.length);
+    }
+  };
+
+  return (
+    <div className="pt-[40px] md:pt-[60px] pb-[100px] min-h-screen relative">
+      <div className="flex flex-col md:flex-row gap-10 md:gap-20 mb-20">
+        <div className="w-full md:w-1/3">
+          <div className="flex justify-between items-start mb-8 md:mb-12">
+            <Link to="/personal" className="inline-flex items-center gap-1 hover:opacity-50 transition-opacity font-['Geist_Mono'] text-xs uppercase tracking-[1px]">
+              <ChevronLeft size={16} className="-ml-1" />
+              Back
+            </Link>
+            <LanguageToggle />
+          </div>
+          
+          <h1 className="font-['Space_Grotesk'] text-[3.5rem] md:text-[4rem] leading-[1] tracking-[-2px] mb-16 md:mb-20 -ml-[0.04em]">
+            Who decides your needs?
+          </h1>
+          
+          <div className="flex flex-col gap-6 font-['Geist_Mono'] text-base uppercase tracking-[1px] mb-8 pb-8 border-b border-black/10">
+            <div className="flex">
+              <span className="opacity-50 w-28 shrink-0 md:w-32">{lang === 'ENG' ? 'Year' : '年份'}</span>
+              <span>2026</span>
+            </div>
+            <div className="flex">
+              <span className="opacity-50 w-28 shrink-0 md:w-32">{lang === 'ENG' ? 'Medium' : '媒介'}</span>
+              <span>{lang === 'ENG' ? 'Issue Poster Design' : '議題海報設計'}</span>
+            </div>
+            <div className="flex">
+              <span className="opacity-50 w-28 shrink-0 md:w-32">{lang === 'ENG' ? 'Materials' : '媒材'}</span>
+              <span className="flex-1">{lang === 'ENG' ? 'Blender, Nano Banana, Midjourney, Fabric, Magazine Collage, Number Stickers' : 'Blender、Nano Banana、Midjourney、布料、雜誌拼貼、數字貼紙'}</span>
+            </div>
+          </div>
+
+          <div className={`font-['Geist_Mono'] opacity-80 text-base whitespace-pre-wrap ${lang === 'ENG' ? 'leading-[1.8]' : 'leading-[2.2] tracking-[0.08em]'}`}>
+            {lang === 'ENG' 
+              ? "This series critiques consumerism’s manipulation of desire. From canned fashion waste to bodies bound by fabric and production lines refilling hollowed mannequins, it exposes a manufactured cycle of \"needs,\" addressing how the system replaces autonomy by engineering demand. In a profit-driven world, who decides your needs?"
+              : "本系列海報作品是批判消費主義操縱我們慾望的機制。視覺從罐頭揭開的快時尚廢料、受廢料束縛而扭曲的人體，到生產線回填掏空的假體，揭露了被精密設計的「需求」循環，回應體制藉由「製造需求」來取代自主權。在利潤至上的世界，究竟是誰在替你決定需求？"}
+          </div>
+        </div>
+
+        <div className="w-full md:w-2/3">
+          <div 
+            onClick={() => setLightboxIndex(0)}
+            className="w-full flex items-center justify-center cursor-pointer group overflow-hidden"
+          >
+            <img src={images[0].src} alt="Who decides your needs Cover" className="w-full h-auto block transition-transform duration-[2s] ease-[cubic-bezier(0.25,0.8,0.25,1)] group-hover:scale-[0.5]" />
+          </div>
+        </div>
+      </div>
+
+      {/* Highlights (stacked) */}
+      <div className="flex flex-col gap-[30px] mb-20">
+        <div 
+          onClick={() => setLightboxIndex(1)}
+          className="w-full cursor-pointer group overflow-hidden flex justify-center"
+        >
+          <img src={images[1].src} alt="Poster 2" className="w-full h-auto block transition-transform duration-[2s] ease-[cubic-bezier(0.25,0.8,0.25,1)] group-hover:scale-[0.5]" />
+        </div>
+        <div 
+          onClick={() => setLightboxIndex(2)}
+          className="w-full cursor-pointer group overflow-hidden flex justify-center"
+        >
+          <img src={images[2].src} alt="Poster 3" className="w-full h-auto block transition-transform duration-[2s] ease-[cubic-bezier(0.25,0.8,0.25,1)] group-hover:scale-[0.5]" />
+        </div>
+      </div>
+
+      {/* Main Process Separator */}
+      <div className="border-t border-black/10 pt-10 mb-10 text-center font-['Geist_Mono'] text-sm tracking-[2px] opacity-40 uppercase">
+        {lang === 'ENG' ? 'Material & Form Exploration' : '議題關係媒材&形式探索'}
+      </div>
+
+      <div className="columns-1 md:columns-2 lg:columns-3 gap-[20px] space-y-[20px] mb-20">
+        {images.slice(3, 8).map((img) => (
+          <div key={img.id} className="break-inside-avoid">
+            <div 
+              onClick={() => setLightboxIndex(img.id)}
+              className="w-full bg-[#E0E0E0] cursor-pointer hover:opacity-80 transition-opacity overflow-hidden"
+            >
+              <img src={img.src} alt={`Process ${img.id}`} className="w-full h-auto object-cover" />
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Second Process Separator */}
+      <div className="border-t border-black/10 pt-10 mb-10 text-center font-['Geist_Mono'] text-sm tracking-[2px] opacity-40 uppercase">
+        {lang === 'ENG' ? 'Ideation & Process' : '發想與紀錄'}
+      </div>
+
+      <div className="columns-1 md:columns-2 lg:columns-3 gap-[20px] space-y-[20px]">
+        {images.slice(8).map((img) => (
+          <div key={img.id} className="break-inside-avoid">
+            <div 
+              onClick={() => setLightboxIndex(img.id)}
+              className="w-full bg-[#E0E0E0] cursor-pointer hover:opacity-80 transition-opacity overflow-hidden"
+            >
+              <img src={img.src} alt={`Ideation ${img.id}`} className="w-full h-auto object-cover" />
+            </div>
+          </div>
+        ))}
+      </div>
+      
+      <div className="mt-32 flex justify-center border-t border-black/10 pt-16">
+        <Link to="/personal" className="font-['Space_Grotesk',_'Swei_Bow_Sans'] text-[2rem] uppercase hover:opacity-50 transition-opacity">
+          {lang === 'ENG' ? 'Back to Personal' : '返回個人作品'}
+        </Link>
+      </div>
+
+      <AnimatePresence>
+        {lightboxIndex !== null && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            onClick={() => setLightboxIndex(null)}
+            className="fixed inset-0 z-[9999] bg-black/95 flex items-center justify-center p-4 md:p-10 cursor-zoom-out"
+          >
+            <button 
+              className="absolute top-6 right-6 text-white hover:opacity-50 transition-opacity"
+              onClick={() => setLightboxIndex(null)}
+            >
+              <X size={32} />
+            </button>
+
+            <button 
+              className="absolute left-4 md:left-10 top-1/2 -translate-y-1/2 text-white hover:opacity-50 transition-opacity p-2"
+              onClick={handlePrev}
+            >
+              <ChevronLeft size={48} />
+            </button>
+
+            <div 
+              className="max-w-[90vw] max-h-[90vh] flex items-center justify-center cursor-default relative"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <AnimatePresence mode="wait">
+                <motion.img 
+                  key={lightboxIndex}
+                  initial={{ opacity: 0, filter: 'blur(4px)' }}
+                  animate={{ opacity: 1, filter: 'blur(0px)' }}
+                  exit={{ opacity: 0, filter: 'blur(4px)' }}
+                  transition={{ duration: 0.4, ease: [0.25, 0.8, 0.25, 1] }}
+                  src={images[lightboxIndex].src} 
+                  alt="Enlarged view" 
+                  className="max-w-[90vw] max-h-[90vh] object-contain" 
+                />
+              </AnimatePresence>
             </div>
 
             <button 
@@ -1412,6 +1910,8 @@ function AnimatedRoutes() {
         <Route path="/work" element={<PageTransition><ComingSoon /></PageTransition>} />
         <Route path="/personal" element={<PageTransition><Personal /></PageTransition>} />
         <Route path="/personal/unsorted" element={<PageTransition><ProjectUnsorted /></PageTransition>} />
+        <Route path="/personal/frame-by-frame" element={<PageTransition><ProjectFrameByFrame /></PageTransition>} />
+        <Route path="/personal/who-decides" element={<PageTransition><ProjectWhoDecides /></PageTransition>} />
         <Route path="/about" element={<PageTransition><About /></PageTransition>} />
       </Routes>
     </AnimatePresence>
