@@ -1066,14 +1066,14 @@ function IntroScreen({ onEnter, isReturning }: { onEnter: () => void, isReturnin
       <motion.div 
         animate={{ opacity: scrolled ? 0 : 1 }}
         transition={{ duration: 0.3 }}
-        className="relative z-10 flex justify-between items-end p-5 md:px-10 md:py-10 font-['Geist_Mono'] text-[0.85rem] uppercase tracking-[1px] opacity-80 text-[#F0F0F0]"
+        className="relative z-10 flex justify-between items-end p-5 md:px-10 md:py-10 font-['Geist_Mono'] text-[0.85rem] uppercase tracking-[1px]"
       >
-        <div className="flex flex-col items-start gap-2">
-          <span className="animate-bounce text-xl">↓</span>
+        <div className="flex flex-col items-start gap-2 bg-[#F0F0F0] text-[#0A0A0A] px-4 py-3 shadow-lg">
+          <span className="animate-bounce text-xl leading-none">↓</span>
           <span>Scroll to enter</span>
         </div>
-        <div className="flex flex-col items-end gap-2">
-          <span className="animate-bounce text-xl">↓</span>
+        <div className="flex flex-col items-end gap-2 bg-[#F0F0F0] text-[#0A0A0A] px-4 py-3 shadow-lg">
+          <span className="animate-bounce text-xl leading-none">↓</span>
           <span className="font-['Space_Grotesk',_'Swei_Bow_Sans'] tracking-[0.1em]">滑動進入</span>
         </div>
       </motion.div>
