@@ -892,6 +892,8 @@ function Layout({ children }: { children: React.ReactNode }) {
       wheelMultiplier: 1,
       touchMultiplier: 2,
     });
+    // @ts-ignore
+    window.lenis = lenis;
     function raf(time: number) {
       lenis.raf(time);
       requestAnimationFrame(raf);
@@ -1135,10 +1137,19 @@ function HomeTransition({ children }: { children: React.ReactNode }) {
     if (!introDone) {
       document.body.style.overflow = 'hidden';
       document.body.style.touchAction = 'none';
+      // @ts-ignore
+      if (window.lenis) window.lenis.stop();
     } else {
       const timer = setTimeout(() => {
         document.body.style.overflow = '';
         document.body.style.touchAction = '';
+        // @ts-ignore
+        if (window.lenis) {
+          // @ts-ignore
+          window.lenis.start();
+          // @ts-ignore
+          window.lenis.resize();
+        }
         window.dispatchEvent(new Event('resize'));
         window.focus();
       }, 500);
@@ -1146,6 +1157,8 @@ function HomeTransition({ children }: { children: React.ReactNode }) {
         clearTimeout(timer);
         document.body.style.overflow = '';
         document.body.style.touchAction = '';
+        // @ts-ignore
+        if (window.lenis) window.lenis.start();
         window.dispatchEvent(new Event('resize'));
       };
     }
