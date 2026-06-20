@@ -16,6 +16,7 @@ import { ProjectUnsorted } from "./pages/projects/ProjectUnsorted";
 import { ProjectFrameByFrame } from "./pages/projects/ProjectFrameByFrame";
 import { ProjectWhoDecides } from "./pages/projects/ProjectWhoDecides";
 import { ProjectBamboo } from "./pages/projects/ProjectBamboo";
+import { ProjectYen } from "./pages/projects/ProjectYen";
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -30,6 +31,7 @@ function AnimatedRoutes() {
         <Route path="/personal/frame-by-frame" element={<PageTransition><ProjectFrameByFrame /></PageTransition>} />
         <Route path="/personal/who-decides" element={<PageTransition><ProjectWhoDecides /></PageTransition>} />
         <Route path="/personal/bamboo-theatre" element={<PageTransition><ProjectBamboo /></PageTransition>} />
+        <Route path="/personal/thesis-sketching" element={<PageTransition><ProjectYen /></PageTransition>} />
         <Route path="/about" element={<PageTransition><About /></PageTransition>} />
       </Routes>
     </AnimatePresence>

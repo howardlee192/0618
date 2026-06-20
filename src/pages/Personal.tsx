@@ -177,6 +177,21 @@ export function Personal() {
             </motion.div>
           </Link>
         </div>
+        <div className="break-inside-avoid">
+          <Link to="/personal/thesis-sketching" className="block group cursor-pointer mt-8 md:mt-16 lg:mt-20">
+            <motion.div variants={staggerItem} className="mb-[15px]">
+              <h3 className="font-['Space_Grotesk'] text-[2.2rem] mb-[5px] tracking-[-1px] -ml-[0.02em] group-hover:opacity-60 transition-opacity font-normal">{lang === 'ENG' ? 'Architectural Thesis Drawing' : '2026實踐建築系畢製作品素描'}</h3>
+              <div className="text-[0.85rem] uppercase tracking-[1px] opacity-50">{lang === 'ENG' ? 'DRAWING' : '素描'}</div>
+            </motion.div>
+            <motion.div variants={staggerItem} className="w-full relative bg-[#E0E0E0] overflow-hidden">
+              <img src="/projects/yen/drawing4cover.jpg" alt="Architectural Thesis Sketching" className="w-full h-auto block transition-transform duration-700 group-hover:scale-105" />
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-500 pointer-events-none" />
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                <span className="font-['Geist_Mono'] text-white text-[0.85rem] uppercase tracking-[1px] opacity-0 group-hover:opacity-100 transition-opacity">{lang === 'ENG' ? 'Click to View' : '點擊查看'}</span>
+              </div>
+            </motion.div>
+          </Link>
+        </div>
       </motion.div>
     </section>
   );

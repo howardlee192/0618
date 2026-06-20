@@ -117,7 +117,7 @@ export function ProjectBamboo() {
           >
             <button
               onClick={(e) => { e.stopPropagation(); setLightboxIndex(null); }}
-              className="absolute top-6 right-6 md:top-10 md:right-10 text-white/50 hover:text-white transition-colors p-2"
+              className="absolute top-6 right-6 md:top-10 md:right-10 text-white/50 hover:text-white transition-colors p-2 z-50"
             >
               <X size={32} />
             </button>
@@ -145,7 +145,7 @@ export function ProjectBamboo() {
                 e.stopPropagation();
                 setLightboxIndex((prev) => prev === null ? null : (prev > 0 ? prev - 1 : images.length - 1));
               }}
-              className="absolute left-4 top-1/2 -translate-y-1/2 text-white/50 hover:text-white transition-colors p-4 md:left-10"
+              className="absolute left-4 top-1/2 -translate-y-1/2 text-white/50 hover:text-white transition-colors p-4 md:left-10 z-50"
             >
               <ChevronLeft size={48} strokeWidth={1} />
             </button>
@@ -155,7 +155,7 @@ export function ProjectBamboo() {
                 e.stopPropagation();
                 setLightboxIndex((prev) => prev === null ? null : (prev < images.length - 1 ? prev + 1 : 0));
               }}
-              className="absolute right-4 top-1/2 -translate-y-1/2 text-white/50 hover:text-white transition-colors p-4 md:right-10"
+              className="absolute right-4 top-1/2 -translate-y-1/2 text-white/50 hover:text-white transition-colors p-4 md:right-10 z-50"
             >
               <ChevronRight size={48} strokeWidth={1} />
             </button>

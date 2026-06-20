@@ -77,6 +77,10 @@ export function ProjectWhoDecides() {
               <span className="opacity-50 w-28 shrink-0 md:w-32">{lang === 'ENG' ? 'Materials' : '媒材'}</span>
               <span className="flex-1">{lang === 'ENG' ? 'Blender, Nano Banana, Midjourney, Photoshop, Illustrator, Fabric, Magazine Collage, Number Stickers' : 'Blender、Nano Banana、Midjourney、Photoshop、Illustrator、布料、雜誌拼貼、數字貼紙'}</span>
             </div>
+            <div className="flex">
+              <span className="opacity-50 w-28 shrink-0 md:w-32">{lang === 'ENG' ? 'Course' : '課程'}</span>
+              <span className="flex-1">{lang === 'ENG' ? 'Design Fundamental' : '創作基礎'}</span>
+            </div>
           </div>
 
           <div className={`font-['Geist_Mono'] opacity-80 text-base whitespace-pre-wrap ${lang === 'ENG' ? 'leading-[1.8]' : 'leading-[2.2] tracking-[0.08em]'}`}>
@@ -165,14 +169,14 @@ export function ProjectWhoDecides() {
             className="fixed inset-0 z-[9999] bg-black/95 flex items-center justify-center p-4 md:p-10 cursor-zoom-out"
           >
             <button 
-              className="absolute top-6 right-6 text-white hover:opacity-50 transition-opacity"
+              className="absolute top-6 right-6 text-white hover:opacity-50 transition-opacity z-50"
               onClick={() => setLightboxIndex(null)}
             >
               <X size={32} />
             </button>
 
             <button 
-              className="absolute left-4 md:left-10 top-1/2 -translate-y-1/2 text-white hover:opacity-50 transition-opacity p-2"
+              className="absolute left-4 md:left-10 top-1/2 -translate-y-1/2 text-white hover:opacity-50 transition-opacity p-2 z-50"
               onClick={handlePrev}
             >
               <ChevronLeft size={48} />
@@ -197,7 +201,7 @@ export function ProjectWhoDecides() {
             </div>
 
             <button 
-              className="absolute right-4 md:right-10 top-1/2 -translate-y-1/2 text-white hover:opacity-50 transition-opacity p-2"
+              className="absolute right-4 md:right-10 top-1/2 -translate-y-1/2 text-white hover:opacity-50 transition-opacity p-2 z-50"
               onClick={handleNext}
             >
               <ChevronRight size={48} />
