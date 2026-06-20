@@ -1056,10 +1056,12 @@ function IntroScreen({ onEnter, isReturning }: { onEnter: () => void, isReturnin
       transition={{ duration: 0.8 }}
       className="fixed inset-0 z-[9999] flex flex-col justify-end bg-[#0A0A0A] overflow-hidden"
     >
-      {/* Video Placeholder */}
-      <div className="absolute inset-0 flex items-center justify-center font-['Geist_Mono'] text-white opacity-20 uppercase tracking-[2px] text-sm md:text-base">
-        [ Video Background Placeholder ]
-      </div>
+      {/* Background Image */}
+      <img 
+        src="/websiteintrobg.jpg" 
+        alt="Intro Background" 
+        className="absolute inset-0 w-full h-full object-cover"
+      />
 
       <motion.div 
         animate={{ opacity: scrolled ? 0 : 1 }}
