@@ -1139,11 +1139,14 @@ function HomeTransition({ children }: { children: React.ReactNode }) {
       const timer = setTimeout(() => {
         document.body.style.overflow = '';
         document.body.style.touchAction = '';
+        window.dispatchEvent(new Event('resize'));
+        window.focus();
       }, 500);
       return () => {
         clearTimeout(timer);
         document.body.style.overflow = '';
         document.body.style.touchAction = '';
+        window.dispatchEvent(new Event('resize'));
       };
     }
   }, [introDone]);
