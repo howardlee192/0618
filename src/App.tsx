@@ -1058,7 +1058,7 @@ function IntroScreen({ onEnter, isReturning }: { onEnter: () => void, isReturnin
     >
       {/* Background Image */}
       <img 
-        src="/websiteintrobg.jpg" 
+        src="/websiteintrobg_1.jpg" 
         alt="Intro Background" 
         className="absolute inset-0 w-full h-full object-cover"
       />
