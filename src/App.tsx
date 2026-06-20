@@ -1060,7 +1060,7 @@ function IntroScreen({ onEnter, isReturning }: { onEnter: () => void, isReturnin
       <img 
         src="/websiteintrobg_1.jpg" 
         alt="Intro Background" 
-        className="absolute inset-0 w-full h-full object-cover"
+        className="absolute inset-0 w-full h-full object-cover object-top scale-[1.15] origin-top"
       />
 
       <motion.div 
