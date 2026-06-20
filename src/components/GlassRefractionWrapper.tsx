@@ -13,12 +13,12 @@ export const GlassRefractionWrapper = ({ children, className = "" }: { children:
     time.set(t);
   });
   
-  // Base state: subtle constant movement (oscillation from 10 to 20 displacement)
-  const baseDisplacement = useTransform(time, (t) => Math.sin(t / 800) * 5 + 15);
+  // Base state: subtle constant movement (oscillation from 2 to 8 displacement)
+  const baseDisplacement = useTransform(time, (t) => Math.sin(t / 800) * 3 + 5);
   
   // Down scroll (deltaY > 0) -> Increase Displacement (liquid refraction)
-  // Maps downward scroll to extra displacement scale (0 to 60)
-  const scrollDisplacement = useTransform(smoothedVelocity, [0, 150], [0, 60], { clamp: false });
+  // Maps downward scroll to extra displacement scale (0 to 40)
+  const scrollDisplacement = useTransform(smoothedVelocity, [0, 150], [0, 40], { clamp: false });
   
   // Combine base and scroll displacement. Only add if scrolling down.
   const totalDisplacement = useTransform(
@@ -59,14 +59,14 @@ export const GlassRefractionWrapper = ({ children, className = "" }: { children:
   const filterId = useId().replace(/:/g, "");
 
   return (
-    <div className={`relative ${className}`}>
+    <div className={`relative overflow-hidden ${className}`}>
       <svg className="hidden">
         <defs>
           <filter id={`glass-refraction-${filterId}`} x="-20%" y="-20%" width="140%" height="140%">
-            {/* baseFrequency X=0.08 Y=0.002 creates vertical ribbed glass streaks */}
+            {/* Finer vertical ribbed glass streaks */}
             <feTurbulence 
               type="fractalNoise" 
-              baseFrequency="0.08 0.002" 
+              baseFrequency="0.15 0.001" 
               numOctaves="2" 
               result="noise" 
             />
@@ -82,9 +82,10 @@ export const GlassRefractionWrapper = ({ children, className = "" }: { children:
       </svg>
 
       {/* Wrapping div that applies the dynamic blur and SVG displacement */}
+      {/* Absolute inset with negative margins prevents the distorted black edges from being visible */}
       <motion.div 
         style={{ filter: filterStyle }}
-        className="w-full h-full"
+        className="absolute -top-[10%] -bottom-[10%] -left-[10%] -right-[10%]"
       >
         <div style={{ filter: `url(#glass-refraction-${filterId})` }} className="w-full h-full">
           {children}
