@@ -5,6 +5,7 @@ import Text3DFlip from "@/components/ui/text-3d-flip";
 import { motion, useSpring, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import { Menu, X, ChevronLeft, ChevronRight } from "lucide-react";
 import { AsciiArtHover } from "./components/ui/ascii-art";
+import { GlassRefractionWrapper } from "./components/GlassRefractionWrapper";
 
 type Language = 'ENG' | 'CHN';
 interface LanguageContextType {
@@ -1049,17 +1050,38 @@ function IntroScreen({ onEnter, isReturning }: { onEnter: () => void, isReturnin
   }, []);
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (!scrolled) {
+    let accumulatedScroll = 0;
+    
+    const handleScroll = (e: WheelEvent) => {
+      if (scrolled) return;
+      
+      accumulatedScroll += e.deltaY;
+      
+      // Enter site only if scrolled down past 300px threshold
+      if (accumulatedScroll > 300) {
         setScrolled(true);
         setTimeout(onEnter, 2800); // 800ms fade + 2000ms pause on white
       }
+      
+      // Reset if scrolling up significantly
+      if (accumulatedScroll < 0) {
+        accumulatedScroll = 0;
+      }
     };
-    window.addEventListener('wheel', handleScroll, { once: true });
-    window.addEventListener('touchmove', handleScroll, { once: true });
+    
+    // For touch devices, similar accumulation could be added, but keeping it simple for now
+    const handleTouch = () => {
+      if (!scrolled) {
+        setScrolled(true);
+        setTimeout(onEnter, 2800);
+      }
+    };
+
+    window.addEventListener('wheel', handleScroll, { passive: true });
+    window.addEventListener('touchmove', handleTouch, { once: true });
     return () => {
       window.removeEventListener('wheel', handleScroll);
-      window.removeEventListener('touchmove', handleScroll);
+      window.removeEventListener('touchmove', handleTouch);
     };
   }, [scrolled, onEnter]);
 
@@ -1069,12 +1091,14 @@ function IntroScreen({ onEnter, isReturning }: { onEnter: () => void, isReturnin
       transition={{ duration: 0.8 }}
       className="fixed inset-0 z-[9999] flex flex-col justify-end bg-[#0A0A0A] overflow-hidden"
     >
-      {/* Background Image */}
-      <img 
-        src="/websiteintrobg_1.jpg" 
-        alt="Intro Background" 
-        className="absolute inset-0 w-full h-full object-cover object-[center_20%] scale-[1.05]"
-      />
+      {/* Background Image wrapped in Glass Refraction Filter */}
+      <GlassRefractionWrapper className="absolute inset-0 w-full h-full z-0">
+        <img 
+          src="/websiteintrobg_1.jpg" 
+          alt="Intro Background" 
+          className="w-full h-full object-cover object-[center_20%] scale-[1.05]"
+        />
+      </GlassRefractionWrapper>
 
       <motion.div 
         animate={{ opacity: scrolled ? 0 : 1 }}
