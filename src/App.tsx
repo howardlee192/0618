@@ -1034,6 +1034,17 @@ function Layout({ children }: { children: React.ReactNode }) {
 
 function IntroScreen({ onEnter, isReturning }: { onEnter: () => void, isReturning?: boolean }) {
   const [scrolled, setScrolled] = useState(false);
+  const [hintLang, setHintLang] = useState<'ENG' | 'CHN'>('ENG');
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      const interval = setInterval(() => {
+        setHintLang(prev => prev === 'ENG' ? 'CHN' : 'ENG');
+      }, 2000);
+      return () => clearInterval(interval);
+    }, 1000);
+    return () => clearTimeout(timeout);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -1066,18 +1077,12 @@ function IntroScreen({ onEnter, isReturning }: { onEnter: () => void, isReturnin
       <motion.div 
         animate={{ opacity: scrolled ? 0 : 1 }}
         transition={{ duration: 0.3 }}
-        className="relative z-10 flex justify-between items-end p-5 md:px-10 md:py-10 font-['Geist_Mono'] text-[0.85rem] uppercase tracking-[1px]"
+        className="relative z-10 flex justify-end items-end p-5 md:px-10 md:py-10 font-['Geist_Mono'] text-[0.85rem] uppercase tracking-[1px]"
       >
-        <div className="flex flex-col items-start gap-1">
-          <span className="animate-bounce text-xl leading-none bg-[#0A0A0A] text-[#F0F0F0] px-2 py-1">↓</span>
-          <span className="bg-[#0A0A0A] text-[#F0F0F0] px-2 py-1 leading-none flex items-center justify-center min-h-[1.5rem]">
-            <ScrambleText text="SCROLL TO ENTER" />
-          </span>
-        </div>
         <div className="flex flex-col items-end gap-1">
           <span className="animate-bounce text-xl leading-none bg-[#0A0A0A] text-[#F0F0F0] px-2 py-1">↓</span>
           <span className="font-['Space_Grotesk',_'Swei_Bow_Sans'] tracking-[0.1em] bg-[#0A0A0A] text-[#F0F0F0] px-2 py-1 leading-none flex items-center justify-center min-h-[1.5rem]">
-            <ScrambleText text="滑 動 進 入" />
+            <ScrambleText text={hintLang === 'ENG' ? 'SCROLL TO ENTER' : '滑 動 進 入'} />
           </span>
         </div>
       </motion.div>
