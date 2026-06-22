@@ -1,41 +1,141 @@
-import React, { useState } from "react";
-import { motion, useSpring } from "framer-motion";
+import React, { useState, useEffect, useRef } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
-export const HoverReveal = ({ children }: { children: React.ReactNode }) => {
+interface HoverRevealProps {
+  children: React.ReactNode;
+  imageSrc?: string;
+  videoSrc?: string;
+  images?: string[];
+  intervalMs?: number;
+}
+
+export const HoverReveal = ({ children, imageSrc, videoSrc, images, intervalMs = 1200 }: HoverRevealProps) => {
   const [isHovered, setIsHovered] = useState(false);
-  const x = useSpring(0, { stiffness: 150, damping: 15 });
-  const y = useSpring(0, { stiffness: 150, damping: 15 });
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [isMobile, setIsMobile] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
 
-  const handleMouseMove = (e: React.MouseEvent) => {
-    x.set(e.clientX + 20);
-    y.set(e.clientY + 20);
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  useEffect(() => {
+    if (!isMobile) return;
+    const handleClickOutside = (e: MouseEvent | TouchEvent) => {
+      if (containerRef.current && !containerRef.current.contains(e.target as Node)) {
+        setIsHovered(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("touchstart", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("touchstart", handleClickOutside);
+    };
+  }, [isMobile]);
+
+  useEffect(() => {
+    if (!isHovered || !images || images.length <= 1) return;
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % images.length);
+    }, intervalMs);
+    return () => clearInterval(interval);
+  }, [isHovered, images, intervalMs]);
+
+  // Determine what to render inside the box
+  let content = null;
+  const mediaClass = "w-auto h-auto max-w-[90vw] md:max-w-[400px] max-h-[35vh] md:max-h-[300px] pointer-events-none";
+  
+  if (videoSrc) {
+    content = (
+      <video 
+        src={videoSrc} 
+        autoPlay 
+        loop 
+        muted 
+        playsInline 
+        className={mediaClass}
+      />
+    );
+  } else if (images && images.length > 0) {
+    content = (
+      <>
+        {images.map((img, i) => (
+          <img
+            key={i}
+            src={img}
+            alt="Preview"
+            className={`${mediaClass} ${i === currentIndex ? "block" : "hidden"}`}
+          />
+        ))}
+      </>
+    );
+  } else if (imageSrc) {
+    content = (
+      <img src={imageSrc} alt="Preview" className={mediaClass} />
+    );
+  }
+
+  const mobileStyle: React.CSSProperties = {
+    position: "fixed",
+    bottom: "8vh",
+    left: "50%",
+    transform: "translateX(-50%)",
+    zIndex: 100,
+    pointerEvents: "none"
+  };
+
+  const desktopStyle: React.CSSProperties = {
+    position: "fixed",
+    top: mousePos.y,
+    left: mousePos.x,
+    zIndex: 100,
+    pointerEvents: "none"
   };
 
   return (
     <div
-      className="relative inline-flex items-center justify-center py-2 -my-2"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      onMouseMove={handleMouseMove}
+      ref={containerRef}
+      className="relative inline-flex items-center justify-center py-2 -my-2 cursor-pointer"
+      onMouseEnter={(e) => {
+        if (isMobile) return;
+        setIsHovered(true);
+        setCurrentIndex(0);
+        setMousePos({ x: e.clientX + 20, y: e.clientY + 20 });
+      }}
+      onMouseLeave={() => {
+        if (isMobile) return;
+        setIsHovered(false);
+      }}
+      onMouseMove={(e) => {
+        if (isMobile) return;
+        setMousePos({ x: e.clientX + 20, y: e.clientY + 20 });
+      }}
+      onClick={() => {
+        if (!isMobile) return;
+        if (!isHovered) setCurrentIndex(0);
+        setIsHovered(!isHovered);
+      }}
     >
       {children}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: isHovered ? 1 : 0 }}
-        transition={{ duration: 0.3, ease: "easeIn", delay: isHovered ? 0.3 : 0 }}
-        style={{
-          x,
-          y,
-          position: "fixed",
-          top: 0,
-          left: 0,
-          zIndex: 100,
-          pointerEvents: "none"
-        }}
-        className="w-[260px] h-[180px] bg-[#D1D1D1] flex items-center justify-center overflow-hidden"
-      >
-        <span className="text-[0.85rem] text-[#888] font-['Geist_Mono'] normal-case tracking-normal">image placeholder</span>
-      </motion.div>
+      <AnimatePresence>
+        {isHovered && content && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.15, ease: "easeInOut" }}
+            style={isMobile ? mobileStyle : desktopStyle}
+            className="flex items-center justify-center pointer-events-none"
+          >
+            {content}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };

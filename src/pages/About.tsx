@@ -8,7 +8,10 @@ import { LanguageToggle } from "../components/ui/LanguageToggle";
 import { useLanguage } from "../contexts/LanguageContext";
 
 export function About() {
-  useEffect(() => { document.title = "Howard Lee - About"; }, []);
+  useEffect(() => { 
+    document.title = "Howard Lee - About"; 
+    window.scrollTo(0, 0);
+  }, []);
   const { lang } = useLanguage();
   const [openSection, setOpenSection] = useState<string | null>(null);
   const [hintLang, setHintLang] = useState<'ENG' | 'CHN'>(lang);

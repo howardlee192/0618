@@ -7,6 +7,10 @@ export function ComingSoon() {
   const [displayLang, setDisplayLang] = useState<'ENG' | 'CHN'>('ENG');
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
     const interval = setInterval(() => {
       setDisplayLang(prev => prev === 'ENG' ? 'CHN' : 'ENG');
     }, 2500);

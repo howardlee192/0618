@@ -49,6 +49,12 @@ export function Home() {
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
   const opacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
 
+  const visualImages = ['/homehighlights/1.Visual/jumphigh1.jpg', '/homehighlights/1.Visual/jumphigh2.jpg', '/homehighlights/1.Visual/jumphigh3.jpg', '/homehighlights/1.Visual/jumphigh4.jpg', '/homehighlights/1.Visual/jumphigh5.jpg'];
+  const personalImages = ['/projects/unsorted/unsorted_cover.jpg', '/projects/unsorted/highlight1.jpg', '/projects/unsorted/highlight2.jpg', '/projects/unsorted/highlight3.jpg'];
+  const hkImages = ['/homehighlights/6.HongKong/1.jpg', '/homehighlights/6.HongKong/2.jpg', '/homehighlights/6.HongKong/3.jpg', '/homehighlights/6.HongKong/4.jpg', '/homehighlights/6.HongKong/5.jpg', '/homehighlights/6.HongKong/6.jpg', '/homehighlights/6.HongKong/7.jpg', '/homehighlights/6.HongKong/8.jpg', '/homehighlights/6.HongKong/9.jpg'];
+  const twImages = ['/homehighlights/7.taiwan/1.jpg', '/homehighlights/7.taiwan/2.jpg', '/homehighlights/7.taiwan/3.jpg', '/homehighlights/7.taiwan/4.jpg', '/homehighlights/7.taiwan/5.jpg', '/homehighlights/7.taiwan/6.jpg', '/homehighlights/7.taiwan/7.jpg'];
+
+
   return (
     <>
       <div ref={heroRef} className="relative z-0 min-h-[95vh] flex flex-col justify-start pt-[2vh] md:pt-[4vh]">
@@ -56,23 +62,23 @@ export function Home() {
           <div className="flex-1 flex flex-col justify-start items-start">
             <div className="font-['Space_Grotesk'] text-[clamp(1.8rem,4.5vw,4.95rem)] leading-[0.95] tracking-[-2px] max-w-[80%] -ml-[0.04em]">
               <div className="flex items-center flex-wrap uppercase gap-10 md:gap-20">
-                <HoverReveal><Text3DFlip className="bg-[#F0F0F0]" textClassName="bg-[#F0F0F0] text-[#0A0A0A]" flipTextClassName="bg-[#F0F0F0] text-[#0A0A0A]" rotateDirection="top" staggerDuration={0.03} staggerFrom="center">VISUAL</Text3DFlip></HoverReveal>
-                <HoverReveal><Text3DFlip className="bg-[#F0F0F0]" textClassName="bg-[#F0F0F0] text-[#0A0A0A]" flipTextClassName="bg-[#F0F0F0] text-[#0A0A0A]" rotateDirection="top" staggerDuration={0.03} staggerFrom="center">MOTION</Text3DFlip></HoverReveal>
+                <HoverReveal images={visualImages} intervalMs={600}><Text3DFlip className="bg-[#F0F0F0]" textClassName="bg-[#F0F0F0] text-[#0A0A0A]" flipTextClassName="bg-[#F0F0F0] text-[#0A0A0A]" rotateDirection="top" staggerDuration={0.03} staggerFrom="center">VISUAL</Text3DFlip></HoverReveal>
+                <HoverReveal videoSrc="/homehighlights/2.Motion/journeyhighlightloop.mp4"><Text3DFlip className="bg-[#F0F0F0]" textClassName="bg-[#F0F0F0] text-[#0A0A0A]" flipTextClassName="bg-[#F0F0F0] text-[#0A0A0A]" rotateDirection="top" staggerDuration={0.03} staggerFrom="center">MOTION</Text3DFlip></HoverReveal>
               </div>
               <div className="flex items-center flex-wrap uppercase mt-2 md:mt-4 gap-10 md:gap-20">
-                <HoverReveal><Text3DFlip className="bg-[#F0F0F0]" textClassName="bg-[#F0F0F0] text-[#0A0A0A]" flipTextClassName="bg-[#F0F0F0] text-[#0A0A0A]" rotateDirection="top" staggerDuration={0.03} staggerFrom="center">ANIMATION</Text3DFlip></HoverReveal>
-                <HoverReveal><Text3DFlip className="bg-[#F0F0F0]" textClassName="bg-[#F0F0F0] text-[#0A0A0A]" flipTextClassName="bg-[#F0F0F0] text-[#0A0A0A]" rotateDirection="top" staggerDuration={0.03} staggerFrom="center">INTERACTION</Text3DFlip></HoverReveal>
+                <HoverReveal videoSrc="/homehighlights/3.Animation/slavehighlightanimation.mp4"><Text3DFlip className="bg-[#F0F0F0]" textClassName="bg-[#F0F0F0] text-[#0A0A0A]" flipTextClassName="bg-[#F0F0F0] text-[#0A0A0A]" rotateDirection="top" staggerDuration={0.03} staggerFrom="center">ANIMATION</Text3DFlip></HoverReveal>
+                <HoverReveal videoSrc="/homehighlights/4.Interaction/worthhighlightvideo.mp4"><Text3DFlip className="bg-[#F0F0F0]" textClassName="bg-[#F0F0F0] text-[#0A0A0A]" flipTextClassName="bg-[#F0F0F0] text-[#0A0A0A]" rotateDirection="top" staggerDuration={0.03} staggerFrom="center">INTERACTION</Text3DFlip></HoverReveal>
               </div>
               <div className="flex items-center flex-wrap uppercase mt-2 md:mt-4 gap-10 md:gap-20">
-                <HoverReveal><Text3DFlip className="bg-[#F0F0F0]" textClassName="bg-[#F0F0F0] text-[#0A0A0A]" flipTextClassName="bg-[#F0F0F0] text-[#0A0A0A]" rotateDirection="top" staggerDuration={0.03} staggerFrom="center">PERSONAL</Text3DFlip></HoverReveal>
+                <HoverReveal images={personalImages} intervalMs={800}><Text3DFlip className="bg-[#F0F0F0]" textClassName="bg-[#F0F0F0] text-[#0A0A0A]" flipTextClassName="bg-[#F0F0F0] text-[#0A0A0A]" rotateDirection="top" staggerDuration={0.03} staggerFrom="center">PERSONAL</Text3DFlip></HoverReveal>
               </div>
               <div className="mt-12 md:mt-16 flex items-center gap-4">
                 <span>FROM</span>
-                <HoverReveal><Text3DFlip className="bg-[#F0F0F0]" textClassName="bg-[#F0F0F0] text-[#0A0A0A]" flipTextClassName="bg-[#F0F0F0] text-[#0A0A0A]" rotateDirection="top" staggerDuration={0.03} staggerFrom="center">HONG KONG</Text3DFlip></HoverReveal>
+                <HoverReveal images={hkImages} intervalMs={400}><Text3DFlip className="bg-[#F0F0F0]" textClassName="bg-[#F0F0F0] text-[#0A0A0A]" flipTextClassName="bg-[#F0F0F0] text-[#0A0A0A]" rotateDirection="top" staggerDuration={0.03} staggerFrom="center">HONG KONG</Text3DFlip></HoverReveal>
               </div>
               <div className="mt-2 md:mt-4 flex items-center gap-4">
                 <span>BASED IN</span>
-                <HoverReveal><Text3DFlip className="bg-[#F0F0F0]" textClassName="bg-[#F0F0F0] text-[#0A0A0A]" flipTextClassName="bg-[#F0F0F0] text-[#0A0A0A]" rotateDirection="top" staggerDuration={0.03} staggerFrom="center">TAIWAN</Text3DFlip></HoverReveal>
+                <HoverReveal images={twImages} intervalMs={400}><Text3DFlip className="bg-[#F0F0F0]" textClassName="bg-[#F0F0F0] text-[#0A0A0A]" flipTextClassName="bg-[#F0F0F0] text-[#0A0A0A]" rotateDirection="top" staggerDuration={0.03} staggerFrom="center">TAIWAN</Text3DFlip></HoverReveal>
               </div>
               <div className="mt-2 md:mt-4">WORKING GLOBALLY.</div>
             </div>

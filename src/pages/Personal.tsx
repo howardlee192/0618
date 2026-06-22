@@ -138,7 +138,10 @@ const PROJECTS_DATA = [
 ];
 
 export function Personal() {
-  useEffect(() => { document.title = "Howard Lee - Personal"; }, []);
+  useEffect(() => { 
+    document.title = "Howard Lee - Personal"; 
+    window.scrollTo(0, 0);
+  }, []);
   const { lang } = useLanguage();
   const [openFilter, setOpenFilter] = useState<'YEAR' | 'MEDIUM' | null>(null);
 
