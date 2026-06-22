@@ -45,7 +45,9 @@ export function IntroScreen({ onEnter, isReturning }: { onEnter: () => void, isR
     const handleTouchMove = (e: TouchEvent) => {
       if (scrolled) return;
       const touchY = e.touches[0].clientY;
-      if (touchStartY - touchY > 30) {
+      // Require a deliberate swipe of at least 150px to enter
+      // so the user can play with the fluid on mobile without accidentally entering
+      if (touchStartY - touchY > 150) {
         setScrolled(true);
         setTimeout(onEnter, 2800);
       }
