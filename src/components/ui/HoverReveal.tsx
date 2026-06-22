@@ -9,14 +9,18 @@ interface HoverRevealProps {
   intervalMs?: number;
 }
 
+import { createPortal } from "react-dom";
+
 export const HoverReveal = ({ children, imageSrc, videoSrc, images, intervalMs = 1200 }: HoverRevealProps) => {
   const [isHovered, setIsHovered] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [isTouch, setIsTouch] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     const checkTouch = () => {
       setIsTouch(('ontouchstart' in window) || navigator.maxTouchPoints > 0);
     };
@@ -85,7 +89,7 @@ export const HoverReveal = ({ children, imageSrc, videoSrc, images, intervalMs =
     bottom: "8vh",
     left: "50%",
     transform: "translateX(-50%)",
-    zIndex: 100,
+    zIndex: 9999,
     pointerEvents: "none"
   };
 
@@ -93,7 +97,7 @@ export const HoverReveal = ({ children, imageSrc, videoSrc, images, intervalMs =
     position: "fixed",
     top: mousePos.y,
     left: mousePos.x,
-    zIndex: 100,
+    zIndex: 9999,
     pointerEvents: "none"
   };
 
@@ -122,20 +126,23 @@ export const HoverReveal = ({ children, imageSrc, videoSrc, images, intervalMs =
       }}
     >
       {children}
-      <AnimatePresence>
-        {isHovered && content && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.15, ease: "easeInOut" }}
-            style={isTouch ? mobileStyle : desktopStyle}
-            className="flex items-center justify-center pointer-events-none"
-          >
-            {content}
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {mounted && createPortal(
+        <AnimatePresence>
+          {isHovered && content && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.15, ease: "easeInOut" }}
+              style={isTouch ? mobileStyle : desktopStyle}
+              className="flex items-center justify-center pointer-events-none"
+            >
+              {content}
+            </motion.div>
+          )}
+        </AnimatePresence>,
+        document.body
+      )}
     </div>
   );
 };
