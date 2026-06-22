@@ -21,6 +21,7 @@ export function IntroScreen({ onEnter, isReturning }: { onEnter: () => void, isR
   }, []);
 
   useEffect(() => {
+    let accumulatedScroll = 0;
     const handleScroll = (e: WheelEvent) => {
       if (scrolled) return;
       
