@@ -7,7 +7,10 @@ export function IntroScreen({ onEnter, isReturning }: { onEnter: () => void, isR
   const [scrolled, setScrolled] = useState(false);
   const [hintLang, setHintLang] = useState<'ENG' | 'CHN'>('ENG');
 
+  const [isTouch, setIsTouch] = useState(false);
+
   useEffect(() => {
+    setIsTouch(('ontouchstart' in window) || navigator.maxTouchPoints > 0);
     const timeout = setTimeout(() => {
       const interval = setInterval(() => {
         setHintLang(prev => prev === 'ENG' ? 'CHN' : 'ENG');
@@ -35,18 +38,26 @@ export function IntroScreen({ onEnter, isReturning }: { onEnter: () => void, isR
       }
     };
     
-    const handleTouch = () => {
-      if (!scrolled) {
+    let touchStartY = 0;
+    const handleTouchStart = (e: TouchEvent) => {
+      touchStartY = e.touches[0].clientY;
+    };
+    const handleTouchMove = (e: TouchEvent) => {
+      if (scrolled) return;
+      const touchY = e.touches[0].clientY;
+      if (touchStartY - touchY > 30) {
         setScrolled(true);
         setTimeout(onEnter, 2800);
       }
     };
 
     window.addEventListener('wheel', handleScroll, { passive: true });
-    window.addEventListener('touchmove', handleTouch, { once: true });
+    window.addEventListener('touchstart', handleTouchStart, { capture: true, passive: true });
+    window.addEventListener('touchmove', handleTouchMove, { capture: true, passive: true });
     return () => {
       window.removeEventListener('wheel', handleScroll);
-      window.removeEventListener('touchmove', handleTouch);
+      window.removeEventListener('touchstart', handleTouchStart, { capture: true } as EventListenerOptions);
+      window.removeEventListener('touchmove', handleTouchMove, { capture: true } as EventListenerOptions);
     };
   }, [scrolled, onEnter]);
 
@@ -73,7 +84,7 @@ export function IntroScreen({ onEnter, isReturning }: { onEnter: () => void, isR
       >
         <div className="flex flex-col items-start gap-1">
           <span className="font-['Space_Grotesk',_'Swei_Bow_Sans'] tracking-[0.1em] bg-[#0A0A0A] text-[#F0F0F0] px-2 py-1 leading-none flex items-center justify-center min-h-[1.5rem]">
-            <ScrambleText text={hintLang === 'ENG' ? 'MOVE MOUSE TO FOCUS' : '移 動 鼠 標 聚 焦'} />
+            <ScrambleText text={hintLang === 'ENG' ? (isTouch ? 'TOUCH TO FOCUS' : 'MOVE MOUSE TO FOCUS') : (isTouch ? '觸 碰 聚 焦' : '移 動 鼠 標 聚 焦')} />
           </span>
         </div>
       </motion.div>
@@ -87,7 +98,7 @@ export function IntroScreen({ onEnter, isReturning }: { onEnter: () => void, isR
         <div className="flex flex-col items-end gap-1">
           <span className="animate-bounce text-xl leading-none bg-[#0A0A0A] text-[#F0F0F0] px-2 py-1">↓</span>
           <span className="font-['Space_Grotesk',_'Swei_Bow_Sans'] tracking-[0.1em] bg-[#0A0A0A] text-[#F0F0F0] px-2 py-1 leading-none flex items-center justify-center min-h-[1.5rem]">
-            <ScrambleText text={hintLang === 'ENG' ? 'SCROLL TO ENTER' : '滑 動 進 入'} />
+            <ScrambleText text={hintLang === 'ENG' ? (isTouch ? 'SWIPE TO ENTER' : 'SCROLL TO ENTER') : (isTouch ? '滑 動 進 入' : '滑 動 進 入')} />
           </span>
         </div>
       </motion.div>

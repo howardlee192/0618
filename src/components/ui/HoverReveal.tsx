@@ -13,30 +13,30 @@ export const HoverReveal = ({ children, imageSrc, videoSrc, images, intervalMs =
   const [isHovered, setIsHovered] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-  const [isMobile, setIsMobile] = useState(false);
+  const [isTouch, setIsTouch] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth < 768);
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
+    const checkTouch = () => {
+      setIsTouch(('ontouchstart' in window) || navigator.maxTouchPoints > 0);
+    };
+    checkTouch();
   }, []);
 
   useEffect(() => {
-    if (!isMobile) return;
+    if (!isTouch) return;
     const handleClickOutside = (e: MouseEvent | TouchEvent) => {
       if (containerRef.current && !containerRef.current.contains(e.target as Node)) {
         setIsHovered(false);
       }
     };
     document.addEventListener("mousedown", handleClickOutside);
-    document.addEventListener("touchstart", handleClickOutside);
+    document.addEventListener("touchstart", handleClickOutside, { passive: true });
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
       document.removeEventListener("touchstart", handleClickOutside);
     };
-  }, [isMobile]);
+  }, [isTouch]);
 
   useEffect(() => {
     if (!isHovered || !images || images.length <= 1) return;
@@ -102,21 +102,21 @@ export const HoverReveal = ({ children, imageSrc, videoSrc, images, intervalMs =
       ref={containerRef}
       className="relative inline-flex items-center justify-center py-2 -my-2 cursor-pointer"
       onMouseEnter={(e) => {
-        if (isMobile) return;
+        if (isTouch) return;
         setIsHovered(true);
         setCurrentIndex(0);
         setMousePos({ x: e.clientX + 20, y: e.clientY + 20 });
       }}
       onMouseLeave={() => {
-        if (isMobile) return;
+        if (isTouch) return;
         setIsHovered(false);
       }}
       onMouseMove={(e) => {
-        if (isMobile) return;
+        if (isTouch) return;
         setMousePos({ x: e.clientX + 20, y: e.clientY + 20 });
       }}
       onClick={() => {
-        if (!isMobile) return;
+        if (!isTouch) return;
         if (!isHovered) setCurrentIndex(0);
         setIsHovered(!isHovered);
       }}
@@ -129,7 +129,7 @@ export const HoverReveal = ({ children, imageSrc, videoSrc, images, intervalMs =
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.15, ease: "easeInOut" }}
-            style={isMobile ? mobileStyle : desktopStyle}
+            style={isTouch ? mobileStyle : desktopStyle}
             className="flex items-center justify-center pointer-events-none"
           >
             {content}
