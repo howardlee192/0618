@@ -25,7 +25,24 @@ export const HoverReveal = ({ children, imageSrc, videoSrc, images, intervalMs =
       setIsTouch(('ontouchstart' in window) || navigator.maxTouchPoints > 0);
     };
     checkTouch();
-  }, []);
+
+    // Preload media for instant display on tap/hover
+    if (images) {
+      images.forEach((src) => {
+        const img = new Image();
+        img.src = src;
+      });
+    }
+    if (imageSrc) {
+      const img = new Image();
+      img.src = imageSrc;
+    }
+    if (videoSrc) {
+      const vid = document.createElement('video');
+      vid.preload = 'auto';
+      vid.src = videoSrc;
+    }
+  }, [images, imageSrc, videoSrc]);
 
   useEffect(() => {
     if (!isTouch) return;

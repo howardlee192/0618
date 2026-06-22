@@ -55,6 +55,11 @@ export function Home() {
   const twImages = ['/homehighlights/7.taiwan/1.jpg', '/homehighlights/7.taiwan/2.jpg', '/homehighlights/7.taiwan/3.jpg', '/homehighlights/7.taiwan/4.jpg', '/homehighlights/7.taiwan/5.jpg', '/homehighlights/7.taiwan/6.jpg', '/homehighlights/7.taiwan/7.jpg'];
 
 
+  const [isTouch, setIsTouch] = useState(false);
+  useEffect(() => {
+    setIsTouch(('ontouchstart' in window) || navigator.maxTouchPoints > 0);
+  }, []);
+
   return (
     <>
       <div ref={heroRef} className="relative z-0 min-h-[95vh] flex flex-col justify-start pt-[2vh] md:pt-[4vh]">
@@ -92,18 +97,18 @@ export function Home() {
           >
             <div className="relative h-[1.5rem] w-full flex justify-end items-center">
               <div className="absolute right-0 font-['Geist_Mono'] text-[0.75rem] md:text-xs uppercase tracking-[1px] whitespace-nowrap animate-hint-eng-40 opacity-0">
-                ↑ [ Scroll up to view intro ]
+                {isTouch ? '↓ [ Swipe down to view intro ]' : '↑ [ Scroll up to view intro ]'}
               </div>
               <div className="absolute right-0 font-['Swei_Bow_Sans'] text-[0.8rem] md:text-[0.9rem] tracking-[1px] whitespace-nowrap animate-hint-chn-40 opacity-0">
-                ↑ [ 再次往上滑動返回前導頁面 ]
+                {isTouch ? '↓ [ 往下滑動返回前導頁面 ]' : '↑ [ 再次往上滑動返回前導頁面 ]'}
               </div>
             </div>
             <div className="relative h-[1.5rem] w-full flex justify-end items-center">
               <div className="absolute right-0 font-['Geist_Mono'] text-[0.85rem] md:text-sm uppercase tracking-[1px] whitespace-nowrap animate-hint-eng-80 opacity-0">
-                ↖ [ Hover to reveal ]
+                {isTouch ? '↖ [ Tap to reveal highlight ]' : '↖ [ Hover to reveal highlight ]'}
               </div>
               <div className="absolute right-0 font-['Swei_Bow_Sans'] text-[0.9rem] md:text-[1rem] tracking-[1px] whitespace-nowrap animate-hint-chn-80 opacity-0">
-                ↖ [ 滑動游標預覽影像 ]
+                {isTouch ? '↖ [ 點擊文字預覽精華影像 ]' : '↖ [ 滑動游標預覽精華影像 ]'}
               </div>
             </div>
           </motion.div>
