@@ -1,26 +1,14 @@
 import { useState, useEffect, useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import Text3DFlip from "../components/ui/text-3d-flip";
 import { HoverReveal } from "../components/ui/HoverReveal";
-import { ScrambleText } from "../components/ui/ScrambleText";
+import { Link } from "react-router-dom";
 import { LanguageToggle } from "../components/ui/LanguageToggle";
 import { ProjectsGrid } from "../components/ui/ProjectsGrid";
-import { useLanguage } from "../contexts/LanguageContext";
 
 export function Home() {
   useEffect(() => { document.title = "Howard Lee - Home"; }, []);
-  const { lang } = useLanguage();
-  const [hintLang, setHintLang] = useState<'ENG' | 'CHN'>(lang);
-
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      const interval = setInterval(() => {
-        setHintLang(prev => prev === 'ENG' ? 'CHN' : 'ENG');
-      }, 3000);
-      return () => clearInterval(interval);
-    }, 2500);
-    return () => clearTimeout(timeout);
-  }, []);
+  const [hoveredNav, setHoveredNav] = useState<string | null>(null);
 
   useEffect(() => {
     let touchStartY = 0;
@@ -63,7 +51,7 @@ export function Home() {
 
   return (
     <>
-      <div ref={heroRef} className="relative z-0 min-h-[95vh] flex flex-col justify-start pt-[5vh] md:pt-[8vh]">
+      <div ref={heroRef} className="relative z-0 min-h-[95vh] flex flex-col justify-start pt-[2vh] md:pt-[4vh]">
         <motion.section style={{ y, opacity }} className="flex-1 w-full flex flex-col relative">
           <div className="flex-1 flex flex-col justify-start items-start">
             <div className="font-['Space_Grotesk'] text-[clamp(1.8rem,4.5vw,4.95rem)] leading-[0.95] tracking-[-2px] max-w-[80%] -ml-[0.04em]">
@@ -94,9 +82,24 @@ export function Home() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 2.5, duration: 1 }}
-            className="absolute bottom-12 right-0 md:right-4 font-['Geist_Mono'] text-[0.85rem] md:text-sm uppercase tracking-[1px] pointer-events-none opacity-80"
+            className="absolute bottom-12 right-0 md:right-4 flex flex-col items-end gap-2 pointer-events-none"
           >
-            <ScrambleText text={hintLang === 'ENG' ? '↖ [ Hover to reveal ]' : '↖ [ 滑動游標預覽影像 ]'} />
+            <div className="relative h-[1.5rem] w-full flex justify-end items-center">
+              <div className="absolute right-0 font-['Geist_Mono'] text-[0.75rem] md:text-xs uppercase tracking-[1px] whitespace-nowrap animate-hint-eng-40 opacity-0">
+                ↑ [ Scroll up to view intro ]
+              </div>
+              <div className="absolute right-0 font-['Swei_Bow_Sans'] text-[0.8rem] md:text-[0.9rem] tracking-[1px] whitespace-nowrap animate-hint-chn-40 opacity-0">
+                ↑ [ 再次往上滑動返回前導頁面 ]
+              </div>
+            </div>
+            <div className="relative h-[1.5rem] w-full flex justify-end items-center">
+              <div className="absolute right-0 font-['Geist_Mono'] text-[0.85rem] md:text-sm uppercase tracking-[1px] whitespace-nowrap animate-hint-eng-80 opacity-0">
+                ↖ [ Hover to reveal ]
+              </div>
+              <div className="absolute right-0 font-['Swei_Bow_Sans'] text-[0.9rem] md:text-[1rem] tracking-[1px] whitespace-nowrap animate-hint-chn-80 opacity-0">
+                ↖ [ 滑動游標預覽影像 ]
+              </div>
+            </div>
           </motion.div>
         </motion.section>
       </div>
@@ -115,6 +118,137 @@ export function Home() {
           <LanguageToggle />
         </div>
         <ProjectsGrid useBlur={true} />
+      </section>
+
+      <section className="relative z-10 bg-[#F0F0F0] py-[60px] md:py-[100px] border-b border-black/10">
+        <div className="flex flex-col border-t border-black/10">
+          <Link 
+            to="/work" 
+            onMouseEnter={() => setHoveredNav('work')}
+            onMouseLeave={() => setHoveredNav(null)}
+            className="group flex flex-col md:flex-row md:items-center justify-between py-8 md:py-12 border-b border-black/10"
+          >
+            <span className="font-['Space_Grotesk'] text-[3.5rem] md:text-[6rem] uppercase tracking-[-2px] leading-none group-hover:opacity-50 transition-opacity">
+              Work
+            </span>
+            <div className="flex items-center md:justify-end gap-4 md:gap-8 mt-2 md:mt-0">
+              <div className="flex items-center text-base md:text-lg opacity-40">
+                <AnimatePresence mode="wait">
+                  {hoveredNav === 'work' ? (
+                    <motion.span
+                      key="chn"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="font-['Swei_Bow_Sans'] tracking-[2px]"
+                    >
+                      反映設計方法的精選作品
+                    </motion.span>
+                  ) : (
+                    <motion.span
+                      key="eng"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="font-['Geist_Mono'] uppercase tracking-[1.5px]"
+                    >
+                      Selected works reflecting my design approach
+                    </motion.span>
+                  )}
+                </AnimatePresence>
+              </div>
+              <span className="hidden md:block font-['Geist_Mono'] text-2xl md:text-4xl group-hover:animate-flicker">
+                ↗
+              </span>
+            </div>
+          </Link>
+          <Link 
+            to="/personal" 
+            onMouseEnter={() => setHoveredNav('personal')}
+            onMouseLeave={() => setHoveredNav(null)}
+            className="group flex flex-col md:flex-row md:items-center justify-between py-8 md:py-12 border-b border-black/10"
+          >
+            <span className="font-['Space_Grotesk'] text-[3.5rem] md:text-[6rem] uppercase tracking-[-2px] leading-none group-hover:opacity-50 transition-opacity">
+              Personal
+            </span>
+            <div className="flex items-center md:justify-end gap-4 md:gap-8 mt-2 md:mt-0">
+              <div className="flex items-center text-base md:text-lg opacity-40">
+                <AnimatePresence mode="wait">
+                  {hoveredNav === 'personal' ? (
+                    <motion.span
+                      key="chn"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="font-['Swei_Bow_Sans'] tracking-[2px]"
+                    >
+                      即興實驗與個人探索
+                    </motion.span>
+                  ) : (
+                    <motion.span
+                      key="eng"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="font-['Geist_Mono'] uppercase tracking-[1.5px]"
+                    >
+                      Side projects fueled by pure passion
+                    </motion.span>
+                  )}
+                </AnimatePresence>
+              </div>
+              <span className="hidden md:block font-['Geist_Mono'] text-2xl md:text-4xl group-hover:animate-flicker">
+                ↗
+              </span>
+            </div>
+          </Link>
+          <Link 
+            to="/about" 
+            onMouseEnter={() => setHoveredNav('about')}
+            onMouseLeave={() => setHoveredNav(null)}
+            className="group flex flex-col md:flex-row md:items-center justify-between py-8 md:py-12 border-b border-black/10"
+          >
+            <span className="font-['Space_Grotesk'] text-[3.5rem] md:text-[6rem] uppercase tracking-[-2px] leading-none group-hover:opacity-50 transition-opacity">
+              About
+            </span>
+            <div className="flex items-center md:justify-end gap-4 md:gap-8 mt-2 md:mt-0">
+              <div className="flex items-center text-base md:text-lg opacity-40">
+                <AnimatePresence mode="wait">
+                  {hoveredNav === 'about' ? (
+                    <motion.span
+                      key="chn"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="font-['Swei_Bow_Sans'] tracking-[2px]"
+                    >
+                      像素之外的自我
+                    </motion.span>
+                  ) : (
+                    <motion.span
+                      key="eng"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="font-['Geist_Mono'] uppercase tracking-[1.5px]"
+                    >
+                      Beyond the pixels, who I am
+                    </motion.span>
+                  )}
+                </AnimatePresence>
+              </div>
+              <span className="hidden md:block font-['Geist_Mono'] text-2xl md:text-4xl group-hover:animate-flicker">
+                ↗
+              </span>
+            </div>
+          </Link>
+        </div>
       </section>
     </>
   );

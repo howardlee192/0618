@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
+import { Link } from "react-router-dom";
+import { ChevronLeft } from "lucide-react";
 import { AsciiArtHover } from "../components/ui/ascii-art";
 import { ScrambleText } from "../components/ui/ScrambleText";
 import { LanguageToggle } from "../components/ui/LanguageToggle";
@@ -150,7 +152,22 @@ export function About() {
 
   return (
     <section className="pt-[40px] md:pt-[60px] pb-[100px] min-h-[80vh]">
-      <div className="flex justify-between items-end mb-[60px] md:mb-[100px]">
+      <div className="flex justify-between items-start mb-8 md:mb-12">
+        <Link to="/" className="inline-flex items-center gap-1 hover:opacity-50 transition-opacity font-['Geist_Mono'] text-xs uppercase tracking-[1px]">
+          <ChevronLeft size={16} className="-ml-1" />
+          Back
+        </Link>
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: false }}
+        >
+          <LanguageToggle className="!mb-0" />
+        </motion.div>
+      </div>
+
+      <div className="mb-[60px] md:mb-[100px]">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -160,16 +177,6 @@ export function About() {
         >
           About
         </motion.h2>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-          viewport={{ once: false }}
-          className="pb-3 md:pb-4"
-        >
-          <LanguageToggle className="!mb-0" />
-        </motion.div>
       </div>
 
       <div className="flex flex-col md:flex-row gap-10 md:gap-24 relative">

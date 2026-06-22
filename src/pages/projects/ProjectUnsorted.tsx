@@ -45,7 +45,7 @@ export function ProjectUnsorted() {
   return (
     <div className="pt-[40px] md:pt-[60px] pb-[100px] min-h-screen relative">
       <div className="flex flex-col md:flex-row gap-10 md:gap-20 mb-20">
-        <div className="w-full md:w-1/3">
+        <div className="w-full md:w-1/3 md:sticky md:top-[100px] self-start">
           <div className="flex justify-between items-start mb-8 md:mb-12">
             <Link to="/personal" className="inline-flex items-center gap-1 hover:opacity-50 transition-opacity font-['Geist_Mono'] text-xs uppercase tracking-[1px]">
               <ChevronLeft size={16} className="-ml-1" />
@@ -69,7 +69,7 @@ export function ProjectUnsorted() {
             </div>
             <div className="flex">
               <span className="opacity-50 w-28 shrink-0 md:w-32">{lang === 'ENG' ? 'Materials' : '媒材'}</span>
-              <span className="flex-1">{lang === 'ENG' ? 'Cardboard, Newspapers, Receipts, Shredded Paper, Cans' : '廢紙箱、廢報紙、發票、碎紙條、罐頭'}</span>
+              <span className="flex-1 leading-[1.8]">{lang === 'ENG' ? 'Touchdesigner, Ableton, Cardboard, Newspapers, Receipts, Shredded Paper, Cans' : 'Touchdesigner、Ableton、廢紙箱、廢報紙、發票、碎紙條、罐頭'}</span>
             </div>
             <div className="flex">
               <span className="opacity-50 w-28 shrink-0 md:w-32">{lang === 'ENG' ? 'Course' : '課程'}</span>
@@ -91,19 +91,25 @@ export function ProjectUnsorted() {
             </details>
           </div>
 
-          <div className={`font-['Geist_Mono'] opacity-80 text-base ${lang === 'ENG' ? 'leading-[1.8]' : 'leading-[2.2] tracking-[0.08em]'}`}>
+          <div className={`font-['Geist_Mono'] opacity-80 text-base whitespace-pre-wrap ${lang === 'ENG' ? 'leading-[1.8]' : 'leading-[2.2] tracking-[0.08em]'}`}>
             {lang === 'ENG' 
-              ? "Using daily waste such as discarded newspapers, receipts, paper shreds, cardboard boxes, and cans as materials. These used, ignored, and easily accumulated objects are like long-unfaced psychological burdens. Through the repetitive acts of crumpling, organizing, and stacking these objects, I transform accumulated internal emotions into an installation and live audio-visual performance, manifesting the internal state into a viewable landscape. It also invites the viewer to look upon and rediscover their own unorganized emotions and internal space."
-              : "以廢報紙、發票、碎紙條、紙箱與罐頭等日常廢棄物作為材料。這些被使用、被忽略、最容易堆積的物件，如同長期未被面對的心理負擔。透過揉搓、整理與堆疊物件的反覆行為，我將內在的情緒堆積轉化為裝置與現場音像表演，使內在狀態被具象化為可被觀看的視角，也邀請觀者在觀看的同時，重新看見自身未被整理的情緒與內在空間。"}
+              ? "Using daily waste such as discarded newspapers, receipts, paper shreds, cardboard boxes, and cans as materials. These used, ignored, and easily accumulated objects are like long-unfaced psychological burdens. Through the repetitive acts of crumpling, organizing, and stacking these objects,\nI transform accumulated internal emotions into an installation and live audio-visual performance, manifesting the internal state into a viewable landscape. It also invites the viewer to look upon and rediscover their own unorganized emotions and internal space."
+              : "以廢報紙、發票、碎紙條、紙箱與罐頭等日常廢棄物作為材料。\n這些被使用、被忽略、最容易堆積的物件，如同長期未被面對的心理負擔。透過揉搓、整理與堆疊物件的反覆行為，我將內在的情緒堆積轉化為裝置與現場音像表演，使內在狀態被具象化為可被觀看的視角，也邀請觀者在觀看的同時，重新看見自身未被整理的情緒與內在空間。"}
           </div>
         </div>
 
         <div className="w-full md:w-2/3">
-          <div 
-            onClick={() => setLightboxIndex(0)}
-            className="w-full bg-[#E0E0E0] flex items-center justify-center cursor-pointer hover:opacity-80 transition-opacity overflow-hidden"
-          >
-            <img src={images[0].src} alt="Unsorted Cover" className="w-full h-auto object-cover" />
+          <div className="w-full aspect-video bg-[#E0E0E0]">
+            <iframe 
+              width="100%" 
+              height="100%" 
+              src="https://www.youtube.com/embed/59k37VQ5rKo?autoplay=1&vq=hd1080" 
+              title="Unsorted Cover Video" 
+              frameBorder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+              referrerPolicy="strict-origin-when-cross-origin" 
+              allowFullScreen
+            ></iframe>
           </div>
         </div>
       </div>
@@ -150,6 +156,13 @@ export function ProjectUnsorted() {
             </div>
           </div>
         ))}
+      </div>
+
+      <div 
+        onClick={() => setLightboxIndex(0)}
+        className="w-full bg-[#E0E0E0] flex items-center justify-center cursor-pointer hover:opacity-80 transition-opacity overflow-hidden mt-20"
+      >
+        <img src={images[0].src} alt="Unsorted Original Cover" className="w-full h-auto object-cover" />
       </div>
       
       <div className="mt-32 flex justify-center border-t border-black/10 pt-16">

@@ -36,7 +36,7 @@ export function ProjectYen() {
   return (
     <div className="pt-[40px] md:pt-[60px] pb-[100px] min-h-screen relative">
       <div className="flex flex-col md:flex-row gap-10 md:gap-20 mb-20">
-        <div className="w-full md:w-1/3">
+        <div className="w-full md:w-1/3 md:sticky md:top-[100px] self-start">
           <div className="flex justify-between items-start mb-8 md:mb-12">
             <Link to="/personal" className="inline-flex items-center gap-1 hover:opacity-50 transition-opacity font-['Geist_Mono'] text-xs uppercase tracking-[1px]">
               <ChevronLeft size={16} className="-ml-1" />
@@ -49,7 +49,7 @@ export function ProjectYen() {
             {lang === 'ENG' ? 'Architectural Thesis Drawing' : <>2026實踐建築系<span className="inline-block">畢製作品素描</span></>}
           </h1>
           
-          <div className="flex flex-col gap-6 font-['Geist_Mono'] text-base uppercase tracking-[1px] mb-8 pb-8 border-b border-black/10">
+          <div className="flex flex-col gap-8 font-['Geist_Mono'] text-base uppercase tracking-[1px] mb-8 pb-8 border-b border-black/10">
             <div className="flex">
               <span className="opacity-50 w-28 shrink-0 md:w-32">{lang === 'ENG' ? 'Year' : '年份'}</span>
               <span>2026</span>
@@ -64,7 +64,7 @@ export function ProjectYen() {
             </div>
             <div className="flex">
               <span className="opacity-50 w-28 shrink-0 md:w-32">{lang === 'ENG' ? 'Course' : '課程'}</span>
-              <span className="flex-1">{lang === 'ENG' ? 'Cross-Disciplinary Creative Thinking' : '跨域創作思考'}</span>
+              <span className="flex-1 leading-[1.8]">{lang === 'ENG' ? <>Cross Disciplinary<br />Creative Thinking</> : '跨域創作思考'}</span>
             </div>
           </div>
 
@@ -118,6 +118,12 @@ export function ProjectYen() {
             </div>
           </div>
         </div>
+      </div>
+
+      <div className="mt-32 flex justify-center border-t border-black/10 pt-16">
+        <Link to="/personal" className="font-['Space_Grotesk',_'Swei_Bow_Sans'] text-[2rem] uppercase hover:opacity-50 transition-opacity">
+          {lang === 'ENG' ? 'Back to Personal' : '返回個人作品'}
+        </Link>
       </div>
 
       <AnimatePresence>

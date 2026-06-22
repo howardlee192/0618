@@ -15,7 +15,7 @@ export function ProjectWhoDecides() {
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
   const images = [
-    { id: 0, src: "/projects/whodecides/Poster1+Cover.jpg" },
+    { id: 0, src: "/projects/whodecides/Postercoverloop.mp4", type: "video" },
     { id: 1, src: "/projects/whodecides/Poster2.jpg" },
     { id: 2, src: "/projects/whodecides/Poster3.jpg" },
     { id: 3, src: "/projects/whodecides/MainProcessCover.jpg" },
@@ -51,7 +51,7 @@ export function ProjectWhoDecides() {
   return (
     <div className="pt-[40px] md:pt-[60px] pb-[100px] min-h-screen relative">
       <div className="flex flex-col md:flex-row gap-10 md:gap-20 mb-20">
-        <div className="w-full md:w-1/3">
+        <div className="w-full md:w-1/3 md:sticky md:top-[100px] self-start">
           <div className="flex justify-between items-start mb-8 md:mb-12">
             <Link to="/personal" className="inline-flex items-center gap-1 hover:opacity-50 transition-opacity font-['Geist_Mono'] text-xs uppercase tracking-[1px]">
               <ChevronLeft size={16} className="-ml-1" />
@@ -95,7 +95,11 @@ export function ProjectWhoDecides() {
             onClick={() => setLightboxIndex(0)}
             className="w-full flex items-center justify-center cursor-pointer group overflow-hidden"
           >
-            <img src={images[0].src} alt="Who decides your needs Cover" className="w-full h-auto block transition-transform duration-[2s] ease-[cubic-bezier(0.25,0.8,0.25,1)] group-hover:scale-[0.8]" />
+            <video 
+              src={images[0].src} 
+              className="w-full h-auto block transition-transform duration-[2s] ease-[cubic-bezier(0.25,0.8,0.25,1)] group-hover:scale-105 pointer-events-none" 
+              autoPlay loop muted playsInline 
+            />
           </div>
         </div>
       </div>
@@ -187,16 +191,29 @@ export function ProjectWhoDecides() {
               onClick={(e) => e.stopPropagation()}
             >
               <AnimatePresence mode="wait">
-                <motion.img 
-                  key={lightboxIndex}
-                  initial={{ opacity: 0, filter: 'blur(4px)' }}
-                  animate={{ opacity: 1, filter: 'blur(0px)' }}
-                  exit={{ opacity: 0, filter: 'blur(4px)' }}
-                  transition={{ duration: 0.4, ease: [0.25, 0.8, 0.25, 1] }}
-                  src={images[lightboxIndex].src} 
-                  alt="Enlarged view" 
-                  className="w-full h-full object-contain" 
-                />
+                {(images[lightboxIndex] as any).type === 'video' ? (
+                  <motion.video
+                    key={lightboxIndex}
+                    initial={{ opacity: 0, filter: 'blur(4px)' }}
+                    animate={{ opacity: 1, filter: 'blur(0px)' }}
+                    exit={{ opacity: 0, filter: 'blur(4px)' }}
+                    transition={{ duration: 0.4, ease: [0.25, 0.8, 0.25, 1] }}
+                    src={images[lightboxIndex].src}
+                    className="w-full h-full object-contain"
+                    autoPlay loop playsInline controls controlsList="nodownload" disablePictureInPicture
+                  />
+                ) : (
+                  <motion.img
+                    key={lightboxIndex}
+                    initial={{ opacity: 0, filter: 'blur(4px)' }}
+                    animate={{ opacity: 1, filter: 'blur(0px)' }}
+                    exit={{ opacity: 0, filter: 'blur(4px)' }}
+                    transition={{ duration: 0.4, ease: [0.25, 0.8, 0.25, 1] }}
+                    src={images[lightboxIndex].src}
+                    alt="Enlarged view"
+                    className="w-full h-full object-contain"
+                  />
+                )}
               </AnimatePresence>
             </div>
 

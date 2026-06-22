@@ -57,4 +57,65 @@ h1, h2, h3 {
   .backface-hidden {
     backface-visibility: hidden;
   }
+  @keyframes fast-flicker {
+    0%, 49.9% { opacity: 1; }
+    50%, 99.9% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  @keyframes hint-eng-40 {
+    0% { opacity: 0; }
+    5% { opacity: 0.4; }
+    42.5% { opacity: 0.4; }
+    47.5% { opacity: 0; }
+    100% { opacity: 0; }
+  }
+  @keyframes hint-chn-40 {
+    0% { opacity: 0; }
+    50% { opacity: 0; }
+    55% { opacity: 0.4; }
+    92.5% { opacity: 0.4; }
+    97.5% { opacity: 0; }
+    100% { opacity: 0; }
+  }
+  @keyframes hint-eng-80 {
+    0% { opacity: 0; }
+    5% { opacity: 0.8; }
+    42.5% { opacity: 0.8; }
+    47.5% { opacity: 0; }
+    100% { opacity: 0; }
+  }
+  @keyframes hint-chn-80 {
+    0% { opacity: 0; }
+    50% { opacity: 0; }
+    55% { opacity: 0.8; }
+    92.5% { opacity: 0.8; }
+    97.5% { opacity: 0; }
+    100% { opacity: 0; }
+  }
+  .animate-flicker {
+    animation: fast-flicker 0.4s step-end infinite;
+  }
+  .animate-hint-eng-40 {
+    animation: hint-eng-40 8s ease-in-out infinite;
+  }
+  .animate-hint-chn-40 {
+    animation: hint-chn-40 8s ease-in-out infinite;
+  }
+  .animate-hint-eng-80 {
+    animation: hint-eng-80 8s ease-in-out infinite;
+  }
+  .animate-hint-chn-80 {
+    animation: hint-chn-80 8s ease-in-out infinite;
+  }
+}
+
+img, video {
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
+  -webkit-touch-callout: none;
+  user-select: none;
+  pointer-events: auto;
 }

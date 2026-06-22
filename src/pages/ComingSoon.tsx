@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { ChevronLeft } from "lucide-react";
 import { ScrambleText } from "../components/ui/ScrambleText";
 
 export function ComingSoon() {
@@ -12,7 +14,13 @@ export function ComingSoon() {
   }, []);
 
   return (
-    <div className="min-h-[80vh] flex flex-col items-center justify-center p-5 md:px-10 gap-4">
+    <div className="min-h-[80vh] flex flex-col items-center justify-center gap-4 relative pt-[40px] md:pt-[60px]">
+      <div className="absolute top-[40px] md:top-[60px] left-0">
+        <Link to="/" className="inline-flex items-center gap-1 hover:opacity-50 transition-opacity font-['Geist_Mono'] text-xs uppercase tracking-[1px]">
+          <ChevronLeft size={16} className="-ml-1" />
+          Back
+        </Link>
+      </div>
       <h1 className="font-['Space_Grotesk'] text-[clamp(2.5rem,6vw,4rem)] tracking-[-2px] uppercase">
         Coming Soon
       </h1>

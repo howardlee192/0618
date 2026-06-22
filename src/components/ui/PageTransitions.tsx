@@ -3,7 +3,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { IntroScreen } from "../../pages/IntroScreen";
 
 export function HomeTransition({ children }: { children: React.ReactNode }) {
-  const [introDone, setIntroDone] = useState(false);
+  const isReturnVisit = React.useRef(sessionStorage.getItem('introDone') === 'true').current;
+  const [introDone, setIntroDone] = useState(isReturnVisit);
   const [isReversing, setIsReversing] = useState(false);
   const [hasReturned, setHasReturned] = useState(false);
 
@@ -14,6 +15,7 @@ export function HomeTransition({ children }: { children: React.ReactNode }) {
         setTimeout(() => {
           setHasReturned(true);
           setIntroDone(false);
+          sessionStorage.setItem('introDone', 'false');
           setIsReversing(false);
         }, 800);
       } else if (!introDone) {
@@ -59,6 +61,7 @@ export function HomeTransition({ children }: { children: React.ReactNode }) {
     window.scrollTo(0, 0);
     setIntroDone(true);
     setHasReturned(false);
+    sessionStorage.setItem('introDone', 'true');
   };
 
   return (
@@ -71,12 +74,12 @@ export function HomeTransition({ children }: { children: React.ReactNode }) {
         <>
           <motion.div
             className="fixed inset-0 z-[1000] bg-[#FFFFFF] pointer-events-none"
-            initial={{ opacity: 1 }}
+            initial={{ opacity: isReturnVisit ? 0 : 1 }}
             animate={{ opacity: isReversing ? 1 : 0 }}
             transition={{ duration: 0.8, ease: "easeInOut" }}
           />
           <motion.div
-            initial={{ filter: "blur(20px)", opacity: 0 }}
+            initial={{ filter: isReturnVisit ? "blur(0px)" : "blur(20px)", opacity: isReturnVisit ? 1 : 0 }}
             animate={{ filter: "blur(0px)", opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 1.5, ease: "easeOut", delay: 0.2 }}

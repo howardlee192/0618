@@ -49,7 +49,7 @@ export function ProjectFrameByFrame() {
   return (
     <div className="pt-[40px] md:pt-[60px] pb-[100px] min-h-screen relative">
       <div className="flex flex-col md:flex-row gap-10 md:gap-20 mb-20">
-        <div className="w-full md:w-1/3">
+        <div className="w-full md:w-1/3 md:sticky md:top-[100px] self-start">
           <div className="flex justify-between items-start mb-8 md:mb-12">
             <Link to="/personal" className="inline-flex items-center gap-1 hover:opacity-50 transition-opacity font-['Geist_Mono'] text-xs uppercase tracking-[1px]">
               <ChevronLeft size={16} className="-ml-1" />
