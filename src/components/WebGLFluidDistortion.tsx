@@ -205,7 +205,7 @@ export const WebGLFluidDistortion: React.FC<WebGLFluidDistortionProps> = ({
         tFlow: { value: tFlow },
         uResolution: { value: [1, 1] },
         uImageResolution: uImageResolution,
-        uDisableEffect: { value: isTouchDevice ? 1.0 : 0.0 },
+        uDisableEffect: { value: 0.0 },
         uTime: { value: 0 },
         uMouseSmooth: { value: [0.5, 0.5] },
         uZoomScale: { value: 1.0 }
@@ -220,11 +220,9 @@ export const WebGLFluidDistortion: React.FC<WebGLFluidDistortionProps> = ({
     const lastMouse = { x: 0, y: 0 };
     let isMouseMoving = false;
 
-    const handleMouseMove = (e: MouseEvent) => {
-      if (isTouchDevice) return;
-      
-      const x = e.clientX / window.innerWidth;
-      const y = 1.0 - (e.clientY / window.innerHeight); // WebGL uses bottom-left origin
+    const updateMousePos = (clientX: number, clientY: number) => {
+      const x = clientX / window.innerWidth;
+      const y = 1.0 - (clientY / window.innerHeight); // WebGL uses bottom-left origin
       
       mouse.vX = x - lastMouse.x;
       mouse.vY = y - lastMouse.y;
@@ -236,7 +234,27 @@ export const WebGLFluidDistortion: React.FC<WebGLFluidDistortionProps> = ({
       isMouseMoving = true;
     };
 
+    const handleMouseMove = (e: MouseEvent) => {
+      updateMousePos(e.clientX, e.clientY);
+    };
+
+    const handleTouchMove = (e: TouchEvent) => {
+      updateMousePos(e.touches[0].clientX, e.touches[0].clientY);
+    };
+
+    const handleTouchStart = (e: TouchEvent) => {
+      // Just set the initial position without huge velocity jump
+      const x = e.touches[0].clientX / window.innerWidth;
+      const y = 1.0 - (e.touches[0].clientY / window.innerHeight);
+      mouse.x = x;
+      mouse.y = y;
+      lastMouse.x = x;
+      lastMouse.y = y;
+    };
+
     window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('touchmove', handleTouchMove, { passive: true });
+    window.addEventListener('touchstart', handleTouchStart, { passive: true });
 
     const resize = () => {
       const width = container.clientWidth;
@@ -333,9 +351,7 @@ export const WebGLFluidDistortion: React.FC<WebGLFluidDistortionProps> = ({
       program.uniforms.uMouseSmooth.value = [zoomSmooth.x, zoomSmooth.y];
       program.uniforms.uZoomScale.value = zoomSmooth.scale;
       
-      if (!isTouchDevice) {
-        updateFlowmap();
-      }
+      updateFlowmap();
       
       // Update video texture if playing
       if (type === 'video' && mediaEl instanceof HTMLVideoElement && mediaEl.readyState >= mediaEl.HAVE_CURRENT_DATA) {
@@ -349,6 +365,8 @@ export const WebGLFluidDistortion: React.FC<WebGLFluidDistortionProps> = ({
 
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('touchmove', handleTouchMove);
+      window.removeEventListener('touchstart', handleTouchStart);
       window.removeEventListener('resize', resize);
       cancelAnimationFrame(animationFrame);
       if (gl.canvas.parentNode) {
