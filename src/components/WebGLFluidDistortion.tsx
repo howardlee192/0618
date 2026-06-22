@@ -22,8 +22,7 @@ export const WebGLFluidDistortion: React.FC<WebGLFluidDistortionProps> = ({
     const container = containerRef.current;
     if (!container) return;
 
-    // Detect touch device for performance optimization
-    const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+    // Removed isTouchDevice as effect is now enabled everywhere
     
     const renderer = new Renderer({ alpha: true, premultipliedAlpha: false, antialias: false });
     const gl = renderer.gl;
