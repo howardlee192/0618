@@ -93,7 +93,7 @@ export function Home() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 2.5, duration: 1 }}
-            className="absolute bottom-12 right-0 md:right-4 flex flex-col items-end gap-2 pointer-events-none"
+            className="absolute bottom-[15vh] md:bottom-12 right-0 md:right-4 flex flex-col items-end gap-2 pointer-events-none z-10"
           >
             <div className="relative h-[1.5rem] w-full flex justify-end items-center">
               <div className="absolute right-0 font-['Geist_Mono'] text-[0.75rem] md:text-xs uppercase tracking-[1px] whitespace-nowrap animate-hint-eng-40 opacity-0">
