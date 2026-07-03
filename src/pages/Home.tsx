@@ -115,7 +115,7 @@ export function Home() {
         </motion.section>
       </div>
 
-      <section className="relative z-10 bg-[#F0F0F0] pt-[40px] md:pt-[60px] pb-[100px] border-b border-black/10">
+      <section className="relative z-10 bg-[#F0F0F0] pt-[40px] md:pt-[60px] pb-[100px]">
         <div className="flex justify-between items-end mb-[40px] md:mb-[60px]">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -131,8 +131,8 @@ export function Home() {
         <ProjectsGrid useBlur={true} />
       </section>
 
-      <section className="relative z-10 bg-[#F0F0F0] py-[60px] md:py-[100px] border-b border-black/10">
-        <div className="flex flex-col border-t border-black/10">
+      <section className="relative z-10 bg-[#F0F0F0] py-[60px] md:py-[100px]">
+        <div className="flex flex-col">
           <Link 
             to="/work" 
             onMouseEnter={() => !isTouch && setHoveredNav('work')}
@@ -143,7 +143,7 @@ export function Home() {
                 setHoveredNav('work');
               }
             }}
-            className="group flex flex-col md:flex-row md:items-center justify-between py-8 md:py-12 border-b border-black/10"
+            className="group flex flex-col md:flex-row md:items-center justify-between py-4 md:py-6 border-b border-black/10"
           >
             <span className="font-['Space_Grotesk'] text-[3.5rem] md:text-[6rem] uppercase tracking-[-2px] leading-none group-hover:opacity-50 transition-opacity">
               Work
@@ -191,7 +191,7 @@ export function Home() {
                 setHoveredNav('personal');
               }
             }}
-            className="group flex flex-col md:flex-row md:items-center justify-between py-8 md:py-12 border-b border-black/10"
+            className="group flex flex-col md:flex-row md:items-center justify-between py-4 md:py-6 border-b border-black/10"
           >
             <span className="font-['Space_Grotesk'] text-[3.5rem] md:text-[6rem] uppercase tracking-[-2px] leading-none group-hover:opacity-50 transition-opacity">
               Personal
@@ -239,7 +239,7 @@ export function Home() {
                 setHoveredNav('about');
               }
             }}
-            className="group flex flex-col md:flex-row md:items-center justify-between py-8 md:py-12 border-b border-black/10"
+            className="group flex flex-col md:flex-row md:items-center justify-between py-4 md:py-6"
           >
             <span className="font-['Space_Grotesk'] text-[3.5rem] md:text-[6rem] uppercase tracking-[-2px] leading-none group-hover:opacity-50 transition-opacity">
               About
