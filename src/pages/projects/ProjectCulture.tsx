@@ -42,7 +42,7 @@ export function ProjectCulture() {
       <div className="flex flex-col md:flex-row gap-10 md:gap-20 mb-20">
         <div className="w-full md:w-1/3 md:sticky md:top-[100px] self-start">
           <div className="flex justify-between items-start mb-8 md:mb-12">
-            <Link to="/personal" className="inline-flex items-center gap-1 hover:opacity-50 transition-opacity font-['Geist_Mono'] text-xs uppercase tracking-[1px]">
+            <Link to="/personal" className="inline-flex items-center gap-1 hover:opacity-50 transition-opacity font-['Mozilla_Text'] text-xs uppercase tracking-[1px]">
               <ChevronLeft size={16} className="-ml-1" />
               Back
             </Link>
@@ -53,7 +53,7 @@ export function ProjectCulture() {
             {lang === 'ENG' ? 'Culture_Identity_Boundary' : '文化_身分_邊界'}
           </h1>
           
-          <div className="flex flex-col gap-8 font-['Geist_Mono'] text-base uppercase tracking-[1px] mb-8 pb-8 border-b border-black/10">
+          <div className="flex flex-col gap-8 font-['Mozilla_Text'] text-base uppercase tracking-[1px] mb-8 pb-8 border-b border-black/10">
             <div className="flex">
               <span className="opacity-50 w-28 shrink-0 md:w-32">{lang === 'ENG' ? 'Year' : '年份'}</span>
               <span>2026</span>
@@ -72,7 +72,7 @@ export function ProjectCulture() {
             </div>
           </div>
 
-          <div className={`font-['Geist_Mono'] opacity-80 text-base whitespace-pre-wrap ${lang === 'ENG' ? 'leading-[1.8]' : 'leading-[2.2] tracking-[0.08em]'}`}>
+          <div className={`font-['Mozilla_Text'] opacity-80 text-base whitespace-pre-wrap ${lang === 'ENG' ? 'leading-[1.8]' : 'leading-[2.2] tracking-[0.08em]'}`}>
             {lang === 'ENG' 
               ? "This assignment analyzes the inevitable themes of culture, identity, and boundary—issues seemingly distant yet close to daily life. By examining various exhibitions, I analyze how mediums react with issues to create immersive experiences, while proposing my own perspective on how creators can engage with social and human rights through precise visual language."
               : "這次觀展作業去探討總繞不開的「文化、身分、邊界」三大議題，它們看似遙遠實則貼近日常。我透過梳理不同展覽，分析媒材與議題環境如何產生化學反應、創造沉浸感；並提出自身觀點，反思創作者該如何透過精準的視覺語彙參與社會與人權。"}
@@ -99,7 +99,7 @@ export function ProjectCulture() {
           </div>
 
           <div className="w-full border-t border-black/10 pt-4 mb-8">
-            <h3 className="font-['Geist_Mono'] text-sm uppercase tracking-[2px] opacity-50">
+            <h3 className="font-['Mozilla_Text'] text-sm uppercase tracking-[2px] opacity-50">
               {lang === 'ENG' ? 'Zine Pages' : '內頁設計'}
             </h3>
           </div>
@@ -185,7 +185,7 @@ export function ProjectCulture() {
               <ChevronRight size={48} strokeWidth={1} />
             </button>
 
-            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/50 font-['Geist_Mono'] text-sm tracking-widest">
+            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/50 font-['Mozilla_Text'] text-sm tracking-widest">
               {lightboxIndex + 1} / {images.length}
             </div>
           </motion.div>

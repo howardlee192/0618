@@ -62,7 +62,7 @@ export function IntroScreen({ onEnter, isReturning }: { onEnter: () => void, isR
       <motion.div 
         animate={{ opacity: scrolled ? 0 : 1 }}
         transition={{ duration: 0.3 }}
-        className="absolute top-0 left-0 z-10 p-5 md:px-10 md:py-10 font-['Geist_Mono'] text-[0.85rem] uppercase tracking-[1px] pointer-events-none"
+        className="absolute top-0 left-0 z-10 p-5 md:px-10 md:py-10 font-['Mozilla_Text'] text-[0.85rem] uppercase tracking-[1px] pointer-events-none"
       >
         <div className="flex flex-col items-start gap-1">
           <span className="font-['Space_Grotesk',_'Swei_Bow_Sans'] tracking-[0.1em] bg-[#0A0A0A] text-[#F0F0F0] px-2 py-1 leading-none flex items-center justify-center min-h-[1.5rem]">
@@ -81,10 +81,10 @@ export function IntroScreen({ onEnter, isReturning }: { onEnter: () => void, isR
             setTimeout(onEnter, 2800);
           }
         }}
-        className={`relative z-10 flex justify-end items-end p-5 md:px-10 md:py-10 w-full font-['Geist_Mono'] text-[0.85rem] uppercase tracking-[1px] ${isTouch ? 'pointer-events-auto cursor-pointer' : 'pointer-events-none'}`}
+        className={`relative z-10 flex justify-end items-end p-5 md:px-10 md:py-10 w-full font-['Mozilla_Text'] text-[0.85rem] uppercase tracking-[1px] ${isTouch ? 'pointer-events-auto cursor-pointer' : 'pointer-events-none'}`}
       >
         <div className="flex flex-col items-end gap-1">
-          <span className="animate-bounce text-xl leading-none bg-[#0A0A0A] text-[#F0F0F0] px-2 py-1">{isTouch ? '→' : '↓'}</span>
+          <span className="animate-bounce text-xl leading-none bg-[#0A0A0A] text-[#F0F0F0] px-2 py-1">{isTouch ? '→\uFE0E' : '↓\uFE0E'}</span>
           <span className="font-['Space_Grotesk',_'Swei_Bow_Sans'] tracking-[0.1em] bg-[#0A0A0A] text-[#F0F0F0] px-2 py-1 leading-none flex items-center justify-center min-h-[1.5rem]">
             <ScrambleText text={hintLang === 'ENG' ? (isTouch ? 'TAP HERE TO ENTER' : 'SCROLL TO ENTER') : (isTouch ? '點 擊 此 處 進 入' : '滑 動 進 入')} />
           </span>

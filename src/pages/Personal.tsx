@@ -182,7 +182,7 @@ export function Personal() {
   return (
     <section className="pt-[40px] md:pt-[60px] pb-[100px] border-b border-black/10 min-h-[80vh]">
       <div className="flex justify-between items-start mb-8 md:mb-12">
-        <Link to="/" className="inline-flex items-center gap-1 hover:opacity-50 transition-opacity font-['Geist_Mono'] text-xs uppercase tracking-[1px]">
+        <Link to="/" className="inline-flex items-center gap-1 hover:opacity-50 transition-opacity font-['Mozilla_Text'] text-xs uppercase tracking-[1px]">
           <ChevronLeft size={16} className="-ml-1" />
           Back
         </Link>
@@ -208,10 +208,10 @@ export function Personal() {
             onClick={() => setOpenFilter(openFilter === 'YEAR' ? null : 'YEAR')}
             className="w-full py-5 flex justify-between items-center pr-4 md:pr-8 hover:opacity-70 transition-opacity"
           >
-            <span className="font-['Geist_Mono'] text-sm tracking-[1px] uppercase">
+            <span className="font-['Mozilla_Text'] text-sm tracking-[1px] uppercase">
               {lang === 'ENG' ? 'Filter by Year' : '依年份篩選'} {activeYear !== 'ALL' && <span className="ml-2 opacity-50">[{activeYear}]</span>}
             </span>
-            <span className="font-['Geist_Mono'] text-xl font-light">{openFilter === 'YEAR' ? '−' : '+'}</span>
+            <span className="font-['Mozilla_Text'] text-xl font-light">{openFilter === 'YEAR' ? '−' : '+'}</span>
           </button>
           <AnimatePresence>
             {openFilter === 'YEAR' && (
@@ -227,7 +227,7 @@ export function Personal() {
                     <button
                       key={y}
                       onClick={() => handleYearClick(y)}
-                      className={`font-['Geist_Mono'] text-[0.85rem] tracking-[0.5px] px-4 py-2 border rounded-full transition-colors ${activeYear === y ? 'border-black bg-black text-[#F0F0F0]' : 'border-black/20 hover:border-black'} ${lang === 'ENG' ? 'uppercase' : ''}`}
+                      className={`font-['Mozilla_Text'] text-[0.85rem] tracking-[0.5px] px-4 py-2 border rounded-full transition-colors ${activeYear === y ? 'border-black bg-black text-[#F0F0F0]' : 'border-black/20 hover:border-black'} ${lang === 'ENG' ? 'uppercase' : ''}`}
                     >
                       {lang === 'CHN' && y === 'ALL' ? '全部' : y}
                     </button>
@@ -244,10 +244,10 @@ export function Personal() {
             onClick={() => setOpenFilter(openFilter === 'MEDIUM' ? null : 'MEDIUM')}
             className="w-full py-5 flex justify-between items-center pr-4 md:pr-0 hover:opacity-70 transition-opacity"
           >
-            <span className="font-['Geist_Mono'] text-sm tracking-[1px] uppercase">
+            <span className="font-['Mozilla_Text'] text-sm tracking-[1px] uppercase">
               {lang === 'ENG' ? 'Filter by Medium' : '依媒介篩選'} {activeMedium !== 'ALL' && <span className="ml-2 opacity-50">[{activeMedium}]</span>}
             </span>
-            <span className="font-['Geist_Mono'] text-xl font-light">{openFilter === 'MEDIUM' ? '−' : '+'}</span>
+            <span className="font-['Mozilla_Text'] text-xl font-light">{openFilter === 'MEDIUM' ? '−' : '+'}</span>
           </button>
           <AnimatePresence>
             {openFilter === 'MEDIUM' && (
@@ -266,7 +266,7 @@ export function Personal() {
                       <button
                         key={m}
                         onClick={() => handleMediumClick(m)}
-                        className={`font-['Geist_Mono'] text-[0.85rem] tracking-[0.5px] px-4 py-2 border rounded-full transition-colors ${activeMedium === m ? 'border-black bg-black text-[#F0F0F0]' : 'border-black/20 hover:border-black'} ${lang === 'ENG' ? 'uppercase' : ''}`}
+                        className={`font-['Mozilla_Text'] text-[0.85rem] tracking-[0.5px] px-4 py-2 border rounded-full transition-colors ${activeMedium === m ? 'border-black bg-black text-[#F0F0F0]' : 'border-black/20 hover:border-black'} ${lang === 'ENG' ? 'uppercase' : ''}`}
                       >
                         {translatedMedium}
                       </button>
@@ -302,7 +302,7 @@ export function Personal() {
                   {project.preview}
                   <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-500 pointer-events-none" />
                   <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10">
-                    <span className="font-['Geist_Mono'] text-white text-[0.85rem] uppercase tracking-[1px] opacity-0 group-hover:opacity-100 transition-opacity">
+                    <span className="font-['Mozilla_Text'] text-white text-[0.85rem] uppercase tracking-[1px] opacity-0 group-hover:opacity-100 transition-opacity">
                       {lang === 'ENG' ? 'Click to View' : '點擊查看'}
                     </span>
                   </div>
@@ -311,7 +311,7 @@ export function Personal() {
             </div>
           ))
         ) : (
-          <div className="col-span-full py-20 text-center font-['Geist_Mono'] text-sm uppercase tracking-[2px] opacity-50">
+          <div className="col-span-full py-20 text-center font-['Mozilla_Text'] text-sm uppercase tracking-[2px] opacity-50">
             {lang === 'ENG' ? 'No projects match the selected filters.' : '沒有符合篩選條件的作品。'}
           </div>
         )}

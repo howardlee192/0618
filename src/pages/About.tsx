@@ -156,7 +156,7 @@ export function About() {
   return (
     <section className="pt-[40px] md:pt-[60px] pb-[100px] min-h-[80vh]">
       <div className="flex justify-between items-start mb-8 md:mb-12">
-        <Link to="/" className="inline-flex items-center gap-1 hover:opacity-50 transition-opacity font-['Geist_Mono'] text-xs uppercase tracking-[1px]">
+        <Link to="/" className="inline-flex items-center gap-1 hover:opacity-50 transition-opacity font-['Mozilla_Text'] text-xs uppercase tracking-[1px]">
           <ChevronLeft size={16} className="-ml-1" />
           Back
         </Link>
@@ -202,7 +202,7 @@ export function About() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 2.5, duration: 1 }}
-                className="absolute -bottom-8 left-0 font-['Geist_Mono'] text-[0.75rem] md:text-[0.85rem] uppercase tracking-[1px] pointer-events-none opacity-80 whitespace-nowrap"
+                className="absolute -bottom-8 left-0 font-['Mozilla_Text'] text-[0.75rem] md:text-[0.85rem] uppercase tracking-[1px] pointer-events-none opacity-80 whitespace-nowrap"
               >
                 <ScrambleText text={hintLang === 'ENG' ? '↑ [ Hover to reveal ]' : '↑ [ 滑動游標預覽 ]'} />
               </motion.div>
@@ -212,10 +212,10 @@ export function About() {
           <h3 className={`font-['Space_Grotesk'] ${lang === 'CHN' ? "font-['Space_Grotesk',_'Swei_Bow_Sans'] text-[clamp(1.8rem,3vw,2.8rem)] leading-[1.5] tracking-[0.05em]" : "text-[clamp(2rem,3.5vw,3.2rem)] leading-[1.1] tracking-[-1.5px]"} mb-2`}>
             {text.name}
           </h3>
-          <p className={`font-['Geist_Mono'] ${lang === 'CHN' ? "font-['Space_Grotesk',_'Swei_Bow_Sans'] text-[0.9rem] tracking-[0.1em]" : "text-sm tracking-[0.5px]"} opacity-50 uppercase mb-6`}>
+          <p className={`font-['Mozilla_Text'] ${lang === 'CHN' ? "font-['Space_Grotesk',_'Swei_Bow_Sans'] text-[0.9rem] tracking-[0.1em]" : "text-sm tracking-[0.5px]"} opacity-50 uppercase mb-6`}>
             {text.role}
           </p>
-          <p className={`font-['Geist_Mono'] ${lang === 'CHN' ? "font-['Space_Grotesk',_'Swei_Bow_Sans'] text-[1rem] leading-[2] tracking-[0.05em]" : "text-[0.9rem] leading-[1.6]"} opacity-70`}>
+          <p className={`font-['Mozilla_Text'] ${lang === 'CHN' ? "font-['Space_Grotesk',_'Swei_Bow_Sans'] text-[1rem] leading-[2] tracking-[0.05em]" : "text-[0.9rem] leading-[1.6]"} opacity-70`}>
             {text.bio}
           </p>
         </motion.div>
@@ -231,7 +231,7 @@ export function About() {
             className="border-t border-black/10 py-8 md:py-12 flex flex-col"
           >
             <h4 className={`font-['Space_Grotesk'] ${lang === 'CHN' ? "font-['Space_Grotesk',_'Swei_Bow_Sans'] text-xl md:text-2xl tracking-[0.05em]" : "text-xl md:text-2xl tracking-[-0.5px]"} mb-4`}>{text.title1}</h4>
-            <p className={`font-['Geist_Mono'] ${lang === 'CHN' ? "font-['Space_Grotesk',_'Swei_Bow_Sans'] text-[1rem] leading-[2] tracking-[0.05em]" : "text-[0.9rem] leading-[1.6]"} opacity-70`}>
+            <p className={`font-['Mozilla_Text'] ${lang === 'CHN' ? "font-['Space_Grotesk',_'Swei_Bow_Sans'] text-[1rem] leading-[2] tracking-[0.05em]" : "text-[0.9rem] leading-[1.6]"} opacity-70`}>
               {text.desc1}
             </p>
           </motion.div>
@@ -247,7 +247,7 @@ export function About() {
             <h4 className={`font-['Space_Grotesk'] ${lang === 'CHN' ? "font-['Space_Grotesk',_'Swei_Bow_Sans'] text-xl md:text-2xl tracking-[0.05em]" : "text-xl md:text-2xl tracking-[-0.5px]"} mb-6`}>{text.title2}</h4>
             <div className="flex flex-wrap gap-3">
               {text.skills.map(skill => (
-                <span key={skill} className={`font-['Geist_Mono'] ${lang === 'CHN' ? "text-[1rem] tracking-[0.1em]" : "text-[0.9rem] tracking-[0.5px]"} uppercase px-5 py-2.5 border border-black/20 rounded-full hover:bg-black hover:text-[#F0F0F0] transition-colors cursor-default`}>
+                <span key={skill} className={`font-['Mozilla_Text'] ${lang === 'CHN' ? "text-[1rem] tracking-[0.1em]" : "text-[0.9rem] tracking-[0.5px]"} uppercase px-5 py-2.5 border border-black/20 rounded-full hover:bg-black hover:text-[#F0F0F0] transition-colors cursor-default`}>
                   {skill}
                 </span>
               ))}
@@ -263,7 +263,7 @@ export function About() {
             className="border-t border-black/10 py-8 md:py-12 flex flex-col"
           >
             <h4 className={`font-['Space_Grotesk'] ${lang === 'CHN' ? "font-['Space_Grotesk',_'Swei_Bow_Sans'] text-xl md:text-2xl tracking-[0.05em]" : "text-xl md:text-2xl tracking-[-0.5px]"} mb-4`}>{text.title3}</h4>
-            <p className={`font-['Geist_Mono'] ${lang === 'CHN' ? "font-['Space_Grotesk',_'Swei_Bow_Sans'] text-[1rem] leading-[2] tracking-[0.05em]" : "text-[0.9rem] leading-[1.6]"} opacity-70`}>
+            <p className={`font-['Mozilla_Text'] ${lang === 'CHN' ? "font-['Space_Grotesk',_'Swei_Bow_Sans'] text-[1rem] leading-[2] tracking-[0.05em]" : "text-[0.9rem] leading-[1.6]"} opacity-70`}>
               {text.desc3}
             </p>
           </motion.div>
@@ -281,7 +281,7 @@ export function About() {
               <h4 className="font-['Space_Grotesk'] text-2xl md:text-4xl tracking-[-1px] uppercase">
                 {section.title}
               </h4>
-              <span className="font-['Geist_Mono'] text-2xl font-light">
+              <span className="font-['Mozilla_Text'] text-2xl font-light">
                 {openSection === section.title ? '−' : '+'}
               </span>
             </button>
@@ -304,7 +304,7 @@ export function About() {
                         const right = (item as any).right;
                         return isCategory ? (
                           <div key={itemIdx} className={`w-full ${itemIdx !== 0 ? 'pt-6' : ''} border-b border-black/10 pb-3`}>
-                            <span className="font-['Geist_Mono'] text-[1rem] tracking-[1px] uppercase opacity-40">
+                            <span className="font-['Mozilla_Text'] text-[1rem] tracking-[1px] uppercase opacity-40">
                               {title}
                             </span>
                           </div>
@@ -313,7 +313,7 @@ export function About() {
                             <span className={`font-['Space_Grotesk'] ${lang === 'CHN' ? "tracking-[0.05em] text-[1.4rem]" : "text-[1.5rem]"} w-full md:w-1/3`}>
                               {left}
                             </span>
-                            <span className={`font-['Geist_Mono'] ${lang === 'CHN' ? "tracking-[0.05em] text-[1.1rem] leading-[1.7] break-keep" : "tracking-[0.5px] text-[1.1rem] leading-[1.6]"} opacity-70 uppercase text-left w-full md:w-2/3`}>
+                            <span className={`font-['Mozilla_Text'] ${lang === 'CHN' ? "tracking-[0.05em] text-[1.1rem] leading-[1.7] break-keep" : "tracking-[0.5px] text-[1.1rem] leading-[1.6]"} opacity-70 uppercase text-left w-full md:w-2/3`}>
                               {right}
                             </span>
                           </div>

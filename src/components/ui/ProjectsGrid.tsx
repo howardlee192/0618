@@ -92,7 +92,7 @@ export function ProjectsGrid({ useBlur = false }: { useBlur?: boolean }) {
               <h3 className="font-['Space_Grotesk'] text-[2.2rem] mb-[5px] tracking-[-1px] -ml-[0.02em] font-normal leading-none">
                 {lang === 'CHN' ? renderMixedTitle(p.title) : p.title}
               </h3>
-              <div className="text-[0.85rem] uppercase tracking-[1px] opacity-50 font-['Geist_Mono']">
+              <div className="text-[0.85rem] uppercase tracking-[1px] opacity-50 font-['Mozilla_Text']">
                 {lang === 'CHN' ? renderMixedCategory(p.category) : p.category}
               </div>
             </motion.div>

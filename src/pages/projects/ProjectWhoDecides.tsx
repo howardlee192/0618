@@ -53,7 +53,7 @@ export function ProjectWhoDecides() {
       <div className="flex flex-col md:flex-row gap-10 md:gap-20 mb-20">
         <div className="w-full md:w-1/3 md:sticky md:top-[100px] self-start">
           <div className="flex justify-between items-start mb-8 md:mb-12">
-            <Link to="/personal" className="inline-flex items-center gap-1 hover:opacity-50 transition-opacity font-['Geist_Mono'] text-xs uppercase tracking-[1px]">
+            <Link to="/personal" className="inline-flex items-center gap-1 hover:opacity-50 transition-opacity font-['Mozilla_Text'] text-xs uppercase tracking-[1px]">
               <ChevronLeft size={16} className="-ml-1" />
               Back
             </Link>
@@ -64,7 +64,7 @@ export function ProjectWhoDecides() {
             Who decides your needs?
           </h1>
           
-          <div className="flex flex-col gap-6 font-['Geist_Mono'] text-base uppercase tracking-[1px] mb-8 pb-8 border-b border-black/10">
+          <div className="flex flex-col gap-6 font-['Mozilla_Text'] text-base uppercase tracking-[1px] mb-8 pb-8 border-b border-black/10">
             <div className="flex">
               <span className="opacity-50 w-28 shrink-0 md:w-32">{lang === 'ENG' ? 'Year' : '年份'}</span>
               <span>2026</span>
@@ -83,7 +83,7 @@ export function ProjectWhoDecides() {
             </div>
           </div>
 
-          <div className={`font-['Geist_Mono'] opacity-80 text-base whitespace-pre-wrap ${lang === 'ENG' ? 'leading-[1.8]' : 'leading-[2.2] tracking-[0.08em]'}`}>
+          <div className={`font-['Mozilla_Text'] opacity-80 text-base whitespace-pre-wrap ${lang === 'ENG' ? 'leading-[1.8]' : 'leading-[2.2] tracking-[0.08em]'}`}>
             {lang === 'ENG' 
               ? "This series critiques consumerism’s manipulation of desire. From canned fashion waste to bodies bound by fabric and production lines refilling hollowed mannequins, it exposes a manufactured cycle of \"needs,\" addressing how the system replaces autonomy by engineering demand.\n\nIn a profit-driven world, who decides your needs?"
               : "本系列海報作品是批判消費主義操縱我們慾望的機制。視覺從罐頭揭開的快時尚廢料、受廢料束縛而扭曲的人體，到生產線回填掏空的假體，揭露了被精密設計的「需求」循環，回應體制藉由「製造需求」來取代自主權。\n\n在利潤至上的世界，究竟是誰在替你決定需求？"}
@@ -121,7 +121,7 @@ export function ProjectWhoDecides() {
       </div>
 
       {/* Main Process Separator */}
-      <div className="border-t border-black/10 pt-10 mb-10 text-center font-['Geist_Mono'] text-sm tracking-[2px] opacity-40 uppercase">
+      <div className="border-t border-black/10 pt-10 mb-10 text-center font-['Mozilla_Text'] text-sm tracking-[2px] opacity-40 uppercase">
         {lang === 'ENG' ? 'Material & Form Exploration' : '議題關係媒材&形式探索'}
       </div>
 
@@ -139,7 +139,7 @@ export function ProjectWhoDecides() {
       </div>
 
       {/* Second Process Separator */}
-      <div className="border-t border-black/10 pt-10 mb-10 text-center font-['Geist_Mono'] text-sm tracking-[2px] opacity-40 uppercase">
+      <div className="border-t border-black/10 pt-10 mb-10 text-center font-['Mozilla_Text'] text-sm tracking-[2px] opacity-40 uppercase">
         {lang === 'ENG' ? 'Ideation & Process' : '發想與紀錄'}
       </div>
 
@@ -224,7 +224,7 @@ export function ProjectWhoDecides() {
               <ChevronRight size={48} />
             </button>
             
-            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/50 font-['Geist_Mono'] tracking-[2px] text-sm">
+            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/50 font-['Mozilla_Text'] tracking-[2px] text-sm">
               {lightboxIndex + 1} / {images.length}
             </div>
           </motion.div>

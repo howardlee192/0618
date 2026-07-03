@@ -3,7 +3,7 @@ import { useLanguage } from "../../contexts/LanguageContext";
 export const LanguageToggle = ({ className = "" }: { className?: string }) => {
   const { lang, setLang } = useLanguage();
   return (
-    <div className={`flex gap-4 text-xs md:text-sm font-['Geist_Mono'] uppercase tracking-[1px] items-center mb-2 md:mb-0 ${className}`}>
+    <div className={`flex gap-4 text-xs md:text-sm font-['Mozilla_Text'] uppercase tracking-[1px] items-center mb-2 md:mb-0 ${className}`}>
       <button
         onClick={() => setLang('CHN')}
         className={`transition-opacity hover:opacity-100 ${lang === 'CHN' ? 'opacity-100 font-bold' : 'opacity-40'}`}

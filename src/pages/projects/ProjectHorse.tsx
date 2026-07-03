@@ -29,7 +29,7 @@ export function ProjectHorse() {
       <div className="flex flex-col md:flex-row gap-10 md:gap-20 mb-20">
         <div className="w-full md:w-1/3 md:sticky md:top-[100px] self-start">
           <div className="flex justify-between items-start mb-8 md:mb-12">
-            <Link to="/personal" className="inline-flex items-center gap-1 hover:opacity-50 transition-opacity font-['Geist_Mono'] text-xs uppercase tracking-[1px]">
+            <Link to="/personal" className="inline-flex items-center gap-1 hover:opacity-50 transition-opacity font-['Mozilla_Text'] text-xs uppercase tracking-[1px]">
               <ChevronLeft size={16} className="-ml-1" />
               Back
             </Link>
@@ -40,7 +40,7 @@ export function ProjectHorse() {
             {lang === 'ENG' ? 'Happy Horse Year 2026' : '2026馬力全開'}
           </h1>
           
-          <div className="flex flex-col gap-8 font-['Geist_Mono'] text-base uppercase tracking-[1px] mb-8 pb-8 border-b border-black/10">
+          <div className="flex flex-col gap-8 font-['Mozilla_Text'] text-base uppercase tracking-[1px] mb-8 pb-8 border-b border-black/10">
             <div className="flex">
               <span className="opacity-50 w-28 shrink-0 md:w-32">{lang === 'ENG' ? 'Year' : '年份'}</span>
               <span>2026</span>
@@ -55,7 +55,7 @@ export function ProjectHorse() {
             </div>
           </div>
 
-          <div className={`font-['Geist_Mono'] opacity-80 text-base whitespace-pre-wrap ${lang === 'ENG' ? 'leading-[1.8]' : 'leading-[2.2] tracking-[0.08em]'}`}>
+          <div className={`font-['Mozilla_Text'] opacity-80 text-base whitespace-pre-wrap ${lang === 'ENG' ? 'leading-[1.8]' : 'leading-[2.2] tracking-[0.08em]'}`}>
             {lang === 'ENG' 
               ? "2026 Year of the Horse Animation: A wild, DIY-inspired horse jumping into the new year. I experimented with fur details and tactile textures to give it a raw, high-energy, and expressive feel."
               : "為了呈現馬年奔放的能量，我創作了一隻 DIY 手工風格的馬。\n我運用了自己喜愛的毛髮與材質質感，結合大膽的跳躍動作，賦予循環動畫一種狂野、奔放且極具生命力的感覺。"}
@@ -85,7 +85,7 @@ export function ProjectHorse() {
           </div>
 
           <div className="w-full border-t border-black/10 pt-4 mb-8">
-            <h3 className="font-['Geist_Mono'] text-sm uppercase tracking-[2px] opacity-50">
+            <h3 className="font-['Mozilla_Text'] text-sm uppercase tracking-[2px] opacity-50">
               {lang === 'ENG' ? 'Visual Elements' : '視覺元素'}
             </h3>
           </div>
@@ -199,7 +199,7 @@ export function ProjectHorse() {
               <ChevronRight size={48} strokeWidth={1} />
             </button>
 
-            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/50 font-['Geist_Mono'] text-sm tracking-widest">
+            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/50 font-['Mozilla_Text'] text-sm tracking-widest">
               {lightboxIndex === 'cover' ? '0' : lightboxIndex !== null ? lightboxIndex + 1 : ''} / {media.length}
             </div>
           </motion.div>

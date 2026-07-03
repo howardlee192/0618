@@ -38,7 +38,7 @@ export function ProjectGear() {
       <div className="flex flex-col md:flex-row gap-10 md:gap-20 mb-20">
         <div className="w-full md:w-1/3 md:sticky md:top-[100px] self-start">
           <div className="flex justify-between items-start mb-8 md:mb-12">
-            <Link to="/personal" className="inline-flex items-center gap-1 hover:opacity-50 transition-opacity font-['Geist_Mono'] text-xs uppercase tracking-[1px]">
+            <Link to="/personal" className="inline-flex items-center gap-1 hover:opacity-50 transition-opacity font-['Mozilla_Text'] text-xs uppercase tracking-[1px]">
               <ChevronLeft size={16} className="-ml-1" />
               Back
             </Link>
@@ -49,7 +49,7 @@ export function ProjectGear() {
             {lang === 'ENG' ? 'Digital Twin' : '數位孿生'}
           </h1>
           
-          <div className="flex flex-col gap-8 font-['Geist_Mono'] text-base uppercase tracking-[1px] mb-8 pb-8 border-b border-black/10">
+          <div className="flex flex-col gap-8 font-['Mozilla_Text'] text-base uppercase tracking-[1px] mb-8 pb-8 border-b border-black/10">
             <div className="flex">
               <span className="opacity-50 w-28 shrink-0 md:w-32">{lang === 'ENG' ? 'Year' : '年份'}</span>
               <span>2025</span>
@@ -68,7 +68,7 @@ export function ProjectGear() {
             </div>
           </div>
 
-          <div className={`font-['Geist_Mono'] opacity-80 text-base whitespace-pre-wrap ${lang === 'ENG' ? 'leading-[1.8]' : 'leading-[2.2] tracking-[0.08em]'}`}>
+          <div className={`font-['Mozilla_Text'] opacity-80 text-base whitespace-pre-wrap ${lang === 'ENG' ? 'leading-[1.8]' : 'leading-[2.2] tracking-[0.08em]'}`}>
             {lang === 'ENG' 
               ? "Reimagining The Happy Prince, this project introduces a 'Happiness Index' into the narrative. I depict a Seraphim as an all-seeing authority, using algorithms to monitor behavior and quantify happiness. By turning emotions into data, the work critically challenges how we define the value of life."
               : "本專題以未來博覽會為題，將『幸福指數』置入《快樂王子》的經典敘事。我將象徵最高權力的熾天使形象轉化為監控者，透過演算法分析生物行為並量化幸福值，以此審視生命價值。在童話的溫柔外衣下，探討當情感成為數據，生存的價值該如何被重新定義。"}
@@ -98,7 +98,7 @@ export function ProjectGear() {
           </div>
 
           <div className="w-full border-t border-black/10 pt-4 mb-8">
-            <h3 className="font-['Geist_Mono'] text-sm uppercase tracking-[2px] opacity-50">
+            <h3 className="font-['Mozilla_Text'] text-sm uppercase tracking-[2px] opacity-50">
               {lang === 'ENG' ? 'Visual Elements' : '視覺元素'}
             </h3>
           </div>
@@ -214,7 +214,7 @@ export function ProjectGear() {
               <ChevronRight size={48} strokeWidth={1} />
             </button>
 
-            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/50 font-['Geist_Mono'] text-sm tracking-widest">
+            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/50 font-['Mozilla_Text'] text-sm tracking-widest">
               {lightboxIndex === 'cover' ? '0' : lightboxIndex !== null ? lightboxIndex + 1 : ''} / {media.length}
             </div>
           </motion.div>

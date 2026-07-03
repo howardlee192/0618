@@ -40,7 +40,7 @@ export function ProjectEndowing() {
       <div className="flex flex-col md:flex-row gap-10 md:gap-20 mb-20">
         <div className="w-full md:w-1/3 md:sticky md:top-[100px] self-start">
           <div className="flex justify-between items-start mb-8 md:mb-12">
-            <Link to="/personal" className="inline-flex items-center gap-1 hover:opacity-50 transition-opacity font-['Geist_Mono'] text-xs uppercase tracking-[1px]">
+            <Link to="/personal" className="inline-flex items-center gap-1 hover:opacity-50 transition-opacity font-['Mozilla_Text'] text-xs uppercase tracking-[1px]">
               <ChevronLeft size={16} className="-ml-1" />
               Back
             </Link>
@@ -51,7 +51,7 @@ export function ProjectEndowing() {
             {lang === 'ENG' ? 'The Endowing of Objects' : '物體的賦予'}
           </h1>
           
-          <div className="flex flex-col gap-8 font-['Geist_Mono'] text-base uppercase tracking-[1px] mb-8 pb-8 border-b border-black/10">
+          <div className="flex flex-col gap-8 font-['Mozilla_Text'] text-base uppercase tracking-[1px] mb-8 pb-8 border-b border-black/10">
             <div className="flex">
               <span className="opacity-50 w-28 shrink-0 md:w-32">{lang === 'ENG' ? 'Year' : '年份'}</span>
               <span>2025</span>
@@ -70,7 +70,7 @@ export function ProjectEndowing() {
             </div>
           </div>
 
-          <div className={`font-['Geist_Mono'] opacity-80 text-base ${lang === 'ENG' ? 'leading-[1.8]' : 'leading-[2.2] tracking-[0.08em]'}`}>
+          <div className={`font-['Mozilla_Text'] opacity-80 text-base ${lang === 'ENG' ? 'leading-[1.8]' : 'leading-[2.2] tracking-[0.08em]'}`}>
             {lang === 'ENG' 
               ? "The cover’s organic design explores the 'redefinition of objects,' reflecting how artists deconstruct and transform their essence. From Eliasson’s light perception and Luo Yi-Chun’s material translation, to the creative repurposing by LuxuryLogico and Czech designers, this Zine examines how art dismantles an object's original function. It documents how the viewer's perspective grants these objects new meaning and resonance in the present moment."
               : "圖文封面圍繞「重新定義物體」的核心以及帶有有機線條和造型，去傳達出物體被人賦予的。我透過紀錄藝術家如何拆解並轉化物件本質——從 Eliasson 的光影感官、羅懿君的材質轉譯，到豪華朗機工與捷克設計對舊料的賦予——反思藝術如何打破物體既有的功能。"}
@@ -97,7 +97,7 @@ export function ProjectEndowing() {
           </div>
 
           <div className="w-full border-t border-black/10 pt-4 mb-8">
-            <h3 className="font-['Geist_Mono'] text-sm uppercase tracking-[2px] opacity-50">
+            <h3 className="font-['Mozilla_Text'] text-sm uppercase tracking-[2px] opacity-50">
               {lang === 'ENG' ? 'Zine Pages' : '內頁設計'}
             </h3>
           </div>
@@ -183,7 +183,7 @@ export function ProjectEndowing() {
               <ChevronRight size={48} strokeWidth={1} />
             </button>
 
-            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/50 font-['Geist_Mono'] text-sm tracking-widest">
+            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/50 font-['Mozilla_Text'] text-sm tracking-widest">
               {lightboxIndex + 1} / {images.length}
             </div>
           </motion.div>

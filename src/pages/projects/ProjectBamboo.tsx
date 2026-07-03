@@ -36,7 +36,7 @@ export function ProjectBamboo() {
         {/* Left Column: Metadata */}
         <div className="w-full md:w-1/3 md:sticky md:top-[100px] self-start">
           <div className="flex justify-between items-start mb-8 md:mb-12">
-            <Link to="/personal" className="inline-flex items-center gap-1 hover:opacity-50 transition-opacity font-['Geist_Mono'] text-xs uppercase tracking-[1px]">
+            <Link to="/personal" className="inline-flex items-center gap-1 hover:opacity-50 transition-opacity font-['Mozilla_Text'] text-xs uppercase tracking-[1px]">
               <ChevronLeft size={16} className="-ml-1" />
               Back
             </Link>
@@ -47,7 +47,7 @@ export function ProjectBamboo() {
             {lang === 'ENG' ? 'Cantonese Bamboo Theatre' : '神功戲棚'}
           </h1>
 
-          <div className="flex flex-col gap-6 font-['Geist_Mono'] text-base uppercase tracking-[1px] mb-8 pb-8 border-b border-black/10">
+          <div className="flex flex-col gap-6 font-['Mozilla_Text'] text-base uppercase tracking-[1px] mb-8 pb-8 border-b border-black/10">
             <div className="flex">
               <span className="opacity-50 w-28 shrink-0 md:w-32">{lang === 'ENG' ? 'Year' : '年份'}</span>
               <span>2026</span>
@@ -66,7 +66,7 @@ export function ProjectBamboo() {
             </div>
           </div>
 
-          <div className={`font-['Geist_Mono'] opacity-80 text-base ${lang === 'ENG' ? 'leading-[1.8]' : 'leading-[2.2] tracking-[0.08em]'}`}>
+          <div className={`font-['Mozilla_Text'] opacity-80 text-base ${lang === 'ENG' ? 'leading-[1.8]' : 'leading-[2.2] tracking-[0.08em]'}`}>
             {lang === 'ENG'
               ? "Bamboo theatres are not only carriers of Hong Kong's traditions but also the most vital dynamic landscapes on the streets. This cultural poster design calls for society's attention to bamboo theatre culture, allowing it to escape the old memories of museums and regain contemporary vitality. Visually, I modularized and simplified the bamboo structure, combining it with its iconic vibrant color palette. Reinterpreted through modern gradient mapping and form, it distills a strong Cantonese opera imagery and contemporary tension within a unified visual tone."
               : "竹製戲棚不僅是香港傳統的載體，更是街頭最具生命力的動態地景。本文化海報設計呼籲社會對戲棚文化的重視，讓其擺脫博物館的舊記憶，重現當代活力。視覺上，我將戲棚結構進行模組化簡化，結合其標誌性的鮮豔色調，透過現代漸變映射形式和造型重新詮釋，在統一的視覺基調中，凝練出濃厚的粵劇意象與當代張力。"}
@@ -85,7 +85,7 @@ export function ProjectBamboo() {
 
           {/* Title separator */}
           <div className="w-full border-t border-black/10 pt-4 mb-8">
-            <h3 className="font-['Geist_Mono'] text-sm uppercase tracking-[2px] opacity-50">
+            <h3 className="font-['Mozilla_Text'] text-sm uppercase tracking-[2px] opacity-50">
               {lang === 'ENG' ? 'Visual Elements & Process' : '視覺元素與過程'}
             </h3>
           </div>
@@ -167,7 +167,7 @@ export function ProjectBamboo() {
               <ChevronRight size={48} strokeWidth={1} />
             </button>
 
-            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/50 font-['Geist_Mono'] text-sm tracking-widest">
+            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/50 font-['Mozilla_Text'] text-sm tracking-widest">
               {lightboxIndex + 1} / {images.length}
             </div>
           </motion.div>

@@ -51,7 +51,7 @@ export function ProjectFrameByFrame() {
       <div className="flex flex-col md:flex-row gap-10 md:gap-20 mb-20">
         <div className="w-full md:w-1/3 md:sticky md:top-[100px] self-start">
           <div className="flex justify-between items-start mb-8 md:mb-12">
-            <Link to="/personal" className="inline-flex items-center gap-1 hover:opacity-50 transition-opacity font-['Geist_Mono'] text-xs uppercase tracking-[1px]">
+            <Link to="/personal" className="inline-flex items-center gap-1 hover:opacity-50 transition-opacity font-['Mozilla_Text'] text-xs uppercase tracking-[1px]">
               <ChevronLeft size={16} className="-ml-1" />
               Back
             </Link>
@@ -62,7 +62,7 @@ export function ProjectFrameByFrame() {
             Frame by Frame
           </h1>
           
-          <div className="flex flex-col gap-6 font-['Geist_Mono'] text-base uppercase tracking-[1px] mb-8 pb-8 border-b border-black/10">
+          <div className="flex flex-col gap-6 font-['Mozilla_Text'] text-base uppercase tracking-[1px] mb-8 pb-8 border-b border-black/10">
             <div className="flex">
               <span className="opacity-50 w-28 shrink-0 md:w-32">{lang === 'ENG' ? 'Year' : '年份'}</span>
               <span>2025</span>
@@ -81,7 +81,7 @@ export function ProjectFrameByFrame() {
             </div>
           </div>
 
-          <div className={`font-['Geist_Mono'] opacity-80 text-base whitespace-pre-wrap ${lang === 'ENG' ? 'leading-[1.8]' : 'leading-[2.2] tracking-[0.08em]'}`}>
+          <div className={`font-['Mozilla_Text'] opacity-80 text-base whitespace-pre-wrap ${lang === 'ENG' ? 'leading-[1.8]' : 'leading-[2.2] tracking-[0.08em]'}`}>
             {lang === 'ENG' 
               ? "My parents' frames, once constraints, are now the nourishment for my work. I have learned to extend these frames, transforming regrets into new possibilities. A frame is not a cage, but a dimension of flexibility. This journey—shuttling between 3D and 2D—allows me to redefine the narrative bestowed upon me. Through this project, I also realized the need to further sharpen my material expertise and execution judgment."
               : "父母的框架曾是我的束縛，卻也成為我創作的養分。我學會將框架鬆綁、延伸，讓遺憾轉化為新的可能性，創作即是我與這些框架的和解。框架並非囚籠，而是賦予我彈性與維度的空間，讓我能在承載過往的同時，開啟自身的敘事。這是一場從立體裝置到平面維度的穿梭，在不同維度的交疊中，我重新定義了被賦予的形狀。\n\n透過這次專題意識到對媒材不熟悉和執行判斷需要加強。"}
@@ -115,7 +115,7 @@ export function ProjectFrameByFrame() {
       </div>
 
       {/* Main Process Separator */}
-      <div className="border-t border-black/10 pt-10 mb-10 text-center font-['Geist_Mono'] text-sm tracking-[2px] opacity-40 uppercase">
+      <div className="border-t border-black/10 pt-10 mb-10 text-center font-['Mozilla_Text'] text-sm tracking-[2px] opacity-40 uppercase">
         {lang === 'ENG' ? 'Main Process' : '製作過程'}
       </div>
 
@@ -133,7 +133,7 @@ export function ProjectFrameByFrame() {
       </div>
 
       {/* Second Process Separator */}
-      <div className="border-t border-black/10 pt-10 mb-10 text-center font-['Geist_Mono'] text-sm tracking-[2px] opacity-40 uppercase">
+      <div className="border-t border-black/10 pt-10 mb-10 text-center font-['Mozilla_Text'] text-sm tracking-[2px] opacity-40 uppercase">
         {lang === 'ENG' ? 'Ideation & Alternatives' : '發想與棄案'}
       </div>
 
@@ -205,7 +205,7 @@ export function ProjectFrameByFrame() {
               <ChevronRight size={48} />
             </button>
             
-            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/50 font-['Geist_Mono'] tracking-[2px] text-sm">
+            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/50 font-['Mozilla_Text'] tracking-[2px] text-sm">
               {lightboxIndex + 1} / {images.length}
             </div>
           </motion.div>

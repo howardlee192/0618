@@ -96,19 +96,19 @@ export function Home() {
             className="absolute bottom-[15vh] md:bottom-12 right-0 md:right-4 flex flex-col items-end gap-2 pointer-events-none z-10"
           >
             <div className="relative h-[1.5rem] w-full flex justify-end items-center">
-              <div className="absolute right-0 font-['Geist_Mono'] text-[0.75rem] md:text-xs uppercase tracking-[1px] whitespace-nowrap animate-hint-eng-40 opacity-0">
-                {isTouch ? '↓ [ Swipe down to view intro ]' : '↑ [ Scroll up to view intro ]'}
+              <div className="absolute right-0 font-['Mozilla_Text'] text-[0.75rem] md:text-xs uppercase tracking-[1px] whitespace-nowrap animate-hint-eng-40 opacity-0">
+                {isTouch ? '↓\uFE0E [ Swipe down to view intro ]' : '↑\uFE0E [ Scroll up to view intro ]'}
               </div>
               <div className="absolute right-0 font-['Swei_Bow_Sans'] text-[0.8rem] md:text-[0.9rem] tracking-[1px] whitespace-nowrap animate-hint-chn-40 opacity-0">
-                {isTouch ? '↓ [ 往下滑動返回前導頁面 ]' : '↑ [ 再次往上滑動返回前導頁面 ]'}
+                {isTouch ? '↓\uFE0E [ 往下滑動返回前導頁面 ]' : '↑\uFE0E [ 再次往上滑動返回前導頁面 ]'}
               </div>
             </div>
             <div className="relative h-[1.5rem] w-full flex justify-end items-center">
-              <div className="absolute right-0 font-['Geist_Mono'] text-[0.85rem] md:text-sm uppercase tracking-[1px] whitespace-nowrap animate-hint-eng-80 opacity-0">
-                {isTouch ? '↖ [ Tap to reveal highlight ]' : '↖ [ Hover to reveal highlight ]'}
+              <div className="absolute right-0 font-['Mozilla_Text'] text-[0.85rem] md:text-sm uppercase tracking-[1px] whitespace-nowrap animate-hint-eng-80 opacity-0">
+                {isTouch ? '↖\uFE0E [ Tap to reveal highlight ]' : '↖\uFE0E [ Hover to reveal highlight ]'}
               </div>
               <div className="absolute right-0 font-['Swei_Bow_Sans'] text-[0.9rem] md:text-[1rem] tracking-[1px] whitespace-nowrap animate-hint-chn-80 opacity-0">
-                {isTouch ? '↖ [ 點擊文字預覽精華影像 ]' : '↖ [ 滑動游標預覽精華影像 ]'}
+                {isTouch ? '↖\uFE0E [ 點擊文字預覽精華影像 ]' : '↖\uFE0E [ 滑動游標預覽精華影像 ]'}
               </div>
             </div>
           </motion.div>
@@ -137,6 +137,12 @@ export function Home() {
             to="/work" 
             onMouseEnter={() => setHoveredNav('work')}
             onMouseLeave={() => setHoveredNav(null)}
+            onClick={(e) => {
+              if (isTouch && hoveredNav !== 'work') {
+                e.preventDefault();
+                setHoveredNav('work');
+              }
+            }}
             className="group flex flex-col md:flex-row md:items-center justify-between py-8 md:py-12 border-b border-black/10"
           >
             <span className="font-['Space_Grotesk'] text-[3.5rem] md:text-[6rem] uppercase tracking-[-2px] leading-none group-hover:opacity-50 transition-opacity">
@@ -163,14 +169,14 @@ export function Home() {
                       animate={{ opacity: 1 }}
                       exit={{ opacity: 0 }}
                       transition={{ duration: 0.3 }}
-                      className="font-['Geist_Mono'] uppercase tracking-[1.5px]"
+                      className="font-['Mozilla_Text'] uppercase tracking-[1.5px]"
                     >
                       Selected works reflecting my design approach
                     </motion.span>
                   )}
                 </AnimatePresence>
               </div>
-              <span className="hidden md:block font-['Geist_Mono'] text-2xl md:text-4xl group-hover:animate-flicker">
+              <span className="hidden md:block font-['Mozilla_Text'] text-2xl md:text-4xl group-hover:animate-flicker">
                 ↗
               </span>
             </div>
@@ -179,6 +185,12 @@ export function Home() {
             to="/personal" 
             onMouseEnter={() => setHoveredNav('personal')}
             onMouseLeave={() => setHoveredNav(null)}
+            onClick={(e) => {
+              if (isTouch && hoveredNav !== 'personal') {
+                e.preventDefault();
+                setHoveredNav('personal');
+              }
+            }}
             className="group flex flex-col md:flex-row md:items-center justify-between py-8 md:py-12 border-b border-black/10"
           >
             <span className="font-['Space_Grotesk'] text-[3.5rem] md:text-[6rem] uppercase tracking-[-2px] leading-none group-hover:opacity-50 transition-opacity">
@@ -205,14 +217,14 @@ export function Home() {
                       animate={{ opacity: 1 }}
                       exit={{ opacity: 0 }}
                       transition={{ duration: 0.3 }}
-                      className="font-['Geist_Mono'] uppercase tracking-[1.5px]"
+                      className="font-['Mozilla_Text'] uppercase tracking-[1.5px]"
                     >
                       Side projects fueled by pure passion
                     </motion.span>
                   )}
                 </AnimatePresence>
               </div>
-              <span className="hidden md:block font-['Geist_Mono'] text-2xl md:text-4xl group-hover:animate-flicker">
+              <span className="hidden md:block font-['Mozilla_Text'] text-2xl md:text-4xl group-hover:animate-flicker">
                 ↗
               </span>
             </div>
@@ -221,6 +233,12 @@ export function Home() {
             to="/about" 
             onMouseEnter={() => setHoveredNav('about')}
             onMouseLeave={() => setHoveredNav(null)}
+            onClick={(e) => {
+              if (isTouch && hoveredNav !== 'about') {
+                e.preventDefault();
+                setHoveredNav('about');
+              }
+            }}
             className="group flex flex-col md:flex-row md:items-center justify-between py-8 md:py-12 border-b border-black/10"
           >
             <span className="font-['Space_Grotesk'] text-[3.5rem] md:text-[6rem] uppercase tracking-[-2px] leading-none group-hover:opacity-50 transition-opacity">
@@ -247,14 +265,14 @@ export function Home() {
                       animate={{ opacity: 1 }}
                       exit={{ opacity: 0 }}
                       transition={{ duration: 0.3 }}
-                      className="font-['Geist_Mono'] uppercase tracking-[1.5px]"
+                      className="font-['Mozilla_Text'] uppercase tracking-[1.5px]"
                     >
                       Beyond the pixels, who I am
                     </motion.span>
                   )}
                 </AnimatePresence>
               </div>
-              <span className="hidden md:block font-['Geist_Mono'] text-2xl md:text-4xl group-hover:animate-flicker">
+              <span className="hidden md:block font-['Mozilla_Text'] text-2xl md:text-4xl group-hover:animate-flicker">
                 ↗
               </span>
             </div>

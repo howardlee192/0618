@@ -20,7 +20,7 @@ export function ComingSoon() {
   return (
     <div className="min-h-[80vh] flex flex-col items-center justify-center gap-4 relative pt-[40px] md:pt-[60px]">
       <div className="absolute top-[40px] md:top-[60px] left-0">
-        <Link to="/" className="inline-flex items-center gap-1 hover:opacity-50 transition-opacity font-['Geist_Mono'] text-xs uppercase tracking-[1px]">
+        <Link to="/" className="inline-flex items-center gap-1 hover:opacity-50 transition-opacity font-['Mozilla_Text'] text-xs uppercase tracking-[1px]">
           <ChevronLeft size={16} className="-ml-1" />
           Back
         </Link>
@@ -28,7 +28,7 @@ export function ComingSoon() {
       <h1 className="font-['Space_Grotesk'] text-[clamp(2.5rem,6vw,4rem)] tracking-[-2px] uppercase">
         Coming Soon
       </h1>
-      <p className="font-['Geist_Mono'] text-sm md:text-base tracking-[1px] opacity-50 uppercase min-h-[1.5rem] flex items-center justify-center">
+      <p className="font-['Mozilla_Text'] text-sm md:text-base tracking-[1px] opacity-50 uppercase min-h-[1.5rem] flex items-center justify-center">
         <ScrambleText text={displayLang === 'ENG' ? 'Under Construction' : '頁 面 準 備 中'} />
       </p>
     </div>

@@ -49,7 +49,7 @@ export function ProjectEggplanet() {
       <div className="flex flex-col md:flex-row gap-10 md:gap-20 mb-20">
         <div className="w-full md:w-1/3 md:sticky md:top-[100px] self-start">
           <div className="flex justify-between items-start mb-8 md:mb-12">
-            <Link to="/personal" className="inline-flex items-center gap-1 hover:opacity-50 transition-opacity font-['Geist_Mono'] text-xs uppercase tracking-[1px]">
+            <Link to="/personal" className="inline-flex items-center gap-1 hover:opacity-50 transition-opacity font-['Mozilla_Text'] text-xs uppercase tracking-[1px]">
               <ChevronLeft size={16} className="-ml-1" />
               Back
             </Link>
@@ -60,7 +60,7 @@ export function ProjectEggplanet() {
             {lang === 'ENG' ? 'Eggbys Planet' : '蛋寶星球記'}
           </h1>
           
-          <div className="flex flex-col gap-8 font-['Geist_Mono'] text-base uppercase tracking-[1px] mb-8 pb-8 border-b border-black/10">
+          <div className="flex flex-col gap-8 font-['Mozilla_Text'] text-base uppercase tracking-[1px] mb-8 pb-8 border-b border-black/10">
             <div className="flex">
               <span className="opacity-50 w-28 shrink-0 md:w-32">{lang === 'ENG' ? 'Year' : '年份'}</span>
               <span>2025</span>
@@ -75,7 +75,7 @@ export function ProjectEggplanet() {
             </div>
           </div>
 
-          <div className={`font-['Geist_Mono'] opacity-80 text-base ${lang === 'ENG' ? 'leading-[1.8]' : 'leading-[2.2] tracking-[0.08em]'}`}>
+          <div className={`font-['Mozilla_Text'] opacity-80 text-base ${lang === 'ENG' ? 'leading-[1.8]' : 'leading-[2.2] tracking-[0.08em]'}`}>
             {lang === 'ENG' 
               ? "Evolving from 'Danbao,' 'Eggbys' explores soft cosmic beings who view being consumed as an act of sharing. This project revisits the tactile joy of my ceramics background while experimenting with world-building. Though less polished than my previous work, this piece captures my deep resonance with the characters—finding meaning in their desire to engage with the world, be tasted, and be remembered."
               : "這次將組內討論的「蛋寶」進化為「Eggbys」，是一次概念的延伸。我把蛋星人設定為信仰「不被改寫」的宇宙生命，並將「被烹飪」視作一種分享。這項創作除了是回味陶瓷課的手感，也是在試著像公仔藝術家那樣，透過佈置傳達世界觀。雖然這件作品與過去相比，在完整度上或許還有努力空間，但這些過程正是我對「Eggbys」產生的共鳴——在與世界互動、渴望被品嚐與記住的過程中，去確認彼此存在的完整。"}
@@ -106,7 +106,7 @@ export function ProjectEggplanet() {
           </div>
 
           <div className="w-full border-t border-black/10 pt-4 mb-8">
-            <h3 className="font-['Geist_Mono'] text-sm uppercase tracking-[2px] opacity-50">
+            <h3 className="font-['Mozilla_Text'] text-sm uppercase tracking-[2px] opacity-50">
               {lang === 'ENG' ? 'Gallery & Process' : '作品與過程'}
             </h3>
           </div>
@@ -180,7 +180,7 @@ export function ProjectEggplanet() {
               <ChevronRight size={48} strokeWidth={1} />
             </button>
 
-            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/50 font-['Geist_Mono'] text-sm tracking-widest">
+            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/50 font-['Mozilla_Text'] text-sm tracking-widest">
               {lightboxIndex + 1} / {images.length}
             </div>
           </motion.div>

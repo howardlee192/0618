@@ -42,7 +42,7 @@ export function ProjectDrawing() {
       <div className="flex flex-col md:flex-row gap-10 md:gap-20 mb-20">
         <div className="w-full md:w-1/3 md:sticky md:top-[100px] self-start">
           <div className="flex justify-between items-start mb-8 md:mb-12">
-            <Link to="/personal" className="inline-flex items-center gap-1 hover:opacity-50 transition-opacity font-['Geist_Mono'] text-xs uppercase tracking-[1px]">
+            <Link to="/personal" className="inline-flex items-center gap-1 hover:opacity-50 transition-opacity font-['Mozilla_Text'] text-xs uppercase tracking-[1px]">
               <ChevronLeft size={16} className="-ml-1" />
               Back
             </Link>
@@ -53,7 +53,7 @@ export function ProjectDrawing() {
             {lang === 'ENG' ? 'Life Drawing' : '人體素描'}
           </h1>
 
-          <div className="flex flex-col gap-8 font-['Geist_Mono'] text-base uppercase tracking-[1px] mb-8 pb-8 border-b border-black/10">
+          <div className="flex flex-col gap-8 font-['Mozilla_Text'] text-base uppercase tracking-[1px] mb-8 pb-8 border-b border-black/10">
             <div className="flex">
               <span className="opacity-50 w-28 shrink-0 md:w-32">{lang === 'ENG' ? 'Year' : '年份'}</span>
               <span>2025</span>
@@ -72,7 +72,7 @@ export function ProjectDrawing() {
             </div>
           </div>
 
-          <div className={`font-['Geist_Mono'] opacity-80 text-base ${lang === 'ENG' ? 'leading-[1.8]' : 'leading-[2.2] tracking-[0.08em]'}`}>
+          <div className={`font-['Mozilla_Text'] opacity-80 text-base ${lang === 'ENG' ? 'leading-[1.8]' : 'leading-[2.2] tracking-[0.08em]'}`}>
             {lang === 'ENG'
               ? "I found myself bored in my Wednesday class, so I wandered into a design drawing session in early December just to de-stress. I was surprised when the instructor, Ms. Kristy Chu, specifically pointed out my work. Using A2-sized paper, I captured the model and the vibe of the room through my own creative lens, turning a simple sketching session into a moment of pure expression."
               : "上學期週三的課太無聊，十二月頭跑去設計繪畫旁聽並舒壓，很意外被曲老師點出。選用四開大小的畫紙，用自己屬於創作語彙，去呈現眼前模特與並感受環境中的意象。"}
@@ -109,7 +109,7 @@ export function ProjectDrawing() {
           </div>
 
           <div className="w-full border-t border-black/10 pt-4 mb-8">
-            <h3 className="font-['Geist_Mono'] text-sm uppercase tracking-[2px] opacity-50">
+            <h3 className="font-['Mozilla_Text'] text-sm uppercase tracking-[2px] opacity-50">
               {lang === 'ENG' ? 'Sketches & Process' : '素描作品與過程'}
             </h3>
           </div>
@@ -195,7 +195,7 @@ export function ProjectDrawing() {
               <ChevronRight size={48} strokeWidth={1} />
             </button>
 
-            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/50 font-['Geist_Mono'] text-sm tracking-widest">
+            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/50 font-['Mozilla_Text'] text-sm tracking-widest">
               {lightboxIndex + 1} / {images.length}
             </div>
           </motion.div>
