@@ -131,8 +131,8 @@ export function Home() {
         <ProjectsGrid useBlur={true} />
       </section>
 
-      <section className="relative z-10 bg-[#F0F0F0] py-[60px] md:py-[100px] border-t border-black/10">
-        <div className="flex flex-col">
+      <section className="relative z-10 bg-[#F0F0F0] py-[60px] md:py-[100px]">
+        <div className="flex flex-col border-t border-black/10">
           <Link 
             to="/work" 
             onMouseEnter={() => !isTouch && setHoveredNav('work')}
