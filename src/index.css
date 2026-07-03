@@ -19,7 +19,7 @@
 @layer base {
   body {
     @apply bg-background text-foreground antialiased;
-    font-family: 'Geist Mono', 'Swei Bow Sans', monospace;
+    font-family: 'Mozilla Text', 'Swei Bow Sans', monospace;
   }
 }
 
@@ -32,8 +32,8 @@ h1, h2, h3 {
   font-family: 'Space Grotesk', 'Swei Bow Sans', sans-serif !important;
 }
 
-[class*="font-['Geist_Mono']"] {
-  font-family: 'Geist Mono', 'Swei Bow Sans', monospace !important;
+[class*="font-['Mozilla_Text']"] {
+  font-family: 'Mozilla Text', 'Swei Bow Sans', monospace !important;
 }
 
 .gray-box {
@@ -43,7 +43,7 @@ h1, h2, h3 {
   justify-content: center;
   color: #888;
   font-size: 0.4rem;
-  font-family: 'Geist Mono', monospace;
+  font-family: 'Mozilla Text', monospace;
   letter-spacing: 0;
   height: 0.75em;
   width: 1.5em;
