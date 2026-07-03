@@ -66,7 +66,7 @@ export function IntroScreen({ onEnter, isReturning }: { onEnter: () => void, isR
       >
         <div className="flex flex-col items-start gap-1">
           <span className="font-['Space_Grotesk',_'Swei_Bow_Sans'] tracking-[0.1em] bg-[#0A0A0A] text-[#F0F0F0] px-2 py-1 leading-none flex items-center justify-center min-h-[1.5rem]">
-            <ScrambleText text={hintLang === 'ENG' ? (isTouch ? 'TOUCH TO PLAY' : 'MOVE MOUSE TO FOCUS') : (isTouch ? '觸 碰 玩 耍' : '移 動 鼠 標 聚 焦')} />
+            <ScrambleText text={hintLang === 'ENG' ? (isTouch ? 'SLIDE TO INTERACT' : 'MOVE MOUSE TO FOCUS') : (isTouch ? '滑 動 螢 幕 任 一 處' : '移 動 鼠 標 聚 焦')} />
           </span>
         </div>
       </motion.div>
