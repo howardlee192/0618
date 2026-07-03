@@ -135,8 +135,8 @@ export function Home() {
         <div className="flex flex-col border-t border-black/10">
           <Link 
             to="/work" 
-            onMouseEnter={() => setHoveredNav('work')}
-            onMouseLeave={() => setHoveredNav(null)}
+            onMouseEnter={() => !isTouch && setHoveredNav('work')}
+            onMouseLeave={() => !isTouch && setHoveredNav(null)}
             onClick={(e) => {
               if (isTouch && hoveredNav !== 'work') {
                 e.preventDefault();
@@ -183,8 +183,8 @@ export function Home() {
           </Link>
           <Link 
             to="/personal" 
-            onMouseEnter={() => setHoveredNav('personal')}
-            onMouseLeave={() => setHoveredNav(null)}
+            onMouseEnter={() => !isTouch && setHoveredNav('personal')}
+            onMouseLeave={() => !isTouch && setHoveredNav(null)}
             onClick={(e) => {
               if (isTouch && hoveredNav !== 'personal') {
                 e.preventDefault();
@@ -231,8 +231,8 @@ export function Home() {
           </Link>
           <Link 
             to="/about" 
-            onMouseEnter={() => setHoveredNav('about')}
-            onMouseLeave={() => setHoveredNav(null)}
+            onMouseEnter={() => !isTouch && setHoveredNav('about')}
+            onMouseLeave={() => !isTouch && setHoveredNav(null)}
             onClick={(e) => {
               if (isTouch && hoveredNav !== 'about') {
                 e.preventDefault();
