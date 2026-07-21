@@ -106,8 +106,7 @@ export function ProjectsGrid({ useBlur = false }: { useBlur?: boolean }) {
             <Link to={`/project/${p.slug.current}`} className="group flex flex-col cursor-pointer min-w-0 w-full">
               <motion.div variants={itemVariant} className="mb-[15px] min-w-0 w-full">
                 <h3 
-                  className="font-['Space_Grotesk'] text-[7vw] sm:text-[1.8rem] md:text-[2.2rem] mb-[5px] tracking-[-1px] -ml-[0.02em] font-normal leading-[1.15] group-hover:opacity-60 transition-opacity max-w-full"
-                  style={{ wordBreak: 'break-word', overflowWrap: 'anywhere' }}
+                  className="font-['Space_Grotesk'] text-[7vw] sm:text-[1.8rem] md:text-[2.2rem] mb-[5px] tracking-[-1px] -ml-[0.02em] font-normal leading-[1.15] group-hover:opacity-60 transition-opacity max-w-full break-all md:break-words whitespace-normal"
                 >
                   {lang === 'CHN' ? renderMixedTitle(titleZh) : titleEn}
                 </h3>
