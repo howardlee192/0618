@@ -5,10 +5,22 @@ import { HoverReveal } from "../components/ui/HoverReveal";
 import { Link } from "react-router-dom";
 import { LanguageToggle } from "../components/ui/LanguageToggle";
 import { ProjectsGrid } from "../components/ui/ProjectsGrid";
+import { client } from "../lib/sanity";
 
 export function Home() {
   useEffect(() => { document.title = "Howard Lee - Home"; }, []);
   const [hoveredNav, setHoveredNav] = useState<string | null>(null);
+  const [highlightsData, setHighlightsData] = useState<any[]>([]);
+
+  useEffect(() => {
+    client.fetch(`*[_type == "home"][0].highlights[]{
+      ...,
+      images[]{ asset->{url} },
+      videoFile{ asset->{url} }
+    }`).then(data => {
+      if (data) setHighlightsData(data);
+    }).catch(console.error);
+  }, []);
 
   useEffect(() => {
     let touchStartY = 0;
@@ -60,6 +72,27 @@ export function Home() {
     setIsTouch(('ontouchstart' in window) || navigator.maxTouchPoints > 0);
   }, []);
 
+  const getHighlightProps = (word: string, fallbackMediaType: 'slideshow'|'video', fallbackMedia: any, fallbackSpeedMs: number) => {
+    const data = highlightsData.find(h => h.word === word);
+    if (data) {
+      if (data.mediaType === 'slideshow' && data.images) {
+        return {
+          images: data.images.map((img: any) => img.asset.url),
+          intervalMs: (data.slideshowSpeed || 6) * 1000
+        };
+      } else if (data.mediaType === 'video' && data.videoFile?.asset?.url) {
+        return {
+          videoSrc: data.videoFile.asset.url
+        };
+      }
+    }
+    if (fallbackMediaType === 'slideshow') {
+      return { images: fallbackMedia, intervalMs: fallbackSpeedMs };
+    } else {
+      return { videoSrc: fallbackMedia };
+    }
+  };
+
   return (
     <>
       <div ref={heroRef} className="relative z-0 min-h-[95vh] flex flex-col justify-start pt-[2vh] md:pt-[4vh]">
@@ -67,23 +100,23 @@ export function Home() {
           <div className="flex-1 flex flex-col justify-start items-start">
             <div className="font-['Space_Grotesk'] text-[clamp(1.8rem,4.5vw,4.95rem)] leading-[0.95] tracking-[-2px] max-w-[80%] -ml-[0.04em]">
               <div className="flex items-center flex-wrap uppercase gap-10 md:gap-20">
-                <HoverReveal images={visualImages} intervalMs={600}><Text3DFlip className="bg-[#F0F0F0]" textClassName="bg-[#F0F0F0] text-[#0A0A0A]" flipTextClassName="bg-[#F0F0F0] text-[#0A0A0A]" rotateDirection="top" staggerDuration={0.03} staggerFrom="center">VISUAL</Text3DFlip></HoverReveal>
-                <HoverReveal videoSrc="/homehighlights/2.Motion/journeyhighlightloop.mp4"><Text3DFlip className="bg-[#F0F0F0]" textClassName="bg-[#F0F0F0] text-[#0A0A0A]" flipTextClassName="bg-[#F0F0F0] text-[#0A0A0A]" rotateDirection="top" staggerDuration={0.03} staggerFrom="center">MOTION</Text3DFlip></HoverReveal>
+                <HoverReveal {...getHighlightProps('VISUAL', 'slideshow', visualImages, 600)}><Text3DFlip className="bg-[#F0F0F0]" textClassName="bg-[#F0F0F0] text-[#0A0A0A]" flipTextClassName="bg-[#F0F0F0] text-[#0A0A0A]" rotateDirection="top" staggerDuration={0.03} staggerFrom="center">VISUAL</Text3DFlip></HoverReveal>
+                <HoverReveal {...getHighlightProps('MOTION', 'video', '/homehighlights/2.Motion/journeyhighlightloop.mp4', 0)}><Text3DFlip className="bg-[#F0F0F0]" textClassName="bg-[#F0F0F0] text-[#0A0A0A]" flipTextClassName="bg-[#F0F0F0] text-[#0A0A0A]" rotateDirection="top" staggerDuration={0.03} staggerFrom="center">MOTION</Text3DFlip></HoverReveal>
               </div>
               <div className="flex items-center flex-wrap uppercase mt-2 md:mt-4 gap-10 md:gap-20">
-                <HoverReveal videoSrc="/homehighlights/3.Animation/slavehighlightanimation.mp4"><Text3DFlip className="bg-[#F0F0F0]" textClassName="bg-[#F0F0F0] text-[#0A0A0A]" flipTextClassName="bg-[#F0F0F0] text-[#0A0A0A]" rotateDirection="top" staggerDuration={0.03} staggerFrom="center">ANIMATION</Text3DFlip></HoverReveal>
-                <HoverReveal videoSrc="/homehighlights/4.Interaction/worthhighlightvideo.mp4"><Text3DFlip className="bg-[#F0F0F0]" textClassName="bg-[#F0F0F0] text-[#0A0A0A]" flipTextClassName="bg-[#F0F0F0] text-[#0A0A0A]" rotateDirection="top" staggerDuration={0.03} staggerFrom="center">INTERACTION</Text3DFlip></HoverReveal>
+                <HoverReveal {...getHighlightProps('ANIMATION', 'video', '/homehighlights/3.Animation/slavehighlightanimation.mp4', 0)}><Text3DFlip className="bg-[#F0F0F0]" textClassName="bg-[#F0F0F0] text-[#0A0A0A]" flipTextClassName="bg-[#F0F0F0] text-[#0A0A0A]" rotateDirection="top" staggerDuration={0.03} staggerFrom="center">ANIMATION</Text3DFlip></HoverReveal>
+                <HoverReveal {...getHighlightProps('INTERACTION', 'video', '/homehighlights/4.Interaction/worthhighlightvideo.mp4', 0)}><Text3DFlip className="bg-[#F0F0F0]" textClassName="bg-[#F0F0F0] text-[#0A0A0A]" flipTextClassName="bg-[#F0F0F0] text-[#0A0A0A]" rotateDirection="top" staggerDuration={0.03} staggerFrom="center">INTERACTION</Text3DFlip></HoverReveal>
               </div>
               <div className="flex items-center flex-wrap uppercase mt-2 md:mt-4 gap-10 md:gap-20">
-                <HoverReveal images={personalImages} intervalMs={800}><Text3DFlip className="bg-[#F0F0F0]" textClassName="bg-[#F0F0F0] text-[#0A0A0A]" flipTextClassName="bg-[#F0F0F0] text-[#0A0A0A]" rotateDirection="top" staggerDuration={0.03} staggerFrom="center">PERSONAL</Text3DFlip></HoverReveal>
+                <HoverReveal {...getHighlightProps('PERSONAL', 'slideshow', personalImages, 800)}><Text3DFlip className="bg-[#F0F0F0]" textClassName="bg-[#F0F0F0] text-[#0A0A0A]" flipTextClassName="bg-[#F0F0F0] text-[#0A0A0A]" rotateDirection="top" staggerDuration={0.03} staggerFrom="center">PERSONAL</Text3DFlip></HoverReveal>
               </div>
               <div className="mt-12 md:mt-16 flex items-center gap-4">
                 <span>FROM</span>
-                <HoverReveal images={hkImages} intervalMs={400}><Text3DFlip className="bg-[#F0F0F0]" textClassName="bg-[#F0F0F0] text-[#0A0A0A]" flipTextClassName="bg-[#F0F0F0] text-[#0A0A0A]" rotateDirection="top" staggerDuration={0.03} staggerFrom="center">HONG KONG</Text3DFlip></HoverReveal>
+                <HoverReveal {...getHighlightProps('HONG KONG', 'slideshow', hkImages, 400)}><Text3DFlip className="bg-[#F0F0F0]" textClassName="bg-[#F0F0F0] text-[#0A0A0A]" flipTextClassName="bg-[#F0F0F0] text-[#0A0A0A]" rotateDirection="top" staggerDuration={0.03} staggerFrom="center">HONG KONG</Text3DFlip></HoverReveal>
               </div>
               <div className="mt-2 md:mt-4 flex items-center gap-4">
                 <span>BASED IN</span>
-                <HoverReveal images={twImages} intervalMs={400}><Text3DFlip className="bg-[#F0F0F0]" textClassName="bg-[#F0F0F0] text-[#0A0A0A]" flipTextClassName="bg-[#F0F0F0] text-[#0A0A0A]" rotateDirection="top" staggerDuration={0.03} staggerFrom="center">TAIWAN</Text3DFlip></HoverReveal>
+                <HoverReveal {...getHighlightProps('TAIWAN', 'slideshow', twImages, 400)}><Text3DFlip className="bg-[#F0F0F0]" textClassName="bg-[#F0F0F0] text-[#0A0A0A]" flipTextClassName="bg-[#F0F0F0] text-[#0A0A0A]" rotateDirection="top" staggerDuration={0.03} staggerFrom="center">TAIWAN</Text3DFlip></HoverReveal>
               </div>
               <div className="mt-2 md:mt-4">WORKING GLOBALLY.</div>
             </div>

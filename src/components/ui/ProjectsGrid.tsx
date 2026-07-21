@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { useLanguage } from "../../contexts/LanguageContext";
 import { staggerContainer, staggerItem, staggerItemBlur } from "../../utils/Animations";
+import { client, urlFor } from "../../lib/sanity";
 
 const renderMixedTitle = (text: string) => {
   return text.split(/([\u4e00-\u9fa5]+)/).map((part, index) => {
@@ -22,60 +23,37 @@ const renderMixedCategory = (text: string) => {
   });
 };
 
-const SlideshowPreview = ({ images, intervalMs = 600, objectPosition = "object-center" }: { images: string[], intervalMs?: number, objectPosition?: string }) => {
-  const [index, setIndex] = useState(0);
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setIndex((prev) => (prev + 1) % images.length);
-    }, intervalMs);
-    return () => clearInterval(timer);
-  }, [images.length, intervalMs]);
-
-  return (
-    <img
-      src={images[index]}
-      alt="Preview"
-      className={`w-full aspect-[4/3] object-cover block transition-transform duration-700 group-hover:scale-105 ${objectPosition}`}
-    />
-  );
-};
 
 export function ProjectsGrid({ useBlur = false }: { useBlur?: boolean }) {
   const { lang } = useLanguage();
   const itemVariant = useBlur ? staggerItemBlur : staggerItem;
 
-  const projects = [
-    {
-      title: lang === 'ENG' ? "Unsorted" : "Unsorted",
-      category: lang === 'ENG' ? "AUDIO VISUAL PERFORMANCE" : "即時音像演出",
-      link: "/personal/unsorted",
-      preview: <img src="/projects/unsorted/unsorted_cover.jpg" alt="Unsorted" className="w-full h-auto block transition-transform duration-700 group-hover:scale-105" />
-    },
-    {
-      title: lang === 'ENG' ? "Digital Twin" : "數位孿生",
-      category: lang === 'ENG' ? "MASK DESIGN / 3D ANIMATION" : "面具設計、3D動畫",
-      link: "/personal/digital-twin",
-      preview: <video src="/projects/gear/1_igpost loop8s.mp4" className="w-full h-auto block transition-transform duration-700 group-hover:scale-105 pointer-events-none" autoPlay loop muted playsInline />
-    },
-    {
-      title: lang === 'ENG' ? "The Endowing of Objects" : "物體的賦予",
-      category: lang === 'ENG' ? "EDITORIAL DESIGN" : "圖文設計",
-      link: "/personal/endowing-objects",
-      preview: <img src="/projects/endowing/book_cover.jpg" alt="The Endowing of Objects" className="w-full h-auto block transition-transform duration-700 group-hover:scale-105" />
-    },
-    {
-      title: lang === 'ENG' ? "Architectural Thesis Drawing" : "2026實踐建築系畢製作品素描",
-      category: lang === 'ENG' ? "DRAWING" : "素描",
-      link: "/personal/thesis-sketching",
-      preview: <SlideshowPreview images={['/projects/yen/drawing4cover.jpg', '/projects/yen/drawing1.jpg', '/projects/yen/drawing2.jpg', '/projects/yen/drawing3.jpg', '/projects/yen/drawing4.jpg']} intervalMs={1200} />
-    },
-    {
-      title: lang === 'ENG' ? "Who decides your needs?" : "Who decides your needs?",
-      category: lang === 'ENG' ? "POSTER DESIGN / RELATIONAL DESIGN" : "海報設計 / 關係設計",
-      link: "/personal/who-decides",
-      preview: <video src="/projects/whodecides/Postercoverloop.mp4" className="w-full h-auto block transition-transform duration-700 group-hover:scale-105 pointer-events-none" autoPlay loop muted playsInline />
-    }
-  ];
+  const [projects, setProjects] = useState<any[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    client.fetch(`*[_type == "home"][0]{
+      featuredProjects[]->{
+        title,
+        titleZh,
+        slug,
+        category,
+        medium,
+        thumbnailSize,
+        coverType,
+        coverImage,
+        coverVideoUrl,
+        coverVideoFile { asset->{url} }
+      }
+    }`).then(data => {
+      if (data && data.featuredProjects) {
+        setProjects(data.featuredProjects);
+      }
+      setIsLoading(false);
+    });
+  }, []);
+
+  if (isLoading) return <div className="min-h-[50vh]"></div>;
 
   return (
     <motion.div
@@ -83,25 +61,70 @@ export function ProjectsGrid({ useBlur = false }: { useBlur?: boolean }) {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: false, margin: "-100px" }}
-      className="columns-1 md:columns-2 lg:columns-3 gap-[30px] space-y-[30px]"
+      className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[30px] grid-flow-row-dense items-start"
     >
-      {projects.map((p, i) => (
-        <div key={i} className="break-inside-avoid mb-[30px]">
-          <Link to={p.link} className="group block">
-            <motion.div variants={itemVariant} className="mb-[15px]">
-              <h3 className="font-['Space_Grotesk'] text-[2.2rem] mb-[5px] tracking-[-1px] -ml-[0.02em] font-normal leading-none">
-                {lang === 'CHN' ? renderMixedTitle(p.title) : p.title}
-              </h3>
-              <div className="text-[0.85rem] uppercase tracking-[1px] opacity-50 font-['Mozilla_Text']">
-                {lang === 'CHN' ? renderMixedCategory(p.category) : p.category}
+      {projects.filter(p => p && p.slug).map((p, i) => {
+        const catEn = p.medium?.en || '';
+        const catZh = p.medium?.zh || '';
+
+        const titleEn = p.title || '';
+        const titleZh = p.titleZh || p.title || '';
+
+        const renderPreview = () => {
+          if (p.coverType === 'videoFile' && p.coverVideoFile?.asset?.url) {
+            return (
+              <video 
+                src={p.coverVideoFile.asset.url} 
+                className="w-full h-auto object-cover block transition-transform duration-700 group-hover:scale-105 pointer-events-none" 
+                autoPlay loop muted playsInline 
+              />
+            );
+          } else if (p.coverType === 'videoUrl' && p.coverVideoUrl) {
+            return (
+              <div className="w-full aspect-video pointer-events-none transition-transform duration-700 group-hover:scale-105 bg-[#E0E0E0]">
+                <iframe src={p.coverVideoUrl} className="w-full h-full" allow="autoplay; fullscreen; picture-in-picture" />
               </div>
-            </motion.div>
-            <motion.div variants={itemVariant} className="w-full overflow-hidden bg-[#F0F0F0]">
-              {p.preview}
-            </motion.div>
-          </Link>
-        </div>
-      ))}
+            );
+          } else if (p.coverImage) {
+            return (
+              <img 
+                src={urlFor(p.coverImage).width(800).url()} 
+                alt={titleEn} 
+                className="w-full h-auto object-cover block transition-transform duration-700 group-hover:scale-105" 
+              />
+            );
+          }
+          return null;
+        };
+
+        let gridClass = "";
+        if (p.thumbnailSize === 'tall') gridClass = "md:row-span-2 h-full";
+        if (p.thumbnailSize === 'wide') gridClass = "md:col-span-2";
+
+        return (
+          <div key={i} className={gridClass}>
+            <Link to={`/project/${p.slug.current}`} className="group block flex flex-col cursor-pointer">
+              <motion.div variants={itemVariant} className="mb-[15px]">
+                <h3 className="font-['Space_Grotesk'] text-[2.2rem] mb-[5px] tracking-[-1px] -ml-[0.02em] font-normal leading-[1.15] text-balance group-hover:opacity-60 transition-opacity">
+                  {lang === 'CHN' ? renderMixedTitle(titleZh) : titleEn}
+                </h3>
+                <div className="text-[0.85rem] uppercase tracking-[1px] opacity-50 font-['Mozilla_Text']">
+                  {lang === 'CHN' ? renderMixedCategory(catZh) : catEn}
+                </div>
+              </motion.div>
+              <motion.div variants={itemVariant} className="w-full relative bg-[#E0E0E0] overflow-hidden group">
+                {renderPreview()}
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-500 pointer-events-none" />
+                <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10">
+                  <span className="font-['Mozilla_Text'] text-white text-[0.85rem] uppercase tracking-[1px] opacity-0 group-hover:opacity-100 transition-opacity">
+                    {lang === 'ENG' ? 'Click to View' : '點擊查看'}
+                  </span>
+                </div>
+              </motion.div>
+            </Link>
+          </div>
+        );
+      })}
     </motion.div>
   );
 }

@@ -7,23 +7,13 @@ import { HomeTransition, PageTransition } from "./components/ui/PageTransitions"
 
 // Pages
 import { Home } from "./pages/Home";
-
 import { Personal } from "./pages/Personal";
 import { About } from "./pages/About";
-import { ComingSoon } from "./pages/ComingSoon";
+import { Work } from "./pages/Work";
 
-// Projects
-import { ProjectUnsorted } from "./pages/projects/ProjectUnsorted";
-import { ProjectFrameByFrame } from "./pages/projects/ProjectFrameByFrame";
-import { ProjectWhoDecides } from "./pages/projects/ProjectWhoDecides";
-import { ProjectBamboo } from "./pages/projects/ProjectBamboo";
-import { ProjectYen } from "./pages/projects/ProjectYen";
-import { ProjectEndowing } from "./pages/projects/ProjectEndowing";
-import { ProjectCulture } from "./pages/projects/ProjectCulture";
-import { ProjectGear } from "./pages/projects/ProjectGear";
-import { ProjectHorse } from "./pages/projects/ProjectHorse";
-import { ProjectDrawing } from "./pages/projects/ProjectDrawing";
-import { ProjectEggplanet } from "./pages/projects/ProjectEggplanet";
+
+// Dynamic Template
+import { ProjectTemplate } from "./pages/projects/ProjectTemplate";
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -44,19 +34,12 @@ function AnimatedRoutes() {
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<HomeTransition><Home /></HomeTransition>} />
 
-        <Route path="/work" element={<PageTransition><ComingSoon /></PageTransition>} />
+        <Route path="/work" element={<PageTransition><Work /></PageTransition>} />
         <Route path="/personal" element={<PageTransition><Personal /></PageTransition>} />
-        <Route path="/personal/unsorted" element={<PageTransition><ProjectUnsorted /></PageTransition>} />
-        <Route path="/personal/frame-by-frame" element={<PageTransition><ProjectFrameByFrame /></PageTransition>} />
-        <Route path="/personal/who-decides" element={<PageTransition><ProjectWhoDecides /></PageTransition>} />
-        <Route path="/personal/bamboo-theatre" element={<PageTransition><ProjectBamboo /></PageTransition>} />
-        <Route path="/personal/thesis-sketching" element={<PageTransition><ProjectYen /></PageTransition>} />
-        <Route path="/personal/endowing-objects" element={<PageTransition><ProjectEndowing /></PageTransition>} />
-        <Route path="/personal/culture-identity-boundary" element={<PageTransition><ProjectCulture /></PageTransition>} />
-        <Route path="/personal/digital-twin" element={<PageTransition><ProjectGear /></PageTransition>} />
-        <Route path="/personal/happy-horse-year-2026" element={<PageTransition><ProjectHorse /></PageTransition>} />
-        <Route path="/personal/life-drawing" element={<PageTransition><ProjectDrawing /></PageTransition>} />
-        <Route path="/personal/egggy-planet" element={<PageTransition><ProjectEggplanet /></PageTransition>} />
+        
+        {/* Dynamic CMS Route */}
+        <Route path="/project/:slug" element={<PageTransition><ProjectTemplate /></PageTransition>} />
+        
         <Route path="/about" element={<PageTransition><About /></PageTransition>} />
       </Routes>
     </AnimatePresence>

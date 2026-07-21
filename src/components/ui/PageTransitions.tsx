@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { IntroScreen } from "../../pages/IntroScreen";
 
-let globalIntroDone = false;
+export let globalIntroDone = false;
 
 export function HomeTransition({ children }: { children: React.ReactNode }) {
   const isReturnVisit = React.useRef(globalIntroDone).current;
@@ -29,6 +29,7 @@ export function HomeTransition({ children }: { children: React.ReactNode }) {
   }, [introDone, isReversing]);
 
   useEffect(() => {
+    window.dispatchEvent(new CustomEvent('introStatusChanged', { detail: { isIntroActive: !introDone } }));
     if (!introDone) {
       document.body.style.overflow = 'hidden';
       document.body.style.touchAction = 'none';

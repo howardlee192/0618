@@ -8,16 +8,16 @@ import { useLanguage } from "../contexts/LanguageContext";
 import { staggerContainer, staggerItem } from "../utils/Animations";
 import { client } from "../lib/sanity";
 
-export function Personal() {
+export function Work() {
   const { lang } = useLanguage();
   const [projects, setProjects] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => { 
-    document.title = "Howard Lee - Personal"; 
+    document.title = "Howard Lee - Work"; 
     window.scrollTo(0, 0);
 
-    const query = `*[_type == "project" && category in ["personal", "both"]] | order(sortOrder desc, year desc, _createdAt desc) {
+    const query = `*[_type == "project" && category in ["work", "both"]] | order(sortOrder desc, year desc, _createdAt desc) {
       _id,
       title,
       titleZh,
@@ -63,7 +63,6 @@ export function Personal() {
     }
   };
 
-  // Derive dynamic years and mediums from fetched projects
   const years = ['ALL', ...Array.from(new Set(projects.map(p => p.year).filter(Boolean)))];
   years.sort((a, b) => {
     if (a === 'ALL') return -1;
@@ -74,14 +73,12 @@ export function Personal() {
   const mediumsSet = new Set<string>();
   projects.forEach(p => {
     if (p.medium?.en) {
-      // Split by comma, slash, or Chinese enumeration comma to support multiple tags
       const tags = p.medium.en.split(/[,/、，]/).map((t: string) => t.trim()).filter(Boolean);
       tags.forEach((tag: string) => mediumsSet.add(tag.toUpperCase()));
     }
   });
   const mediums = ['ALL', ...Array.from(mediumsSet).sort()];
 
-  // Filter projects
   const filteredProjects = projects.filter(project => {
     const yearMatch = activeYear === 'ALL' || project.year === activeYear;
     
@@ -128,13 +125,11 @@ export function Personal() {
           viewport={{ once: false, margin: "-100px" }}
           className="font-['Space_Grotesk',_'Swei_Bow_Sans'] text-[3.5rem] tracking-[-1px] -ml-[0.05em] font-normal"
         >
-          {lang === 'ENG' ? 'Personal' : '個人作品'}
+          {lang === 'ENG' ? 'Work' : '工作專案'}
         </motion.h2>
       </div>
 
-      {/* Filter Accordions */}
       <div className="mb-12 md:mb-20 border-t border-b border-black/10 flex flex-col md:flex-row">
-        {/* YEAR Toggle */}
         <div className="w-full md:w-1/2 border-b md:border-b-0 md:border-r border-black/10">
           <button
             onClick={() => setOpenFilter(openFilter === 'YEAR' ? null : 'YEAR')}
@@ -170,14 +165,13 @@ export function Personal() {
           </AnimatePresence>
         </div>
 
-        {/* MEDIUM Toggle */}
         <div className="w-full md:w-1/2 pl-0 md:pl-8">
           <button
             onClick={() => setOpenFilter(openFilter === 'MEDIUM' ? null : 'MEDIUM')}
             className="w-full py-5 flex justify-between items-center pr-4 md:pr-0 hover:opacity-70 transition-opacity"
           >
             <span className="font-['Mozilla_Text'] text-sm tracking-[1px] uppercase">
-              {lang === 'ENG' ? 'Filter by Medium' : '依媒介篩選'} {activeMedium !== 'ALL' && <span className="ml-2 opacity-50">[{translateMedium(activeMedium)}]</span>}
+              {lang === 'ENG' ? 'Filter by Type' : '依種類篩選'} {activeMedium !== 'ALL' && <span className="ml-2 opacity-50">[{translateMedium(activeMedium)}]</span>}
             </span>
             <span className="font-['Mozilla_Text'] text-xl font-light">{openFilter === 'MEDIUM' ? '−' : '+'}</span>
           </button>
@@ -221,14 +215,13 @@ export function Personal() {
           filteredProjects.map((project) => {
             const title = lang === 'ENG' ? project.title : (project.titleZh || project.title);
             
-            // Map thumbnailSize to classes
             let gridClass = "";
             if (project.thumbnailSize === 'tall') gridClass = "md:row-span-2 h-full";
             if (project.thumbnailSize === 'wide') gridClass = "md:col-span-2";
 
             return (
               <div key={project._id} className={gridClass}>
-                <Link to={`/project/${project.slug?.current}`} state={{ from: 'personal' }} className="block group cursor-pointer flex flex-col">
+                <Link to={`/project/${project.slug?.current}`} state={{ from: 'work' }} className="block group cursor-pointer flex flex-col">
                   <motion.div variants={staggerItem} className="mb-[15px]">
                     <h3 className="font-['Space_Grotesk'] text-[2.2rem] mb-[5px] tracking-[-1px] -ml-[0.02em] font-normal leading-[1.15] text-balance group-hover:opacity-60 transition-opacity">
                       {title}

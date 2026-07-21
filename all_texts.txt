@@ -1,0 +1,1153 @@
+src/pages/projects/ProjectBamboo.tsx-
+src/pages/projects/ProjectBamboo.tsx-  useEffect(() => {
+src/pages/projects/ProjectBamboo.tsx:    document.title = lang === 'ENG' ? "Howard Lee - Cantonese Bamboo Theatre" : "Howard Lee - 神功戲棚";
+src/pages/projects/ProjectBamboo.tsx-  }, [lang]);
+src/pages/projects/ProjectBamboo.tsx-
+src/pages/projects/ProjectBamboo.tsx-  const images = [
+src/pages/projects/ProjectBamboo.tsx-    { src: '/projects/bamboo/poster_cover.jpg', alt: 'Bamboo Theatre Cover' },
+src/pages/projects/ProjectBamboo.tsx-    { src: '/projects/bamboo/realscene1.jpg', alt: 'Realscene 1' },
+src/pages/projects/ProjectBamboo.tsx-    { src: '/projects/bamboo/realscene2.jpg', alt: 'Realscene 2' },
+src/pages/projects/ProjectBamboo.tsx-    { src: '/projects/bamboo/realscene3.jpg', alt: 'Realscene 3' },
+src/pages/projects/ProjectBamboo.tsx-    { src: '/projects/bamboo/realscene4.jpg', alt: 'Realscene 4' },
+src/pages/projects/ProjectBamboo.tsx-    { src: '/projects/bamboo/realscene5.jpg', alt: 'Realscene 5' },
+src/pages/projects/ProjectBamboo.tsx-    { src: '/projects/bamboo/realscene7.jpg', alt: 'Realscene 7' },
+src/pages/projects/ProjectBamboo.tsx-    { src: '/projects/bamboo/process1.jpg', alt: 'Process 1' },
+src/pages/projects/ProjectBamboo.tsx-    { src: '/projects/bamboo/process2.jpg', alt: 'Process 2' },
+src/pages/projects/ProjectBamboo.tsx-    { src: '/projects/bamboo/process3.jpg', alt: 'Process 3' }
+src/pages/projects/ProjectBamboo.tsx-  ];
+src/pages/projects/ProjectBamboo.tsx-
+--
+src/pages/projects/ProjectBamboo.tsx-          </div>
+src/pages/projects/ProjectBamboo.tsx-
+src/pages/projects/ProjectBamboo.tsx:          <h1 className={`font-['Space_Grotesk'] ${lang === 'ENG' ? 'text-[2.5rem] md:text-[3rem]' : 'text-[3rem] md:text-[3.5rem]'} leading-[1.2] tracking-[-2px] mb-16 md:mb-20 -ml-[0.04em]`}>
+src/pages/projects/ProjectBamboo.tsx:            {lang === 'ENG' ? 'Cantonese Bamboo Theatre' : '神功戲棚'}
+src/pages/projects/ProjectBamboo.tsx-          </h1>
+src/pages/projects/ProjectBamboo.tsx-
+src/pages/projects/ProjectBamboo.tsx-          <div className="flex flex-col gap-6 font-['Mozilla_Text'] text-base uppercase tracking-[1px] mb-8 pb-8 border-b border-black/10">
+src/pages/projects/ProjectBamboo.tsx-            <div className="flex">
+src/pages/projects/ProjectBamboo.tsx:              <span className="opacity-50 w-28 shrink-0 md:w-32">{lang === 'ENG' ? 'Year' : '年份'}</span>
+src/pages/projects/ProjectBamboo.tsx-              <span>2026</span>
+src/pages/projects/ProjectBamboo.tsx-            </div>
+src/pages/projects/ProjectBamboo.tsx-            <div className="flex">
+src/pages/projects/ProjectBamboo.tsx:              <span className="opacity-50 w-28 shrink-0 md:w-32">{lang === 'ENG' ? 'Medium' : '媒介'}</span>
+src/pages/projects/ProjectBamboo.tsx:              <span>{lang === 'ENG' ? 'Graphic Design' : '平面設計'}</span>
+src/pages/projects/ProjectBamboo.tsx-            </div>
+src/pages/projects/ProjectBamboo.tsx-            <div className="flex">
+src/pages/projects/ProjectBamboo.tsx:              <span className="opacity-50 w-28 shrink-0 md:w-32">{lang === 'ENG' ? 'Materials' : '媒材'}</span>
+src/pages/projects/ProjectBamboo.tsx:              <span className="flex-1">{lang === 'ENG' ? 'Photoshop, Illustrator' : 'Photoshop、Illustrator'}</span>
+src/pages/projects/ProjectBamboo.tsx-            </div>
+src/pages/projects/ProjectBamboo.tsx-            <div className="flex">
+src/pages/projects/ProjectBamboo.tsx:              <span className="opacity-50 w-28 shrink-0 md:w-32">{lang === 'ENG' ? 'Course' : '課程'}</span>
+src/pages/projects/ProjectBamboo.tsx:              <span className="flex-1">{lang === 'ENG' ? 'Introduction to Design' : '設計概論'}</span>
+src/pages/projects/ProjectBamboo.tsx-            </div>
+src/pages/projects/ProjectBamboo.tsx-          </div>
+src/pages/projects/ProjectBamboo.tsx-
+src/pages/projects/ProjectBamboo.tsx:          <div className={`font-['Mozilla_Text'] opacity-80 text-base ${lang === 'ENG' ? 'leading-[1.8]' : 'leading-[2.2] tracking-[0.08em]'}`}>
+src/pages/projects/ProjectBamboo.tsx:            {lang === 'ENG'
+src/pages/projects/ProjectBamboo.tsx-              ? "Bamboo theatres are not only carriers of Hong Kong's traditions but also the most vital dynamic landscapes on the streets. This cultural poster design calls for society's attention to bamboo theatre culture, allowing it to escape the old memories of museums and regain contemporary vitality. Visually, I modularized and simplified the bamboo structure, combining it with its iconic vibrant color palette. Reinterpreted through modern gradient mapping and form, it distills a strong Cantonese opera imagery and contemporary tension within a unified visual tone."
+src/pages/projects/ProjectBamboo.tsx-              : "竹製戲棚不僅是香港傳統的載體，更是街頭最具生命力的動態地景。本文化海報設計呼籲社會對戲棚文化的重視，讓其擺脫博物館的舊記憶，重現當代活力。視覺上，我將戲棚結構進行模組化簡化，結合其標誌性的鮮豔色調，透過現代漸變映射形式和造型重新詮釋，在統一的視覺基調中，凝練出濃厚的粵劇意象與當代張力。"}
+src/pages/projects/ProjectBamboo.tsx-          </div>
+src/pages/projects/ProjectBamboo.tsx-        </div>
+src/pages/projects/ProjectBamboo.tsx-
+src/pages/projects/ProjectBamboo.tsx-        {/* Right Column: Images */}
+src/pages/projects/ProjectBamboo.tsx-        <div className="w-full md:w-2/3">
+src/pages/projects/ProjectBamboo.tsx-          {/* Main Visual */}
+src/pages/projects/ProjectBamboo.tsx-          <div
+src/pages/projects/ProjectBamboo.tsx-            onClick={() => setLightboxIndex(0)}
+src/pages/projects/ProjectBamboo.tsx-            className="w-full flex items-center justify-center cursor-pointer group overflow-hidden mb-20"
+src/pages/projects/ProjectBamboo.tsx-          >
+src/pages/projects/ProjectBamboo.tsx-            <img src={images[0].src} alt="Bamboo Theatre Cover" className="w-full h-auto block transition-transform duration-[2s] ease-[cubic-bezier(0.25,0.8,0.25,1)] group-hover:scale-[0.8]" />
+src/pages/projects/ProjectBamboo.tsx-          </div>
+src/pages/projects/ProjectBamboo.tsx-
+--
+src/pages/projects/ProjectBamboo.tsx-          <div className="w-full border-t border-black/10 pt-4 mb-8">
+src/pages/projects/ProjectBamboo.tsx-            <h3 className="font-['Mozilla_Text'] text-sm uppercase tracking-[2px] opacity-50">
+src/pages/projects/ProjectBamboo.tsx:              {lang === 'ENG' ? 'Visual Elements & Process' : '視覺元素與過程'}
+src/pages/projects/ProjectBamboo.tsx-            </h3>
+src/pages/projects/ProjectBamboo.tsx-          </div>
+src/pages/projects/ProjectBamboo.tsx-
+src/pages/projects/ProjectBamboo.tsx-          {/* Masonry layout for images */}
+src/pages/projects/ProjectBamboo.tsx-          <div className="columns-1 md:columns-2 gap-[30px] space-y-[30px]">
+src/pages/projects/ProjectBamboo.tsx-            {images.slice(1).map((img, i) => (
+src/pages/projects/ProjectBamboo.tsx-              <div 
+src/pages/projects/ProjectBamboo.tsx-                key={i}
+src/pages/projects/ProjectBamboo.tsx-                onClick={() => setLightboxIndex(i + 1)}
+src/pages/projects/ProjectBamboo.tsx-                className="w-full break-inside-avoid cursor-pointer overflow-hidden flex justify-center group"
+src/pages/projects/ProjectBamboo.tsx-              >
+src/pages/projects/ProjectBamboo.tsx-                <img src={img.src} alt={img.alt} className="w-full h-auto block transition-transform duration-[2s] ease-[cubic-bezier(0.25,0.8,0.25,1)] group-hover:scale-105 hover:opacity-80 pointer-events-none" />
+src/pages/projects/ProjectBamboo.tsx-              </div>
+src/pages/projects/ProjectBamboo.tsx-            ))}
+src/pages/projects/ProjectBamboo.tsx-          </div>
+--
+src/pages/projects/ProjectBamboo.tsx-      <div className="mt-32 flex justify-center border-t border-black/10 pt-16">
+src/pages/projects/ProjectBamboo.tsx-        <Link to="/personal" className="font-['Space_Grotesk',_'Swei_Bow_Sans'] text-[2rem] uppercase hover:opacity-50 transition-opacity">
+src/pages/projects/ProjectBamboo.tsx:          {lang === 'ENG' ? 'Back to Personal' : '返回個人作品'}
+src/pages/projects/ProjectBamboo.tsx-        </Link>
+src/pages/projects/ProjectBamboo.tsx-      </div>
+src/pages/projects/ProjectBamboo.tsx-
+src/pages/projects/ProjectBamboo.tsx-      <AnimatePresence>
+src/pages/projects/ProjectBamboo.tsx-        {lightboxIndex !== null && (
+src/pages/projects/ProjectBamboo.tsx-          <motion.div
+src/pages/projects/ProjectBamboo.tsx-            initial={{ opacity: 0 }}
+src/pages/projects/ProjectBamboo.tsx-            animate={{ opacity: 1 }}
+src/pages/projects/ProjectBamboo.tsx-            exit={{ opacity: 0 }}
+src/pages/projects/ProjectBamboo.tsx-            transition={{ duration: 0.3 }}
+src/pages/projects/ProjectBamboo.tsx-            onClick={() => setLightboxIndex(null)}
+src/pages/projects/ProjectBamboo.tsx-            className="fixed inset-0 z-[9999] bg-black/95 flex items-center justify-center p-4 md:p-10 cursor-zoom-out"
+src/pages/projects/ProjectBamboo.tsx-          >
+src/pages/projects/ProjectBamboo.tsx-            <button
+src/pages/projects/ProjectBamboo.tsx-              onClick={(e) => { e.stopPropagation(); setLightboxIndex(null); }}
+--
+src/pages/projects/ProjectCulture.tsx-
+src/pages/projects/ProjectCulture.tsx-  useEffect(() => {
+src/pages/projects/ProjectCulture.tsx:    document.title = lang === 'ENG' ? "Howard Lee - Culture_Identity_Boundary" : "Howard Lee - 文化_身分_邊界";
+src/pages/projects/ProjectCulture.tsx-  }, [lang]);
+src/pages/projects/ProjectCulture.tsx-
+src/pages/projects/ProjectCulture.tsx-  const images = [
+src/pages/projects/ProjectCulture.tsx-    { src: '/projects/culture/book_cover.jpg', alt: 'Cover' },
+src/pages/projects/ProjectCulture.tsx-    { src: '/projects/culture/book1.jpg', alt: 'Zine 1' },
+src/pages/projects/ProjectCulture.tsx-    { src: '/projects/culture/book2.jpg', alt: 'Zine 2' },
+src/pages/projects/ProjectCulture.tsx-    { src: '/projects/culture/book3.jpg', alt: 'Zine 3' },
+src/pages/projects/ProjectCulture.tsx-    { src: '/projects/culture/book4.jpg', alt: 'Zine 4' },
+src/pages/projects/ProjectCulture.tsx-    { src: '/projects/culture/book5.jpg', alt: 'Zine 5' },
+src/pages/projects/ProjectCulture.tsx-    { src: '/projects/culture/book6.jpg', alt: 'Zine 6' },
+src/pages/projects/ProjectCulture.tsx-    { src: '/projects/culture/book7.jpg', alt: 'Zine 7' },
+src/pages/projects/ProjectCulture.tsx-    { src: '/projects/culture/book8.jpg', alt: 'Zine 8' }
+src/pages/projects/ProjectCulture.tsx-  ];
+src/pages/projects/ProjectCulture.tsx-
+src/pages/projects/ProjectCulture.tsx-  useEffect(() => {
+--
+src/pages/projects/ProjectCulture.tsx-          </div>
+src/pages/projects/ProjectCulture.tsx-
+src/pages/projects/ProjectCulture.tsx:          <h1 className={`font-['Space_Grotesk'] ${lang === 'ENG' ? 'text-[2.2rem] md:text-[2.6rem]' : 'text-[2.6rem] md:text-[3rem]'} leading-[1.2] tracking-[-2px] mb-16 md:mb-20 -ml-[0.04em]`}>
+src/pages/projects/ProjectCulture.tsx:            {lang === 'ENG' ? 'Culture_Identity_Boundary' : '文化_身分_邊界'}
+src/pages/projects/ProjectCulture.tsx-          </h1>
+src/pages/projects/ProjectCulture.tsx-          
+src/pages/projects/ProjectCulture.tsx-          <div className="flex flex-col gap-8 font-['Mozilla_Text'] text-base uppercase tracking-[1px] mb-8 pb-8 border-b border-black/10">
+src/pages/projects/ProjectCulture.tsx-            <div className="flex">
+src/pages/projects/ProjectCulture.tsx:              <span className="opacity-50 w-28 shrink-0 md:w-32">{lang === 'ENG' ? 'Year' : '年份'}</span>
+src/pages/projects/ProjectCulture.tsx-              <span>2026</span>
+src/pages/projects/ProjectCulture.tsx-            </div>
+src/pages/projects/ProjectCulture.tsx-            <div className="flex">
+src/pages/projects/ProjectCulture.tsx:              <span className="opacity-50 w-28 shrink-0 md:w-32">{lang === 'ENG' ? 'Medium' : '媒介'}</span>
+src/pages/projects/ProjectCulture.tsx:              <span className="flex-1 leading-[1.8]">{lang === 'ENG' ? <>Editorial Design /<br />Graphic Design</> : '圖文設計 / 平面設計'}</span>
+src/pages/projects/ProjectCulture.tsx-            </div>
+src/pages/projects/ProjectCulture.tsx-            <div className="flex">
+src/pages/projects/ProjectCulture.tsx:              <span className="opacity-50 w-28 shrink-0 md:w-32">{lang === 'ENG' ? 'Materials' : '媒材'}</span>
+src/pages/projects/ProjectCulture.tsx:              <span className="flex-1">{lang === 'ENG' ? 'Photoshop, Illustrator, Indesign' : 'Photoshop、Illustrator、Indesign'}</span>
+src/pages/projects/ProjectCulture.tsx-            </div>
+src/pages/projects/ProjectCulture.tsx-            <div className="flex">
+src/pages/projects/ProjectCulture.tsx:              <span className="opacity-50 w-28 shrink-0 md:w-32">{lang === 'ENG' ? 'Course' : '課程'}</span>
+src/pages/projects/ProjectCulture.tsx:              <span className="flex-1">{lang === 'ENG' ? 'Introduction to Design' : '設計概論'}</span>
+src/pages/projects/ProjectCulture.tsx-            </div>
+src/pages/projects/ProjectCulture.tsx-          </div>
+src/pages/projects/ProjectCulture.tsx-
+src/pages/projects/ProjectCulture.tsx:          <div className={`font-['Mozilla_Text'] opacity-80 text-base whitespace-pre-wrap ${lang === 'ENG' ? 'leading-[1.8]' : 'leading-[2.2] tracking-[0.08em]'}`}>
+src/pages/projects/ProjectCulture.tsx:            {lang === 'ENG' 
+src/pages/projects/ProjectCulture.tsx-              ? "This assignment analyzes the inevitable themes of culture, identity, and boundary—issues seemingly distant yet close to daily life. By examining various exhibitions, I analyze how mediums react with issues to create immersive experiences, while proposing my own perspective on how creators can engage with social and human rights through precise visual language."
+src/pages/projects/ProjectCulture.tsx-              : "這次觀展作業去探討總繞不開的「文化、身分、邊界」三大議題，它們看似遙遠實則貼近日常。我透過梳理不同展覽，分析媒材與議題環境如何產生化學反應、創造沉浸感；並提出自身觀點，反思創作者該如何透過精準的視覺語彙參與社會與人權。"}
+src/pages/projects/ProjectCulture.tsx-          </div>
+src/pages/projects/ProjectCulture.tsx-        </div>
+src/pages/projects/ProjectCulture.tsx-
+src/pages/projects/ProjectCulture.tsx-        <div className="w-full md:w-2/3">
+src/pages/projects/ProjectCulture.tsx-          <div 
+src/pages/projects/ProjectCulture.tsx-            onClick={() => setLightboxIndex(coverIndex)}
+src/pages/projects/ProjectCulture.tsx-            className="w-full flex items-center justify-center cursor-pointer group overflow-hidden mb-20 bg-[#E0E0E0]"
+src/pages/projects/ProjectCulture.tsx-          >
+src/pages/projects/ProjectCulture.tsx-            <AnimatePresence mode="wait">
+src/pages/projects/ProjectCulture.tsx-              <motion.img 
+src/pages/projects/ProjectCulture.tsx-                key={coverIndex}
+src/pages/projects/ProjectCulture.tsx-                initial={{ opacity: 0 }}
+src/pages/projects/ProjectCulture.tsx-                animate={{ opacity: 1 }}
+--
+src/pages/projects/ProjectCulture.tsx-          <div className="w-full border-t border-black/10 pt-4 mb-8">
+src/pages/projects/ProjectCulture.tsx-            <h3 className="font-['Mozilla_Text'] text-sm uppercase tracking-[2px] opacity-50">
+src/pages/projects/ProjectCulture.tsx:              {lang === 'ENG' ? 'Zine Pages' : '內頁設計'}
+src/pages/projects/ProjectCulture.tsx-            </h3>
+src/pages/projects/ProjectCulture.tsx-          </div>
+src/pages/projects/ProjectCulture.tsx-
+src/pages/projects/ProjectCulture.tsx-          <div className="grid grid-cols-1 md:grid-cols-2 gap-[30px]">
+src/pages/projects/ProjectCulture.tsx-            {images.slice(1).map((img, i) => (
+src/pages/projects/ProjectCulture.tsx-              <div 
+src/pages/projects/ProjectCulture.tsx-                key={i}
+src/pages/projects/ProjectCulture.tsx-                onClick={() => setLightboxIndex(i + 1)}
+src/pages/projects/ProjectCulture.tsx-                className={`w-full cursor-pointer overflow-hidden flex justify-center ${i === 0 || i === 3 ? 'md:col-span-2' : ''}`}
+src/pages/projects/ProjectCulture.tsx-              >
+src/pages/projects/ProjectCulture.tsx-                <img src={img.src} alt={img.alt} className="w-full h-auto block transition-transform duration-[2s] ease-[cubic-bezier(0.25,0.8,0.25,1)] hover:opacity-80" />
+src/pages/projects/ProjectCulture.tsx-              </div>
+src/pages/projects/ProjectCulture.tsx-            ))}
+src/pages/projects/ProjectCulture.tsx-            <div 
+src/pages/projects/ProjectCulture.tsx-              onClick={() => setLightboxIndex(0)}
+--
+src/pages/projects/ProjectCulture.tsx-      <div className="mt-32 flex justify-center border-t border-black/10 pt-16">
+src/pages/projects/ProjectCulture.tsx-        <Link to="/personal" className="font-['Space_Grotesk',_'Swei_Bow_Sans'] text-[2rem] uppercase hover:opacity-50 transition-opacity">
+src/pages/projects/ProjectCulture.tsx:          {lang === 'ENG' ? 'Back to Personal' : '返回個人作品'}
+src/pages/projects/ProjectCulture.tsx-        </Link>
+src/pages/projects/ProjectCulture.tsx-      </div>
+src/pages/projects/ProjectCulture.tsx-
+src/pages/projects/ProjectCulture.tsx-      <AnimatePresence>
+src/pages/projects/ProjectCulture.tsx-        {lightboxIndex !== null && (
+src/pages/projects/ProjectCulture.tsx-          <motion.div
+src/pages/projects/ProjectCulture.tsx-            initial={{ opacity: 0 }}
+src/pages/projects/ProjectCulture.tsx-            animate={{ opacity: 1 }}
+src/pages/projects/ProjectCulture.tsx-            exit={{ opacity: 0 }}
+src/pages/projects/ProjectCulture.tsx-            transition={{ duration: 0.3 }}
+src/pages/projects/ProjectCulture.tsx-            onClick={() => setLightboxIndex(null)}
+src/pages/projects/ProjectCulture.tsx-            className="fixed inset-0 z-[9999] bg-black/95 flex items-center justify-center p-4 md:p-10 cursor-zoom-out"
+src/pages/projects/ProjectCulture.tsx-          >
+src/pages/projects/ProjectCulture.tsx-            <button 
+src/pages/projects/ProjectCulture.tsx-              onClick={(e) => { e.stopPropagation(); setLightboxIndex(null); }}
+--
+src/pages/projects/ProjectDrawing.tsx-
+src/pages/projects/ProjectDrawing.tsx-  useEffect(() => {
+src/pages/projects/ProjectDrawing.tsx:    document.title = lang === 'ENG' ? "Howard Lee - Life Drawing" : "Howard Lee - 人體素描";
+src/pages/projects/ProjectDrawing.tsx-  }, [lang]);
+src/pages/projects/ProjectDrawing.tsx-
+src/pages/projects/ProjectDrawing.tsx-  const images = [
+src/pages/projects/ProjectDrawing.tsx-    { src: '/projects/drawing/drawing02.jpg', alt: 'Cover' },
+src/pages/projects/ProjectDrawing.tsx-    { src: '/projects/drawing/drawing01.jpg', alt: 'Drawing 1' },
+src/pages/projects/ProjectDrawing.tsx-    { src: '/projects/drawing/drawing03.jpg', alt: 'Drawing 3' },
+src/pages/projects/ProjectDrawing.tsx-    { src: '/projects/drawing/drawing04.jpg', alt: 'Drawing 4' },
+src/pages/projects/ProjectDrawing.tsx-    { src: '/projects/drawing/record1.jpg', alt: 'Record 1' },
+src/pages/projects/ProjectDrawing.tsx-    { src: '/projects/drawing/record2.jpg', alt: 'Record 2' },
+src/pages/projects/ProjectDrawing.tsx-    { src: '/projects/drawing/record3.jpg', alt: 'Record 3' },
+src/pages/projects/ProjectDrawing.tsx-    { src: '/projects/drawing/record4.jpg', alt: 'Record 4' }
+src/pages/projects/ProjectDrawing.tsx-  ];
+src/pages/projects/ProjectDrawing.tsx-
+src/pages/projects/ProjectDrawing.tsx-  useEffect(() => {
+src/pages/projects/ProjectDrawing.tsx-    const interval = setInterval(() => {
+--
+src/pages/projects/ProjectDrawing.tsx-          </div>
+src/pages/projects/ProjectDrawing.tsx-
+src/pages/projects/ProjectDrawing.tsx:          <h1 className={`font-['Space_Grotesk'] ${lang === 'ENG' ? 'text-[2.2rem] md:text-[2.6rem]' : 'text-[2.6rem] md:text-[3rem]'} leading-[1.2] tracking-[-2px] mb-16 md:mb-20 -ml-[0.04em]`}>
+src/pages/projects/ProjectDrawing.tsx:            {lang === 'ENG' ? 'Life Drawing' : '人體素描'}
+src/pages/projects/ProjectDrawing.tsx-          </h1>
+src/pages/projects/ProjectDrawing.tsx-
+src/pages/projects/ProjectDrawing.tsx-          <div className="flex flex-col gap-8 font-['Mozilla_Text'] text-base uppercase tracking-[1px] mb-8 pb-8 border-b border-black/10">
+src/pages/projects/ProjectDrawing.tsx-            <div className="flex">
+src/pages/projects/ProjectDrawing.tsx:              <span className="opacity-50 w-28 shrink-0 md:w-32">{lang === 'ENG' ? 'Year' : '年份'}</span>
+src/pages/projects/ProjectDrawing.tsx-              <span>2025</span>
+src/pages/projects/ProjectDrawing.tsx-            </div>
+src/pages/projects/ProjectDrawing.tsx-            <div className="flex">
+src/pages/projects/ProjectDrawing.tsx:              <span className="opacity-50 w-28 shrink-0 md:w-32">{lang === 'ENG' ? 'Medium' : '媒介'}</span>
+src/pages/projects/ProjectDrawing.tsx:              <span>{lang === 'ENG' ? 'Drawing' : '素描'}</span>
+src/pages/projects/ProjectDrawing.tsx-            </div>
+src/pages/projects/ProjectDrawing.tsx-            <div className="flex">
+src/pages/projects/ProjectDrawing.tsx:              <span className="opacity-50 w-28 shrink-0 md:w-32">{lang === 'ENG' ? 'Materials' : '媒材'}</span>
+src/pages/projects/ProjectDrawing.tsx:              <span className="flex-1">{lang === 'ENG' ? 'Oil pastels, wax crayons' : '油畫棒、兒童蠟筆'}</span>
+src/pages/projects/ProjectDrawing.tsx-            </div>
+src/pages/projects/ProjectDrawing.tsx-            <div className="flex">
+src/pages/projects/ProjectDrawing.tsx:              <span className="opacity-50 w-28 shrink-0 md:w-32">{lang === 'ENG' ? 'Course' : '課程'}</span>
+src/pages/projects/ProjectDrawing.tsx:              <span className="flex-1">{lang === 'ENG' ? 'Design Drawing' : '設計繪畫'}</span>
+src/pages/projects/ProjectDrawing.tsx-            </div>
+src/pages/projects/ProjectDrawing.tsx-          </div>
+src/pages/projects/ProjectDrawing.tsx-
+src/pages/projects/ProjectDrawing.tsx:          <div className={`font-['Mozilla_Text'] opacity-80 text-base ${lang === 'ENG' ? 'leading-[1.8]' : 'leading-[2.2] tracking-[0.08em]'}`}>
+src/pages/projects/ProjectDrawing.tsx:            {lang === 'ENG'
+src/pages/projects/ProjectDrawing.tsx-              ? "I found myself bored in my Wednesday class, so I wandered into a design drawing session in early December just to de-stress. I was surprised when the instructor, Ms. Kristy Chu, specifically pointed out my work. Using A2-sized paper, I captured the model and the vibe of the room through my own creative lens, turning a simple sketching session into a moment of pure expression."
+src/pages/projects/ProjectDrawing.tsx-              : "上學期週三的課太無聊，十二月頭跑去設計繪畫旁聽並舒壓，很意外被曲老師點出。選用四開大小的畫紙，用自己屬於創作語彙，去呈現眼前模特與並感受環境中的意象。"}
+src/pages/projects/ProjectDrawing.tsx-          </div>
+src/pages/projects/ProjectDrawing.tsx-        </div>
+src/pages/projects/ProjectDrawing.tsx-
+src/pages/projects/ProjectDrawing.tsx-        <div className="w-full md:w-2/3">
+src/pages/projects/ProjectDrawing.tsx-          <div 
+src/pages/projects/ProjectDrawing.tsx-            onClick={() => setLightboxIndex(0)}
+src/pages/projects/ProjectDrawing.tsx-            className="w-full flex items-center justify-center cursor-pointer group overflow-hidden mb-10 bg-[#E0E0E0]"
+src/pages/projects/ProjectDrawing.tsx-          >
+src/pages/projects/ProjectDrawing.tsx-            <img 
+src/pages/projects/ProjectDrawing.tsx-              src={images[0].src}
+src/pages/projects/ProjectDrawing.tsx-              alt={images[0].alt}
+src/pages/projects/ProjectDrawing.tsx-              className="w-full h-auto block transition-transform duration-[2s] ease-[cubic-bezier(0.25,0.8,0.25,1)] group-hover:scale-[1.05]" 
+src/pages/projects/ProjectDrawing.tsx-            />
+--
+src/pages/projects/ProjectDrawing.tsx-          <div className="w-full border-t border-black/10 pt-4 mb-8">
+src/pages/projects/ProjectDrawing.tsx-            <h3 className="font-['Mozilla_Text'] text-sm uppercase tracking-[2px] opacity-50">
+src/pages/projects/ProjectDrawing.tsx:              {lang === 'ENG' ? 'Sketches & Process' : '素描作品與過程'}
+src/pages/projects/ProjectDrawing.tsx-            </h3>
+src/pages/projects/ProjectDrawing.tsx-          </div>
+src/pages/projects/ProjectDrawing.tsx-
+src/pages/projects/ProjectDrawing.tsx-          <div className="columns-1 md:columns-2 gap-[30px] space-y-[30px]">
+src/pages/projects/ProjectDrawing.tsx-            {images.slice(1).map((img, i) => (
+src/pages/projects/ProjectDrawing.tsx-              <div
+src/pages/projects/ProjectDrawing.tsx-                key={i}
+src/pages/projects/ProjectDrawing.tsx-                onClick={() => setLightboxIndex(i + 1)}
+src/pages/projects/ProjectDrawing.tsx-                className="w-full cursor-pointer break-inside-avoid overflow-hidden"
+src/pages/projects/ProjectDrawing.tsx-              >
+src/pages/projects/ProjectDrawing.tsx-                <img src={img.src} alt={img.alt} className="w-full h-auto block transition-transform duration-[2s] ease-[cubic-bezier(0.25,0.8,0.25,1)] hover:opacity-80" />
+src/pages/projects/ProjectDrawing.tsx-              </div>
+src/pages/projects/ProjectDrawing.tsx-            ))}
+src/pages/projects/ProjectDrawing.tsx-            <div
+src/pages/projects/ProjectDrawing.tsx-              onClick={() => setLightboxIndex(0)}
+--
+src/pages/projects/ProjectDrawing.tsx-      <div className="mt-32 flex justify-center border-t border-black/10 pt-16">
+src/pages/projects/ProjectDrawing.tsx-        <Link to="/personal" className="font-['Space_Grotesk',_'Swei_Bow_Sans'] text-[2rem] uppercase hover:opacity-50 transition-opacity">
+src/pages/projects/ProjectDrawing.tsx:          {lang === 'ENG' ? 'Back to Personal' : '返回個人作品'}
+src/pages/projects/ProjectDrawing.tsx-        </Link>
+src/pages/projects/ProjectDrawing.tsx-      </div>
+src/pages/projects/ProjectDrawing.tsx-
+src/pages/projects/ProjectDrawing.tsx-      <AnimatePresence>
+src/pages/projects/ProjectDrawing.tsx-        {lightboxIndex !== null && (
+src/pages/projects/ProjectDrawing.tsx-          <motion.div
+src/pages/projects/ProjectDrawing.tsx-            initial={{ opacity: 0 }}
+src/pages/projects/ProjectDrawing.tsx-            animate={{ opacity: 1 }}
+src/pages/projects/ProjectDrawing.tsx-            exit={{ opacity: 0 }}
+src/pages/projects/ProjectDrawing.tsx-            transition={{ duration: 0.3 }}
+src/pages/projects/ProjectDrawing.tsx-            onClick={() => setLightboxIndex(null)}
+src/pages/projects/ProjectDrawing.tsx-            className="fixed inset-0 z-[9999] bg-black/95 flex items-center justify-center p-4 md:p-10 cursor-zoom-out"
+src/pages/projects/ProjectDrawing.tsx-          >
+src/pages/projects/ProjectDrawing.tsx-            <button
+src/pages/projects/ProjectDrawing.tsx-              onClick={(e) => { e.stopPropagation(); setLightboxIndex(null); }}
+--
+src/pages/projects/ProjectEggplanet.tsx-
+src/pages/projects/ProjectEggplanet.tsx-  useEffect(() => {
+src/pages/projects/ProjectEggplanet.tsx:    document.title = lang === 'ENG' ? "Howard Lee - Eggbys Planet" : "Howard Lee - 蛋寶星球記";
+src/pages/projects/ProjectEggplanet.tsx-  }, [lang]);
+src/pages/projects/ProjectEggplanet.tsx-
+src/pages/projects/ProjectEggplanet.tsx-  const images = [
+src/pages/projects/ProjectEggplanet.tsx-    { src: '/projects/eggplanet/cover.jpg', alt: 'Cover' },
+src/pages/projects/ProjectEggplanet.tsx-    { src: '/projects/eggplanet/highlightcover.jpg', alt: 'Highlight Cover' },
+src/pages/projects/ProjectEggplanet.tsx-    { src: '/projects/eggplanet/highlight1.jpg', alt: 'Highlight 1' },
+src/pages/projects/ProjectEggplanet.tsx-    { src: '/projects/eggplanet/highlight2.jpg', alt: 'Highlight 2' },
+src/pages/projects/ProjectEggplanet.tsx-    { src: '/projects/eggplanet/highlight3.jpg', alt: 'Highlight 3' },
+src/pages/projects/ProjectEggplanet.tsx-    { src: '/projects/eggplanet/highlight4.jpg', alt: 'Highlight 4' },
+src/pages/projects/ProjectEggplanet.tsx-    { src: '/projects/eggplanet/process1.jpg', alt: 'Process 1' },
+src/pages/projects/ProjectEggplanet.tsx-    { src: '/projects/eggplanet/process2.jpg', alt: 'Process 2' },
+src/pages/projects/ProjectEggplanet.tsx-    { src: '/projects/eggplanet/process3.jpg', alt: 'Process 3' },
+src/pages/projects/ProjectEggplanet.tsx-    { src: '/projects/eggplanet/process4.jpg', alt: 'Process 4' }
+src/pages/projects/ProjectEggplanet.tsx-  ];
+src/pages/projects/ProjectEggplanet.tsx-
+--
+src/pages/projects/ProjectEggplanet.tsx-          </div>
+src/pages/projects/ProjectEggplanet.tsx-
+src/pages/projects/ProjectEggplanet.tsx:          <h1 className={`font-['Space_Grotesk'] ${lang === 'ENG' ? 'text-[3rem] md:text-[3.5rem]' : 'text-[2.6rem] md:text-[3rem]'} leading-[1.2] tracking-[-2px] mb-16 md:mb-20 -ml-[0.04em]`}>
+src/pages/projects/ProjectEggplanet.tsx:            {lang === 'ENG' ? 'Eggbys Planet' : '蛋寶星球記'}
+src/pages/projects/ProjectEggplanet.tsx-          </h1>
+src/pages/projects/ProjectEggplanet.tsx-          
+src/pages/projects/ProjectEggplanet.tsx-          <div className="flex flex-col gap-8 font-['Mozilla_Text'] text-base uppercase tracking-[1px] mb-8 pb-8 border-b border-black/10">
+src/pages/projects/ProjectEggplanet.tsx-            <div className="flex">
+src/pages/projects/ProjectEggplanet.tsx:              <span className="opacity-50 w-28 shrink-0 md:w-32">{lang === 'ENG' ? 'Year' : '年份'}</span>
+src/pages/projects/ProjectEggplanet.tsx-              <span>2025</span>
+src/pages/projects/ProjectEggplanet.tsx-            </div>
+src/pages/projects/ProjectEggplanet.tsx-            <div className="flex">
+src/pages/projects/ProjectEggplanet.tsx:              <span className="opacity-50 w-28 shrink-0 md:w-32">{lang === 'ENG' ? 'Medium' : '媒介'}</span>
+src/pages/projects/ProjectEggplanet.tsx:              <span className="flex-1 leading-[1.8]">{lang === 'ENG' ? 'Mixed Media, Stop Motion' : '複合媒材、定格動畫'}</span>
+src/pages/projects/ProjectEggplanet.tsx-            </div>
+src/pages/projects/ProjectEggplanet.tsx-            <div className="flex">
+src/pages/projects/ProjectEggplanet.tsx:              <span className="opacity-50 w-28 shrink-0 md:w-32">{lang === 'ENG' ? 'Materials' : '媒材'}</span>
+src/pages/projects/ProjectEggplanet.tsx:              <span className="flex-1 leading-[1.8]">{lang === 'ENG' ? 'Paper clay, stone spray paint, wire' : '紙黏土、石頭噴漆、鐵絲'}</span>
+src/pages/projects/ProjectEggplanet.tsx-            </div>
+src/pages/projects/ProjectEggplanet.tsx-          </div>
+src/pages/projects/ProjectEggplanet.tsx-
+src/pages/projects/ProjectEggplanet.tsx:          <div className={`font-['Mozilla_Text'] opacity-80 text-base ${lang === 'ENG' ? 'leading-[1.8]' : 'leading-[2.2] tracking-[0.08em]'}`}>
+src/pages/projects/ProjectEggplanet.tsx:            {lang === 'ENG' 
+src/pages/projects/ProjectEggplanet.tsx-              ? "Evolving from 'Danbao,' 'Eggbys' explores soft cosmic beings who view being consumed as an act of sharing. This project revisits the tactile joy of my ceramics background while experimenting with world-building. Though less polished than my previous work, this piece captures my deep resonance with the characters—finding meaning in their desire to engage with the world, be tasted, and be remembered."
+src/pages/projects/ProjectEggplanet.tsx-              : "這次將組內討論的「蛋寶」進化為「Eggbys」，是一次概念的延伸。我把蛋星人設定為信仰「不被改寫」的宇宙生命，並將「被烹飪」視作一種分享。這項創作除了是回味陶瓷課的手感，也是在試著像公仔藝術家那樣，透過佈置傳達世界觀。雖然這件作品與過去相比，在完整度上或許還有努力空間，但這些過程正是我對「Eggbys」產生的共鳴——在與世界互動、渴望被品嚐與記住的過程中，去確認彼此存在的完整。"}
+src/pages/projects/ProjectEggplanet.tsx-          </div>
+src/pages/projects/ProjectEggplanet.tsx-        </div>
+src/pages/projects/ProjectEggplanet.tsx-
+src/pages/projects/ProjectEggplanet.tsx-        <div className="w-full md:w-2/3">
+src/pages/projects/ProjectEggplanet.tsx-          {/* Cover Image */}
+src/pages/projects/ProjectEggplanet.tsx-          <div 
+src/pages/projects/ProjectEggplanet.tsx-            onClick={() => setLightboxIndex(0)}
+src/pages/projects/ProjectEggplanet.tsx-            className="w-full bg-[#E0E0E0] flex items-center justify-center cursor-pointer hover:opacity-80 transition-opacity overflow-hidden mb-12"
+src/pages/projects/ProjectEggplanet.tsx-          >
+src/pages/projects/ProjectEggplanet.tsx-            <img src={images[0].src} alt="Cover" className="w-full h-auto object-cover" />
+src/pages/projects/ProjectEggplanet.tsx-          </div>
+src/pages/projects/ProjectEggplanet.tsx-
+src/pages/projects/ProjectEggplanet.tsx-          {/* YouTube Video (First thing below cover) */}
+--
+src/pages/projects/ProjectEggplanet.tsx-          <div className="w-full border-t border-black/10 pt-4 mb-8">
+src/pages/projects/ProjectEggplanet.tsx-            <h3 className="font-['Mozilla_Text'] text-sm uppercase tracking-[2px] opacity-50">
+src/pages/projects/ProjectEggplanet.tsx:              {lang === 'ENG' ? 'Gallery & Process' : '作品與過程'}
+src/pages/projects/ProjectEggplanet.tsx-            </h3>
+src/pages/projects/ProjectEggplanet.tsx-          </div>
+src/pages/projects/ProjectEggplanet.tsx-
+src/pages/projects/ProjectEggplanet.tsx-          <div className="columns-1 md:columns-2 gap-[30px] space-y-[30px]">
+src/pages/projects/ProjectEggplanet.tsx-            {images.slice(1).map((img, i) => (
+src/pages/projects/ProjectEggplanet.tsx-              <div 
+src/pages/projects/ProjectEggplanet.tsx-                key={i + 1}
+src/pages/projects/ProjectEggplanet.tsx-                onClick={() => setLightboxIndex(i + 1)}
+src/pages/projects/ProjectEggplanet.tsx-                className="w-full cursor-pointer break-inside-avoid overflow-hidden"
+src/pages/projects/ProjectEggplanet.tsx-              >
+src/pages/projects/ProjectEggplanet.tsx-                <img src={img.src} alt={img.alt} className="w-full h-auto block transition-transform duration-[2s] ease-[cubic-bezier(0.25,0.8,0.25,1)] hover:opacity-80" />
+src/pages/projects/ProjectEggplanet.tsx-              </div>
+src/pages/projects/ProjectEggplanet.tsx-            ))}
+src/pages/projects/ProjectEggplanet.tsx-          </div>
+src/pages/projects/ProjectEggplanet.tsx-        </div>
+--
+src/pages/projects/ProjectEggplanet.tsx-      <div className="mt-32 flex justify-center border-t border-black/10 pt-16">
+src/pages/projects/ProjectEggplanet.tsx-        <Link to="/personal" className="font-['Space_Grotesk',_'Swei_Bow_Sans'] text-[2rem] uppercase hover:opacity-50 transition-opacity">
+src/pages/projects/ProjectEggplanet.tsx:          {lang === 'ENG' ? 'Back to Personal' : '返回個人作品'}
+src/pages/projects/ProjectEggplanet.tsx-        </Link>
+src/pages/projects/ProjectEggplanet.tsx-      </div>
+src/pages/projects/ProjectEggplanet.tsx-
+src/pages/projects/ProjectEggplanet.tsx-      <AnimatePresence>
+src/pages/projects/ProjectEggplanet.tsx-        {lightboxIndex !== null && (
+src/pages/projects/ProjectEggplanet.tsx-          <motion.div
+src/pages/projects/ProjectEggplanet.tsx-            initial={{ opacity: 0 }}
+src/pages/projects/ProjectEggplanet.tsx-            animate={{ opacity: 1 }}
+src/pages/projects/ProjectEggplanet.tsx-            exit={{ opacity: 0 }}
+src/pages/projects/ProjectEggplanet.tsx-            transition={{ duration: 0.3 }}
+src/pages/projects/ProjectEggplanet.tsx-            onClick={() => setLightboxIndex(null)}
+src/pages/projects/ProjectEggplanet.tsx-            className="fixed inset-0 z-[9999] bg-black/95 flex items-center justify-center p-4 md:p-10 cursor-zoom-out"
+src/pages/projects/ProjectEggplanet.tsx-          >
+src/pages/projects/ProjectEggplanet.tsx-            <button 
+src/pages/projects/ProjectEggplanet.tsx-              onClick={(e) => { e.stopPropagation(); setLightboxIndex(null); }}
+--
+src/pages/projects/ProjectEndowing.tsx-
+src/pages/projects/ProjectEndowing.tsx-  useEffect(() => {
+src/pages/projects/ProjectEndowing.tsx:    document.title = lang === 'ENG' ? "Howard Lee - The Endowing of Objects" : "Howard Lee - 物體的賦予";
+src/pages/projects/ProjectEndowing.tsx-  }, [lang]);
+src/pages/projects/ProjectEndowing.tsx-
+src/pages/projects/ProjectEndowing.tsx-  const images = [
+src/pages/projects/ProjectEndowing.tsx-    { src: '/projects/endowing/book_cover.jpg', alt: 'Cover' },
+src/pages/projects/ProjectEndowing.tsx-    { src: '/projects/endowing/book1.jpg', alt: 'Zine 1' },
+src/pages/projects/ProjectEndowing.tsx-    { src: '/projects/endowing/book2.jpg', alt: 'Zine 2' },
+src/pages/projects/ProjectEndowing.tsx-    { src: '/projects/endowing/book3.jpg', alt: 'Zine 3' },
+src/pages/projects/ProjectEndowing.tsx-    { src: '/projects/endowing/book4.jpg', alt: 'Zine 4' },
+src/pages/projects/ProjectEndowing.tsx-    { src: '/projects/endowing/book5.jpg', alt: 'Zine 5' },
+src/pages/projects/ProjectEndowing.tsx-    { src: '/projects/endowing/book6.jpg', alt: 'Zine 6' }
+src/pages/projects/ProjectEndowing.tsx-  ];
+src/pages/projects/ProjectEndowing.tsx-
+src/pages/projects/ProjectEndowing.tsx-  useEffect(() => {
+src/pages/projects/ProjectEndowing.tsx-    const interval = setInterval(() => {
+src/pages/projects/ProjectEndowing.tsx-      setCoverIndex((prev) => (prev + 1) % images.length);
+--
+src/pages/projects/ProjectEndowing.tsx-          </div>
+src/pages/projects/ProjectEndowing.tsx-
+src/pages/projects/ProjectEndowing.tsx:          <h1 className={`font-['Space_Grotesk'] ${lang === 'ENG' ? 'text-[2.2rem] md:text-[2.6rem]' : 'text-[2.6rem] md:text-[3rem]'} leading-[1.2] tracking-[-2px] mb-16 md:mb-20 -ml-[0.04em]`}>
+src/pages/projects/ProjectEndowing.tsx:            {lang === 'ENG' ? 'The Endowing of Objects' : '物體的賦予'}
+src/pages/projects/ProjectEndowing.tsx-          </h1>
+src/pages/projects/ProjectEndowing.tsx-          
+src/pages/projects/ProjectEndowing.tsx-          <div className="flex flex-col gap-8 font-['Mozilla_Text'] text-base uppercase tracking-[1px] mb-8 pb-8 border-b border-black/10">
+src/pages/projects/ProjectEndowing.tsx-            <div className="flex">
+src/pages/projects/ProjectEndowing.tsx:              <span className="opacity-50 w-28 shrink-0 md:w-32">{lang === 'ENG' ? 'Year' : '年份'}</span>
+src/pages/projects/ProjectEndowing.tsx-              <span>2025</span>
+src/pages/projects/ProjectEndowing.tsx-            </div>
+src/pages/projects/ProjectEndowing.tsx-            <div className="flex">
+src/pages/projects/ProjectEndowing.tsx:              <span className="opacity-50 w-28 shrink-0 md:w-32">{lang === 'ENG' ? 'Medium' : '媒介'}</span>
+src/pages/projects/ProjectEndowing.tsx:              <span>{lang === 'ENG' ? 'Editorial Design / Graphic Design' : '圖文設計 / 平面設計'}</span>
+src/pages/projects/ProjectEndowing.tsx-            </div>
+src/pages/projects/ProjectEndowing.tsx-            <div className="flex">
+src/pages/projects/ProjectEndowing.tsx:              <span className="opacity-50 w-28 shrink-0 md:w-32">{lang === 'ENG' ? 'Materials' : '媒材'}</span>
+src/pages/projects/ProjectEndowing.tsx:              <span className="flex-1">{lang === 'ENG' ? 'Photoshop, Illustrator, Indesign, Blender' : 'Photoshop、Illustrator、Indesign、Blender'}</span>
+src/pages/projects/ProjectEndowing.tsx-            </div>
+src/pages/projects/ProjectEndowing.tsx-            <div className="flex">
+src/pages/projects/ProjectEndowing.tsx:              <span className="opacity-50 w-28 shrink-0 md:w-32">{lang === 'ENG' ? 'Course' : '課程'}</span>
+src/pages/projects/ProjectEndowing.tsx:              <span className="flex-1 leading-[1.8]">{lang === 'ENG' ? 'Introduction to Design' : '設計概論'}</span>
+src/pages/projects/ProjectEndowing.tsx-            </div>
+src/pages/projects/ProjectEndowing.tsx-          </div>
+src/pages/projects/ProjectEndowing.tsx-
+src/pages/projects/ProjectEndowing.tsx:          <div className={`font-['Mozilla_Text'] opacity-80 text-base ${lang === 'ENG' ? 'leading-[1.8]' : 'leading-[2.2] tracking-[0.08em]'}`}>
+src/pages/projects/ProjectEndowing.tsx:            {lang === 'ENG' 
+src/pages/projects/ProjectEndowing.tsx-              ? "The cover’s organic design explores the 'redefinition of objects,' reflecting how artists deconstruct and transform their essence. From Eliasson’s light perception and Luo Yi-Chun’s material translation, to the creative repurposing by LuxuryLogico and Czech designers, this Zine examines how art dismantles an object's original function. It documents how the viewer's perspective grants these objects new meaning and resonance in the present moment."
+src/pages/projects/ProjectEndowing.tsx-              : "圖文封面圍繞「重新定義物體」的核心以及帶有有機線條和造型，去傳達出物體被人賦予的。我透過紀錄藝術家如何拆解並轉化物件本質——從 Eliasson 的光影感官、羅懿君的材質轉譯，到豪華朗機工與捷克設計對舊料的賦予——反思藝術如何打破物體既有的功能。"}
+src/pages/projects/ProjectEndowing.tsx-          </div>
+src/pages/projects/ProjectEndowing.tsx-        </div>
+src/pages/projects/ProjectEndowing.tsx-
+src/pages/projects/ProjectEndowing.tsx-        <div className="w-full md:w-2/3">
+src/pages/projects/ProjectEndowing.tsx-          <div 
+src/pages/projects/ProjectEndowing.tsx-            onClick={() => setLightboxIndex(coverIndex)}
+src/pages/projects/ProjectEndowing.tsx-            className="w-full flex items-center justify-center cursor-pointer group overflow-hidden mb-20 bg-[#E0E0E0]"
+src/pages/projects/ProjectEndowing.tsx-          >
+src/pages/projects/ProjectEndowing.tsx-            <AnimatePresence mode="wait">
+src/pages/projects/ProjectEndowing.tsx-              <motion.img 
+src/pages/projects/ProjectEndowing.tsx-                key={coverIndex}
+src/pages/projects/ProjectEndowing.tsx-                initial={{ opacity: 0 }}
+src/pages/projects/ProjectEndowing.tsx-                animate={{ opacity: 1 }}
+--
+src/pages/projects/ProjectEndowing.tsx-          <div className="w-full border-t border-black/10 pt-4 mb-8">
+src/pages/projects/ProjectEndowing.tsx-            <h3 className="font-['Mozilla_Text'] text-sm uppercase tracking-[2px] opacity-50">
+src/pages/projects/ProjectEndowing.tsx:              {lang === 'ENG' ? 'Zine Pages' : '內頁設計'}
+src/pages/projects/ProjectEndowing.tsx-            </h3>
+src/pages/projects/ProjectEndowing.tsx-          </div>
+src/pages/projects/ProjectEndowing.tsx-
+src/pages/projects/ProjectEndowing.tsx-          <div className="grid grid-cols-1 md:grid-cols-2 gap-[30px]">
+src/pages/projects/ProjectEndowing.tsx-            {images.slice(1).map((img, i) => (
+src/pages/projects/ProjectEndowing.tsx-              <div 
+src/pages/projects/ProjectEndowing.tsx-                key={i}
+src/pages/projects/ProjectEndowing.tsx-                onClick={() => setLightboxIndex(i + 1)}
+src/pages/projects/ProjectEndowing.tsx-                className={`w-full cursor-pointer overflow-hidden flex justify-center ${i === 0 || i === 3 ? 'md:col-span-2' : ''}`}
+src/pages/projects/ProjectEndowing.tsx-              >
+src/pages/projects/ProjectEndowing.tsx-                <img src={img.src} alt={img.alt} className="w-full h-auto block transition-transform duration-[2s] ease-[cubic-bezier(0.25,0.8,0.25,1)] hover:opacity-80" />
+src/pages/projects/ProjectEndowing.tsx-              </div>
+src/pages/projects/ProjectEndowing.tsx-            ))}
+src/pages/projects/ProjectEndowing.tsx-            <div 
+src/pages/projects/ProjectEndowing.tsx-              onClick={() => setLightboxIndex(0)}
+--
+src/pages/projects/ProjectEndowing.tsx-      <div className="mt-32 flex justify-center border-t border-black/10 pt-16">
+src/pages/projects/ProjectEndowing.tsx-        <Link to="/personal" className="font-['Space_Grotesk',_'Swei_Bow_Sans'] text-[2rem] uppercase hover:opacity-50 transition-opacity">
+src/pages/projects/ProjectEndowing.tsx:          {lang === 'ENG' ? 'Back to Personal' : '返回個人作品'}
+src/pages/projects/ProjectEndowing.tsx-        </Link>
+src/pages/projects/ProjectEndowing.tsx-      </div>
+src/pages/projects/ProjectEndowing.tsx-
+src/pages/projects/ProjectEndowing.tsx-      <AnimatePresence>
+src/pages/projects/ProjectEndowing.tsx-        {lightboxIndex !== null && (
+src/pages/projects/ProjectEndowing.tsx-          <motion.div
+src/pages/projects/ProjectEndowing.tsx-            initial={{ opacity: 0 }}
+src/pages/projects/ProjectEndowing.tsx-            animate={{ opacity: 1 }}
+src/pages/projects/ProjectEndowing.tsx-            exit={{ opacity: 0 }}
+src/pages/projects/ProjectEndowing.tsx-            transition={{ duration: 0.3 }}
+src/pages/projects/ProjectEndowing.tsx-            onClick={() => setLightboxIndex(null)}
+src/pages/projects/ProjectEndowing.tsx-            className="fixed inset-0 z-[9999] bg-black/95 flex items-center justify-center p-4 md:p-10 cursor-zoom-out"
+src/pages/projects/ProjectEndowing.tsx-          >
+src/pages/projects/ProjectEndowing.tsx-            <button 
+src/pages/projects/ProjectEndowing.tsx-              onClick={(e) => { e.stopPropagation(); setLightboxIndex(null); }}
+--
+src/pages/projects/ProjectFrameByFrame.tsx-          <div className="flex flex-col gap-6 font-['Mozilla_Text'] text-base uppercase tracking-[1px] mb-8 pb-8 border-b border-black/10">
+src/pages/projects/ProjectFrameByFrame.tsx-            <div className="flex">
+src/pages/projects/ProjectFrameByFrame.tsx:              <span className="opacity-50 w-28 shrink-0 md:w-32">{lang === 'ENG' ? 'Year' : '年份'}</span>
+src/pages/projects/ProjectFrameByFrame.tsx-              <span>2025</span>
+src/pages/projects/ProjectFrameByFrame.tsx-            </div>
+src/pages/projects/ProjectFrameByFrame.tsx-            <div className="flex">
+src/pages/projects/ProjectFrameByFrame.tsx:              <span className="opacity-50 w-28 shrink-0 md:w-32">{lang === 'ENG' ? 'Medium' : '媒介'}</span>
+src/pages/projects/ProjectFrameByFrame.tsx:              <span>{lang === 'ENG' ? '3D Installation' : '立體裝置'}</span>
+src/pages/projects/ProjectFrameByFrame.tsx-            </div>
+src/pages/projects/ProjectFrameByFrame.tsx-            <div className="flex">
+src/pages/projects/ProjectFrameByFrame.tsx:              <span className="opacity-50 w-28 shrink-0 md:w-32">{lang === 'ENG' ? 'Materials' : '媒材'}</span>
+src/pages/projects/ProjectFrameByFrame.tsx:              <span className="flex-1">{lang === 'ENG' ? 'Wood lumber, Camping pegs, Wire ropes' : '集合角材、露營釘、威亞鋼絲繩'}</span>
+src/pages/projects/ProjectFrameByFrame.tsx-            </div>
+src/pages/projects/ProjectFrameByFrame.tsx-            <div className="flex">
+src/pages/projects/ProjectFrameByFrame.tsx:              <span className="opacity-50 w-28 shrink-0 md:w-32">{lang === 'ENG' ? 'Course' : '課程'}</span>
+src/pages/projects/ProjectFrameByFrame.tsx:              <span className="flex-1">{lang === 'ENG' ? 'Design Fundamental' : '創作基礎'}</span>
+src/pages/projects/ProjectFrameByFrame.tsx-            </div>
+src/pages/projects/ProjectFrameByFrame.tsx-          </div>
+src/pages/projects/ProjectFrameByFrame.tsx-
+src/pages/projects/ProjectFrameByFrame.tsx:          <div className={`font-['Mozilla_Text'] opacity-80 text-base whitespace-pre-wrap ${lang === 'ENG' ? 'leading-[1.8]' : 'leading-[2.2] tracking-[0.08em]'}`}>
+src/pages/projects/ProjectFrameByFrame.tsx:            {lang === 'ENG' 
+src/pages/projects/ProjectFrameByFrame.tsx-              ? "My parents' frames, once constraints, are now the nourishment for my work. I have learned to extend these frames, transforming regrets into new possibilities. A frame is not a cage, but a dimension of flexibility. This journey—shuttling between 3D and 2D—allows me to redefine the narrative bestowed upon me. Through this project, I also realized the need to further sharpen my material expertise and execution judgment."
+src/pages/projects/ProjectFrameByFrame.tsx-              : "父母的框架曾是我的束縛，卻也成為我創作的養分。我學會將框架鬆綁、延伸，讓遺憾轉化為新的可能性，創作即是我與這些框架的和解。框架並非囚籠，而是賦予我彈性與維度的空間，讓我能在承載過往的同時，開啟自身的敘事。這是一場從立體裝置到平面維度的穿梭，在不同維度的交疊中，我重新定義了被賦予的形狀。\n\n透過這次專題意識到對媒材不熟悉和執行判斷需要加強。"}
+src/pages/projects/ProjectFrameByFrame.tsx-          </div>
+src/pages/projects/ProjectFrameByFrame.tsx-        </div>
+src/pages/projects/ProjectFrameByFrame.tsx-
+src/pages/projects/ProjectFrameByFrame.tsx-        <div className="w-full md:w-2/3">
+src/pages/projects/ProjectFrameByFrame.tsx-          <div 
+src/pages/projects/ProjectFrameByFrame.tsx-            onClick={() => setLightboxIndex(0)}
+src/pages/projects/ProjectFrameByFrame.tsx-            className="w-full bg-[#E0E0E0] flex items-center justify-center cursor-pointer hover:opacity-80 transition-opacity overflow-hidden"
+src/pages/projects/ProjectFrameByFrame.tsx-          >
+src/pages/projects/ProjectFrameByFrame.tsx-            <img src={images[0].src} alt="Frame by Frame Cover" className="w-full h-auto object-cover" />
+src/pages/projects/ProjectFrameByFrame.tsx-          </div>
+src/pages/projects/ProjectFrameByFrame.tsx-        </div>
+src/pages/projects/ProjectFrameByFrame.tsx-      </div>
+src/pages/projects/ProjectFrameByFrame.tsx-
+--
+src/pages/projects/ProjectFrameByFrame.tsx-      {/* Main Process Separator */}
+src/pages/projects/ProjectFrameByFrame.tsx-      <div className="border-t border-black/10 pt-10 mb-10 text-center font-['Mozilla_Text'] text-sm tracking-[2px] opacity-40 uppercase">
+src/pages/projects/ProjectFrameByFrame.tsx:        {lang === 'ENG' ? 'Main Process' : '製作過程'}
+src/pages/projects/ProjectFrameByFrame.tsx-      </div>
+src/pages/projects/ProjectFrameByFrame.tsx-
+src/pages/projects/ProjectFrameByFrame.tsx-      <div className="columns-1 md:columns-2 lg:columns-3 gap-[20px] space-y-[20px] mb-20">
+src/pages/projects/ProjectFrameByFrame.tsx-        {images.slice(3, 7).map((img) => (
+src/pages/projects/ProjectFrameByFrame.tsx-          <div key={img.id} className="break-inside-avoid">
+src/pages/projects/ProjectFrameByFrame.tsx-            <div 
+src/pages/projects/ProjectFrameByFrame.tsx-              onClick={() => setLightboxIndex(img.id)}
+src/pages/projects/ProjectFrameByFrame.tsx-              className="w-full bg-[#E0E0E0] cursor-pointer hover:opacity-80 transition-opacity overflow-hidden"
+src/pages/projects/ProjectFrameByFrame.tsx-            >
+src/pages/projects/ProjectFrameByFrame.tsx-              <img src={img.src} alt={`Process ${img.id}`} className="w-full h-auto object-cover" />
+src/pages/projects/ProjectFrameByFrame.tsx-            </div>
+src/pages/projects/ProjectFrameByFrame.tsx-          </div>
+src/pages/projects/ProjectFrameByFrame.tsx-        ))}
+src/pages/projects/ProjectFrameByFrame.tsx-      </div>
+src/pages/projects/ProjectFrameByFrame.tsx-
+src/pages/projects/ProjectFrameByFrame.tsx-      {/* Second Process Separator */}
+src/pages/projects/ProjectFrameByFrame.tsx-      <div className="border-t border-black/10 pt-10 mb-10 text-center font-['Mozilla_Text'] text-sm tracking-[2px] opacity-40 uppercase">
+src/pages/projects/ProjectFrameByFrame.tsx:        {lang === 'ENG' ? 'Ideation & Alternatives' : '發想與棄案'}
+src/pages/projects/ProjectFrameByFrame.tsx-      </div>
+src/pages/projects/ProjectFrameByFrame.tsx-
+src/pages/projects/ProjectFrameByFrame.tsx-      <div className="columns-1 md:columns-2 lg:columns-3 gap-[20px] space-y-[20px]">
+src/pages/projects/ProjectFrameByFrame.tsx-        {images.slice(7).map((img) => (
+src/pages/projects/ProjectFrameByFrame.tsx-          <div key={img.id} className="break-inside-avoid">
+src/pages/projects/ProjectFrameByFrame.tsx-            <div 
+src/pages/projects/ProjectFrameByFrame.tsx-              onClick={() => setLightboxIndex(img.id)}
+src/pages/projects/ProjectFrameByFrame.tsx-              className="w-full bg-[#E0E0E0] cursor-pointer hover:opacity-80 transition-opacity overflow-hidden"
+src/pages/projects/ProjectFrameByFrame.tsx-            >
+src/pages/projects/ProjectFrameByFrame.tsx-              <img src={img.src} alt={`Ideation ${img.id}`} className="w-full h-auto object-cover" />
+src/pages/projects/ProjectFrameByFrame.tsx-            </div>
+src/pages/projects/ProjectFrameByFrame.tsx-          </div>
+src/pages/projects/ProjectFrameByFrame.tsx-        ))}
+src/pages/projects/ProjectFrameByFrame.tsx-      </div>
+src/pages/projects/ProjectFrameByFrame.tsx-      
+src/pages/projects/ProjectFrameByFrame.tsx-      <div className="mt-32 flex justify-center border-t border-black/10 pt-16">
+src/pages/projects/ProjectFrameByFrame.tsx-        <Link to="/personal" className="font-['Space_Grotesk',_'Swei_Bow_Sans'] text-[2rem] uppercase hover:opacity-50 transition-opacity">
+src/pages/projects/ProjectFrameByFrame.tsx:          {lang === 'ENG' ? 'Back to Personal' : '返回個人作品'}
+src/pages/projects/ProjectFrameByFrame.tsx-        </Link>
+src/pages/projects/ProjectFrameByFrame.tsx-      </div>
+src/pages/projects/ProjectFrameByFrame.tsx-
+src/pages/projects/ProjectFrameByFrame.tsx-      <AnimatePresence>
+src/pages/projects/ProjectFrameByFrame.tsx-        {lightboxIndex !== null && (
+src/pages/projects/ProjectFrameByFrame.tsx-          <motion.div
+src/pages/projects/ProjectFrameByFrame.tsx-            initial={{ opacity: 0 }}
+src/pages/projects/ProjectFrameByFrame.tsx-            animate={{ opacity: 1 }}
+src/pages/projects/ProjectFrameByFrame.tsx-            exit={{ opacity: 0 }}
+src/pages/projects/ProjectFrameByFrame.tsx-            transition={{ duration: 0.3 }}
+src/pages/projects/ProjectFrameByFrame.tsx-            onClick={() => setLightboxIndex(null)}
+src/pages/projects/ProjectFrameByFrame.tsx-            className="fixed inset-0 z-[9999] bg-black/95 flex items-center justify-center p-4 md:p-10 cursor-zoom-out"
+src/pages/projects/ProjectFrameByFrame.tsx-          >
+src/pages/projects/ProjectFrameByFrame.tsx-            <button 
+src/pages/projects/ProjectFrameByFrame.tsx-              className="absolute top-6 right-6 text-white hover:opacity-50 transition-opacity z-50"
+--
+src/pages/projects/ProjectGear.tsx-
+src/pages/projects/ProjectGear.tsx-  useEffect(() => {
+src/pages/projects/ProjectGear.tsx:    document.title = lang === 'ENG' ? "Howard Lee - Digital Twin" : "Howard Lee - 數位孿生";
+src/pages/projects/ProjectGear.tsx-  }, [lang]);
+src/pages/projects/ProjectGear.tsx-
+src/pages/projects/ProjectGear.tsx-  const media = [
+src/pages/projects/ProjectGear.tsx-    { src: '/projects/gear/4_igpost angle45_4.5_cover.jpg', type: 'image' },
+src/pages/projects/ProjectGear.tsx-    { src: '/projects/gear/7_igpost glassesloop.mp4', type: 'video' },
+src/pages/projects/ProjectGear.tsx-    { src: '/projects/gear/2_igpost front4.5.jpg', type: 'image' },
+src/pages/projects/ProjectGear.tsx-    { src: '/projects/gear/3_igpost left4.5.jpg', type: 'image' },
+src/pages/projects/ProjectGear.tsx-    { src: '/projects/gear/8_glassesfit.jpg', type: 'image' },
+src/pages/projects/ProjectGear.tsx-    { src: '/projects/gear/9_1_databar-v.mp4', type: 'video' },
+src/pages/projects/ProjectGear.tsx-    { src: '/projects/gear/9_2_databar.jpg', type: 'image' },
+src/pages/projects/ProjectGear.tsx-    { src: '/projects/gear/10_brain.jpg', type: 'image' },
+src/pages/projects/ProjectGear.tsx-    { src: '/projects/gear/11_1_backlight.mp4', type: 'video' },
+src/pages/projects/ProjectGear.tsx-    { src: '/projects/gear/11_2_backlight.jpg', type: 'image' },
+src/pages/projects/ProjectGear.tsx-    { src: '/projects/gear/12_face.jpg', type: 'image' },
+src/pages/projects/ProjectGear.tsx-    { src: '/projects/gear/record.mp4', type: 'video' }
+--
+src/pages/projects/ProjectGear.tsx-          </div>
+src/pages/projects/ProjectGear.tsx-
+src/pages/projects/ProjectGear.tsx:          <h1 className={`font-['Space_Grotesk'] ${lang === 'ENG' ? 'text-[2.6rem] md:text-[3rem]' : 'text-[3rem] md:text-[3.5rem]'} leading-[1.2] tracking-[-2px] mb-16 md:mb-20 -ml-[0.04em]`}>
+src/pages/projects/ProjectGear.tsx:            {lang === 'ENG' ? 'Digital Twin' : '數位孿生'}
+src/pages/projects/ProjectGear.tsx-          </h1>
+src/pages/projects/ProjectGear.tsx-          
+src/pages/projects/ProjectGear.tsx-          <div className="flex flex-col gap-8 font-['Mozilla_Text'] text-base uppercase tracking-[1px] mb-8 pb-8 border-b border-black/10">
+src/pages/projects/ProjectGear.tsx-            <div className="flex">
+src/pages/projects/ProjectGear.tsx:              <span className="opacity-50 w-28 shrink-0 md:w-32">{lang === 'ENG' ? 'Year' : '年份'}</span>
+src/pages/projects/ProjectGear.tsx-              <span>2025</span>
+src/pages/projects/ProjectGear.tsx-            </div>
+src/pages/projects/ProjectGear.tsx-            <div className="flex">
+src/pages/projects/ProjectGear.tsx:              <span className="opacity-50 w-28 shrink-0 md:w-32">{lang === 'ENG' ? 'Medium' : '媒介'}</span>
+src/pages/projects/ProjectGear.tsx:              <span className="flex-1 leading-[1.8]">{lang === 'ENG' ? <>Mask Design /<br />3D Animation</> : '面具設計、3D動畫'}</span>
+src/pages/projects/ProjectGear.tsx-            </div>
+src/pages/projects/ProjectGear.tsx-            <div className="flex">
+src/pages/projects/ProjectGear.tsx:              <span className="opacity-50 w-28 shrink-0 md:w-32">{lang === 'ENG' ? 'Materials' : '媒材'}</span>
+src/pages/projects/ProjectGear.tsx:              <span className="flex-1 leading-[1.8]">{lang === 'ENG' ? <>Blender, UE5, Substance Painter,<br />3D Half-body Scan</> : <>Blender、UE5、Substance Painter、<br />3D半身掃描</>}</span>
+src/pages/projects/ProjectGear.tsx-            </div>
+src/pages/projects/ProjectGear.tsx-            <div className="flex">
+src/pages/projects/ProjectGear.tsx:              <span className="opacity-50 w-28 shrink-0 md:w-32">{lang === 'ENG' ? 'Course' : '課程'}</span>
+src/pages/projects/ProjectGear.tsx:              <span className="flex-1">{lang === 'ENG' ? 'Computer Aided Design' : '電腦輔助設計'}</span>
+src/pages/projects/ProjectGear.tsx-            </div>
+src/pages/projects/ProjectGear.tsx-          </div>
+src/pages/projects/ProjectGear.tsx-
+src/pages/projects/ProjectGear.tsx:          <div className={`font-['Mozilla_Text'] opacity-80 text-base whitespace-pre-wrap ${lang === 'ENG' ? 'leading-[1.8]' : 'leading-[2.2] tracking-[0.08em]'}`}>
+src/pages/projects/ProjectGear.tsx:            {lang === 'ENG' 
+src/pages/projects/ProjectGear.tsx-              ? "Reimagining The Happy Prince, this project introduces a 'Happiness Index' into the narrative. I depict a Seraphim as an all-seeing authority, using algorithms to monitor behavior and quantify happiness. By turning emotions into data, the work critically challenges how we define the value of life."
+src/pages/projects/ProjectGear.tsx-              : "本專題以未來博覽會為題，將『幸福指數』置入《快樂王子》的經典敘事。我將象徵最高權力的熾天使形象轉化為監控者，透過演算法分析生物行為並量化幸福值，以此審視生命價值。在童話的溫柔外衣下，探討當情感成為數據，生存的價值該如何被重新定義。"}
+src/pages/projects/ProjectGear.tsx-          </div>
+src/pages/projects/ProjectGear.tsx-        </div>
+src/pages/projects/ProjectGear.tsx-
+src/pages/projects/ProjectGear.tsx-        <div className="w-full md:w-2/3">
+src/pages/projects/ProjectGear.tsx-          <div 
+src/pages/projects/ProjectGear.tsx-            className="w-full relative mb-20 group overflow-hidden bg-[#E0E0E0] cursor-pointer"
+src/pages/projects/ProjectGear.tsx-            onClick={() => setLightboxIndex('cover')}
+src/pages/projects/ProjectGear.tsx-          >
+src/pages/projects/ProjectGear.tsx-            <video 
+src/pages/projects/ProjectGear.tsx-              src="/projects/gear/1_igpost loop8s.mp4" 
+src/pages/projects/ProjectGear.tsx-              autoPlay 
+src/pages/projects/ProjectGear.tsx-              loop 
+src/pages/projects/ProjectGear.tsx-              muted={isMuted} 
+--
+src/pages/projects/ProjectGear.tsx-          <div className="w-full border-t border-black/10 pt-4 mb-8">
+src/pages/projects/ProjectGear.tsx-            <h3 className="font-['Mozilla_Text'] text-sm uppercase tracking-[2px] opacity-50">
+src/pages/projects/ProjectGear.tsx:              {lang === 'ENG' ? 'Visual Elements' : '視覺元素'}
+src/pages/projects/ProjectGear.tsx-            </h3>
+src/pages/projects/ProjectGear.tsx-          </div>
+src/pages/projects/ProjectGear.tsx-
+src/pages/projects/ProjectGear.tsx-          <div className="grid grid-cols-1 md:grid-cols-2 gap-[30px]">
+src/pages/projects/ProjectGear.tsx-            {media.map((item, i) => (
+src/pages/projects/ProjectGear.tsx-              <div 
+src/pages/projects/ProjectGear.tsx-                key={i}
+src/pages/projects/ProjectGear.tsx-                onClick={() => setLightboxIndex(i)}
+src/pages/projects/ProjectGear.tsx-                className={`w-full cursor-pointer overflow-hidden flex justify-center ${i === 0 || i === 5 || i === 8 ? 'md:col-span-2' : ''}`}
+src/pages/projects/ProjectGear.tsx-              >
+src/pages/projects/ProjectGear.tsx-                {item.type === 'video' ? (
+src/pages/projects/ProjectGear.tsx-                  <video 
+src/pages/projects/ProjectGear.tsx-                    src={item.src} 
+src/pages/projects/ProjectGear.tsx-                    className="w-full h-auto block transition-transform duration-[2s] ease-[cubic-bezier(0.25,0.8,0.25,1)] hover:opacity-80 pointer-events-none" 
+src/pages/projects/ProjectGear.tsx-                    autoPlay loop muted playsInline
+--
+src/pages/projects/ProjectGear.tsx-      <div className="mt-32 flex justify-center border-t border-black/10 pt-16">
+src/pages/projects/ProjectGear.tsx-        <Link to="/personal" className="font-['Space_Grotesk',_'Swei_Bow_Sans'] text-[2rem] uppercase hover:opacity-50 transition-opacity">
+src/pages/projects/ProjectGear.tsx:          {lang === 'ENG' ? 'Back to Personal' : '返回個人作品'}
+src/pages/projects/ProjectGear.tsx-        </Link>
+src/pages/projects/ProjectGear.tsx-      </div>
+src/pages/projects/ProjectGear.tsx-
+src/pages/projects/ProjectGear.tsx-      <AnimatePresence>
+src/pages/projects/ProjectGear.tsx-        {lightboxIndex !== null && (
+src/pages/projects/ProjectGear.tsx-          <motion.div
+src/pages/projects/ProjectGear.tsx-            initial={{ opacity: 0 }}
+src/pages/projects/ProjectGear.tsx-            animate={{ opacity: 1 }}
+src/pages/projects/ProjectGear.tsx-            exit={{ opacity: 0 }}
+src/pages/projects/ProjectGear.tsx-            transition={{ duration: 0.3 }}
+src/pages/projects/ProjectGear.tsx-            onClick={() => setLightboxIndex(null)}
+src/pages/projects/ProjectGear.tsx-            className="fixed inset-0 z-[9999] bg-black/95 flex items-center justify-center p-4 md:p-10 cursor-zoom-out"
+src/pages/projects/ProjectGear.tsx-          >
+src/pages/projects/ProjectGear.tsx-            <button 
+src/pages/projects/ProjectGear.tsx-              onClick={(e) => { e.stopPropagation(); setLightboxIndex(null); }}
+--
+src/pages/projects/ProjectHorse.tsx-
+src/pages/projects/ProjectHorse.tsx-  useEffect(() => {
+src/pages/projects/ProjectHorse.tsx:    document.title = lang === 'ENG' ? "Howard Lee - Happy Horse Year 2026" : "Howard Lee - 2026馬力全開";
+src/pages/projects/ProjectHorse.tsx-  }, [lang]);
+src/pages/projects/ProjectHorse.tsx-
+src/pages/projects/ProjectHorse.tsx-  const media = [
+src/pages/projects/ProjectHorse.tsx-    { src: '/projects/horseyear/horseig02.jpg', type: 'image' },
+src/pages/projects/ProjectHorse.tsx-    { src: '/projects/horseyear/horseig03.mp4', type: 'video' },
+src/pages/projects/ProjectHorse.tsx-    { src: '/projects/horseyear/horseig04.jpg', type: 'image' }
+src/pages/projects/ProjectHorse.tsx-  ];
+src/pages/projects/ProjectHorse.tsx-
+src/pages/projects/ProjectHorse.tsx-  return (
+src/pages/projects/ProjectHorse.tsx-    <div className="pt-[40px] md:pt-[60px] pb-[100px] min-h-screen relative">
+src/pages/projects/ProjectHorse.tsx-      <div className="flex flex-col md:flex-row gap-10 md:gap-20 mb-20">
+src/pages/projects/ProjectHorse.tsx-        <div className="w-full md:w-1/3 md:sticky md:top-[100px] self-start">
+src/pages/projects/ProjectHorse.tsx-          <div className="flex justify-between items-start mb-8 md:mb-12">
+src/pages/projects/ProjectHorse.tsx-            <Link to="/personal" className="inline-flex items-center gap-1 hover:opacity-50 transition-opacity font-['Mozilla_Text'] text-xs uppercase tracking-[1px]">
+src/pages/projects/ProjectHorse.tsx-              <ChevronLeft size={16} className="-ml-1" />
+--
+src/pages/projects/ProjectHorse.tsx-          </div>
+src/pages/projects/ProjectHorse.tsx-
+src/pages/projects/ProjectHorse.tsx:          <h1 className={`font-['Space_Grotesk'] ${lang === 'ENG' ? 'text-[2.6rem] md:text-[3rem]' : 'text-[3rem] md:text-[3.5rem]'} leading-[1.2] tracking-[-2px] mb-16 md:mb-20 -ml-[0.04em]`}>
+src/pages/projects/ProjectHorse.tsx:            {lang === 'ENG' ? 'Happy Horse Year 2026' : '2026馬力全開'}
+src/pages/projects/ProjectHorse.tsx-          </h1>
+src/pages/projects/ProjectHorse.tsx-          
+src/pages/projects/ProjectHorse.tsx-          <div className="flex flex-col gap-8 font-['Mozilla_Text'] text-base uppercase tracking-[1px] mb-8 pb-8 border-b border-black/10">
+src/pages/projects/ProjectHorse.tsx-            <div className="flex">
+src/pages/projects/ProjectHorse.tsx:              <span className="opacity-50 w-28 shrink-0 md:w-32">{lang === 'ENG' ? 'Year' : '年份'}</span>
+src/pages/projects/ProjectHorse.tsx-              <span>2026</span>
+src/pages/projects/ProjectHorse.tsx-            </div>
+src/pages/projects/ProjectHorse.tsx-            <div className="flex">
+src/pages/projects/ProjectHorse.tsx:              <span className="opacity-50 w-28 shrink-0 md:w-32">{lang === 'ENG' ? 'Medium' : '媒介'}</span>
+src/pages/projects/ProjectHorse.tsx:              <span className="flex-1 leading-[1.8]">{lang === 'ENG' ? '3D Animation' : '3D動畫'}</span>
+src/pages/projects/ProjectHorse.tsx-            </div>
+src/pages/projects/ProjectHorse.tsx-            <div className="flex">
+src/pages/projects/ProjectHorse.tsx:              <span className="opacity-50 w-28 shrink-0 md:w-32">{lang === 'ENG' ? 'Materials' : '媒材'}</span>
+src/pages/projects/ProjectHorse.tsx:              <span className="flex-1 leading-[1.8]">{lang === 'ENG' ? 'Blender' : 'Blender'}</span>
+src/pages/projects/ProjectHorse.tsx-            </div>
+src/pages/projects/ProjectHorse.tsx-          </div>
+src/pages/projects/ProjectHorse.tsx-
+src/pages/projects/ProjectHorse.tsx:          <div className={`font-['Mozilla_Text'] opacity-80 text-base whitespace-pre-wrap ${lang === 'ENG' ? 'leading-[1.8]' : 'leading-[2.2] tracking-[0.08em]'}`}>
+src/pages/projects/ProjectHorse.tsx:            {lang === 'ENG' 
+src/pages/projects/ProjectHorse.tsx-              ? "2026 Year of the Horse Animation: A wild, DIY-inspired horse jumping into the new year. I experimented with fur details and tactile textures to give it a raw, high-energy, and expressive feel."
+src/pages/projects/ProjectHorse.tsx-              : "為了呈現馬年奔放的能量，我創作了一隻 DIY 手工風格的馬。\n我運用了自己喜愛的毛髮與材質質感，結合大膽的跳躍動作，賦予循環動畫一種狂野、奔放且極具生命力的感覺。"}
+src/pages/projects/ProjectHorse.tsx-          </div>
+src/pages/projects/ProjectHorse.tsx-        </div>
+src/pages/projects/ProjectHorse.tsx-
+src/pages/projects/ProjectHorse.tsx-        <div className="w-full md:w-2/3">
+src/pages/projects/ProjectHorse.tsx-          <div 
+src/pages/projects/ProjectHorse.tsx-            className="w-full relative mb-20 group overflow-hidden bg-[#E0E0E0] cursor-pointer"
+src/pages/projects/ProjectHorse.tsx-            onClick={() => setLightboxIndex('cover')}
+src/pages/projects/ProjectHorse.tsx-          >
+src/pages/projects/ProjectHorse.tsx-            <video 
+src/pages/projects/ProjectHorse.tsx-              src="/projects/horseyear/horseig01.mp4" 
+src/pages/projects/ProjectHorse.tsx-              autoPlay 
+src/pages/projects/ProjectHorse.tsx-              loop 
+src/pages/projects/ProjectHorse.tsx-              muted={isMuted} 
+--
+src/pages/projects/ProjectHorse.tsx-          <div className="w-full border-t border-black/10 pt-4 mb-8">
+src/pages/projects/ProjectHorse.tsx-            <h3 className="font-['Mozilla_Text'] text-sm uppercase tracking-[2px] opacity-50">
+src/pages/projects/ProjectHorse.tsx:              {lang === 'ENG' ? 'Visual Elements' : '視覺元素'}
+src/pages/projects/ProjectHorse.tsx-            </h3>
+src/pages/projects/ProjectHorse.tsx-          </div>
+src/pages/projects/ProjectHorse.tsx-
+src/pages/projects/ProjectHorse.tsx-          <div className="columns-1 md:columns-2 gap-[30px] space-y-[30px]">
+src/pages/projects/ProjectHorse.tsx-            {media.map((item, i) => (
+src/pages/projects/ProjectHorse.tsx-              <div 
+src/pages/projects/ProjectHorse.tsx-                key={i}
+src/pages/projects/ProjectHorse.tsx-                onClick={() => setLightboxIndex(i)}
+src/pages/projects/ProjectHorse.tsx-                className="w-full break-inside-avoid cursor-pointer overflow-hidden flex justify-center group"
+src/pages/projects/ProjectHorse.tsx-              >
+src/pages/projects/ProjectHorse.tsx-                {item.type === 'video' ? (
+src/pages/projects/ProjectHorse.tsx-                  <video 
+src/pages/projects/ProjectHorse.tsx-                    src={item.src} 
+src/pages/projects/ProjectHorse.tsx-                    className="w-full h-auto block transition-transform duration-[2s] ease-[cubic-bezier(0.25,0.8,0.25,1)] group-hover:scale-105 hover:opacity-80 pointer-events-none" 
+src/pages/projects/ProjectHorse.tsx-                    autoPlay loop muted playsInline
+--
+src/pages/projects/ProjectHorse.tsx-      <div className="mt-32 flex justify-center border-t border-black/10 pt-16">
+src/pages/projects/ProjectHorse.tsx-        <Link to="/personal" className="font-['Space_Grotesk',_'Swei_Bow_Sans'] text-[2rem] uppercase hover:opacity-50 transition-opacity">
+src/pages/projects/ProjectHorse.tsx:          {lang === 'ENG' ? 'Back to Personal' : '返回個人作品'}
+src/pages/projects/ProjectHorse.tsx-        </Link>
+src/pages/projects/ProjectHorse.tsx-      </div>
+src/pages/projects/ProjectHorse.tsx-
+src/pages/projects/ProjectHorse.tsx-      <AnimatePresence>
+src/pages/projects/ProjectHorse.tsx-        {lightboxIndex !== null && (
+src/pages/projects/ProjectHorse.tsx-          <motion.div
+src/pages/projects/ProjectHorse.tsx-            initial={{ opacity: 0 }}
+src/pages/projects/ProjectHorse.tsx-            animate={{ opacity: 1 }}
+src/pages/projects/ProjectHorse.tsx-            exit={{ opacity: 0 }}
+src/pages/projects/ProjectHorse.tsx-            transition={{ duration: 0.3 }}
+src/pages/projects/ProjectHorse.tsx-            onClick={() => setLightboxIndex(null)}
+src/pages/projects/ProjectHorse.tsx-            className="fixed inset-0 z-[9999] bg-black/95 flex items-center justify-center p-4 md:p-10 cursor-zoom-out"
+src/pages/projects/ProjectHorse.tsx-          >
+src/pages/projects/ProjectHorse.tsx-            <button 
+src/pages/projects/ProjectHorse.tsx-              onClick={(e) => { e.stopPropagation(); setLightboxIndex(null); }}
+--
+src/pages/projects/ProjectTemplate.tsx-  if (!project) return <div className="min-h-screen flex items-center justify-center font-['Space_Grotesk'] text-2xl uppercase tracking-widest">Project Not Found</div>;
+src/pages/projects/ProjectTemplate.tsx-
+src/pages/projects/ProjectTemplate.tsx:  const title = lang === 'ENG' ? project.title : (project.titleZh || project.title);
+src/pages/projects/ProjectTemplate.tsx-
+src/pages/projects/ProjectTemplate.tsx-  const handleNext = (e: React.MouseEvent) => {
+src/pages/projects/ProjectTemplate.tsx-    e.stopPropagation();
+src/pages/projects/ProjectTemplate.tsx-    if (lightboxIndex !== null) {
+src/pages/projects/ProjectTemplate.tsx-      setLightboxIndex((lightboxIndex + 1) % lightboxImages.length);
+src/pages/projects/ProjectTemplate.tsx-    }
+src/pages/projects/ProjectTemplate.tsx-  };
+src/pages/projects/ProjectTemplate.tsx-
+src/pages/projects/ProjectTemplate.tsx-  const handlePrev = (e: React.MouseEvent) => {
+src/pages/projects/ProjectTemplate.tsx-    e.stopPropagation();
+src/pages/projects/ProjectTemplate.tsx-    if (lightboxIndex !== null) {
+src/pages/projects/ProjectTemplate.tsx-      setLightboxIndex((lightboxIndex - 1 + lightboxImages.length) % lightboxImages.length);
+src/pages/projects/ProjectTemplate.tsx-    }
+src/pages/projects/ProjectTemplate.tsx-  };
+src/pages/projects/ProjectTemplate.tsx-
+--
+src/pages/projects/ProjectTemplate.tsx-            {project.year && (
+src/pages/projects/ProjectTemplate.tsx-              <div className="flex">
+src/pages/projects/ProjectTemplate.tsx:                <span className="opacity-50 w-28 shrink-0 md:w-32">{lang === 'ENG' ? 'Year' : '年份'}</span>
+src/pages/projects/ProjectTemplate.tsx-                <span>{project.year}</span>
+src/pages/projects/ProjectTemplate.tsx-              </div>
+src/pages/projects/ProjectTemplate.tsx-            )}
+src/pages/projects/ProjectTemplate.tsx-            {project.medium && (project.medium.en || project.medium.zh) && (
+src/pages/projects/ProjectTemplate.tsx-              <div className="flex">
+src/pages/projects/ProjectTemplate.tsx:                <span className="opacity-50 w-28 shrink-0 md:w-32">{lang === 'ENG' ? 'Medium' : '媒介'}</span>
+src/pages/projects/ProjectTemplate.tsx:                <span>{lang === 'ENG' ? project.medium.en : project.medium.zh}</span>
+src/pages/projects/ProjectTemplate.tsx-              </div>
+src/pages/projects/ProjectTemplate.tsx-            )}
+src/pages/projects/ProjectTemplate.tsx-            {project.materials && (project.materials.en || project.materials.zh) && (
+src/pages/projects/ProjectTemplate.tsx-              <div className="flex">
+src/pages/projects/ProjectTemplate.tsx:                <span className="opacity-50 w-28 shrink-0 md:w-32">{lang === 'ENG' ? 'Materials' : '媒材'}</span>
+src/pages/projects/ProjectTemplate.tsx:                <span className="flex-1">{lang === 'ENG' ? project.materials.en : project.materials.zh}</span>
+src/pages/projects/ProjectTemplate.tsx-              </div>
+src/pages/projects/ProjectTemplate.tsx-            )}
+src/pages/projects/ProjectTemplate.tsx-            {project.hasCourse && project.course && (project.course.en || project.course.zh) && (
+src/pages/projects/ProjectTemplate.tsx-              <div className="flex">
+src/pages/projects/ProjectTemplate.tsx:                <span className="opacity-50 w-28 shrink-0 md:w-32">{lang === 'ENG' ? 'Course' : '課程'}</span>
+src/pages/projects/ProjectTemplate.tsx:                <span className="flex-1">{lang === 'ENG' ? project.course.en : project.course.zh}</span>
+src/pages/projects/ProjectTemplate.tsx-              </div>
+src/pages/projects/ProjectTemplate.tsx-            )}
+src/pages/projects/ProjectTemplate.tsx-            {project.awards && (project.awards.en || project.awards.zh) && (
+src/pages/projects/ProjectTemplate.tsx-              <div className="flex">
+src/pages/projects/ProjectTemplate.tsx:                <span className="opacity-50 w-28 shrink-0 md:w-32">{lang === 'ENG' ? 'Awards' : '獎項'}</span>
+src/pages/projects/ProjectTemplate.tsx:                <span className="flex-1 whitespace-pre-wrap">{lang === 'ENG' ? project.awards.en : project.awards.zh}</span>
+src/pages/projects/ProjectTemplate.tsx-              </div>
+src/pages/projects/ProjectTemplate.tsx-            )}
+src/pages/projects/ProjectTemplate.tsx-          </div>
+src/pages/projects/ProjectTemplate.tsx-
+src/pages/projects/ProjectTemplate.tsx-          {project.description && (project.description.en || project.description.zh) && (
+src/pages/projects/ProjectTemplate.tsx:            <div className={`font-['Mozilla_Text'] opacity-80 text-base whitespace-pre-wrap ${lang === 'ENG' ? 'leading-[1.8]' : 'leading-[2.2] tracking-[0.08em]'}`}>
+src/pages/projects/ProjectTemplate.tsx:              {lang === 'ENG' ? project.description.en : project.description.zh}
+src/pages/projects/ProjectTemplate.tsx-            </div>
+src/pages/projects/ProjectTemplate.tsx-          )}
+src/pages/projects/ProjectTemplate.tsx-        </div>
+src/pages/projects/ProjectTemplate.tsx-
+src/pages/projects/ProjectTemplate.tsx-        {/* Right Column: Cover Media */}
+src/pages/projects/ProjectTemplate.tsx-        <div className="w-full md:w-2/3">
+src/pages/projects/ProjectTemplate.tsx-          {project.coverType === 'image' && project.coverImage && (
+src/pages/projects/ProjectTemplate.tsx-            <div 
+src/pages/projects/ProjectTemplate.tsx-              onClick={() => setLightboxIndex(getGlobalIndex(project.coverImage))}
+src/pages/projects/ProjectTemplate.tsx-              className="w-full bg-[#E0E0E0] flex items-center justify-center cursor-pointer hover:opacity-80 transition-opacity overflow-hidden"
+src/pages/projects/ProjectTemplate.tsx-            >
+src/pages/projects/ProjectTemplate.tsx-              <img src={urlFor(project.coverImage).url()} alt={title} className="w-full h-auto object-cover" />
+src/pages/projects/ProjectTemplate.tsx-            </div>
+src/pages/projects/ProjectTemplate.tsx-          )}
+src/pages/projects/ProjectTemplate.tsx-          
+--
+src/pages/projects/ProjectTemplate.tsx-          return (
+src/pages/projects/ProjectTemplate.tsx-            <div key={block._key || index} className="border-t border-black/10 pt-10 mb-10 text-center font-['Mozilla_Text'] text-sm tracking-[2px] opacity-40 uppercase">
+src/pages/projects/ProjectTemplate.tsx:              {lang === 'ENG' ? (block.en || block.zh) : (block.zh || block.en)}
+src/pages/projects/ProjectTemplate.tsx-            </div>
+src/pages/projects/ProjectTemplate.tsx-          );
+src/pages/projects/ProjectTemplate.tsx-        }
+src/pages/projects/ProjectTemplate.tsx-
+src/pages/projects/ProjectTemplate.tsx-        // 3. Masonry Grid Block
+src/pages/projects/ProjectTemplate.tsx-        if (block._type === 'masonryGridBlock') {
+src/pages/projects/ProjectTemplate.tsx-          const colClass = block.columns === 3 ? 'md:columns-3' : 'md:columns-2';
+src/pages/projects/ProjectTemplate.tsx-          return (
+src/pages/projects/ProjectTemplate.tsx-            <div key={block._key || index} className={`columns-1 ${colClass} gap-[20px] space-y-[20px] mb-20`}>
+src/pages/projects/ProjectTemplate.tsx-              {block.mediaItems?.map((item: any, i: number) => {
+src/pages/projects/ProjectTemplate.tsx-                const isSpan2 = item.span2 ? 'break-inside-avoid w-full col-span-1 md:col-span-2' : 'break-inside-avoid';
+src/pages/projects/ProjectTemplate.tsx-                
+src/pages/projects/ProjectTemplate.tsx-                if (item.type === 'image' && item.image) {
+src/pages/projects/ProjectTemplate.tsx-                  return (
+src/pages/projects/ProjectTemplate.tsx-                    <div key={i} className={isSpan2}>
+--
+src/pages/projects/ProjectTemplate.tsx-      <div className="mt-32 flex justify-center border-t border-black/10 pt-16">
+src/pages/projects/ProjectTemplate.tsx-        <Link to={project.category === 'work' ? "/work" : "/personal"} className="font-['Space_Grotesk',_'Swei_Bow_Sans'] text-[2rem] uppercase hover:opacity-50 transition-opacity">
+src/pages/projects/ProjectTemplate.tsx:          {lang === 'ENG' ? `Back to ${project.category}` : `返回${project.category === 'work' ? '工作' : '個人'}作品`}
+src/pages/projects/ProjectTemplate.tsx-        </Link>
+src/pages/projects/ProjectTemplate.tsx-      </div>
+src/pages/projects/ProjectTemplate.tsx-
+src/pages/projects/ProjectTemplate.tsx-      {/* --- Lightbox --- */}
+src/pages/projects/ProjectTemplate.tsx-      <AnimatePresence>
+src/pages/projects/ProjectTemplate.tsx-        {lightboxIndex !== null && lightboxImages.length > 0 && (
+src/pages/projects/ProjectTemplate.tsx-          <motion.div
+src/pages/projects/ProjectTemplate.tsx-            initial={{ opacity: 0 }}
+src/pages/projects/ProjectTemplate.tsx-            animate={{ opacity: 1 }}
+src/pages/projects/ProjectTemplate.tsx-            exit={{ opacity: 0 }}
+src/pages/projects/ProjectTemplate.tsx-            transition={{ duration: 0.3 }}
+src/pages/projects/ProjectTemplate.tsx-            onClick={() => setLightboxIndex(null)}
+src/pages/projects/ProjectTemplate.tsx-            className="fixed inset-0 z-[9999] bg-black/95 flex items-center justify-center p-4 md:p-10 cursor-zoom-out"
+src/pages/projects/ProjectTemplate.tsx-          >
+src/pages/projects/ProjectTemplate.tsx-            <button 
+--
+src/pages/projects/ProjectUnsorted.tsx-          <div className="flex flex-col gap-6 font-['Mozilla_Text'] text-base uppercase tracking-[1px] mb-8 pb-8 border-b border-black/10">
+src/pages/projects/ProjectUnsorted.tsx-            <div className="flex">
+src/pages/projects/ProjectUnsorted.tsx:              <span className="opacity-50 w-28 shrink-0 md:w-32">{lang === 'ENG' ? 'Year' : '年份'}</span>
+src/pages/projects/ProjectUnsorted.tsx-              <span>2026</span>
+src/pages/projects/ProjectUnsorted.tsx-            </div>
+src/pages/projects/ProjectUnsorted.tsx-            <div className="flex">
+src/pages/projects/ProjectUnsorted.tsx:              <span className="opacity-50 w-28 shrink-0 md:w-32">{lang === 'ENG' ? 'Medium' : '媒介'}</span>
+src/pages/projects/ProjectUnsorted.tsx:              <span>{lang === 'ENG' ? 'Audio Visual Performance' : '即時音像演出'}</span>
+src/pages/projects/ProjectUnsorted.tsx-            </div>
+src/pages/projects/ProjectUnsorted.tsx-            <div className="flex">
+src/pages/projects/ProjectUnsorted.tsx:              <span className="opacity-50 w-28 shrink-0 md:w-32">{lang === 'ENG' ? 'Materials' : '媒材'}</span>
+src/pages/projects/ProjectUnsorted.tsx:              <span className="flex-1 leading-[1.8]">{lang === 'ENG' ? 'Touchdesigner, Ableton, Cardboard, Newspapers, Receipts, Shredded Paper, Cans' : 'Touchdesigner、Ableton、廢紙箱、廢報紙、發票、碎紙條、罐頭'}</span>
+src/pages/projects/ProjectUnsorted.tsx-            </div>
+src/pages/projects/ProjectUnsorted.tsx-            <div className="flex">
+src/pages/projects/ProjectUnsorted.tsx:              <span className="opacity-50 w-28 shrink-0 md:w-32">{lang === 'ENG' ? 'Course' : '課程'}</span>
+src/pages/projects/ProjectUnsorted.tsx:              <span className="flex-1">{lang === 'ENG' ? 'Design Fundamental' : '創作基礎'}</span>
+src/pages/projects/ProjectUnsorted.tsx-            </div>
+src/pages/projects/ProjectUnsorted.tsx-            <details className="group cursor-pointer">
+src/pages/projects/ProjectUnsorted.tsx-              <summary className="flex items-center list-none outline-none [&::-webkit-details-marker]:hidden">
+src/pages/projects/ProjectUnsorted.tsx:                <span className="opacity-50 w-28 shrink-0 md:w-32">{lang === 'ENG' ? 'Awards' : '獎項'}</span>
+src/pages/projects/ProjectUnsorted.tsx-                <span className="flex-1 flex items-center justify-between">
+src/pages/projects/ProjectUnsorted.tsx:                  <span>{lang === 'ENG' ? 'View Details' : '展開查看'}</span>
+src/pages/projects/ProjectUnsorted.tsx-                  <ChevronDown size={16} className="transition-transform group-open:rotate-180 opacity-50" />
+src/pages/projects/ProjectUnsorted.tsx-                </span>
+src/pages/projects/ProjectUnsorted.tsx-              </summary>
+src/pages/projects/ProjectUnsorted.tsx-              <div className="pl-28 md:pl-32 pt-4 text-sm opacity-80 leading-relaxed whitespace-pre-wrap">
+src/pages/projects/ProjectUnsorted.tsx:                {lang === 'ENG' 
+src/pages/projects/ProjectUnsorted.tsx-                  ? 'Tung Ming Award, 24th Digital Content Competition, Shih Chien University\nJury Award by Artist Yu Cheng-Ta' 
+src/pages/projects/ProjectUnsorted.tsx-                  : '實踐大學第24屆東閔盃數位內容競賽\n評審獎 藝術家余政達'}
+src/pages/projects/ProjectUnsorted.tsx-              </div>
+src/pages/projects/ProjectUnsorted.tsx-            </details>
+src/pages/projects/ProjectUnsorted.tsx-          </div>
+src/pages/projects/ProjectUnsorted.tsx-
+src/pages/projects/ProjectUnsorted.tsx:          <div className={`font-['Mozilla_Text'] opacity-80 text-base whitespace-pre-wrap ${lang === 'ENG' ? 'leading-[1.8]' : 'leading-[2.2] tracking-[0.08em]'}`}>
+src/pages/projects/ProjectUnsorted.tsx:            {lang === 'ENG' 
+src/pages/projects/ProjectUnsorted.tsx-              ? "Using daily waste such as discarded newspapers, receipts, paper shreds, cardboard boxes, and cans as materials. These used, ignored, and easily accumulated objects are like long-unfaced psychological burdens. Through the repetitive acts of crumpling, organizing, and stacking these objects,\nI transform accumulated internal emotions into an installation and live audio-visual performance, manifesting the internal state into a viewable landscape. It also invites the viewer to look upon and rediscover their own unorganized emotions and internal space."
+src/pages/projects/ProjectUnsorted.tsx-              : "以廢報紙、發票、碎紙條、紙箱與罐頭等日常廢棄物作為材料。\n這些被使用、被忽略、最容易堆積的物件，如同長期未被面對的心理負擔。透過揉搓、整理與堆疊物件的反覆行為，我將內在的情緒堆積轉化為裝置與現場音像表演，使內在狀態被具象化為可被觀看的視角，也邀請觀者在觀看的同時，重新看見自身未被整理的情緒與內在空間。"}
+src/pages/projects/ProjectUnsorted.tsx-          </div>
+src/pages/projects/ProjectUnsorted.tsx-        </div>
+src/pages/projects/ProjectUnsorted.tsx-
+src/pages/projects/ProjectUnsorted.tsx-        <div className="w-full md:w-2/3">
+src/pages/projects/ProjectUnsorted.tsx-          <div className="w-full aspect-video bg-[#E0E0E0]">
+src/pages/projects/ProjectUnsorted.tsx-            <iframe 
+src/pages/projects/ProjectUnsorted.tsx-              width="100%" 
+src/pages/projects/ProjectUnsorted.tsx-              height="100%" 
+src/pages/projects/ProjectUnsorted.tsx-              src="https://www.youtube.com/embed/59k37VQ5rKo?autoplay=1&vq=hd1080" 
+src/pages/projects/ProjectUnsorted.tsx-              title="Unsorted Cover Video" 
+src/pages/projects/ProjectUnsorted.tsx-              frameBorder="0" 
+src/pages/projects/ProjectUnsorted.tsx-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+src/pages/projects/ProjectUnsorted.tsx-              referrerPolicy="strict-origin-when-cross-origin" 
+--
+src/pages/projects/ProjectUnsorted.tsx-      <div className="mt-32 flex justify-center border-t border-black/10 pt-16">
+src/pages/projects/ProjectUnsorted.tsx-        <Link to="/personal" className="font-['Space_Grotesk',_'Swei_Bow_Sans'] text-[2rem] uppercase hover:opacity-50 transition-opacity">
+src/pages/projects/ProjectUnsorted.tsx:          {lang === 'ENG' ? 'Back to Personal' : '返回個人作品'}
+src/pages/projects/ProjectUnsorted.tsx-        </Link>
+src/pages/projects/ProjectUnsorted.tsx-      </div>
+src/pages/projects/ProjectUnsorted.tsx-
+src/pages/projects/ProjectUnsorted.tsx-      <AnimatePresence>
+src/pages/projects/ProjectUnsorted.tsx-        {lightboxIndex !== null && (
+src/pages/projects/ProjectUnsorted.tsx-          <motion.div
+src/pages/projects/ProjectUnsorted.tsx-            initial={{ opacity: 0 }}
+src/pages/projects/ProjectUnsorted.tsx-            animate={{ opacity: 1 }}
+src/pages/projects/ProjectUnsorted.tsx-            exit={{ opacity: 0 }}
+src/pages/projects/ProjectUnsorted.tsx-            transition={{ duration: 0.3 }}
+src/pages/projects/ProjectUnsorted.tsx-            onClick={() => setLightboxIndex(null)}
+src/pages/projects/ProjectUnsorted.tsx-            className="fixed inset-0 z-[9999] bg-black/95 flex items-center justify-center p-4 md:p-10 cursor-zoom-out"
+src/pages/projects/ProjectUnsorted.tsx-          >
+src/pages/projects/ProjectUnsorted.tsx-            <button 
+src/pages/projects/ProjectUnsorted.tsx-              className="absolute top-6 right-6 text-white hover:opacity-50 transition-opacity z-50"
+--
+src/pages/projects/ProjectWhoDecides.tsx-          <div className="flex flex-col gap-6 font-['Mozilla_Text'] text-base uppercase tracking-[1px] mb-8 pb-8 border-b border-black/10">
+src/pages/projects/ProjectWhoDecides.tsx-            <div className="flex">
+src/pages/projects/ProjectWhoDecides.tsx:              <span className="opacity-50 w-28 shrink-0 md:w-32">{lang === 'ENG' ? 'Year' : '年份'}</span>
+src/pages/projects/ProjectWhoDecides.tsx-              <span>2026</span>
+src/pages/projects/ProjectWhoDecides.tsx-            </div>
+src/pages/projects/ProjectWhoDecides.tsx-            <div className="flex">
+src/pages/projects/ProjectWhoDecides.tsx:              <span className="opacity-50 w-28 shrink-0 md:w-32">{lang === 'ENG' ? 'Medium' : '媒介'}</span>
+src/pages/projects/ProjectWhoDecides.tsx:              <span>{lang === 'ENG' ? 'Poster Design / Relational Design' : '海報設計 / 關係設計'}</span>
+src/pages/projects/ProjectWhoDecides.tsx-            </div>
+src/pages/projects/ProjectWhoDecides.tsx-            <div className="flex">
+src/pages/projects/ProjectWhoDecides.tsx:              <span className="opacity-50 w-28 shrink-0 md:w-32">{lang === 'ENG' ? 'Materials' : '媒材'}</span>
+src/pages/projects/ProjectWhoDecides.tsx:              <span className="flex-1">{lang === 'ENG' ? 'Blender, Nano Banana, Midjourney, Photoshop, Illustrator, Fabric, Magazine Collage, Number Stickers' : 'Blender、Nano Banana、Midjourney、Photoshop、Illustrator、布料、雜誌拼貼、數字貼紙'}</span>
+src/pages/projects/ProjectWhoDecides.tsx-            </div>
+src/pages/projects/ProjectWhoDecides.tsx-            <div className="flex">
+src/pages/projects/ProjectWhoDecides.tsx:              <span className="opacity-50 w-28 shrink-0 md:w-32">{lang === 'ENG' ? 'Course' : '課程'}</span>
+src/pages/projects/ProjectWhoDecides.tsx:              <span className="flex-1">{lang === 'ENG' ? 'Design Fundamental' : '創作基礎'}</span>
+src/pages/projects/ProjectWhoDecides.tsx-            </div>
+src/pages/projects/ProjectWhoDecides.tsx-          </div>
+src/pages/projects/ProjectWhoDecides.tsx-
+src/pages/projects/ProjectWhoDecides.tsx:          <div className={`font-['Mozilla_Text'] opacity-80 text-base whitespace-pre-wrap ${lang === 'ENG' ? 'leading-[1.8]' : 'leading-[2.2] tracking-[0.08em]'}`}>
+src/pages/projects/ProjectWhoDecides.tsx:            {lang === 'ENG' 
+src/pages/projects/ProjectWhoDecides.tsx-              ? "This series critiques consumerism’s manipulation of desire. From canned fashion waste to bodies bound by fabric and production lines refilling hollowed mannequins, it exposes a manufactured cycle of \"needs,\" addressing how the system replaces autonomy by engineering demand.\n\nIn a profit-driven world, who decides your needs?"
+src/pages/projects/ProjectWhoDecides.tsx-              : "本系列海報作品是批判消費主義操縱我們慾望的機制。視覺從罐頭揭開的快時尚廢料、受廢料束縛而扭曲的人體，到生產線回填掏空的假體，揭露了被精密設計的「需求」循環，回應體制藉由「製造需求」來取代自主權。\n\n在利潤至上的世界，究竟是誰在替你決定需求？"}
+src/pages/projects/ProjectWhoDecides.tsx-          </div>
+src/pages/projects/ProjectWhoDecides.tsx-        </div>
+src/pages/projects/ProjectWhoDecides.tsx-
+src/pages/projects/ProjectWhoDecides.tsx-        <div className="w-full md:w-2/3">
+src/pages/projects/ProjectWhoDecides.tsx-          <div 
+src/pages/projects/ProjectWhoDecides.tsx-            onClick={() => setLightboxIndex(0)}
+src/pages/projects/ProjectWhoDecides.tsx-            className="w-full flex items-center justify-center cursor-pointer group overflow-hidden"
+src/pages/projects/ProjectWhoDecides.tsx-          >
+src/pages/projects/ProjectWhoDecides.tsx-            <video 
+src/pages/projects/ProjectWhoDecides.tsx-              src={images[0].src} 
+src/pages/projects/ProjectWhoDecides.tsx-              className="w-full h-auto block transition-transform duration-[2s] ease-[cubic-bezier(0.25,0.8,0.25,1)] group-hover:scale-105 pointer-events-none" 
+src/pages/projects/ProjectWhoDecides.tsx-              autoPlay loop muted playsInline 
+src/pages/projects/ProjectWhoDecides.tsx-            />
+--
+src/pages/projects/ProjectWhoDecides.tsx-      {/* Main Process Separator */}
+src/pages/projects/ProjectWhoDecides.tsx-      <div className="border-t border-black/10 pt-10 mb-10 text-center font-['Mozilla_Text'] text-sm tracking-[2px] opacity-40 uppercase">
+src/pages/projects/ProjectWhoDecides.tsx:        {lang === 'ENG' ? 'Material & Form Exploration' : '議題關係媒材&形式探索'}
+src/pages/projects/ProjectWhoDecides.tsx-      </div>
+src/pages/projects/ProjectWhoDecides.tsx-
+src/pages/projects/ProjectWhoDecides.tsx-      <div className="columns-1 md:columns-2 lg:columns-3 gap-[20px] space-y-[20px] mb-20">
+src/pages/projects/ProjectWhoDecides.tsx-        {images.slice(3, 8).map((img) => (
+src/pages/projects/ProjectWhoDecides.tsx-          <div key={img.id} className="break-inside-avoid">
+src/pages/projects/ProjectWhoDecides.tsx-            <div 
+src/pages/projects/ProjectWhoDecides.tsx-              onClick={() => setLightboxIndex(img.id)}
+src/pages/projects/ProjectWhoDecides.tsx-              className="w-full bg-[#E0E0E0] cursor-pointer hover:opacity-80 transition-opacity overflow-hidden"
+src/pages/projects/ProjectWhoDecides.tsx-            >
+src/pages/projects/ProjectWhoDecides.tsx-              <img src={img.src} alt={`Process ${img.id}`} className="w-full h-auto object-cover" />
+src/pages/projects/ProjectWhoDecides.tsx-            </div>
+src/pages/projects/ProjectWhoDecides.tsx-          </div>
+src/pages/projects/ProjectWhoDecides.tsx-        ))}
+src/pages/projects/ProjectWhoDecides.tsx-      </div>
+src/pages/projects/ProjectWhoDecides.tsx-
+src/pages/projects/ProjectWhoDecides.tsx-      {/* Second Process Separator */}
+src/pages/projects/ProjectWhoDecides.tsx-      <div className="border-t border-black/10 pt-10 mb-10 text-center font-['Mozilla_Text'] text-sm tracking-[2px] opacity-40 uppercase">
+src/pages/projects/ProjectWhoDecides.tsx:        {lang === 'ENG' ? 'Ideation & Process' : '發想與紀錄'}
+src/pages/projects/ProjectWhoDecides.tsx-      </div>
+src/pages/projects/ProjectWhoDecides.tsx-
+src/pages/projects/ProjectWhoDecides.tsx-      <div className="columns-1 md:columns-2 lg:columns-3 gap-[20px] space-y-[20px]">
+src/pages/projects/ProjectWhoDecides.tsx-        {images.slice(8).map((img) => (
+src/pages/projects/ProjectWhoDecides.tsx-          <div key={img.id} className="break-inside-avoid">
+src/pages/projects/ProjectWhoDecides.tsx-            <div 
+src/pages/projects/ProjectWhoDecides.tsx-              onClick={() => setLightboxIndex(img.id)}
+src/pages/projects/ProjectWhoDecides.tsx-              className="w-full bg-[#E0E0E0] cursor-pointer hover:opacity-80 transition-opacity overflow-hidden"
+src/pages/projects/ProjectWhoDecides.tsx-            >
+src/pages/projects/ProjectWhoDecides.tsx-              <img src={img.src} alt={`Ideation ${img.id}`} className="w-full h-auto object-cover" />
+src/pages/projects/ProjectWhoDecides.tsx-            </div>
+src/pages/projects/ProjectWhoDecides.tsx-          </div>
+src/pages/projects/ProjectWhoDecides.tsx-        ))}
+src/pages/projects/ProjectWhoDecides.tsx-      </div>
+src/pages/projects/ProjectWhoDecides.tsx-      
+src/pages/projects/ProjectWhoDecides.tsx-      <div className="mt-32 flex justify-center border-t border-black/10 pt-16">
+src/pages/projects/ProjectWhoDecides.tsx-        <Link to="/personal" className="font-['Space_Grotesk',_'Swei_Bow_Sans'] text-[2rem] uppercase hover:opacity-50 transition-opacity">
+src/pages/projects/ProjectWhoDecides.tsx:          {lang === 'ENG' ? 'Back to Personal' : '返回個人作品'}
+src/pages/projects/ProjectWhoDecides.tsx-        </Link>
+src/pages/projects/ProjectWhoDecides.tsx-      </div>
+src/pages/projects/ProjectWhoDecides.tsx-
+src/pages/projects/ProjectWhoDecides.tsx-      <AnimatePresence>
+src/pages/projects/ProjectWhoDecides.tsx-        {lightboxIndex !== null && (
+src/pages/projects/ProjectWhoDecides.tsx-          <motion.div
+src/pages/projects/ProjectWhoDecides.tsx-            initial={{ opacity: 0 }}
+src/pages/projects/ProjectWhoDecides.tsx-            animate={{ opacity: 1 }}
+src/pages/projects/ProjectWhoDecides.tsx-            exit={{ opacity: 0 }}
+src/pages/projects/ProjectWhoDecides.tsx-            transition={{ duration: 0.3 }}
+src/pages/projects/ProjectWhoDecides.tsx-            onClick={() => setLightboxIndex(null)}
+src/pages/projects/ProjectWhoDecides.tsx-            className="fixed inset-0 z-[9999] bg-black/95 flex items-center justify-center p-4 md:p-10 cursor-zoom-out"
+src/pages/projects/ProjectWhoDecides.tsx-          >
+src/pages/projects/ProjectWhoDecides.tsx-            <button 
+src/pages/projects/ProjectWhoDecides.tsx-              className="absolute top-6 right-6 text-white hover:opacity-50 transition-opacity z-50"
+--
+src/pages/projects/ProjectYen.tsx-
+src/pages/projects/ProjectYen.tsx-  useEffect(() => {
+src/pages/projects/ProjectYen.tsx:    document.title = lang === 'ENG' ? "Howard Lee - Architectural Thesis Drawing" : "Howard Lee - 2026實踐建築系畢製作品素描";
+src/pages/projects/ProjectYen.tsx-  }, [lang]);
+src/pages/projects/ProjectYen.tsx-
+src/pages/projects/ProjectYen.tsx-  const images = [
+src/pages/projects/ProjectYen.tsx-    { src: '/projects/yen/drawing4cover.jpg', alt: 'Cover' },
+src/pages/projects/ProjectYen.tsx-    { src: '/projects/yen/drawing1.jpg', alt: 'Drawing 1' },
+src/pages/projects/ProjectYen.tsx-    { src: '/projects/yen/drawing2.jpg', alt: 'Drawing 2' },
+src/pages/projects/ProjectYen.tsx-    { src: '/projects/yen/drawing3.jpg', alt: 'Drawing 3' },
+src/pages/projects/ProjectYen.tsx-    { src: '/projects/yen/drawing4.jpg', alt: 'Drawing 4' }
+src/pages/projects/ProjectYen.tsx-  ];
+src/pages/projects/ProjectYen.tsx-
+src/pages/projects/ProjectYen.tsx-  useEffect(() => {
+src/pages/projects/ProjectYen.tsx-    const interval = setInterval(() => {
+src/pages/projects/ProjectYen.tsx-      setCoverIndex((prev) => (prev + 1) % images.length);
+src/pages/projects/ProjectYen.tsx-    }, 6000);
+src/pages/projects/ProjectYen.tsx-    return () => clearInterval(interval);
+--
+src/pages/projects/ProjectYen.tsx-          </div>
+src/pages/projects/ProjectYen.tsx-
+src/pages/projects/ProjectYen.tsx:          <h1 className={`font-['Space_Grotesk'] ${lang === 'ENG' ? 'text-[2.2rem] md:text-[2.6rem]' : 'text-[2.6rem] md:text-[3rem]'} leading-[1.2] tracking-[-2px] mb-16 md:mb-20 -ml-[0.04em]`}>
+src/pages/projects/ProjectYen.tsx:            {lang === 'ENG' ? 'Architectural Thesis Drawing' : <>2026實踐建築系<span className="inline-block">畢製作品素描</span></>}
+src/pages/projects/ProjectYen.tsx-          </h1>
+src/pages/projects/ProjectYen.tsx-          
+src/pages/projects/ProjectYen.tsx-          <div className="flex flex-col gap-8 font-['Mozilla_Text'] text-base uppercase tracking-[1px] mb-8 pb-8 border-b border-black/10">
+src/pages/projects/ProjectYen.tsx-            <div className="flex">
+src/pages/projects/ProjectYen.tsx:              <span className="opacity-50 w-28 shrink-0 md:w-32">{lang === 'ENG' ? 'Year' : '年份'}</span>
+src/pages/projects/ProjectYen.tsx-              <span>2026</span>
+src/pages/projects/ProjectYen.tsx-            </div>
+src/pages/projects/ProjectYen.tsx-            <div className="flex">
+src/pages/projects/ProjectYen.tsx:              <span className="opacity-50 w-28 shrink-0 md:w-32">{lang === 'ENG' ? 'Medium' : '媒介'}</span>
+src/pages/projects/ProjectYen.tsx:              <span>{lang === 'ENG' ? 'Drawing' : '素描'}</span>
+src/pages/projects/ProjectYen.tsx-            </div>
+src/pages/projects/ProjectYen.tsx-            <div className="flex">
+src/pages/projects/ProjectYen.tsx:              <span className="opacity-50 w-28 shrink-0 md:w-32">{lang === 'ENG' ? 'Materials' : '媒材'}</span>
+src/pages/projects/ProjectYen.tsx:              <span className="flex-1">{lang === 'ENG' ? 'Photoshop, Illustrator' : 'Photoshop、Illustrator'}</span>
+src/pages/projects/ProjectYen.tsx-            </div>
+src/pages/projects/ProjectYen.tsx-            <div className="flex">
+src/pages/projects/ProjectYen.tsx:              <span className="opacity-50 w-28 shrink-0 md:w-32">{lang === 'ENG' ? 'Course' : '課程'}</span>
+src/pages/projects/ProjectYen.tsx:              <span className="flex-1 leading-[1.8]">{lang === 'ENG' ? <>Cross Disciplinary<br />Creative Thinking</> : '跨域創作思考'}</span>
+src/pages/projects/ProjectYen.tsx-            </div>
+src/pages/projects/ProjectYen.tsx-          </div>
+src/pages/projects/ProjectYen.tsx-
+src/pages/projects/ProjectYen.tsx:          <div className={`font-['Mozilla_Text'] opacity-80 text-base ${lang === 'ENG' ? 'leading-[1.8]' : 'leading-[2.2] tracking-[0.08em]'}`}>
+src/pages/projects/ProjectYen.tsx:            {lang === 'ENG' 
+src/pages/projects/ProjectYen.tsx-              ? "This project analyzes architectural thesis works through drawing, focusing on social housing, material experimentation, and spatial reconstruction. By documenting these designs, I learned to integrate aesthetics and complex forms into spatial planning, deepening my understanding of bridging conceptual design with practical application."
+src/pages/projects/ProjectYen.tsx-              : "觀察建築系畢製作品，從中選擇去進行素描。我觀察作品議題涵蓋社會住宅議題、異材質實驗，以及場域空間的重構。從建築系學生作品學習到怎麼把美學和不同造型，用設計思考應用在空間規劃和設計上。"}
+src/pages/projects/ProjectYen.tsx-          </div>
+src/pages/projects/ProjectYen.tsx-        </div>
+src/pages/projects/ProjectYen.tsx-
+src/pages/projects/ProjectYen.tsx-        <div className="w-full md:w-2/3">
+src/pages/projects/ProjectYen.tsx-          <div 
+src/pages/projects/ProjectYen.tsx-            onClick={() => setLightboxIndex(coverIndex)}
+src/pages/projects/ProjectYen.tsx-            className="w-full flex items-center justify-center cursor-pointer group overflow-hidden mb-20 bg-[#E0E0E0]"
+src/pages/projects/ProjectYen.tsx-          >
+src/pages/projects/ProjectYen.tsx-            <AnimatePresence mode="wait">
+src/pages/projects/ProjectYen.tsx-              <motion.img 
+src/pages/projects/ProjectYen.tsx-                key={coverIndex}
+src/pages/projects/ProjectYen.tsx-                initial={{ opacity: 0 }}
+src/pages/projects/ProjectYen.tsx-                animate={{ opacity: 1 }}
+--
+src/pages/projects/ProjectYen.tsx-          <div className="w-full border-t border-black/10 pt-4 mb-8">
+src/pages/projects/ProjectYen.tsx-            <h3 className="font-['Mozilla_Text'] text-sm uppercase tracking-[2px] opacity-50">
+src/pages/projects/ProjectYen.tsx:              {lang === 'ENG' ? 'Sketches' : '素描作品'}
+src/pages/projects/ProjectYen.tsx-            </h3>
+src/pages/projects/ProjectYen.tsx-          </div>
+src/pages/projects/ProjectYen.tsx-
+src/pages/projects/ProjectYen.tsx-          <div className="grid grid-cols-1 md:grid-cols-2 gap-[30px]">
+src/pages/projects/ProjectYen.tsx-            {images.slice(1).map((img, i) => (
+src/pages/projects/ProjectYen.tsx-              <div 
+src/pages/projects/ProjectYen.tsx-                key={i}
+src/pages/projects/ProjectYen.tsx-                onClick={() => setLightboxIndex(i + 1)}
+src/pages/projects/ProjectYen.tsx-                className={`w-full cursor-pointer overflow-hidden flex justify-center ${i === 0 || i === 3 ? 'md:col-span-2' : ''}`}
+src/pages/projects/ProjectYen.tsx-              >
+src/pages/projects/ProjectYen.tsx-                <img src={img.src} alt={img.alt} className="w-full h-auto block transition-transform duration-[2s] ease-[cubic-bezier(0.25,0.8,0.25,1)] hover:opacity-80" />
+src/pages/projects/ProjectYen.tsx-              </div>
+src/pages/projects/ProjectYen.tsx-            ))}
+src/pages/projects/ProjectYen.tsx-            <div 
+src/pages/projects/ProjectYen.tsx-              onClick={() => setLightboxIndex(0)}
+--
+src/pages/projects/ProjectYen.tsx-      <div className="mt-32 flex justify-center border-t border-black/10 pt-16">
+src/pages/projects/ProjectYen.tsx-        <Link to="/personal" className="font-['Space_Grotesk',_'Swei_Bow_Sans'] text-[2rem] uppercase hover:opacity-50 transition-opacity">
+src/pages/projects/ProjectYen.tsx:          {lang === 'ENG' ? 'Back to Personal' : '返回個人作品'}
+src/pages/projects/ProjectYen.tsx-        </Link>
+src/pages/projects/ProjectYen.tsx-      </div>
+src/pages/projects/ProjectYen.tsx-
+src/pages/projects/ProjectYen.tsx-      <AnimatePresence>
+src/pages/projects/ProjectYen.tsx-        {lightboxIndex !== null && (
+src/pages/projects/ProjectYen.tsx-          <motion.div
+src/pages/projects/ProjectYen.tsx-            initial={{ opacity: 0 }}
+src/pages/projects/ProjectYen.tsx-            animate={{ opacity: 1 }}
+src/pages/projects/ProjectYen.tsx-            exit={{ opacity: 0 }}
+src/pages/projects/ProjectYen.tsx-            transition={{ duration: 0.3 }}
+src/pages/projects/ProjectYen.tsx-            onClick={() => setLightboxIndex(null)}
+src/pages/projects/ProjectYen.tsx-            className="fixed inset-0 z-[9999] bg-black/95 flex items-center justify-center p-4 md:p-10 cursor-zoom-out"
+src/pages/projects/ProjectYen.tsx-          >
+src/pages/projects/ProjectYen.tsx-            <button 
+src/pages/projects/ProjectYen.tsx-              onClick={(e) => { e.stopPropagation(); setLightboxIndex(null); }}
