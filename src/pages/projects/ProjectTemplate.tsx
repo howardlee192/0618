@@ -345,7 +345,10 @@ export function ProjectTemplate() {
             <LanguageToggle />
           </div>
           
-          <h1 className="font-['Space_Grotesk'] text-[3.5rem] md:text-[4rem] leading-[1.1] tracking-[-2px] mb-16 md:mb-20 -ml-[0.04em] text-balance">
+          <h1 
+            className="font-['Space_Grotesk'] text-[12vw] sm:text-[3rem] md:text-[4rem] leading-[1.1] tracking-[-2px] mb-16 md:mb-20 -ml-[0.04em] max-w-full"
+            style={{ wordBreak: 'break-word', overflowWrap: 'anywhere' }}
+          >
             {title}
           </h1>
           
