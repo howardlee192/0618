@@ -102,10 +102,10 @@ export function ProjectsGrid({ useBlur = false }: { useBlur?: boolean }) {
         if (p.thumbnailSize === 'wide') gridClass = "md:col-span-2";
 
         return (
-          <div key={i} className={gridClass}>
-            <Link to={`/project/${p.slug.current}`} className="group block flex flex-col cursor-pointer">
+          <div key={i} className={`min-w-0 ${gridClass}`}>
+            <Link to={`/project/${p.slug.current}`} className="group flex flex-col cursor-pointer">
               <motion.div variants={itemVariant} className="mb-[15px]">
-                <h3 className="font-['Space_Grotesk'] text-[clamp(1.5rem,5vw,2.2rem)] md:text-[2.2rem] mb-[5px] tracking-[-1px] -ml-[0.02em] font-normal leading-[1.15] text-balance break-words group-hover:opacity-60 transition-opacity">
+                <h3 className="font-['Space_Grotesk'] text-[clamp(1.5rem,5vw,2.2rem)] md:text-[2.2rem] mb-[5px] tracking-[-1px] -ml-[0.02em] font-normal leading-[1.15] text-balance break-all md:break-words group-hover:opacity-60 transition-opacity">
                   {lang === 'CHN' ? renderMixedTitle(titleZh) : titleEn}
                 </h3>
                 <div className="text-[0.85rem] uppercase tracking-[1px] opacity-50 font-['Mozilla_Text']">
