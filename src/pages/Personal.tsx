@@ -227,10 +227,10 @@ export function Personal() {
             if (project.thumbnailSize === 'wide') gridClass = "md:col-span-2";
 
             return (
-              <div key={project._id} className={gridClass}>
-                <Link to={`/project/${project.slug?.current}`} state={{ from: 'personal' }} className="block group cursor-pointer flex flex-col">
-                  <motion.div variants={staggerItem} className="mb-[15px]">
-                    <h3 className="font-['Space_Grotesk'] text-[2.2rem] mb-[5px] tracking-[-1px] -ml-[0.02em] font-normal leading-[1.15] text-balance group-hover:opacity-60 transition-opacity">
+              <div key={project._id} className={`min-w-0 w-full ${gridClass}`}>
+                <Link to={`/project/${project.slug?.current}`} state={{ from: 'personal' }} className="group flex flex-col cursor-pointer min-w-0 w-full">
+                  <motion.div variants={staggerItem} className="mb-[15px] min-w-0 w-full">
+                    <h3 className="font-['Space_Grotesk'] text-[7vw] sm:text-[1.8rem] md:text-[2.2rem] mb-[5px] tracking-[-1px] -ml-[0.02em] font-normal leading-[1.15] group-hover:opacity-60 transition-opacity max-w-full break-all md:break-words whitespace-normal">
                       {title}
                     </h3>
                     <div className="text-[0.85rem] uppercase tracking-[1px] opacity-50">

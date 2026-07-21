@@ -8,7 +8,7 @@ import { client, urlFor } from "../../lib/sanity";
 const renderMixedTitle = (text: string) => {
   return text.split(/([\u4e00-\u9fa5]+)/).map((part, index) => {
     if (/[\u4e00-\u9fa5]/.test(part)) {
-      return <span key={index} className="font-['Swei_Bow_Sans'] text-[2rem] tracking-[1px]">{part}</span>;
+      return <span key={index} className="font-['Swei_Bow_Sans'] tracking-[1px]">{part}</span>;
     }
     return part;
   });
